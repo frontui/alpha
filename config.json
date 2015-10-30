@@ -1,0 +1,71 @@
+{
+	"name": "bms_3v3",
+	"port": "8090",
+	"staticPath": "./static",
+	"static": "/static",
+	"template": "./template/",
+	"destPath" : "www",
+	"bower_components": "/bower_components",
+	"version": "3.1.0",
+	"sprite_padding": 20,
+	"bower_source": [
+		"./bower_components/jquery/dist/jquery.min.js", 
+		"./bower_components/html5shiv/dist/html5shiv.min.js", 
+		"./bower_components/respond/dest/respond.min.js"
+	],
+	"thirdPart": {
+    "yunsheng": {
+      "name": "yunsheng",
+      "port": 8092,
+      "template": [
+        [
+          "01账户总览.html",
+          "服务台.html",
+          "03提现明细.html"
+        ],
+        ["06公共页面-收银台-收银台（充值）.html"]
+      ],
+      "version": "v1.0",
+      "dest": "../third-part/yunsheng/",
+      "title": "工业E+",
+      "logo": "工业E+",
+	  "logo_image": "logo-ex.png",
+      "logosmall": "招商银行  提供支持",
+      "theme": "yunsheng.css"
+    },
+	"zonghuida": {
+      "name": "zonghuida",
+      "port": 8093,
+      "template": [
+        [
+          "01账户总览.html"
+        ],
+        ["06公共页面-收银台-收银台（充值）.html"]
+      ],
+      "version": "v1.0",
+      "dest": "../third-part/zonghuida/",
+      "title": "众辉达",
+      "logo": "众辉达",
+	  "logo_image": "logo-zonghuida.png",
+      "logosmall": "招商银行  提供支持",
+      "theme": "zonghuida.css"
+    },
+	"yiyitong": {
+      "name": "yiyitong",
+      "port": 8094,
+      "template": [
+        [
+          "01账户总览.html"
+        ],
+        ["06公共页面-收银台-收银台（充值）.html"]
+      ],
+      "version": "v1.0",
+      "dest": "../third-part/yiyitong/",
+      "title": "易易通",
+      "logo": "易易通",
+	  "logo_image": "logo-yiyitong.png",
+      "logosmall": "招商银行  提供支持",
+      "theme": "yiyitong.css"
+    }
+  }
+}
