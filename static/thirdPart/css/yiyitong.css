@@ -279,7 +279,7 @@ a {
 .frame-menu h2 {
   margin: 0;
   padding: 0 20px;
-  font-size: 16px;
+  font-size: 16px !important;
   border-top: 1px solid #e3e3e3;
   border-bottom: 2px solid #d3d3d3;
   height: 50px;

@@ -142,4 +142,29 @@
 
 {% endblock %}
 
+{% block jsPage %}
+<!-- 密码输入5次错误提示 -->
+<script>
+    $(function(){
+        // 密码输入5次错误提示
+        /* var config = {
+            title: '您的账户由于支付密码连续错误，已锁定！',
+                content: '不可进行提现、交易及安全设置操作，账户将于明日解锁，如有其他疑问，请拨打：',
+                tel: '400-106-6698',
+                link: '/',
+                linkText: '返回账户总览',
+                // 按确认回调
+                callback: function(){}
+         }*/
+        // FrontUI.pwdLock(config);
+        FrontUI.pwdLock({
+            callback: function(){
+                // 跳转到某页面
+                // location.href = 'xxxx';
+            }
+        });
+    })
+</script>
+{% endblock %}
+
 

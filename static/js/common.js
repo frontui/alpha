@@ -1,17 +1,43 @@
-/*!
-* @project : E+用户端
-* @version : 3.1.0
-* @author  : frontui
-* @created : 2015-10-30
-* @description: 共用部分
-*/
+/**!
+ * 页面共同部分
+ * by frontpay F2E Team
+ * created on 2015-08-25
+ */
+~(function(root, $) {
 
-~(function(Global, $, undefined) {
-  // 判断IE版本
+    // 判断IE版本
     var isIE = function(ver){
       var b = document.createElement('b');
       b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->';
       return b.getElementsByTagName('i').length === 1;
+    };
+
+    var FrontUI = {
+        pwdLock: function(option) {
+          var defaults = {
+            title: '您的账户由于支付密码连续错误，已锁定！',
+            content: '不可进行提现、交易及安全设置操作，账户将于明日解锁，如有其他疑问，请拨打：',
+            tel: '400-106-6698',
+            link: '/',
+            linkText: '返回账户总览',
+            callback: $.noop
+          };
+
+          var config = $.extend(defaults, option);
+
+          var template = '<h3 class="fn-mb-10">'+ config.title +'</h3>'+
+                          '<p class="fn-mb-5">'+ config.content +'</p>'+
+                          '<p><b class="warning-FontColor fs-18">'+ config.tel +'</b></p>'+
+                          '<div class="text-align-center fn-mt-30">'+
+                          '  <button class="btn primary" data-dismiss="modal">确认</button>'+
+                          '  <a href="'+ config.link +'" class="btn links">'+ config.linkText +'</a>'+
+                          '</div>';
+
+          $('#modal_pwdLock').modal({ title: '提示', content: template, callback: function() {
+            $(this).on('hide.ui.modal', config.callback);
+          }})
+
+        }
     };
 
     var App = {
@@ -143,4 +169,6 @@
     };
 
     $(document).ready(App.initPage);
-})(window, jQuery, undefined);
+
+    root.FrontUI = FrontUI;
+})(window, jQuery);

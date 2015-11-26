@@ -43,7 +43,7 @@
                         </em>
                     </label>
                     <div class="form-control-wrap">
-                        <div class="form-control-dropdown">
+                        <div class="form-control-dropdown" id="j-bankList-drop">
                         <span class="form-control-dropdown-btn">
                             <i></i>
                         </span>
@@ -52,11 +52,11 @@
                                 <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
                             </div>
                             <ul class="form-control-dropdown-menu">
-                                <li title="option">
+                                <li title="招商银行">
                                     <span class="bank-icon icon-cmb" title="招商银行"></span>
                                     <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
                                 </li>
-                                <li title="option">
+                                <li title="工商银行">
                                     <span class="bank-icon icon-icbc" title="工商银行"></span>
                                     <span class="form-control-bank-card">工商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
                                 </li>
@@ -210,7 +210,7 @@
                     </div>
                 </div>
 
-                <table class="table inverse fn-mb-35">
+                <table class="table inverse fn-mb-35" id="j-bank-limit">
                     <thead>
                     <tr>
                         <th>卡种</th>
@@ -219,13 +219,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
+                    <tr title="招商银行">
                         <td>储蓄卡</td>
                         <td>10万</td>
                         <td>50万</td>
                     </tr>
+                    <tr title="工商银行" style="display: none">
+                        <td>储蓄卡</td>
+                        <td>20万</td>
+                        <td>50万</td>
+                    </tr>
                     </tbody>
                 </table>
+
 
                 <div class="form-group">
                     <label class="form-control-label">
@@ -535,6 +541,13 @@
       var $tr = $('#j-banks-table tbody tr');
       $tr.hide().filter('[title="'+ title +'"]').show();
     });
+
+      $('#j-bankList-drop').on('selected.ui.dropdown', function (e, obj) {
+          var $currentItem = $(obj);
+          var title = $currentItem.attr('title');
+          var $tr = $('#j-bank-limit tbody tr');
+          $tr.hide().filter('[title="'+ title +'"]').show();
+      });
   })
 </script>
 {% endblock %}

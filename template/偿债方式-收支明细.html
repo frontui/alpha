@@ -1,0 +1,81 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+    
+    <div class="tables-title">
+        收支明细
+        <div class="table-title-btns">
+            <a href="偿债方式-账户总览.html">返回&nbsp;&gt;&gt;</a>
+        </div>
+    </div>
+    
+	<!-- 搜索过滤 -->
+	{{ Filter.render('流水号', 1) }}
+    
+    <div class="tables-title">
+        最近收支明细
+        <div class="table-title-btns">
+            <a href="javascript:void(0);">XLS格式
+            </a>
+            <a href="javascript:void(0);">CSV格式
+            </a>
+        </div>
+    </div>
+    <table class="table inverse">
+        <colgroup>
+            <col />
+            <col />
+            <col style="width: 80px"/>
+            <col style="width: 80px" />
+            <col />
+            <col style="width: 80px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>创建时间</th>
+                <th>流水号</th>
+                <th>业务类型</th>
+                <th>状态</th>
+                <th>金额（元）</th>
+                <th class="text-align-left th-ctrls">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>&nbsp;&nbsp;<span class="text-nowrap">16:56:00</span></td>
+                <td><p class="text-nowrap" title="TJZT20150520000002">TJZT20150520000002</p></td>
+                <td>充值</td>
+                <td>成功</td>
+                <td class="success-FontColor2">+1,000.00</td>
+                <td class="text-align-left">
+                    <a class="link-standard" href="###">详情</a>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>&nbsp;&nbsp;<span class="text-nowrap">16:56:00</span></td>
+                <td><p class="text-nowrap" title="TJZT20150520000002">TJZT20150520000002</p></td>
+                <td>融资</td>
+                <td>成功</td>
+                <td class="success-FontColor2">+1,000.00</td>
+                <td class="text-align-left">
+                    <a class="link-standard" href="###">详情</a>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>&nbsp;&nbsp;<span class="text-nowrap">16:56:00</span></td>
+                <td><p class="text-nowrap" title="TJZT20150520000002">TJZT20150520000002</p></td>
+                <td>还款</td>
+                <td>失败</td>
+                <td class="warning-FontColor">-1,000.00</td>
+                <td class="text-align-left">
+                    <a class="link-standard" href="###">详情</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+	{# 分页 #}
+	{{ Pager.render() }}
+
+{% endblock %}
+
+

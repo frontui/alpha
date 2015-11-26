@@ -1,0 +1,188 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 步骤 #}
+	{{ Step.foursteps2('pass2') }}
+
+    {# 填写信息 #}
+	<div class="form-frame fn-mb-10">
+		<div class="form-title">
+			法人信息
+		</div>
+        
+        {# Alert 提示 #}
+        {{ Alert.loading('请完成以下资料填写，以便为您开通信用账户') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form autocomplete="off">
+
+                    {# 法人真实姓名 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>法人真实姓名</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="">
+						</div>
+					</div>
+
+                    {# 身份证号码 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>身份证号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="">
+						</div>
+					</div>
+
+                    {# 身份证类型 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <b>*
+                            </b>
+                            <span>身份证类型
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    二代身份证
+                                    <input type="radio" name="id" checked="checked">
+                                </label>
+                                <label>
+                                    一代身份证
+                                    <input type="radio" name="id">
+                                </label>
+                                <label>
+                                    临时身份证
+                                    <input type="radio" name="id">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# 身份证图片正面 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>身份证图片正面</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data form-control-check">
+                            <button class="btn small-btn secondary">点击上传</button>
+                        </div>
+					</div>
+
+                    {# 身份证图片反面 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>身份证图片反面</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data form-control-check">
+                            <button class="btn small-btn secondary">点击上传</button>
+                        </div>
+					</div>
+
+                    {# 证件要求 #}
+                    <div class="form-group" style="padding-bottom: 60px;">
+						<label class="form-control-label">
+							<span>证件要求</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data">
+                            • 必须为清晰彩色原件扫描件或数码照，图片大小不超过2M，仅支持jpg,jpeg,bmp的图片格式。<br />
+                            • 如果提交的证件错误，您的申请将不通过。<br />
+                        </div>
+					</div>
+
+                    {# Alert 提示 #}
+                    {{ Alert.loading('请如实填写以下信息用于实名身份认证') }}
+
+                    {# 银行卡号 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>银行卡号
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="卡号是16-19位数字">
+                        </div>
+                    </div>
+
+                    {# 开户行 #}
+                    <div class="form-group">
+                        <label class="form-control-label" for="***">
+                            <span>开户行</span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-dropdown">
+                                <span class="form-control-dropdown-btn">
+                                    <i></i>
+                                </span>
+                                <div class="form-control-dropdown-value">
+                                    <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                    <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                </div>
+                                <ul class="form-control-dropdown-menu">
+                                    <li title="">
+                                        <span class="bank-icon icon-icbc" title="工商银行"></span>
+                                        <span class="form-control-bank-card">工商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# 手机号码 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>手机号码
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="text" class="form-control" placeholder="此卡在银行预留的手机号码">
+                        </div>
+                    </div>
+
+                    {# 验证码 #}
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>验证码 </span>
+                            <em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-verify">
+                                <input type="text" class="form-control">
+                                <button class="btn form-control-verify-btn">
+                                    获取验证码 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left">
+                            <a href="注册开通-开通流程-完善车辆信息.html" class="btn primary" role="button">确认无误，下一步</a>
+                            <a href="注册开通-开通流程-完善企业信息.html" class="btn links">上一步</a>
+                        </div>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+

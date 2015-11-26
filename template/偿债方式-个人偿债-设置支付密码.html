@@ -1,0 +1,54 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 步骤 #}
+	{{ Step.foursteps('pass2', '企业用户安全验证', '设置支付密码', '个人验证', '验证结果') }}
+
+    {# 账户信息 #}
+	<div class="form-frame fn-mb-10">
+		<div class="form-title">
+			账户信息
+		</div>
+
+        {# Alert 提示 #}
+        {{ Alert.loading('用于付款或修改账号信息，请不要与登录密码一致。') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form autocomplete="off">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>设置支付密码
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="password" class="form-control"placeholder="8-20个英文字母，数字或符号的组合">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>确认支付密码
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left margin-top-20px">
+                            <a href="偿债方式-个人偿债-个人验证.html" class="btn primary" role="button">下一步</a>
+                        </div>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+

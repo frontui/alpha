@@ -8,17 +8,44 @@
 
 	<!-- 数据统计 -->
 	<div class="data-count-wrap data-count-wrap-style4 clearfix">
-		<div class="data-num float-left">
+		<div class="data-num float-left" style="border-right: none;">
 
 			<span class="h4 heading-FontColor fn-mr-5">账户余额</span>
 			<strong class="h2 font-normal warning-FontColor">10,000,000.00</strong> 元
 
 		</div>
-    <div class="today-num float-right ">
+    <!--<div class="today-num float-right ">
       <span class="h4 heading-FontColor fn-mr-5">今日可提余额</span>
       <strong class="h2 font-normal warning-FontColor fn-pl-40">7,000,000.00</strong> 元
-      <a href="###" class="btn primary small-btn fn-ml-30">提现</a>
-    </div>
+      <a href="03提现明细_提现.html" class="btn primary small-btn fn-ml-30">提现</a>
+    </div>-->
+	</div>
+	<div class="ar-wrapper">
+		<div class="ar-top">
+			<div class="amountbox left">
+				<h3>
+					今日免手续费可提金额
+                                            <span>
+                                                单位：元
+                                            </span>
+				</h3>
+				<h2>
+					7,000,000,00
+					<a href="###" class="btn primary small-btn" style="margin-left: 10px;">提现</a>
+				</h2>
+			</div>
+			<div class="amountbox">
+				<h3>
+					账期内可提金额
+                                            <span>
+                                                单位：元
+                                            </span>
+				</h3>
+				<h2>
+					3,000,000,00
+				</h2>
+			</div>
+		</div>
 	</div>
 	{{ Amount.render('fn-mb-40') }}
 

@@ -1,0 +1,32 @@
+{% extends "_layout/casher-frame.html" %}
+
+{# content #}
+{% block content %}
+
+    <!-- 这个页面并不需要有收银台的头部 -->
+
+    {# 支付成功 #}
+    <div class="notice-wrap success">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>支付成功</h3>
+            <p>5 秒后返回上级页面</p>
+            <a href="偿债方式-账户总览.html" class="link-standard">点击返回</a>
+        </div>
+    </div>
+    
+    {# 支付失败 #}
+    <div class="notice-wrap error">
+        <div class="notice-box">
+            <span class="notice-img"></span>
+            <h3>支付失败</h3>
+            <p>原因：您的账户余额不足，银行处理失败，网络异常</p>
+            <a href="偿债方式-贷款明细-收银台-还款.html" class="link-standard">重新支付</a>
+            <a href="偿债方式-账户总览.html" class="link-standard link-border">返回账户总览</a>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

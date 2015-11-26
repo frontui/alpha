@@ -1,0 +1,78 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="偿债方式-账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            额度明细
+        </li>
+    </ol>
+    
+
+	<!-- 账户余额 -->
+    <div class="data-count-wrap count-wrap-btline data-count-wrap-style1 fn-mb-10">
+        <ul class="date-count-ul">
+            <li style="width: 100%; border: none;">
+                <h5>
+					<span>信用总额：</span>
+				</h5>
+                <h2><strong class="fs-32">3,568,172,203.78</strong>元</h2>
+            </li>
+        </ul>
+        <div class="text-align-center">
+            <p class="fn-ptb-5">
+                还款成功后，额度立即恢复
+            </p>
+            <a href="###" class="btn primary">立即还款</a>
+        </div>
+    </div>
+
+    
+    <!-- 搜索过滤 -->
+	{{ Filter.render3('车牌号/ETC卡号',1) }}
+    
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>车牌号</th>
+                <th>ETC卡号</th>
+                <th>该车总额度（元）</th>
+                <th>单日圈存限额（元）</th>
+                <th>已圈存额度（元）</th>
+                <th>可用额度（元）</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A89766</td>
+                <td>21423426123412356123</td>
+                <td>20,000.00</td>
+                <td>20,000.00</td>
+                <td>20,000.00</td>
+                <td>0.00</td>
+            </tr>
+            <!-- 暂无记录 -->
+            <tr>
+                <td colspan="6" class="empty">&nbsp;
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {# 分页 #}
+    {% import "_components/pagination.html" as Pager %}
+    {{ Pager.render() }}
+
+{% endblock %}
+
+

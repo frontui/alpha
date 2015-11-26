@@ -1,0 +1,136 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	<!-- 验证提醒 -->
+	{{ Alert.verify('liliang126',  link='06账户管理个人_个人验证1.html') }}
+    {{ Alert.render(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请通过审核，可以使用平台提供的所有功能。', mb='fn-mb-10') }}
+    {{ Alert.verify('广东长江服务有限公司',  link='05账户管理企业_企业验证1.html') }}
+    {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请正在审核中，请耐心等待。') }}
+    {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请不通过，原因：银行对账账户不一致，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证</a>。') }}
+    
+    <div class="alert alert-warning fn-mb-10">
+        <i></i>
+        <em></em>
+        ETC001，您于2015年6月16日提交的验证申请通过审核，<a href="###" class="link-standard text-nowrap">请继续余下验证</a>
+    </div>
+
+	<!-- 账户余额 -->
+    <div class="data-count-wrap count-wrap-btline data-count-wrap-style1 fn-mb-10">
+        <ul class="date-count-ul">
+            <li style="width: 100%; border: none;">
+                <h5>
+					<span>账户余额：</span>
+					<i class="fs-12 font-normal">上次登录时间：2015.05.25 22:37:34</i>
+				</h5>
+                <h2><strong class="fs-32">3,568,172,203.78</strong>元</h2>
+                <span class="pull-left" style="margin-top: 8px;">
+                    <a href="###" class="btn primary small-btn">充值</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="data-count-wrap data-count-wrap-style4 clearfix">
+        <div class="data-num float-left">
+            <span class="h4 heading-FontColor fn-mr-5">信用总额</span>
+            <strong class="h2 font-normal warning-FontColor">10,000,000.00</strong> 元
+        </div>
+    </div>
+
+    <div class="data-count-wrap count-wrap-btline data-count-wrap-style1">
+        <ul class="date-count-ul">
+            <li style="width: 33%">
+                <h5>
+					<span>可用信用：</span>
+				</h5>
+                <h2>3,568,172,203.78元</h2>
+            </li>
+            <li style="width: 33%; border-right: 1px solid #f1f1f1;">
+                <h5>
+					<span>已圈全金额：</span>
+				</h5>
+                <h2>3,568,172,203.78元</h2>
+            </li>
+            <li style="width: 33%">
+                <h5><span>应还款金额：</span><a href="偿债方式-贷款明细.html" class="link-standard">明细</a>&nbsp;&nbsp;<a href="偿债方式-贷款明细.html" class="link-standard">立即还款</a></h5>
+                <h2>44,423,572,203.78元</h2>
+            </li>
+        </ul>
+    </div>
+
+	<!-- 收支明细 -->
+	<div class="tables-title heading-FontColor fn-mt-10">
+		最近收支明细
+		<div class="table-title-btns">
+			<a href="偿债方式-收支明细.html">查看所有记录 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+	<table class="table">
+		<colgroup>
+			<col/>
+			<col style="width: 200px" />
+			<col/>
+			<col/>
+			<col/>
+			<col style="width:78px"/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>创建时间</th>
+				<th>流水号</th>
+				<th>业务类型</th>
+				<th>状态</th>
+				<th>金额（元）</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000001">TJZT201505200000010000010</p>
+				</td>
+				<td>充值</td>
+				<td>成功</td>
+				<td class="success-FontColor2">+1,000.00</td>
+				<td>
+                    <a href="###" class="link-standard">详情</a>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000002">TJZT201505200000010000010</p>
+				</td>
+				<td>还款</td>
+				<td>成功</td>
+				<td class="warning-FontColor">-1,000.00</td>
+				<td>
+                    <a href="###" class="link-standard">详情</a>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT201505200000010000010</p>
+				</td>
+				<td>融资</td>
+				<td>成功</td>
+				<td class="success-FontColor2">+1,000.00</td>
+				<td>
+                    <a href="###" class="link-standard">详情</a>
+				</td>
+			</tr>
+            <!-- 暂无记录 -->
+            <tr>
+                <td colspan="6" class="empty">
+                    &nbsp;
+                </td>
+            </tr>
+		</tbody>
+	</table>
+
+{% endblock %}
+
+

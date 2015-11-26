@@ -1,11 +1,11 @@
-// @import "_normalize";       //ÏîÄ¿ÒýÓÃÑùÊ½³õÊ¼»¯
-@import "_config";          //ÏîÄ¿ÑùÊ½Éè¶¨Ïî
-@import "_mix";             //ÏîÄ¿ÑùÊ½¹¤¾ß
-@import "_font";            //ÏîÄ¿×ÖÌå
-@import "_fonticon";        //ÏîÄ¿×ÖÌåÍ¼±ê
-@import "_sprite";          //ÏîÄ¿Ñ©±ÌÍ¼
-// @import "_animate.less";    //ÏîÄ¿ÒýÓÃCSS3¶¯»­¿â
-// @import "_animation.less";    //½»»¥CSS3¶¯»­
+// @import "_normalize";       //?????????ù????????
+@import "_config";          //?????ù???è?¨??
+@import "_mix";             //?????ù???¤??
+@import "_font";            //????×???
+@import "_fonticon";        //????×?????±ê
+@import "_sprite";          //??????±???
+// @import "_animate.less";    //????????CSS3??????
+// @import "_animation.less";    //????CSS3????
 
 /*
 --- share ---
@@ -24,7 +24,7 @@ h1,h2,h3,h4,h5,h6,p {
     *width: auto;
 }
 
-//按钮
+//°????à
 .btn {
     *line-height: @base-BtnHeight - 8px;
 
@@ -73,7 +73,7 @@ a.btn {
     }
 }
 
-//表单
+//±í???à
 .form-frame {
 
     .form-layer1 {
@@ -112,7 +112,7 @@ a.btn {
         .form-control-modal,
         .form-control-date {
 
-            &.smallsize { // @form-control-height
+            &.smallsize { // @form-control-height ??10????
 
                 .form-control-dropdown-value,
                 .form-control-modal-value,
@@ -222,7 +222,7 @@ input.form-control {
     *zoom: 1;
     *display: inline;
 
-    &.smallsize { // @form-control-height
+    &.smallsize { // @form-control-height ??10????
         .form-control,
         .form-control-dropdown-value,
         .form-control-modal-value,
@@ -364,9 +364,8 @@ input.form-control {
     }
 
 .form-control-verify {
-
     > .form-control {
-        *width: 160px;
+        width: 160px;
     }
 
     &-btn{
@@ -406,7 +405,7 @@ input.form-control {
     }
 }
 
-//表格
+//±í???à
 .tables-title {
     > .table-title-btns {
 
@@ -414,6 +413,10 @@ input.form-control {
             *line-height: @smallest-FontSize + 2px;
         }
     }
+
+  &.form-title{
+    height: auto;
+  }
 }
 
 .table {
@@ -427,7 +430,7 @@ input.form-control {
     }
 }
 
-//模态窗
+//?????°??
 .modal-layer {
     *position: absolute;
     *top: 50%;
@@ -460,7 +463,7 @@ input.form-control {
     }
 }
 
-//标签页
+//±ê????
 .tabs-wrap {
 
     .tab-search-wrap {
@@ -483,7 +486,7 @@ input.form-control {
     }
 }
 
-//警告
+//?????÷???á??
 .notice-wrap {
 
     &.in-modal {
@@ -530,7 +533,7 @@ input.form-control {
     }
 }
 
-//步骤流程图
+//???è
 .steps-box {
     *height: 85px;
     *margin-top: 0;
@@ -588,6 +591,7 @@ input.form-control {
     }
 }
 
+//????????????
 .date-count-ul {
 
     > li {
@@ -599,7 +603,7 @@ input.form-control {
     }
 }
 
-//警示
+//????
 .alert {
 
     > em {
@@ -644,15 +648,16 @@ input.form-control {
     }
 }
 
-//主导航
+//?÷????
 .main-nav {
-
-    > li {
-        *width: 24.99%;
+    &.col-span-5{
+      > li {
+        *width: 19.95%;
+      }
     }
 }
 
-//行内过滤解构
+//?????÷?????á??
 .fliter-inline-wrap {
 
     .fliter-inline-width1 {
@@ -660,7 +665,7 @@ input.form-control {
     }
 }
 
-//网上银行
+//?????¨??±í
 .bankcard-list {
 
     .bank-card-btn {
@@ -677,7 +682,7 @@ input.form-control {
     }
 }
 
-//网上银行
+//????????????
 .ebanks {
 
     .ebank-label {
@@ -705,7 +710,7 @@ input.form-control {
     }
 }
 
-//面包屑
+//??°ü??????
 .breadcrumb {
   padding: 5px 0;
     > li {
@@ -719,7 +724,7 @@ input.form-control {
     }
 }
 
-//表单
+//
 .form-group{
     .form-control-wrap{
         position: relative;
@@ -730,7 +735,6 @@ input.form-control {
     .drop-select-province,
     .drop-select-city {
         width: 150px;
-
        .form-control-dropdown-value{
            float: left;
            width: 80px;
@@ -741,11 +745,15 @@ input.form-control {
             overflow: hidden;
         }
     }
+
+    .drop-select-province {
+        margin-right:11px
+    }
 }
 
 // 可提金额
 .ar-wrapper{
-    zoom: 1; // clear height
+  zoom: 1; // clear height
 }
 .ar-top .amountbox {
     display:inline;
@@ -753,25 +761,53 @@ input.form-control {
 }
 
 .ar-bottom{
-    &>div {
-        &>div{
-          position: relative;
-        }
-        .arlist {
-            > li {
-                > ul {
-                    > li{
-                        padding: 0;
-                        width: 20%;
-                        p, h6{
-                            margin: 0 15px;
-                        }
-                        p{
-                            padding-bottom: 15px;
-                        }
-                    }
-                }
+  &>div {
+    &>div{
+      position: relative;
+    }
+    .arlist {
+      > li {
+        > ul {
+          > li{
+            padding: 0;
+            width: 19.08%;
+            p, h6{
+              margin: 0 15px;
             }
+            p{
+              padding-bottom: 15px;
+            }
+          }
         }
+      }
+    }
+  }
+}
+
+.ar-arrow{
+  i{
+    margin-top: 15px;
+  }
+}
+
+// 数据统计
+.data-count-wrap{
+  &-style1 {
+    .date-count-ul {
+      > li {
+        &:first-child {
+          width: 46%;
+        }
+        > h5 {
+          span{
+            top: -3px;
+            line-height: 1.2;
+          }
+        }
+        span.pull-left {
+          width: 120px;
+        }
+      }
+      }
     }
 }

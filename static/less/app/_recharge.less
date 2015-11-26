@@ -30,10 +30,22 @@
     }
     
     .form-group{
-        padding-left: 0;
+        padding-left: 6em;
         
         p{
             margin-top: 14px;
+        }
+
+        &.plain-text {
+            line-height: 24px;
+
+            .form-control-label {
+                height: 24px;
+
+                em {
+                    line-height: 24px;
+                }
+            }
         }
     }
 
@@ -43,8 +55,17 @@
         width: 260px;
     }
 
-    .form-btns{
-        padding: 12px 0;
+    .form-control-wrap {
+        max-width: 300px;
     }
 
+    .form-btns{
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .form-control-label {
+        width: 84px;
+        text-align: left;
+    }
 }

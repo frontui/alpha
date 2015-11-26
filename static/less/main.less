@@ -1,15 +1,13 @@
-/*
-* @project    : bms_v3.1
-* @author     : tommyshao<jinhong.shao@frontpay.cn>
-* @created    : 2015-10-08
-* @description: E+3.0标准版样式,继承frontui
+/*!
+* @project: 卖家标准版 v3.0
+* @author : tommyshao <jinhong.shao@frontpay.cn>
+* @date   : 2015-08-18
 */
 
-// 导入frontui
-@import "../../bower_components/frontui/less/_share";
+// log:
+// 2015-08-18 初始化项目
 
-
-// @import '_share';
+@import '_share';
 @import '_sprite_all';
 
 
@@ -140,4 +138,208 @@
 }
 .icon-example{
     background: url("@{images-url}icon-example.png") no-repeat 0 0;
+}
+
+//添加“步骤”样式有四步
+.steps-wrap {
+
+    &.foursteps {
+
+        .step {
+
+            &.step1 {
+                left: 0;
+            }
+
+            &.step2 {
+                left: 33.33%;
+                margin-left: -27px;
+            }
+
+            &.step3 {
+                left: 66.66%;
+                margin-left: -27px;
+            }
+
+            &.step4 {
+                right: 0;
+            }
+        }
+
+        .step-bars {
+
+            > div {
+                width: 16.66%;
+            }
+        }
+
+        .step-title {
+
+            &.title1 {
+                left: 0;
+            }
+
+            &.title2 {
+                left: 33.33%;
+                text-align: center;
+                margin-left: -67px;
+            }
+
+            &.title3 {
+                left: 66.66%;
+                text-align: center;
+                margin-left: -67px;
+            }
+
+            &.title4 {
+                right: 0;
+                text-align: right;
+            }
+        }
+
+        &.pass3 {
+
+            .step {
+
+                &.step4 {
+                    background-color: @steps-bgColor1;
+                    color: #fff;
+                }
+            }
+
+            .step-bars {
+
+                > div.bar1,
+                > div.bar2,
+                > div.bar3 {
+                    .rounded( 0 );
+                }
+
+                > div.bar5 {
+                    background-color: @steps-bgColor2;
+                    .rounded( 30px );
+                }
+
+                > div.bar6 {
+                    background-color: @steps-bgColor1;
+                }
+            }
+
+            .step-title {
+                color: @steps-bgColor2;
+
+                &.title4 {
+                    color: @steps-bgColor1;
+                }
+            }
+        }
+
+        &.pass4 {
+
+            .step {
+                background-color: @steps-bgColor2;
+                color: #fff;
+            }
+
+            .step-bars > div {
+                background-color: @steps-bgColor2;
+                .rounded( 0 );
+            }
+
+            .step-title {
+                color: @steps-bgColor2;
+            }
+        }
+    }
+}
+
+//注册开通
+.login-wrap{
+  background: url("@{images-url}login-bg.jpg") no-repeat center center;
+  width: 880px;
+  .h2-title{
+    padding: 240px 0 0 0;
+  }
+  .info-title{
+    border-bottom:1px solid #e0e0e0;
+    padding: 120px 0 5px 0;
+    margin: 0 0 10px 0;
+  }
+  .h3-title{
+    padding: 140px 0 55px 0;
+    font-weight: bold;
+  }
+  .repay-method{
+    padding: 0 0 60px 105px;
+    >a{
+      width: 255px;
+      height: 125px;
+      line-height: 125px;
+      padding: 0 0 0 115px;
+      float: left;
+      margin: 0 35px 0 35px;
+      color: @base-BgColor;
+      font-size: @base-FontSize+10px;
+      text-decoration: none;
+      position: relative;
+      >i{
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        display: block;
+      }
+      &.company{
+        background: #8daadd;
+        border: 5px solid #8daadd;
+        border-bottom-color: #6c90d3;
+        >i{
+          background: url("@{images-url}icon-company.png") no-repeat 0 0;
+          width: 72px;
+          height: 50px;
+        }
+        &.active{
+          background: #5777b4;
+          border: 5px solid #9ab3e1;
+        }
+      }
+      &.personal{
+        background: #81b76c;
+        border: 5px solid #81b76c;
+        border-bottom-color:#5da14b ;
+        >i{
+          background: url("@{images-url}icon-personal.png") no-repeat 0 0;
+          width: 67px;
+          height: 58px;
+        }
+        &.active{
+          background: #53943a;
+          border: 5px solid #81b76c;
+        }
+      }
+    }
+  }
+  .repay-agreement{
+    width: 240px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+  }
+  .repay-btn{
+    margin: 0 140px 0 140px;
+    padding: 30px 0 75px 0;
+    border-top: 1px solid #e0e0e0;
+  }
+}
+
+//20151109 ray
+.form-control-bar {
+    position: absolute;
+    top: 0;
+    left: 350px;
+    width: 235px;
+    line-height: 40px;
+}
+
+// 强制不换行
+.nowrap {
+  white-space: nowrap;
 }

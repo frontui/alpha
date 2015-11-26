@@ -1,0 +1,94 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 步骤 #}
+	{{ Step.foursteps('pass3', '企业用户安全验证', '设置支付密码', '法人验证', '验证结果') }}
+
+    {# 填写信息 #}
+	<div class="form-frame fn-mb-10">
+		<div class="form-title">
+			填写信息
+		</div>
+
+        {# Alert 提示 #}
+        {{ Alert.loading('仅限持卡人本人操作，请如实填写以下信息用于实名身份验证。') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form autocomplete="off">
+                    {# 姓名 #}
+					<div class="form-group">
+						<label class="form-control-label" for="username">
+							<span>姓名</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" id="username" value="陈少峰" readonly>
+						</div>
+					</div>
+					{# 身份证号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>身份证号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" id="idcard" value="4000*********6656" readonly>
+						</div>
+					</div>
+					{# 银行卡号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="bankcard">
+							<span>银行卡号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+                                <input id="bankcard" tabindex="1" placeholder="卡号是16-19位数字" type="text" class="form-control"/>
+						</div>
+					</div>
+					{# 开户行 #}
+					<div class="form-group" style="*z-index: 2">
+						<label class="form-control-label" for="bank">
+							<span>开户行</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+                            {{ Form.banks2(type=1, tabindex=2) }}
+						</div>
+					</div>
+					{# 手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.mobile('此卡在银行预留的手机号码', tabindex=3) }}
+						</div>
+					</div>
+					{# 验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-verify1">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('form-control-verify1', tabindex=4) }}
+							<!-- 已发送 -->
+							{{ Form.verify('form-control-verify1','49秒后再获取', 'disabled', tabindex=4) }}
+						</div>
+					</div>
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left margin-top-20px">
+                            <a href="偿债方式-企业偿债-验证结果.html" class="btn primary" role="button">下一步</a>
+                        </div>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+

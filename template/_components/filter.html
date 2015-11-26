@@ -37,3 +37,52 @@
     </div>
 </form>
 {% endmacro %}
+
+{% macro render2(placeholder='', ordertime='', type=0) %}
+<form action="##" method="post" class="fn-mb-10">
+    <div class="fliter-inline-wrap">
+            <span class="lt">{{ ordertime }}
+            </span>
+            <div class="fliter-inline-width1">
+                <div class="form-control-date smallsize">
+                    <span class="form-control-date-btn">
+                        <i></i>
+                    </span>
+                    <input class="form-control" type="text" value="2015-05-17" data-toggle="datetimepicker" readonly="readonly">
+                </div>
+            </div>
+            <span class="fliter-inline-bar">--
+            </span>
+            <div class="fliter-inline-width1">
+                <div class="form-control-date smallsize">
+                    <span class="form-control-date-btn">
+                        <i></i>
+                    </span>
+                    <input class="form-control" type="text" value="2015-05-17" data-toggle="datetimepicker" readonly="readonly">
+                </div>
+            </div>
+            <!--<div class="fliter-inline-width1" style="width: 180px;">
+                <input type="text" class="form-control smallsize" placeholder="{{ placeholder }}">
+            </div>
+            <button type="submit" class="btn primary small-btn">
+                搜索
+            </button>-->
+        </div>
+</form>
+{% endmacro %}
+
+{% macro render3(placeholder='', type=0) %}
+<form action="##" method="post" class="form-frame form-frame-filter fn-mb-10">
+    <div class="form-layer-gray-box">
+        <div class="form-group">
+            <label class="form-control-label">
+                <span>关键字</span><em>：</em>
+            </label>
+            <div class="form-control-wrap form-control-helper">
+                <input type="text" class="form-control" placeholder="{{ placeholder }}" data-toggle="searchInput"  />
+                <button type="button" class="btn primary small-btn hidden">搜索</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endmacro %}

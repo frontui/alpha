@@ -31,31 +31,48 @@
 				当前年化收益率 <b class="warning-FontColor">4.50%</b>
 			</div>
 			<div class="form-group">
-				<input type="text" placeholder="充值金额不能小于1000" tabindex="1" class="form-control"/>
-				<span>元</span>
+				<label class="form-control-label"><span>充值金额</span><em>：</em></label>
+				<div class="form-control-wrap">
+					<input type="text" minlength="4" maxlength="16" data-toggle="tradition" data-target="#j-cn" placeholder="充值金额不能小于1000" tabindex="1" class="form-control"/>
+					<span>元</span>
+				</div>
 			</div>
             <div class="form-group has-error"><!--出错状态的样式是 class="form-group has-error"-->
-                <input type="text" placeholder="" tabindex="1" class="form-control" value="0.1"/>
-                <span>元</span>
+				<label class="form-control-label"><span>充值金额</span><em>：</em></label>
+				<div class="form-control-wrap">
+					<input type="text" minlength="4" maxlength="16" data-toggle="tradition" data-target="#j-cn" placeholder="" tabindex="1" class="form-control" value="0.1"/>
+					<span>元</span>
 
-                <!-- 在用户输入的时候就开始校验 -->
-                <!-- 异常情况：充值金额有小数，提示：请输入整数 -->
-                <div class="form-notice">
-                    <i></i>
-                    请输入整数
-                </div>
+					<!-- 在用户输入的时候就开始校验 -->
+					<!-- 异常情况：充值金额有小数，提示：请输入整数 -->
+					<div class="form-notice">
+						<i></i>
+						请输入整数
+					</div>
 
-                <!-- 异常情况：充值金额低于1000的提示：充值金额不低于1000元 -->
-                <div class="form-notice">
-                    <i></i>
-                    充值金额不能小于1000
-                </div>
+					<!-- 异常情况：充值金额低于1000的提示：充值金额不低于1000元 -->
+					<div class="form-notice">
+						<i></i>
+						充值金额不能小于1000
+					</div>
+				</div>
             </div>
-			<div class="form-btns">
+			<div class="form-group plain-text">
+				<label class="form-control-label"><span>金额大写</span><em>：</em></label>
+				<div class="form-control-wrap">
+					<div id="j-cn" class="fn-mb-5">人民币零元整</div>
+					<em class="font-normal viceText-FontColor">注：充值金额不得小于1,000元</em>
+				</div>
+			</div>
+			<div class="form-btns form-group">
 				<a target="_blank" tabindex="2" href="06公共页面-收银台-收银台（充值）.html" class="btn primary">下一步</a>
 			</div>
 		</fieldset>
 	</form>
 {% endblock %}
 
+{% block jsPage %}
+<!-- 金额转繁体大写 -->
+<script src="{{static}}/js/convertTradition.js"></script>
+{% endblock %}
 

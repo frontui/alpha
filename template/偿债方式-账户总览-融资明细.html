@@ -1,0 +1,62 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+<ol class="breadcrumb fn-mb-10">
+    <li>
+        <a href="偿债方式-账户总览.html">账户总览<i class="icon-chevron-thin-right"></i></a>
+    </li>
+    <li>
+        <a href="偿债方式-收支明细.html">收支明细<i class="icon-chevron-thin-right"></i></a>
+    </li>
+    <li>
+        交易详情
+    </li>
+</ol>
+
+<div class="tables-title heading-FontColor fn-mb-10">
+    交易详情
+    <div class="table-title-btns">
+        <a href="javascript:history.go(-1)">返回 <i class="icon-chevron-thin-right"></i></a>
+    </div>
+</div>
+
+<!-- 状态 -->
+{{ Alert.success('交易成功') }}
+
+<table class="table table-border inverse fn-mb-15">
+    <colgroup>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+        <col/>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>创建时间
+            </th>
+            <th>业务类型</th>
+            <th>流水号</th>
+            <th>金额（元）</th>
+            <th>状态</th>
+            <th>备注</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span class="text-nowrap">2015.05.20</span>&nbsp;&nbsp;<span class="text-nowrap">16:56:00</span></td>
+            <td>融资</td>
+            <td>
+                <p class="text-nowrap" title="SDGS201510291000001">SDGS201510291000001</p>
+            </td>
+            <td>33,021,500.00</td>
+            <td>成功</td>
+            <td>圈存款融资</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
+
+
