@@ -36,7 +36,7 @@
 
             <!-- 网上银行选择 -->
             <div class="ebank-wrap casher-ebanks">
-                <ul class="ebanks j-banks-more" data-toggle="switcher">
+                <ul class="ebanks" data-toggle="switcher">
                     <li class="active" title="招商银行">
                         <label class="ebank-label">
                             <i></i>
@@ -347,6 +347,40 @@
                         </label>
                     </li>
                 </ul>
+              <div class="ebank-info fn-pt-20" id="j-ebank-info">
+                <p class="fn-mb-10 ">请登录xx银行企业网银活客户端，通过您的对公账户：</p>
+                <form class="form-frame-filter fn-mb-10">
+                  <div class="form-group">
+                    <label class="form-control-label">
+                      <span>对公账户</span><em>：</em>
+                    </label>
+                    <div class="form-control-wrap form-control-helper">
+                      <input type="text" class="form-control" placeholder="请输入您的对公账户">
+                    </div>
+                  </div>
+                </form>
+                <p class="fn-mb-10">向下方账户支付一笔小额金额进行验证：</p>
+                <table class="table inverse">
+                  <thead>
+                  <tr>
+                    <th>银行</th>
+                    <th>账户名称</th>
+                    <th>对公账户</th>
+                    <th>开户行</th>
+                    <th>金额（元）</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>招商银行</td>
+                    <td>中金支付有限公司客服备付金</td>
+                    <td>120909301510603</td>
+                    <td>北京分行宣武门分行</td>
+                    <td>0.10</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             <div class="text-align-center fn-mb-10">
@@ -371,6 +405,30 @@
                 </div>
                 <div class="modal-body">
                     <div>
+                      <p>
+                        请登录xx银行企业网银或客服端，通过您的对公账户：<strong>1239 0920 1320 089</strong>
+                        <a href="##" class="link-standard fn-pl-10 modal-close" title="关闭">修改</a>
+                      </p>
+                      <table class="table inverse fn-mt-10 fn-mb-10">
+                        <thead>
+                        <tr>
+                          <th>银行</th>
+                          <th>账户名称</th>
+                          <th>对公账户</th>
+                          <th>开户行</th>
+                          <th>金额（元）</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>招商银行</td>
+                          <td>中金支付有限公司客服备付金</td>
+                          <td>120909301510603</td>
+                          <td>北京分行宣武门分行</td>
+                          <td>0.10</td>
+                        </tr>
+                        </tbody>
+                      </table>
                         <p>
                             请您在新打开的页面上完成支付，操作未完成请不要关闭此页面。
                         </p>
@@ -393,4 +451,26 @@
 
 {% endblock %}
 
+{% block jsPage %}
+<script>
+  $(function() {
+    var showBanks = ['中国银行', '建设银行', '交通银行', '光大银行', '民生银行', '招商银行', '浦发银行'], // 需要显示的银行
+    // 是否显示函数
+    // 通过title判断是否在数组里面
+      fnShowAccount = function(title) {
+        // 找不到是-1，只要大于-1就为显示
+        var isShow = $.inArray(title, showBanks) > -1
+        // 通过布尔值判断是否显示
+        $('#j-ebank-info')[isShow ? 'show' : 'hide']()
+      }
 
+    // 切换插件选中事件
+    $('.ebanks').on('select.ui.switcher', function(e) {
+      // 当前选中项
+      var $target = $(e.relatedTarget)
+      // 调用显示函数，传入选中项title
+      fnShowAccount($target.attr('title'))
+    })
+  })
+</script>
+{% endblock%}
