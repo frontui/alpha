@@ -81,7 +81,7 @@
                         <label class="ebank-label">
                             <i></i>
                             <span class="etag">企业</span>
-                            <span class="bank-bg bank-comm"></span>
+                            <span class="bank-bg bank-bcm"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
                     </li>
@@ -455,7 +455,7 @@
 {% block jsPage %}
 <script>
   $(function() {
-    var showBanks = ['工商银行', '建设银行', '交通银行', '光大银行', '民生银行', '招商银行', '浦发银行'], // 需要显示的银行
+    var showBanks = ['中国银行', '建设银行', '交通银行', '光大银行', '民生银行', '招商银行', '浦发银行'], // 需要显示的银行
     // 是否显示函数
     // 通过title判断是否在数组里面
       fnShowAccount = function(title) {
@@ -471,7 +471,8 @@
       var $target = $(e.relatedTarget)
       // 调用显示函数，传入选中项title
       fnShowAccount($target.attr('title'))
-    })
+    });
+    fnShowAccount($('.ebanks').find('li').eq(0).attr('title'))
   })
 </script>
 {% endblock%}
