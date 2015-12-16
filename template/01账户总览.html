@@ -6,7 +6,11 @@
 	{{ navigator.current('nav1') }}
 
 	<!-- 验证提醒 -->
-	{{ Alert.verify('liliang126',  link='06账户管理个人_个人验证1.html') }}
+    <div class="alert alert-warning fn-mb-10 ">
+      <i></i>
+      <em></em>
+      <strong class="warning-FontColor">liliang126</strong>，您尚未进行账户验证，<a href="06账户管理个人_个人验证1.html" class="link-standard">请先验证</a>（注：如已完成付款，请耐性等待）
+    </div>
     {{ Alert.render(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请通过审核，可以使用平台提供的所有功能。', mb='fn-mb-10') }}
     {{ Alert.verify('广东长江服务有限公司',  link='05账户管理企业_企业验证1.html') }}
     {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请正在审核中，请耐心等待。') }}
