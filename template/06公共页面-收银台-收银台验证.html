@@ -455,12 +455,12 @@
 {% block jsPage %}
 <script>
   $(function() {
-    var showBanks = ['中国银行', '建设银行', '交通银行', '光大银行', '民生银行', '招商银行', '浦发银行'], // 需要显示的银行
+    var showBanks = ['工商银行', '建设银行', '交通银行', '光大银行', '民生银行', '招商银行', '浦发银行'], // 需要显示的银行
     // 是否显示函数
     // 通过title判断是否在数组里面
       fnShowAccount = function(title) {
         // 找不到是-1，只要大于-1就为显示
-        var isShow = $.inArray(title, showBanks) > -1
+        var isShow = $.inArray(title, showBanks) === -1
         // 通过布尔值判断是否显示
         $('#j-ebank-info')[isShow ? 'show' : 'hide']()
       }
