@@ -118,39 +118,59 @@
         "logosmall": "招商银行  提供支持",
         "theme": "chuandiqianbao.css"
       },
-	"tuancanbao": {
-      "name": "tuancanbao",
-      "port": 8529,
-      "template": [
-        [
-          "01账户总览.html"
+      "tuancanbao": {
+        "name": "tuancanbao",
+        "port": 8529,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
         ],
-        ["06公共页面-收银台-收银台（充值）.html"]
-      ],
-      "version": "v1.0",
-      "dest": "../third-part/tuancanbao/",
-      "title": "团餐宝",
-      "logo": "团餐宝",
-    "logo_image": "logo-tuancanbao.png",
-      "logosmall": "招商银行  提供支持",
-      "theme": "tuancanbao.css"
-    },
-	"zhenyaocai": {
-      "name": "zhenyaocai",
-      "port": 8530,
-      "template": [
-        [
-          "01账户总览.html"
+        "version": "v1.0",
+        "dest": "../third-part/tuancanbao/",
+        "title": "团餐宝",
+        "logo": "团餐宝",
+      "logo_image": "logo-tuancanbao.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "tuancanbao.css"
+      },
+      "zhenyaocai": {
+        "name": "zhenyaocai",
+        "port": 8530,
+        "template": [
+          [
+            "01账户总览.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
         ],
-        ["06公共页面-收银台-收银台（充值）.html"]
-      ],
-      "version": "v1.0",
-      "dest": "../third-part/zhenyaocai/",
-      "title": "珍药材",
-      "logo": "珍药材",
-    "logo_image": "logo-zhanyaocai.png",
-      "logosmall": "招商银行  提供支持",
-      "theme": "zhenyaocai.css"
-    }
+        "version": "v1.0",
+        "dest": "../third-part/zhenyaocai/",
+        "title": "珍药材",
+        "logo": "珍药材",
+        "logo_image": "logo-zhanyaocai.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "zhenyaocai.css"
+      },
+      "alading": {
+        "name": "alading",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "noHeader": 1,
+        "dest": "../third-part/alading/",
+        "title": "阿拉丁",
+        "logo": "阿拉丁",
+        "logo_image": "logo-ex.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "alading.css"
+      }
     }
 }

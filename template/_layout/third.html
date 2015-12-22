@@ -48,11 +48,13 @@
 {# 通用布局 #}
 {% block body %}
 <div class="main-frm main-frm2">
+  {% if noHeader != 1  %}
   <header class="main-frm-header">
     <div class="frm-header-inner">
       <div class="frm-logo"><a href="###"><img src="{{static}}/thirdPart/images/{{logo_image}}"></a></div>
     </div>
   </header>
+  {% endif %}
   <main class="frame-wrap-bg">
     <div class="frame-wrap">
       {% if sidebar%}
