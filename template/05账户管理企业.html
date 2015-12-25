@@ -120,4 +120,140 @@
         </div>
     </div>
 
+
+<!-- 解除绑定 -->
+<div class="modal-background fade display-none" id="removeLock" role="dialog">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          <!--提示-->
+          <button class="modal-close" title="关闭">
+            <i></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="bankcard-layer">
+            <ul class="bankcard-list">
+              <li class="work">
+                <div class="bank-box">
+                  <div class="bank-icon icon-icbc"></div>
+                  工商银行
+                </div>
+                <h3>
+                  **********6877
+                </h3>
+                            <span class="work-tag">
+                                已绑定
+                            </span>
+              </li>
+            </ul>
+            <h2>解除绑定该银行卡</h2>
+          </div>
+          <div class="form-frame border-none" id="formFrame1">
+            <div class="form-layer1">
+              <div class="form-layer2">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>解绑原因</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <div class="form-control-check form-control-float">
+                        <label>
+                          担心资金安全
+                          <input type="radio" name="style" class="j-type" data-target="#style1" checked="checked">
+                        </label>
+                        <label>
+                          不明白什么是快捷支付
+                          <input type="radio" class="j-type" data-target="#style1" name="style">
+                        </label>
+                        <label>
+                          我不再使用该卡
+                          <input type="radio" class="j-type" data-target="#style1" name="style">
+                        </label>
+                        <label>
+                          其他
+                          <input type="radio" class="j-type" data-target="#style2" name="style">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                      <button type="button" class="btn primary" id="nextBtn">下一步</button>
+                      <a href="###" class="btn links" data-dismiss="modal">取消</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- 下一步-->
+          <div class="form-frame border-none" id="formFrame2" style="display: none;">
+            <div class="form-layer1">
+              <div class="form-layer2">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>支付手机号码</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <div class="form-control-data">13800138000</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>验证码</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <div class="form-control-verify">
+                        <input type="text" class="form-control" id="">
+                        <button class="btn form-control-verify-btn">
+                          获取验证码
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>设置支付密码</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="password" class="form-control" id="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                      <button type="button" class="btn primary" data-dismiss="modal">确认解除</button>
+                      <a href="###" class="btn links" data-dismiss="modal">取消</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+  $("#nextBtn").click(function(){
+    $("#formFrame1").hide();
+    $("#formFrame2").show();
+  })
+</script>
+
 {% endblock %}
