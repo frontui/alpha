@@ -1,8 +1,8 @@
 @charset "UTF-8";
 /**!
- * 工业E+ <允升>
+ * 默认皮肤
  * @author: tommyshao <jinhong.shao@frontpay.cn>
- * @date: 2015-07-06
+ * @date: 2015-12-28
  */
 /*
 --- config ---
@@ -82,7 +82,7 @@ a {
   padding-bottom: 100px;
 }
 .main-frm-header {
-  background: #c90301;
+  background: #d4220e url('../images/yunsheng_hdbg.png') bottom center;
   height: 66px;
   color: #fff;
 }

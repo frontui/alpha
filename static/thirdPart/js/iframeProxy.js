@@ -7,7 +7,7 @@
  */
 ~(function(root, d, undefined){
   // 配置proxyUrl地址
-  if(!root['proxyUrl']) return;
+  // if(!root['proxyUrl']) return;
   var proxyUrl = root['proxyUrl'], proxyIframe;
   var parent = root.top;
   var isFrame = root != parent;
@@ -15,15 +15,20 @@
     // 不被iframe嵌套时不操作
     if(!isFrame) return;
     var oBody = d.body;
+    var docHeight = oBody.scrollHeight;
+    var oContainer = oBody.children[0];
+    if(oContainer) {
+      docHeight = oContainer.scrollHeight;
+    }
 
     if(!proxyIframe){
       var container = d.createElement("div");
-      var docHeight = d.body.scrollHeight;
       container.innerHTML = '<iframe style="display:none;" src="'+ proxyUrl +'#height='+ docHeight +'" scrolling="no" height="0" width="0"></iframe>';
       proxyIframe = container.firstChild;
       oBody.appendChild(proxyIframe);
     } else {
-      if(height) proxyIframe.src = proxyUrl+'#height='+height;
+      height = height || docHeight;
+      proxyIframe.src = proxyUrl+'#height='+height;
     }
   }
 
@@ -46,24 +51,23 @@
   }
 
 
-
-
-  var loaded = function(element, fn, context){
+  var loaded = function(element, fn){
     if(element.attachEvent){ // ie
-      element.attachEvent("onload", function(){
-        fn.call(context, element);
-      });
-    }else{
-      element.onload = function(){
-        fn.call(context, element);
-      };
+      element.attachEvent("onreadystatechange", fn);
+    }else if(element.addEventListener){
+      element.addEventListener('DOMContentLoaded', fn, false)
+    } else {
+      window.onload = fn;
     }
   };
 
-  if(isFrame){
+  if(isFrame && root['proxyUrl']){
     setStyle();
     loaded(window, function(){
       setIframeHeight();
     })
   }
+
+  root.setIframeHeight = setIframeHeight;
+
 })(window, document);

@@ -1,5 +1,8 @@
 /*!
 *  第三方框架
+*
+*  更新日志
+*  config.json给任务项增加 `newVer`，新版第三方框架
 */
 var gulp = require('gulp');
 var config = require('../config.json')
