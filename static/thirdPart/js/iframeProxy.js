@@ -11,15 +11,23 @@
   var proxyUrl = root['proxyUrl'], proxyIframe;
   var parent = root.top;
   var isFrame = root != parent;
+
   function setIframeHeight(height){
     // 不被iframe嵌套时不操作
     if(!isFrame) return;
     var oBody = d.body;
-    var docHeight = oBody.scrollHeight;
+    // var docHeight = oBody.scrollHeight;
+    var docHeight = 0;
     var oContainer = oBody.children[0];
-    if(oContainer) {
-      docHeight = oContainer.scrollHeight;
+    var i = 0, len = 0;
+    var childrens = oContainer.children;
+    //docHeight = oContainer ? oContainer.offsetHeight : docHeight;
+    for(len = childrens.length; i < len; i++) {
+      docHeight += childrens[i].offsetHeight;
     }
+
+    // docHeight = h;
+    //alert(oContainer.offsetHeight)
 
     if(!proxyIframe){
       var container = d.createElement("div");
@@ -34,7 +42,7 @@
 
   // 隐藏滚动条
   function setStyle(){
-    var cssText = 'html,body{ overflow-y: hidden;}';
+    var cssText = 'html,body{ overflow: hidden; height: 100%}';
     var oHead = document.getElementsByTagName('head')[0];
     var style = document.createElement('style');
     style.type = 'text/css';

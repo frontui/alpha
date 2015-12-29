@@ -39,7 +39,7 @@
 <link rel="stylesheet" href="{{static}}/thirdPart/css/{{ theme }}?v={{ version }}">
 <script>
   // 第三方页面代理地址
-  window['proxyUrl'] = 'http://localbank.me/proxy.html';
+   window['proxyUrl'] = 'http://localbank.me/proxy.html';
 </script>
 <script src="{{static}}/thirdPart/js/iframeProxy.js"></script>
 {% endblock %}
@@ -47,6 +47,7 @@
 
 {# 第三方可配置样式参数 #}
 {% block stylePage %}
+{% if newVer %}
 <style>
   /**
   * 渠道自定配色
@@ -96,6 +97,7 @@
     border-bottom-color: #dbdbdb;
   }
 </style>
+{% endif %}
 {% endblock %}
 
 
