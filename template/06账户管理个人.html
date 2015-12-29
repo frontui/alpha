@@ -279,6 +279,49 @@
     </div>
   </div>
 </div>
+
+<!-- 设为默认 -->
+<div class="modal-background fade display-none" id="setBtn" role="dialog">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          <!--提示-->
+          <button class="modal-close" title="关闭">
+            <i></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="bankcard-layer border-none">
+            <ul class="bankcard-list">
+              <li class="work">
+                <div class="bank-box">
+                  <div class="bank-icon icon-icbc"></div>
+                  工商银行
+                </div>
+                <h3>
+                  **********6877
+                </h3>
+                <span class="work-tag">
+                    已绑定
+                </span>
+              </li>
+            </ul>
+            <div class="h2-other">
+              <h2>是否将该卡设为默认银行卡</h2>
+              <p class="viceText-FontColor">支付手机号码改为该卡手机：135××××3456</p>
+            </div>
+          </div>
+          <div class="text-align-center fn-mt-30">
+            <button type="button" class="btn primary" data-dismiss="modal">确认</button>
+            <a href="###" class="btn links" data-dismiss="modal">取消</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 {% block jsPage %}
