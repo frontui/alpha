@@ -12,6 +12,12 @@
   var parent = root.top;
   var isFrame = root != parent;
 
+  function getStyle( elem, attr ) {
+    var oStyle = elem.currentStyle? elem.currentStyle : window.getComputedStyle(elem, null);
+    return oStyle[attr];
+  }
+
+
   function setIframeHeight(height){
     // 不被iframe嵌套时不操作
     if(!isFrame) return;
@@ -24,10 +30,13 @@
     //docHeight = oContainer ? oContainer.offsetHeight : docHeight;
     for(len = childrens.length; i < len; i++) {
       docHeight += childrens[i].offsetHeight;
+      docHeight += parseInt(getStyle(childrens[i], 'marginTop'));
+      //console.log(getStyle(childrens[i], 'marginTop'));
     }
 
     // docHeight = h;
     //alert(oContainer.offsetHeight)
+    alert(docHeight);
 
     if(!proxyIframe){
       var container = d.createElement("div");

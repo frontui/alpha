@@ -73,6 +73,7 @@ a {
 }
 .main-frm {
   position: relative;
+  *position: static;
   background: #f8f8f8;
   min-height: 100%;
   padding-bottom: 100px;
