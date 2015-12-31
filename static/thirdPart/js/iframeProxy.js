@@ -25,18 +25,18 @@
     // var docHeight = oBody.scrollHeight;
     var docHeight = 0;
     var oContainer = oBody.children[0];
-    var i = 0, len = 0;
+    var i = 0, len = 0, mgTop = 0;
     var childrens = oContainer.children;
     //docHeight = oContainer ? oContainer.offsetHeight : docHeight;
     for(len = childrens.length; i < len; i++) {
+      mgTop = parseInt(getStyle(childrens[i], 'marginTop'), 10);
+      console.log(childrens[i].offsetHeight, mgTop);
       docHeight += childrens[i].offsetHeight;
-      docHeight += parseInt(getStyle(childrens[i], 'marginTop'));
-      //console.log(getStyle(childrens[i], 'marginTop'));
+      docHeight += parseInt(isNaN(mgTop) ? 0 : mgTop);
     }
 
     // docHeight = h;
     //alert(oContainer.offsetHeight)
-    alert(docHeight);
 
     if(!proxyIframe){
       var container = d.createElement("div");
@@ -71,6 +71,7 @@
   var loaded = function(element, fn){
     if(element.attachEvent){ // ie
       element.attachEvent("onreadystatechange", fn);
+      element.attachEvent("onload", fn);
     }else if(element.addEventListener){
       element.addEventListener('DOMContentLoaded', fn, false)
     } else {
