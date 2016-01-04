@@ -70,10 +70,12 @@
                 $li=$ul.find("li"),
                 $btn=$ul.find(".more-ebank"),
                 iLen=$li.length,
+                e = $.Event('bankMore:action'),
                 Toggle={
                     isHidden:!0,
                     init:function(){
-                        this[this.isHidden?"show":"hide"]()
+                        this[this.isHidden?"show":"hide"]();
+                        $ul.trigger(e)
                     },
                     show:function(){
                         this.isHidden=!1,

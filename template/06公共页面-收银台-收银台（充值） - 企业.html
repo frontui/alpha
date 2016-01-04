@@ -305,6 +305,8 @@
       var title = $currentItem.attr('title');
       var $tr = $('#j-banks-table tbody tr');
       $tr.hide().filter('[title="'+ title +'"]').show();
+    }).on('moreBank:action', function(){
+        typeof setIframeHeight == 'function' && setIframeHeight();
     });
   })
 </script>
