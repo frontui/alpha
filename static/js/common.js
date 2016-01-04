@@ -75,6 +75,7 @@
                     isHidden:!0,
                     init:function(){
                         this[this.isHidden?"show":"hide"]();
+
                         $ul.trigger(e)
                     },
                     show:function(){
