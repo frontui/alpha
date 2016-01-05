@@ -192,6 +192,26 @@
         "logosmall": "招商银行  提供支持",
         "theme": "yizhaocai.css"
       },
+	  "nageban": {
+        "name": "nageban",
+        "port": 8522,
+        "template": [
+          [
+            "01账户总览.html",
+            "服务台.html",
+            "03提现明细.html"
+          ],
+          ["06公共页面-收银台-收银台（充值）.html"]
+        ],
+        "version": "v1.0",
+        "noHeader": 0,
+        "dest": "../third-part/nageban/",
+        "title": "哪个班",
+        "logo": "哪个班",
+        "logo_image": "logo-nageban.png",
+        "logosmall": "招商银行  提供支持",
+        "theme": "nageban.css"
+      },
       "default": {
         "name": "default",
         "port": 8524,
