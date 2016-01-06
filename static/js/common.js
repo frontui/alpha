@@ -40,6 +40,11 @@
         }
     };
 
+    var commApi = function() {
+      // 设置第三方iframe高度
+      typeof setIframeHeight == "function" && setIframeHeight();
+    };
+
     var App = {
         // 页面初始化
         initPage: function(){
@@ -54,15 +59,22 @@
                 if(isIE(7)) { // i7 bug
                   $("#arb")[isOpen ? 'hide': 'show']();
                   $(target).slider('init');
+                  // 共同接口
+                  commApi();
                 } else {
                   $("#arb")[isOpen ? 'slideUp': 'slideDown'](function(){
                     //console.log(target);
                     if($(this).is(':visible')) {
                       $(target).slider('init');
                     }
+                    // 共同接口
+                    commApi();
                   });
                 }
                 $(this).html(strLabel).data('label', strText).data('isOpen', !isOpen);
+
+
+
             });
         },
         moreBanks:function(){

@@ -30,7 +30,6 @@
     //docHeight = oContainer ? oContainer.offsetHeight : docHeight;
     for(len = childrens.length; i < len; i++) {
       mgTop = parseInt(getStyle(childrens[i], 'marginTop'), 10);
-      console.log(childrens[i].offsetHeight, mgTop);
       docHeight += childrens[i].offsetHeight;
       docHeight += parseInt(isNaN(mgTop) ? 0 : mgTop);
     }
