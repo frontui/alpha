@@ -8,7 +8,10 @@
 ~(function(root, d, undefined){
   // 配置proxyUrl地址
   // if(!root['proxyUrl']) return;
-  var proxyUrl = root['proxyUrl'], proxyIframe;
+  var proxyUrl = root['proxyUrl'], 
+      proxyIframe, 
+      autoIfrTimer = null,
+      originHeight = 0;
   var parent = root.top;
   var isFrame = root != parent;
 
@@ -19,23 +22,34 @@
 
 
   function setIframeHeight(height){
+    clearTimeout(autoIfrTimer);
+    // 自动检测内容高度
+    autoIfrTimer = setTimeout(setIframeHeight, 1e3);
+
     // 不被iframe嵌套时不操作
     if(!isFrame) return;
     var oBody = d.body;
     // var docHeight = oBody.scrollHeight;
     var docHeight = 0;
     var oContainer = oBody.children[0];
-    var i = 0, len = 0, mgTop = 0;
-    var childrens = oContainer.children;
-    //docHeight = oContainer ? oContainer.offsetHeight : docHeight;
-    for(len = childrens.length; i < len; i++) {
-      mgTop = parseInt(getStyle(childrens[i], 'marginTop'), 10);
-      docHeight += childrens[i].offsetHeight;
-      docHeight += parseInt(isNaN(mgTop) ? 0 : mgTop);
+    var i = 0, len = 0, mgTop = 0, childrens = null;
+
+    if(!height) {
+      childrens = oContainer.children;
+      //docHeight = oContainer ? oContainer.offsetHeight : docHeight;
+      for(len = childrens.length; i < len; i++) {
+        mgTop = parseInt(getStyle(childrens[i], 'marginTop'), 10);
+        docHeight += childrens[i].offsetHeight;
+        docHeight += parseInt(isNaN(mgTop) ? 0 : mgTop);
+      }
+    } else {
+      docHeight = height;
     }
 
     // docHeight = h;
     //alert(oContainer.offsetHeight)
+    
+    if(originHeight == docHeight) return;
 
     if(!proxyIframe){
       var container = d.createElement("div");
@@ -43,9 +57,11 @@
       proxyIframe = container.firstChild;
       oBody.appendChild(proxyIframe);
     } else {
-      height = height || docHeight;
-      proxyIframe.src = proxyUrl+'#height='+height;
+      //height = height || docHeight;
+      proxyIframe.src = proxyUrl+'#height='+docHeight;
     }
+
+    originHeight = docHeight;
   }
 
   // 隐藏滚动条
@@ -83,6 +99,9 @@
     loaded(window, function(){
       setIframeHeight();
     })
+
+    // 自动检测
+    //autoIfrTimer = setTimeout(setIframeHeight, 1e3)
   }
 
   root.setIframeHeight = setIframeHeight;
