@@ -114,7 +114,8 @@ module.exports = function defaultTask(serverRoot, banner) {
     gulp.task('third:svnJs',  function(next) {
       return gulp.src(thirdStatic+'/js/**/**.js', {base: 'client'})
         .pipe($.plumber( { errorHandler: errHandler } ))
-        .pipe($.uglify({mangle: false}))
+        //.pipe($.uglify({mangle: false}))
+        .pipe($.uglify())
         .pipe($.header(banner, { pkg: pkg}))
         .pipe(gulp.dest(thirdSvnPath));
     });
