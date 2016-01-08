@@ -349,26 +349,67 @@
                 </ul>
               <div class="ebank-info fn-pt-20 fn-pb-30" id="j-ebank-info">
                 <p class="fn-mb-10 ">请登录xx银行企业网银活客户端，通过您的对公账户：</p>
-                <form class="form-frame-filter fn-mb-10">
-                  <div class="form-group">
-                    <label class="form-control-label text-align-left">
-                      <span>对公账户</span><em>：</em>
-                    </label>
-                    <div class="form-control-wrap form-control-helper">
-                      <input type="text" class="form-control" placeholder="请输入您的对公账户">
-                    </div>
-                  </div>
+                <form class="fn-mb-10">
                     <div class="form-group">
-                    <label class="form-control-label text-align-left">
-                      <span>分支行</span><em>：</em>
-                    </label>
+                        <label class="form-control-label text-align-left">
+                            <span>对公账户</span><em>：</em>
+                        </label>
                         <div class="form-control-wrap form-control-helper">
-                            <div class="form-control-dropdown" style="width: 258px;">
-                                <span class="form-control-dropdown-btn" style="top: 0; right: 0; height: 30px; width: 30px; line-height: 32px;">
+                            <input type="text" class="form-control" placeholder="请输入您的对公账户">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="*z-index: 4">
+                        <label class="form-control-label text-align-left">
+                            <span>对公账户</span><em>：</em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <div class="form-control-dropdown form-inline drop-select-province with-keyin">
+                                <span class="form-control-dropdown-btn">
+                                    <i></i>
+                                </span>
+                                <div class="form-control-dropdown-value" tabindex="2" title="请选择省份"><span class="form-placeholder">请选择省份</span></div>
+                                <ul class="form-control-dropdown-menu">
+                                    <li title="北京">北京
+                                    </li>
+                                    <li title="上海">上海
+                                    </li>
+                                    <li title="广东">广东
+                                    </li>
+                                    <li title="浙江">浙江
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="form-control-dropdown form-inline drop-select-city with-keyin">
+                                <span class="form-control-dropdown-btn">
+                                    <i></i>
+                                </span>
+                                <div class="form-control-dropdown-value" tabindex="3" title="请选择城市"><span class="form-placeholder">请选择城市</span></div>
+                                <ul class="form-control-dropdown-menu">
+                                    <li title="北京">北京
+                                    </li>
+                                    <li title="上海">上海
+                                    </li>
+                                    <li title="广州">广州
+                                    </li>
+                                    <li title="杭州">杭州
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-control-label text-align-left">
+                            <span>分支行</span><em>：</em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-dropdown">
+                                <span class="form-control-dropdown-btn">
                                     <i></i>
                                 </span>
                                 <input type="text" data-toggle="dropdown" class="form-control" id="subbank" placeholder="请输入分支行名称" value="分支行1" aria-expanded="false">
-                                <ul class="form-control-dropdown-menu" style="top: 30px;">
+                                <ul class="form-control-dropdown-menu">
                                     <li title="分支行1">分支行1
                                     </li>
                                     <li title="分支行2">分支行2
