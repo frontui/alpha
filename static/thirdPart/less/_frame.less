@@ -4,9 +4,9 @@
 // @date: 2015-06-18
 
 // 去除body边距
-//html, body{
-//  height: 100%;
-//}
+html, body{
+  height: 100%;
+}
 body{
     margin: 0;
     padding: 0;
@@ -15,6 +15,15 @@ body{
     //overflow-y: auto\9 !important;
     // *overflow-y: auto !important;
     //_overflow-y: auto !important;
+
+    //&.ie7 {
+    //    .main-frm {
+    //        position: static;
+    //    }
+    //    .main-footer {
+    //        position: static;
+    //    }
+    //}
 }
 
 a{
@@ -23,10 +32,12 @@ a{
 
 .main-frm{
   position: relative;
-    *position: static;
+    //*position: static;
     background: @frm-bg;
     min-height: 100%;
+    *min-height: auto;
     padding-bottom: 100px;
+    *padding-bottom: 0;
 }
 
 .main-frm-header{
@@ -346,6 +357,7 @@ a{
 
 .main-footer{
     position: absolute;
+    *position: static;
     bottom: 0;
     left: 0;
     width: 100%;

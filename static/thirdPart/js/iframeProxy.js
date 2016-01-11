@@ -180,6 +180,12 @@
     var oStyle = elem.currentStyle? elem.currentStyle : window.getComputedStyle(elem, null);
     return oStyle[attr];
   }
+  // 判断IE版本
+  function isIE(ver){
+    var b = document.createElement('b');
+    b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->';
+    return b.getElementsByTagName('i').length === 1;
+  };
 
 
   function setIframeHeight(height){
@@ -190,8 +196,9 @@
     // 不被iframe嵌套时不操作
     if(!isFrame) return;
     var oBody = d.body;
-    // var docHeight = oBody.scrollHeight;
+    var bodyHeight = oBody.scrollHeight;
     var docHeight = 0;
+
     var oContainer = oBody.children[0];
     var i = 0, len = 0, mgTop = 0, childrens = null;
 
@@ -207,6 +214,8 @@
       docHeight = height;
     }
 
+    //docHeight = Math.max(bodyHeight, docHeight);
+    //console.log('bodyHeight:'+bodyHeight+',docHeight:'+docHeight);
     // docHeight = h;
     //alert(oContainer.offsetHeight)
     
@@ -260,7 +269,10 @@
     /*loaded(window, function(){
       setIframeHeight();
     })*/
+    //domReady();
+
     domReady(setIframeHeight)
+
 
     // 自动检测
     //autoIfrTimer = setTimeout(setIframeHeight, 1e3)
