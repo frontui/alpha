@@ -32,7 +32,7 @@
 
             <!-- 验证提示 -->
             {% import "_components/alert.html" as alert %}
-            {{ alert.loading(text = '请注意您选择的对公账户名需与注册企业名称一致，否则验证不通过。', mb='fn-mb-20 fn-ml-20 fn-mr-20') }}
+            {{ alert.loading(text = '请注意您选择的对公账户名需与注册企业名称一致，否则验证不通过，操作流程请查阅<a href="###" class="link-standard">《企业核身操作说明》</a>', mb='fn-mb-20 fn-ml-20 fn-mr-20') }}
 
             <!-- 网上银行选择 -->
             <div class="ebank-wrap casher-ebanks">
@@ -40,7 +40,7 @@
                     <li class="active" title="招商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-cmb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -48,7 +48,7 @@
                     <li title="工商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-icbc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -56,7 +56,7 @@
                     <li title="建设银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-ccb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -64,7 +64,7 @@
                     <li title="农业银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-abc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -72,7 +72,7 @@
                     <li title="中国银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-boc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -80,7 +80,7 @@
                     <li title="交通银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-bcm"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -88,7 +88,7 @@
                     <li title="平安银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-pingan"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -96,7 +96,7 @@
                     <li title="中国邮政储蓄银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-psbc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -104,7 +104,7 @@
                     <li title="上海银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-shbc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -112,7 +112,7 @@
                     <li title="温州银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-wzbc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -120,7 +120,7 @@
                     <li title="浦发银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-spdb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -128,7 +128,7 @@
                     <li title="中信银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-ecitic"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -136,7 +136,7 @@
                     <li title="广发银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-cgbchina"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -144,7 +144,7 @@
                     <li title="民生银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-cmbc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -152,7 +152,7 @@
                     <li title="兴业银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-cib"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -160,7 +160,7 @@
                     <li title="光大银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-cebbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -168,7 +168,7 @@
                     <li title="上海农商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-srcb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -176,7 +176,7 @@
                     <li title="北京银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-bankofbeijing"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -184,7 +184,7 @@
                     <li title="北京农商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-bjrcb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -192,7 +192,7 @@
                     <li title="深圳发展银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-szfz"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -200,7 +200,7 @@
                     <li title="宁波银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-nbcb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -208,7 +208,7 @@
                     <li title="杭州银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-hzbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -216,7 +216,7 @@
                     <li title="东莞银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-dongguanbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -224,7 +224,7 @@
                     <li title="汇丰银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-hsbc"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -232,7 +232,7 @@
                     <li title="东亚银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-hkbea"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -240,7 +240,7 @@
                     <li title="广州农商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-961111"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -248,7 +248,7 @@
                     <li title="华夏银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-hxb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -256,7 +256,7 @@
                     <li title="华润银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-crbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -264,7 +264,7 @@
                     <li title="兰州银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-lanzhou"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -272,7 +272,7 @@
                     <li title="河北银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-hebbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -280,7 +280,7 @@
                     <li title="微商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-hsbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -288,7 +288,7 @@
                     <li title="青岛银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-qdccb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -296,7 +296,7 @@
                     <li title="尧都农商">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-ydnsh"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -304,7 +304,7 @@
                     <li title="浙商银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-zheshang"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -312,7 +312,7 @@
                     <li title="南昌银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-nccbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -320,7 +320,7 @@
                     <li title="渤海银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-cbhb"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -328,7 +328,7 @@
                     <li title="恒丰银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">转账</span>
                             <span class="bank-bg bank-egbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
@@ -336,7 +336,7 @@
                     <li title="天津银行">
                         <label class="ebank-label">
                             <i></i>
-                            <span class="etag">企业</span>
+                            <span class="etag">支付</span>
                             <span class="bank-bg bank-tianjinbank"></span>
                             <input type="radio" style="display: none;" name="ebank" />
                         </label>
