@@ -45,6 +45,7 @@
         window['console'] && console.log('Error type !');
         return false;
       }
+      //this.decimalsSize = decimalsSize !== undefined ? decimalsSize : (parseInt(decimalsSize) || 2);
       this.decimalsSize = parseInt(decimalsSize) || 2;
       var oParsedParam = this.parseParam(number+'');
       if (oParsedParam.i.length > NUM_MAX_INTEGERS) {
@@ -59,9 +60,11 @@
      * @return {String} 最终处理结果
      */
     trimValue:function(oParsedParam){
+
       var isNeedWan = this.isNeedTenThousand(oParsedParam.i) ;
       var strParsedInt = this._convertInteger(oParsedParam.i, isNeedWan);
       var strPasedDecimal = this._convertDecimal(oParsedParam.d);
+
       if(oParsedParam.i === '0'){
         if(oParsedParam.d === ''){
           return '零元';
@@ -116,6 +119,9 @@
     _convertInteger:function(integers,isNeedWan){
       var arrInteger = [];
       var length = integers.length;
+      // 兼容ie7
+      integers = integers.split('');
+
       for (var i = 0; i < length; i++) {
         // 0出现在关键位置：
         // 1234(万)1234(亿)1234(万)1234(元)
@@ -139,6 +145,7 @@
         arrInteger.push(integers[i] == 0 ?
             key : (ARR_CHINESE_NUMBER[integers[i]] + ARR_CHINESE_UNIT[swithVal - 1]));
       }
+
       return arrInteger.join('');
 
     },
@@ -149,6 +156,9 @@
      */
     _convertDecimal:function(decimals){
       var chineseDecimal = [];
+      // 兼容ie7
+      decimals = decimals.split('');
+
       for (var i = 0 ,len = decimals.length; i < len ; i++) {
         // 最多能够处理的小数位
         if (i === NUM_MAX_DEC || i === this.decimalsSize){
@@ -198,12 +208,12 @@
    * @type {{prefix: string, dec: number, cnDec: string}}
    */
   ConvertTradition.DEFAULTS = {
-    // 前缀文字
-    prefix: '人民币',
+    // 前缀文字人民币
+    prefix: '\u4eba\u6c11\u5e01',
     // 小数点位数
-    dec: 0,
-    // 后缀文字
-    cnDec: '整'
+    dec: 2,
+    // 后缀文字整
+    cnDec: '\u6574'
   };
 
   ConvertTradition.prototype = {
@@ -212,12 +222,21 @@
     },
     convert: function() {
       var thisVal = $.trim(this.$el.val());
-      var str = RE.convert(thisVal, this.option.dec);
-      this.update(str);
+      if($.trim(thisVal) !== '') {
+        var str = RE.convert(parseFloat(thisVal), this.option.dec);
+        this.update(str);
+      }
     },
     update: function(str) {
-      str = str ? str : '零元';
-      this.$target.html(this.option.prefix+str+this.option.cnDec);
+      // 零元
+      str = str ? str : '\u96f6\u5143';
+      //var thisVal = parseFloat(this.$el.val());
+      // 1 === 1.00
+      //str = (thisVal === parseInt(thisVal)) ? this.option.prefix+str+this.option.cnDec : this.option.prefix+str;
+      var dec = str.substr(-1, 1);
+      //console.log(dec === '元')
+      str = dec === '\u5143' ? this.option.prefix+str+this.option.cnDec : this.option.prefix+str;
+      this.$target.html(str);
     }
   };
 
