@@ -570,15 +570,15 @@
       // 初始化全局事件
       handlerDialog.init();
       // 银行卡绑定，设置为默认
-      $('.j-default-bankcard').on('click', function(){
+      $('.j-default-bankcard').on('click', function(e){
           // 设置为默认银行卡
-          handlerDialog.run(this, 'showDefaultDialog');
+          handlerDialog.run(e.target, 'showDefaultDialog');
       });
 
       // 解除绑定
-      $('.j-unlock-bankcard').on('click', function() {
+      $('.j-unlock-bankcard').on('click', function(e) {
           // 解除绑定
-          handlerDialog.run(this, 'showUnLockDialog');
+          handlerDialog.run(e.target, 'showUnLockDialog');
       })
   });
 
