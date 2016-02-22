@@ -15,20 +15,25 @@ var connect = $.connect
 var Lib    = require('../lib')
 
 module.exports = function svnTask(banner) {
+  // 临时文件夹
+  var tmpPath = './tmp';
+
   // 模板
   gulp.task('svnTemplate', function(){
       return gulp.src(['./'+ config.destPath + '/**/**.html'])
               //.pipe($.changed(svn.path))
               .pipe($.replace(/\/static/g, './static'))
               .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.]+\.js)(.*)"/g, '"'+ config.staticPath +'/js/$3$4"'))
-              .pipe(gulp.dest(svn.path))
+              //.pipe(gulp.dest(svn.path))
+              .pipe(gulp.dest(tmpPath))
   });
 
   // 拷贝
   gulp.task('svnCopy', function(){
       return gulp.src([config.staticPath + '/iconfont/**/**', config.staticPath + '/iconfont-ie7/**/**'], {base: 'client'})
           .pipe($.changed(svn.staticPath))
-          .pipe(gulp.dest(svn.staticPath))
+          //.pipe(gulp.dest(svn.staticPath))
+          .pipe(gulp.dest(tmpPath + svn.staticPath))
   })
 
   // css
@@ -38,7 +43,8 @@ module.exports = function svnTask(banner) {
           .pipe($.changed(svn.staticPath))
           .pipe($.minifyCss({compatibility: 'ie7'}))
           .pipe($.header(banner, { pkg: pkg}))
-          .pipe(gulp.dest(svn.staticPath))
+          //.pipe(gulp.dest(svn.staticPath))
+          .pipe(gulp.dest(tmpPath + svn.staticPath))
   })
 
   // js
@@ -48,13 +54,15 @@ module.exports = function svnTask(banner) {
           .pipe($.changed(svn.staticPath))
           .pipe($.uglify({mangle: false}))
           .pipe($.header(banner, { pkg: pkg}))
-          .pipe(gulp.dest(svn.staticPath))
+          //.pipe(gulp.dest(svn.staticPath))
+          .pipe(gulp.dest(tmpPath + svn.staticPath))
   })
 
   gulp.task('svnBowerJs', function(){
       return gulp.src(config.jsPath)
               .pipe($.changed(svn.staticPath))
-              .pipe(gulp.dest(svn.staticPath+'/js'))
+              //.pipe(gulp.dest(svn.staticPath+'/js'))
+              .pipe(gulp.dest(tmpPath + svn.staticPath +'/js'))
   })
 
   // images
@@ -69,7 +77,8 @@ module.exports = function svnTask(banner) {
                       //use: [pngquant()]
                   })
           )
-          .pipe(gulp.dest(svn.staticPath+'/images'))
+          //.pipe(gulp.dest(svn.staticPath+'/images'))
+          .pipe(gulp.dest(tmpPath + svn.staticPath+'/images'))
   })
 
   gulp.task('svnServer', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnImage', 'svnBowerJs'], function(){
