@@ -216,7 +216,8 @@
       </div>
       <div class="tabs-panel" id="tc3">
         <div class="form-frame" style="border-top:none">
-          <div class="form-layer1">
+          <!-- TODO: 不需要显示，有后端自行判断当前用户使用网关 -->
+          <!--<div class="form-layer1">
             <div class="form-layer2">
               <form autocomplete="off">
                 <div class="form-group">
@@ -239,9 +240,19 @@
                 </div>
               </form>
             </div>
-          </div>
-          <div class="ebank-wrap casher-ebanks">
+          </div>-->
+          <div class="ebank-wrap casher-ebanks fn-pt-30">
             <ul class="ebanks j-banks-more" id="banklist" data-toggle="switcher">
+              <!-- TODO: if 当前用类型是企业 -->
+              <li title="测试银行">
+                <label class="ebank-label">
+                  <i></i>
+                  <span class="etag">企业</span>
+                  <span class="bank-bg bank-example"></span>
+                  <input type="radio" style="display: none;" name="ebank">
+                </label>
+              </li>
+              <!-- TODO: else/ 个人类型 -->
               <li title="测试银行">
                 <label class="ebank-label">
                   <i></i>
@@ -250,6 +261,7 @@
                   <input type="radio" style="display: none;" name="ebank">
                 </label>
               </li>
+              <!-- /todo: 判断结束 -->
               <li class="active" title="招商银行">
                 <label class="ebank-label">
                   <i></i>
@@ -700,7 +712,8 @@
     });
 
     //银行账户类型
-    $('#bankRadio input[name="bank"]').click(function(){
+    // 由后端自行判断
+    /*$('#bankRadio input[name="bank"]').click(function(){
       var num=$(this).val();
       if(num==2){
         $("#banklist .etag").text('企业');
@@ -708,7 +721,7 @@
       else{
         $("#banklist .etag").text('个人');
       }
-    });
+    });*/
 
   })
 

@@ -11,6 +11,7 @@ var path   = require('path')
 var fs     = require('fs')
 var $      = require('gulp-load-plugins')()
 var connect = $.connect
+var del    = require('del')
 
 var Lib    = require('../lib')
 
@@ -82,7 +83,22 @@ module.exports = function svnTask(banner) {
           .pipe(gulp.dest(tmpPath + svn.staticPath+'/images'))
   })
 
-  gulp.task('svnServer', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnImage', 'svnBowerJs'], function(){
+  gulp.task('zip', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnImage', 'svnBowerJs'],function() {
+    return gulp.src(tmpPath+'/**/**')
+            .pipe($.zip(pkg.name+'.zip'))
+            .pipe(gulp.dest(tmpPath))
+  });
+
+  gulp.task('build', ['zip'], function() {
+    return gulp.src(tmpPath+'/**/**')
+              .pipe(gulp.dest(svn.path))
+  })
+
+  gulp.task('removeTmp', function() {
+    del([tmpPath, tmpPath+'/**/**'])
+  })
+
+  gulp.task('svnServer', ['build'], function(){
       connect.server({
           root: svn.path,
           port: svn.port
@@ -91,6 +107,9 @@ module.exports = function svnTask(banner) {
       console.log('server start at: http://localhost:' + svn.port + '/')
 
       Lib.openURL('http://localhost:' + svn.port + '/')
+
+      // 删除临时文件夹
+      del([tmpPath, tmpPath+'/**/**']);
   })
 
   gulp.task('svn', function(){
