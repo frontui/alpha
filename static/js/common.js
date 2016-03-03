@@ -3,6 +3,32 @@
  * by frontpay F2E Team
  * created on 2015-08-25
  */
+
+function is360se() {
+  var ret = false,
+      ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf("chrome") > -1) {
+    ret = (ua.indexOf("qqbrowser") > -1 || ua.indexOf(" se ") > -1 || ua.indexOf("360ee") == -1) ? false : true
+  }
+  try {
+    if (window.external && window.external.twGetRunPath) {
+      var r = external.twGetRunPath();
+      if (r && (r.toLowerCase().indexOf("360se") > -1 )) {
+        ret = true;
+      }
+    }
+  } catch (ign) {
+    ret = false;
+  }
+  return ret;
+}
+
+function isLBBrowser() {
+  var ua = navigator.userAgent;
+  return ua.indexOf('LBBROWSER') > -1;
+}
+
+
 ~(function(root, $) {
 
     // 判断IE版本
@@ -180,6 +206,22 @@
         								}
         							})
 
+      },
+      // 扩展 tab
+      extTab: function() {
+        $('.tabs-btn').on('shown.ui.tab', function(e) {
+          var $current = $(this),
+              $prev = $(e.relatedTarget),
+              panel = $current.attr('data-panel'),
+              prevPanel = $prev.attr('data-panel');
+          var $panel = $(panel),
+              $prevPanel = $(prevPanel);
+
+          if(panel !== prevPanel) {
+            !!$panel.length && $panel.show();
+            !!$prevPanel.length && $prevPanel.hide();
+          }
+        });
       }
     };
 

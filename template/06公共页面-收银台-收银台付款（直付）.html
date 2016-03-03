@@ -23,10 +23,10 @@
     <div class="tabs-wrap type1">
         <ul class="tabs">
             <li class="active">
-                <a class="tabs-btn" href="#tc1">账户余额</a>
+                <a class="tabs-btn" href="#tc1" data-panel="#panel1">账户余额</a>
             </li>
           <li>
-            <a href="#tc2" class="tabs-btn">快捷支付</a>
+            <a href="#tc1" class="tabs-btn" data-panel="#panel2">快捷支付</a>
           </li>
           <li>
             <a href="#tc3" class="tabs-btn">网上银行</a>
@@ -39,7 +39,8 @@
                 <div class="form-layer1">
                     <div class="form-layer2">
                         <form>
-                            <div class="form-group">
+                            <!-- 账户余额  -->
+                            <div class="form-group" id="panel1">
                                 <label class="form-control-label" for="form-control-5">
                                     <span>账户余额
                                     </span>
@@ -60,6 +61,66 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- 快捷支付 -->
+                            <div id="panel2" class="display-none">
+                              <div class="form-group">
+                                <label class="form-control-label" for="">
+                                  <span>支付账户</span>
+                                  <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                  <div class="form-control-dropdown">
+                                  <span class="form-control-dropdown-btn">
+                                      <i></i>
+                                  </span>
+                                    <div class="form-control-dropdown-value" aria-expanded="false">
+                                      <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                      <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                    </div>
+                                    <ul class="form-control-dropdown-menu">
+                                      <li title="">
+                                        <span class="bank-icon icon-icbc" title="工商银行"></span>
+                                        <span class="form-control-bank-card">工商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <a class="form-control-tools-link" href="06账户管理个人_添加银行卡.html">添加银行卡</a>
+                                </div>
+                              </div>
+
+                              <div class="form-group fn-mt-10 fn-mb-20">
+                                <!--<label class="form-control-label">-->
+                                <!--<span>银行限额</span>-->
+                                <!--<em>：-->
+                                <!--</em>-->
+                                <!--</label> -->
+                                <div class="form-control-wrap">
+                                  <table class="form-table">
+                                    <colgroup>
+                                      <col>
+                                      <col>
+                                      <col>
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                      <th>卡种</th>
+                                      <th>单笔限额（元）</th>
+                                      <th>每日限额（元）</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                      <td>储蓄卡</td>
+                                      <td>20万</td>
+                                      <td>50万</td>
+                                    </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <label class="form-control-label" for="">
@@ -115,7 +176,8 @@
             </div>
 
         </div>
-      <div class="tabs-panel" id="tc2">
+      <!-- 只在 tc1内部做切换 -->
+      <!--<div class="tabs-panel" id="tc2">
         <div class="form-frame" style="border-top:none">
           <div class="form-layer1">
             <div class="form-layer2">
@@ -213,7 +275,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <div class="tabs-panel" id="tc3">
         <div class="form-frame" style="border-top:none">
           <!-- TODO: 不需要显示，有后端自行判断当前用户使用网关 -->

@@ -298,16 +298,71 @@
         </div>
     </div>
 </div>
+
+<!-- 提示使用360或猎豹 -->
+<div class="modal-background display-none" tabindex="-1" role="dialog" id="detec-modal">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          提示
+        </div>
+        <div class="modal-body">
+          <div class="nav-content nav1-content">
+            <div class="updatepage" style="padding-top:0;">
+              <h3 class="text-align-center fn-mb-40">
+                中信银行企业网银暂不支持当前浏览器，请用以下浏览器登录并完成操作。
+              </h3>
+              <ul class="logo clearfix">
+                <li class="ie">
+                  <div class="logo-pic fn-mb-5">
+                    <img src="{{static}}/images/liebao.png">
+                  </div>
+                  <a href="http://www.liebao.cn/download.html"  class="h4">猎豹浏览器最新版</a>
+                </li>
+                <li class="google">
+                  <div class="logo-pic fn-mb-5"><img src="{{static}}/images/360se.png"></div>
+                  <a href="http://se.360.cn"  class="h4">360安全浏览器最新版 </a>
+                </li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}
 
 {% block jsPage %}
 <script>
+  // 是否中信银行
+  var isECITIC = false;
+
+  // 检测中信银行在非360和猎豹
+  function detectBrowser() {
+    if(!is360se() || !isLBBrowser()) {
+      $('#detec-modal').modal('show');
+    }
+  }
+
   $(function() {
     $('#banklist').on('select.ui.switcher', function (e) {
       var $currentItem = $(e.relatedTarget);
       var title = $currentItem.attr('title');
       var $tr = $('#j-banks-table tbody tr');
       $tr.hide().filter('[title="'+ title +'"]').show();
+
+      // 检测银行类型
+      if(title) {
+        isECITIC = title.indexOf('中信银行') > -1;
+        isECITIC && detectBrowser();
+      }
+
     }).on('bankMore:action', function(){
         typeof setIframeHeight == 'function' && setIframeHeight();
     });
