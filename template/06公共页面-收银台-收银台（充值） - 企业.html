@@ -345,7 +345,7 @@
 
   // 检测中信银行在非360和猎豹
   function detectBrowser() {
-    if(!is360se() || !isLBBrowser()) {
+    if(!(is360se() || isLBBrowser())) {
       $('#detec-modal').modal('show');
     }
   }
