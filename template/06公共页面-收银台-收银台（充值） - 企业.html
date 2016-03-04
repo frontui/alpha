@@ -420,6 +420,35 @@
   }
 
 
+  var seAPI = {
+    GetRunPath: function(){
+      try {
+        var path = external.GetRunPath(external.GetSID(window));
+        return path.toLowerCase();
+      } catch (e) {
+        return '';
+      }
+    },
+    Is360Chrome: function(){
+      return this.GetRunPath().indexOf('360chrome.exe') > -1;
+    },
+    is360chrome:function () {
+      var _is360chrome=false;
+      try{
+        if(typeof( chrome )!= "undefined" && typeof( chrome.webstorePrivate)!='undefined' && typeof (chrome.webstorePrivate.beginInstallWithManifest3)!='undefined'){
+          _is360chrome=true;
+        }else {
+          _is360chrome=navigator.userAgent.toLowerCase().indexOf('360ee')!=-1;
+        }
+      }catch(e){};
+      return _is360chrome||this.Is360Chrome();
+    }
+  };
+
+  alert(seAPI.is360chrome());
+  alert(_getChromiumType());
+
+
   // 检测中信银行在非360和猎豹
   function detectBrowser() {
     var b = _getChromiumType();
