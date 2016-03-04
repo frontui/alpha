@@ -1,0 +1,62 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+<div class="login-main">
+  <div class="login-page">
+
+    <!-- 步骤-->
+    <div class="mod-steps mod-steps-2">
+      <div class="steps-bar">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+      </div>
+      <div class="steps steps-1">1</div>
+      <div class="steps steps-2">2</div>
+      <div class="steps-title title1">用户名</div>
+      <div class="steps-title title2">手机号码</div>
+    </div>
+
+    <div class="login-box form-frame fn-mt-30 fn-pt-40">
+      <div class="form-layer1">
+        <div class="form-layer2">
+          <form autocomplete="off">
+            <div class="form-group">
+              <label class="form-control-label">
+                <span>手机号码</span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-control-data">******* 5509</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" for="***">
+                <span>验证码 </span>
+                <em>：</em>
+              </label>
+              <div class="form-control-wrap">
+                <div class="form-control-verify">
+                  <input type="text" class="form-control" id="***">
+                  <button class="btn form-control-verify-btn">
+                    获取验证码
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group fn-mt-20">
+              <label class="form-control-label"></label>
+              <div class="form-control-wrap">
+                <a href="###" class="btn primary">登录</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

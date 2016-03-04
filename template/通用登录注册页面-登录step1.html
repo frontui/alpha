@@ -1,0 +1,63 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+<div class="login-main">
+    <div class="login-page">
+
+      <!-- 步骤-->
+      <div class="mod-steps mod-steps-1">
+        <div class="steps-bar">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+        </div>
+        <div class="steps steps-1">1</div>
+        <div class="steps steps-2">2</div>
+        <div class="steps-title title1">用户名</div>
+        <div class="steps-title title2">手机号码</div>
+      </div>
+
+      <div class="login-box form-frame fn-mt-30 fn-pt-40">
+        <div class="form-layer1">
+          <div class="form-layer2">
+            <form autocomplete="off">
+              <div class="form-group has-error">
+                <label class="form-control-label">
+                  <span>用户名</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control"/>
+                  <div class="form-notice">
+                    <i></i>
+                    您还没有开通（产品名），<a href="###" class="link-standard">请先注册</a>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <span>验证码</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control code-input"/>
+                  <img src="{{ static }}/images/login-wrap/yzm.jpg" class="code-pic">
+                </div>
+              </div>
+              <div class="form-group fn-mt-20">
+                <label class="form-control-label"></label>
+                <div class="form-control-wrap">
+                  <a href="通用登录注册页面-登录step2.html" class="btn primary">下一步</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+</div>
+
+{% endblock %}
