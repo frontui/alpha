@@ -4,34 +4,11 @@
  * created on 2015-08-25
  */
 
-/*function is360se() {
-  var ret = false,
-      ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf("chrome") > -1) {
-    ret = (ua.indexOf("qqbrowser") > -1 || ua.indexOf(" se ") > -1 || ua.indexOf("360ee") == -1) ? false : true
-  }
-  try {
-    if (window.external && window.external.twGetRunPath) {
-      var r = external.twGetRunPath();
-      if (r && (r.toLowerCase().indexOf("360se") > -1 )) {
-        ret = true;
-      }
-    }
-  } catch (ign) {
-    ret = false;
-  }
-  return ret;
-}
-
-function isLBBrowser() {
-  var ua = navigator.userAgent;
-  return ua.indexOf('LBBROWSER') > -1;
-}*/
-
 
 var detectBrowser = (function() {
   var win = window;
   var nav = win.navigator;
+  var ua = nav.userAgent;
   var doc = win.document;
   var ieAX = win.ActiveXObject;
   var ieMode = doc.documentMode;
@@ -99,7 +76,7 @@ var detectBrowser = (function() {
      * // true or false
      */
     isLiebao: (function () {
-      return chromiumType === 'liebao';
+      return chromiumType === 'liebao' || ua.indexOf('LBBROWSER') > -1;
     })(),
     /**
      * 是否搜狗高速浏览器
