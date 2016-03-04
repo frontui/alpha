@@ -303,7 +303,7 @@
 <div class="modal-background display-none" tabindex="-1" role="dialog" id="detec-modal">
   <div class="modal-layer">
     <div class="modal-position">
-      <div class="modal-wrap">
+      <div class="modal-wrap" style="min-width:700px">
         <div class="modal-head">
           提示
         </div>
@@ -343,130 +343,9 @@
   // 是否中信银行
   var isECITIC = false;
 
-  /**
-   * 获取 Chromium 内核浏览器类型
-   * @link http://www.adtchrome.com/js/help.js
-   * @link https://ext.chrome.360.cn/webstore
-   * @link https://ext.se.360.cn
-   * @return {String}
-   *         360ee 360极速浏览器
-   *         360se 360安全浏览器
-   *         sougou 搜狗浏览器
-   *         liebao 猎豹浏览器
-   *         chrome 谷歌浏览器
-   *         ''    无法判断
-   * @version 1.0
-   * 2014年3月12日20:39:55
-   */
-
-  var win = window;
-  var nav = win.navigator;
-  var doc = win.document;
-  var ieAX = win.ActiveXObject;
-  var ieMode = doc.documentMode;
-  var REG_APPLE = /^Apple/;
-  var ieVer = _getIeVersion() || ieMode || 0;
-  var isIe = ieAX || ieMode;
-
-  function _getChromiumType() {
-    if (isIe || typeof win.scrollMaxX !== 'undefined' || REG_APPLE.test(nav.vendor || '')) {
-      return '';
-    }
-
-    var _track = 'track' in document.createElement('track');
-    var webstoreKeysLength = win.chrome && win.chrome.webstore ? Object.keys(win.chrome.webstore).length : 0;
-
-    // 搜狗浏览器
-    if (_testExternal(/^sogou/i, 0)) {
-      return 'sogou';
-    }
-
-    // 猎豹浏览器
-    if (_testExternal(/^liebao/i, 0)) {
-      return 'liebao';
-    }
-
-    // chrome
-    if (win.clientInformation && win.clientInformation.permissions) {
-      return 'chrome';
-    }
-
-    if (_track) {
-      // 360极速浏览器
-      // 360安全浏览器
-      return webstoreKeysLength > 1 ? '360ee' : '360se';
-    }
-
-    return '';
-  }
-
-  /**
-   * 检测 external 是否包含该字段
-   * @param reg 正则
-   * @param type 检测类型，0为键，1为值
-   * @returns {boolean}
-   * @private
-   */
-  function _testExternal(reg, type) {
-    var external = win.external || {};
-
-    for (var i in external) {
-      if (reg.test(type ? external[i] : i)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  // 获得ie浏览器版本
-
-  function _getIeVersion() {
-    var v = 3,
-      p = document.createElement('p'),
-      all = p.getElementsByTagName('i');
-
-    while (
-      p.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
-        all[0]);
-
-    return v > 4 ? v : 0;
-  }
-
-
-  var seAPI = {
-    GetRunPath: function(){
-      try {
-        var path = external.GetRunPath(external.GetSID(window));
-        return path.toLowerCase();
-      } catch (e) {
-        return '';
-      }
-    },
-    Is360Chrome: function(){
-      return this.GetRunPath().indexOf('360chrome.exe') > -1;
-    },
-    is360chrome:function () {
-      var _is360chrome=false;
-      try{
-        if(typeof( chrome )!= "undefined" && typeof( chrome.webstorePrivate)!='undefined' && typeof (chrome.webstorePrivate.beginInstallWithManifest3)!='undefined'){
-          _is360chrome=true;
-        }else {
-          _is360chrome=navigator.userAgent.toLowerCase().indexOf('360ee')!=-1;
-        }
-      }catch(e){};
-      return _is360chrome||this.Is360Chrome();
-    }
-  };
-
-  alert(seAPI.is360chrome());
-  alert(_getChromiumType());
-
-
   // 检测中信银行在非360和猎豹
-  function detectBrowser() {
-    var b = _getChromiumType();
-    if(!(is360se() || isLBBrowser() || b === '360se' || b === '360ee' || b === 'liebao')) {
+  function showSupport() {
+    if(!(detectBrowser.is360se || detectBrowser.is360ee || detectBrowser.isLiebao)) {
       $('#detec-modal').modal('show');
     }
   }
@@ -481,7 +360,7 @@
       // 检测银行类型
       if(title) {
         isECITIC = title.indexOf('中信银行') > -1;
-        isECITIC && detectBrowser();
+        isECITIC && showSupport();
       }
 
     }).on('bankMore:action', function(){
