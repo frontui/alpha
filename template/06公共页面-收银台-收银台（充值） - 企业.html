@@ -359,6 +359,15 @@
    * 2014年3月12日20:39:55
    */
 
+  var win = window;
+  var nav = win.navigator;
+  var doc = win.document;
+  var ieAX = win.ActiveXObject;
+  var ieMode = doc.documentMode;
+  var REG_APPLE = /^Apple/;
+  var ieVer = _getIeVersion() || ieMode || 0;
+  var isIe = ieAX || ieMode;
+
   function _getChromiumType() {
     if (isIe || typeof win.scrollMaxX !== 'undefined' || REG_APPLE.test(nav.vendor || '')) {
       return '';
@@ -391,11 +400,30 @@
     return '';
   }
 
+  /**
+   * 检测 external 是否包含该字段
+   * @param reg 正则
+   * @param type 检测类型，0为键，1为值
+   * @returns {boolean}
+   * @private
+   */
+  function _testExternal(reg, type) {
+    var external = win.external || {};
+
+    for (var i in external) {
+      if (reg.test(type ? external[i] : i)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
 
   // 检测中信银行在非360和猎豹
   function detectBrowser() {
     var b = _getChromiumType();
-    if(!(is360se() || isLBBrowser() || b === '360se' || b === '360ee' b === 'liebao')) {
+    if(!(is360se() || isLBBrowser() || b === '360se' || b === '360ee' || b === 'liebao')) {
       $('#detec-modal').modal('show');
     }
   }
