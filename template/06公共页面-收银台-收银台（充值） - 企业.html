@@ -419,6 +419,20 @@
     return false;
   }
 
+  // 获得ie浏览器版本
+
+  function _getIeVersion() {
+    var v = 3,
+      p = document.createElement('p'),
+      all = p.getElementsByTagName('i');
+
+    while (
+      p.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->',
+        all[0]);
+
+    return v > 4 ? v : 0;
+  }
+
 
   var seAPI = {
     GetRunPath: function(){
