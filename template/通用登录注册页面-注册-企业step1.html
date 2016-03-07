@@ -78,63 +78,79 @@
             </div>
             <div class="form-group">
               <label class="form-control-label">
-                <b>*</b>
-                <span>营业执照号</span>
+                <span>注册证件</span>
                 <em>：</em>
               </label>
               <div class="form-control-wrap">
-                <input type="text" class="form-control"/>
+                <select class="form-control" id="j-select">
+                  <option value="1">营业执照</option>
+                  <option value="2">社会信用代码</option>
+                  <option value="3">其他</option>
+                </select>
               </div>
             </div>
-            <div class="form-group">
-              <label class="form-control-label">
-                <span>营业执照有效期</span>
-                <em>：</em>
-              </label>
-              <div class="form-control-wrap">
-                <div class="form-control-date float-left">
-                  <span class="form-control-date-btn">
-                      <i></i>
-                  </span>
-                  <!--<div class="form-control-date-value">
-                      2015-05-17
-                  </div>-->
-                  <input class="form-control" value="2015-05-17" type="text" data-toggle="datetimepicker" readonly="readonly">
-                </div>
-                <span class="float-left fn-pt-10 fn-pl-15">--</span>
-                <div class="form-control-date float-right">
-                  <span class="form-control-date-btn">
-                      <i></i>
-                  </span>
-                  <!--<div class="form-control-date-value">
-                      2015-05-17
-                  </div>-->
-                  <input class="form-control" value="2015-05-17" type="text" data-toggle="datetimepicker" readonly="readonly">
+            <div id="select-1">
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>营业执照号</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control"/>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="form-control-label">
-                <b>*</b>
-                <span>组织机构代码证</span>
-                <em>：</em>
-              </label>
-              <div class="form-control-wrap">
-                <input type="text" class="form-control"/>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <span>营业执照有效期</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <div class="form-control-date float-left">
+                    <span class="form-control-date-btn">
+                        <i></i>
+                    </span>
+                    <!--<div class="form-control-date-value">
+                        2015-05-17
+                    </div>-->
+                    <input class="form-control" value="2015-05-17" type="text" data-toggle="datetimepicker" readonly="readonly">
+                  </div>
+                  <span class="float-left fn-pt-10 fn-pl-15">--</span>
+                  <div class="form-control-date float-right">
+                    <span class="form-control-date-btn">
+                        <i></i>
+                    </span>
+                    <!--<div class="form-control-date-value">
+                        2015-05-17
+                    </div>-->
+                    <input class="form-control" value="2015-05-17" type="text" data-toggle="datetimepicker" readonly="readonly">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>组织机构代码证</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>税务登记证</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control"/>
+                </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="select-2" style="display: none;">
               <label class="form-control-label">
                 <b>*</b>
-                <span>税务登记证</span>
-                <em>：</em>
-              </label>
-              <div class="form-control-wrap">
-                <input type="text" class="form-control"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-control-label">
                 <span>社会信用证</span>
                 <em>：</em>
               </label>
@@ -142,8 +158,9 @@
                 <input type="text" class="form-control"/>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="select-3" style="display: none;">
               <label class="form-control-label">
+                <b>*</b>
                 <span>其他证件号</span>
                 <em>：</em>
               </label>
@@ -338,4 +355,27 @@
 
 </div>
 
+{% endblock %}
+
+{% block jsPage %}
+<script>
+  $("#j-select").change(function(){
+    var optionVal=$(this).val();
+    if(optionVal==2){
+      $("#select-2").show();
+      $("#select-1").hide();
+      $("#select-3").hide();
+
+    }else if(optionVal==3){
+      $("#select-1").hide();
+      $("#select-2").hide();
+      $("#select-3").show();
+    }else{
+      $("#select-1").show();
+      $("#select-2").hide();
+      $("#select-3").hide();
+    }
+
+  })
+</script>
 {% endblock %}
