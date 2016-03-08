@@ -89,7 +89,7 @@
                 </select>
               </div>
             </div>
-            <div id="select-1">
+            <div class="select-1">
               <div class="form-group">
                 <label class="form-control-label">
                   <b>*</b>
@@ -148,7 +148,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group" id="select-2" style="display: none;">
+            <div class="form-group select-2"  style="display: none;">
               <label class="form-control-label">
                 <b>*</b>
                 <span>社会信用证</span>
@@ -158,7 +158,7 @@
                 <input type="text" class="form-control"/>
               </div>
             </div>
-            <div class="form-group" id="select-3" style="display: none;">
+            <div class="form-group select-3" style="display: none;">
               <label class="form-control-label">
                 <b>*</b>
                 <span>其他证件号</span>
@@ -248,29 +248,31 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
-              <label class="form-control-label">
-                <b>*</b>
-                <span>营业执照</span>
-                <em>：</em>
-              </label>
-              <div class="form-control-wrap">
-                <input type="text" class="form-control"/>
-                <div class="form-control-tools-link fn-pa-5">
-                  <button class="btn small-btn secondary">点击上传</button>
+            <div class="select-1">
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>营业执照</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control"/>
+                  <div class="form-control-tools-link fn-pa-5">
+                    <button class="btn small-btn secondary">点击上传</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="form-control-label">
-                <b>*</b>
-                <span>组织机构代码证</span>
-                <em>：</em>
-              </label>
-              <div class="form-control-wrap">
-                <input type="text" class="form-control"/>
-                <div class="form-control-tools-link fn-pa-5">
-                  <button class="btn small-btn secondary">点击上传</button>
+              <div class="form-group">
+                <label class="form-control-label">
+                  <b>*</b>
+                  <span>组织机构代码证</span>
+                  <em>：</em>
+                </label>
+                <div class="form-control-wrap">
+                  <input type="text" class="form-control"/>
+                  <div class="form-control-tools-link fn-pa-5">
+                    <button class="btn small-btn secondary">点击上传</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -286,7 +288,7 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group select-1">
               <label class="form-control-label">
                 <b>*</b>
                 <span>税务登记证</span>
@@ -311,8 +313,9 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group select-2" style="display: none">
               <label class="form-control-label">
+                <b>*</b>
                 <span>统一社会信用代码证</span>
                 <em>：</em>
               </label>
@@ -323,8 +326,9 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group select-3" style="display: none">
               <label class="form-control-label">
+                <b>*</b>
                 <span>其他证件</span>
                 <em>：</em>
               </label>
@@ -362,18 +366,18 @@
   $("#j-select").change(function(){
     var optionVal=$(this).val();
     if(optionVal==2){
-      $("#select-2").show();
-      $("#select-1").hide();
-      $("#select-3").hide();
+      $(".select-2").show();
+      $(".select-1").hide();
+      $(".select-3").hide();
 
     }else if(optionVal==3){
-      $("#select-1").hide();
-      $("#select-2").hide();
-      $("#select-3").show();
+      $(".select-1").hide();
+      $(".select-2").hide();
+      $(".select-3").show();
     }else{
-      $("#select-1").show();
-      $("#select-2").hide();
-      $("#select-3").hide();
+      $(".select-1").show();
+      $(".select-2").hide();
+      $(".select-3").hide();
     }
 
   })
