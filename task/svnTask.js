@@ -89,7 +89,7 @@ module.exports = function svnTask(banner) {
             .pipe(gulp.dest(tmpPath))
   });
 
-  gulp.task('build', ['zip'], function() {
+  gulp.task('build', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnImage', 'svnBowerJs'], function() {
     return gulp.src(tmpPath+'/**/**')
               .pipe(gulp.dest(svn.path))
   })

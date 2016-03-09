@@ -1,5 +1,5 @@
 {
 	"port": "8251",
-	"path": "../../tfs_QianTu/融资标准版1.0/文档/02_设计与分析/04_UI设计/bms_v3.1",
-	"staticPath": "../../tfs_QianTu/融资标准版1.0/文档/02_设计与分析/04_UI设计/bms_v3.1/static"
+	"path": "../../tfs_QianTu/E账户3.3/文档/01_需求/静态页面/bms_v3.1",
+	"staticPath": "/static"
 }
