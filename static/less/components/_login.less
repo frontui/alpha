@@ -1,7 +1,10 @@
 .bg-f9f9f9{
   background: #f9f9f9;
 }
+.login-main-bg{
+  background: url("@{images-url}login-wrap/bg-main.jpg") no-repeat center top;
 
+}
 
 //登录注册页
 .form-section-head {
@@ -13,12 +16,9 @@
 
 .login-main{
   background: #f9f9f9;
-  &.login-main-bg{
-    background: url("@{images-url}login-wrap/bg-main.jpg") no-repeat center top;
-    background-size:cover;
-
+  &.no-bg{
+    background: none;
   }
-
   .login-entrance{
     padding: 314px 0 314px 0;
     .btn{
