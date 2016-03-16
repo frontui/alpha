@@ -1,0 +1,155 @@
+{% extends "_layout/wrapper.html" %}
+{% block bodyClass %}
+class="bg-f9f9f9"
+{% endblock %}
+
+{# content内容 #}
+{% block content %}
+
+<div class="login-main">
+  <div class="register-page">
+    <ol class="breadcrumb fn-mb-10">
+      <li>
+        <a href="###">首页<i class="icon-chevron-thin-right"></i></a>
+      </li>
+      <li>
+        注册
+      </li>
+    </ol>
+    <div class="form-frame register-box">
+      <div class="tabs-wrap type1">
+        <ul class="tabs">
+          <li class="active">
+            <a href="通用登录注册页面-注册-个人step1.html" class="tabs-btn  tab-disabled" >个人账户</a>
+          </li>
+          <li>
+            <a href="通用登录注册页面-注册-企业step1.html" class="tabs-btn tab-disabled">企业账户</a>
+          </li>
+        </ul>
+      </div>
+
+          <!-- 步骤-->
+          <div class="mod-steps mod-steps-1">
+            <div class="steps-bar">
+              <div class="bar bar1"></div>
+              <div class="bar bar2"></div>
+            </div>
+            <div class="steps steps-1">1</div>
+            <div class="steps steps-2">2</div>
+            <div class="steps-title title1">填写个人信息</div>
+            <div class="steps-title title2">手机号码验证</div>
+          </div>
+
+          <div class="form-layer1">
+            <div class="form-layer2">
+              <form autocomplete="off">
+                <div class="form-group has-error">
+                  <label class="form-control-label">
+                    <b>*</b>
+                    <span>用户编号</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                    <div class="form-notice">
+                      <i></i>
+                      该用户编号已被注册请重新填写
+                    </div>
+                    <div class="form-control-tools-link">
+                      <div class="tooltips-icon">
+                        i
+                        <div class="tooltips">
+                          1，针对有支付功能的渠道，仅当用户在本渠道处于登录状态时才可见注册按钮从而进入注册页面，用户编号自动传参用户在渠道的用户编号，且不可更改<br>
+                          2，针对纯理财产品，用户需要手动输入用户编号，系统需根据输入的编号查重<br>
+                          3,所有输入项，如果已经正确输入，输入框后面提示输入正确，如果输入错误输入框高亮提示出错，且配合文字提示
+
+                          <span class="tips-arrow-border"></span>
+                          <span class="tips-arrow"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">
+                    <b>*</b>
+                    <span>昵称</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">
+                    <b>*</b>
+                    <span>真实姓名</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">
+                    <span>身份证号</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">
+                    <span>邮箱</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                  </div>
+                </div>
+                <h4 class="form-section-head">影音文件</h4>
+                <div class="form-group">
+                  <label class="form-control-label">
+                    <b>*</b>
+                    <span>身份证（正面）</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                    <div class="form-control-tools-link fn-pa-5">
+                      <button class="btn small-btn secondary">点击上传</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label">
+                    <b>*</b>
+                    <span>身份证（反面）</span>
+                    <em>：</em>
+                  </label>
+                  <div class="form-control-wrap">
+                    <input type="text" class="form-control"/>
+                    <div class="form-control-tools-link fn-pa-5">
+                      <button class="btn small-btn secondary">点击上传</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group fn-mt-20">
+                  <label class="form-control-label">
+                  </label>
+                  <div class="form-control-wrap">
+                    <a href="通用登录注册页面-注册-个人step2.html" class="btn primary">下一步</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
