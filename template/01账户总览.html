@@ -15,6 +15,7 @@
     {{ Alert.verify('广东长江服务有限公司',  link='05账户管理企业_企业验证1.html') }}
     {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请正在审核中，请耐心等待。') }}
     {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请不通过，原因：银行对账账户不一致，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证</a>。') }}
+	{{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交了线下申请，请在 <b class="warning-FontColor" id="j-hours">47</b> 小时 <b class="warning-FontColor" id="j-minutes">22</b> 分 <b class="warning-FontColor" id="j-seconds">10</b> 秒完成指定打款 <a href="06公共页面-收银台-收银台验证.html?do=view" class="link-standard pull-right">查看</a>') }}
 
   {# 公告 #}
   {{ Alert.loading(text='<a href="公告内容.html" class="link-standard">关于部分银行停止B2B通道公告</a>') }}
@@ -235,6 +236,25 @@
             </tr>
 		</tbody>
 	</table>
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	$(function() {
+		// 倒计时
+		// todo: test
+		// 绑定倒计时
+		var dd = new Date().valueOf() + 24 * 2 * 60 * 60 * 1000;
+		var ck = clockTick(dd, function(d, h, m, s){
+			// 小时
+			$('#j-hours').html(h + d * 24);
+			// 分钟
+			$('#j-minutes').html(m);
+			// 秒钟
+			$('#j-seconds').html(s);
+		});
+	})
+</script>
 {% endblock %}
 
 

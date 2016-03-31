@@ -87,6 +87,26 @@
 						</div>
 					</div>
 
+					{# 用户类型 #}
+					<!--<div class="form-group">-->
+						<!--<label class="form-control-label">-->
+							<!--<span>账户类型</span>-->
+							<!--<em>：</em>-->
+						<!--</label>-->
+						<!--<div class="form-control-wrap">-->
+							<!--<div class="form-control-check">-->
+								<!--<label>-->
+									<!--企业银行账户-->
+									<!--<input type="radio" name="user_type" class="j-user-type" value="1" checked>-->
+								<!--</label>-->
+								<!--<label>-->
+									<!--个人银行卡-->
+									<!--<input type="radio" name="user_type" class="j-user-type" value="0">-->
+								<!--</label>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+
 					{# 提现到 #}
 					<div class="form-group">
 						<label class="form-control-label">
@@ -94,10 +114,7 @@
 							<em>：</em>
 						</label>
 						<div class="form-control-wrap">
-							<div class="form-control-data">
-                                <span class="bank-icon icon-cmb" title="招商银行"></span>
-                                <span class="form-control-bank-card">招商银行&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>
-							</div>
+							{{ Form.banks() }}
 						</div>
 					</div>
 
@@ -131,6 +148,21 @@
 						</div>
 					</div>
 
+					{# 备注 #}
+					<div class="form-group" style="*z-index: 1">
+						<label for="remark" class="form-control-label">
+							<span>
+								备注
+							</span>
+							<em>
+								：
+							</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" name="remark" id="remark" class="form-control">
+						</div>
+					</div>
+
 					{# 下一步 #}
 					<div class="form-group">
 						{{ Form.doubleBtn(tabindex=5) }}
@@ -155,6 +187,17 @@
 					return $that.next(':input').val();
 				})
 			})
+
+			// 根据类型切换获取不同的银行账号
+			var $bindCard = $('#j-user-bind-card');
+			$('.j-user-type').on('click', function() {
+				var thisVal = $(this).val();
+				// todo: 异步
+				// test
+				var content = '<span class="bank-icon icon-cmb" title="招商银行"></span>'+
+								'<span class="form-control-bank-card">招商银行'+ thisVal +'&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;尾号1234</span>';
+				$bindCard.html(content);
+			});
 		};
 
 		$(document).ready(pageInit)

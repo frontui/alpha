@@ -45,7 +45,7 @@ module.exports = function defaultTask(serverRoot) {
 
   gulp.task('merge-sprite', function(){
       var thisPath = config.staticPath+'/images/sprite'
-      var folders = Lib.getFolders(thisPath)
+      var folders = Lib.isFolder(thisPath)
       var tasks = folders.map(function(folder) {
           var spriteData = gulp.src(path.join(thisPath, folder, '/*.*'))
                           .pipe($.changed(config.staticPath+'/images/sprite'))

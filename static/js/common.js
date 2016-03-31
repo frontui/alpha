@@ -245,6 +245,59 @@ var detectBrowser = (function() {
   return exports;
 })();
 
+/**
+ * 倒计时
+ * @param {object} 小时dom元素
+ * @param {object} 分钟dom元素
+ * @param {object} 秒钟dom元素
+ * @param {Number} 开始时间时间戳
+ * @return {Object}
+ */
+function clockTick(start, callback) {
+  if(!start) return void(0);
+  var args = [].slice.call(arguments);
+  var Handler = {
+    init: function(ss) {
+      //this.hours = h;
+      //this.minutes = m;
+      //this.seconds = s;
+      this.start = ss;
+      this.timer = null;
+
+      this.tick();
+      return this;
+    },
+    tick: function() {
+      var now = new Date(),
+          startTime = this.start,
+          diff = 	startTime - now;
+
+      function loop() {
+        // 秒倒计时
+        diff -= 1000;
+
+        var days = Math.floor(diff / (24 * 60 * 60 * 1000)),
+            h = Math.floor(diff / (60 * 60 * 1000)) - (days * 24),
+            m = Math.floor(diff / (60 * 1000)) - (h * 60) - (days * 24 * 60),
+            s = Math.floor(diff / 1000) - (m * 60) - (h * 60 * 60) - (days * 24 * 60 * 60);
+
+        // 更新时分秒
+        //that.hours.innerHTML = h + days * 24;
+        //that.minutes.innerHTML = m;
+        //that.seconds.innerHTML = s;
+        //console.log(diff);
+        typeof callback === 'function' && callback(days, h, m, s);
+      }
+      this.timer = setInterval(loop, 1000);
+    },
+    stop: function() {
+      clearInterval(this.timer);
+    }
+  };
+
+  return Handler.init.apply(Handler, args);
+}
+
 
 ~(function(root, $) {
 
