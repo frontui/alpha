@@ -615,11 +615,15 @@
                                 </div>
                             </li>
                         </ul>
+                        <div class="display-none" id="j-submit-result">
                             <p class="text-align-center fn-mt-20">亲爱的用户，请务必在 <b class="warning-FontColor" id="j-hours">48</b> 小时 <b id="j-minutes" class="warning-FontColor">00</b> 分 <b id="j-seconds" class="warning-FontColor">00</b> 秒完成打款。</p>
                             <p class="text-align-center fn-mt-20">
                                 <a href="01账户总览.html" class="btn primary">返回账户总览</a>
                             </p>
-
+                        </div>
+                        <p class="text-align-center fn-mt-30">
+                            <a href="javascript:void(0);" class="btn primary" id="j-submit-btn">确认并提交</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -666,22 +670,23 @@
           $('#account').focus();
       })
 
-
-    //   倒计时
-
-    $(function() {
-      // 倒计时
-      // todo: test
-      // 绑定倒计时
-      var dd = new Date().valueOf() + 24 * 2 * 60 * 60 * 1000;
-      var ck = clockTick(dd, function(d, h, m, s){
-        // 小时
-        $('#j-hours').html(h + d * 24);
-        // 分钟
-        $('#j-minutes').html(m);
-        // 秒钟
-        $('#j-seconds').html(s);
-      });
+    // 确认提交
+    $(document).on('click', '#j-submit-btn', function() {
+        // todo:ajax-callback
+        // 显示倒计时
+        $('#j-submit-result').show();
+        // 隐藏当前按钮
+        $(this).parent().hide();
+        // 绑定倒计时，从后台传过来时间戳
+        var dd = new Date().valueOf() + 24 * 2 * 60 * 60 * 1000;
+        var ck = clockTick(dd, function(d, h, m, s){
+            // 小时
+            $('#j-hours').html(h + d * 24);
+            // 分钟
+            $('#j-minutes').html(m);
+            // 秒钟
+            $('#j-seconds').html(s);
+        });
     })
 
     // 账户总览点查看跳过来自动弹层
