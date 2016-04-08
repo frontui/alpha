@@ -268,25 +268,34 @@ function clockTick(start, callback) {
       return this;
     },
     tick: function() {
-      var now = new Date(),
+      var self = this,
+          now = new Date(),
           startTime = this.start,
           diff = 	startTime - now;
 
       function loop() {
+
         // 秒倒计时
         diff -= 1000;
 
-        var days = Math.floor(diff / (24 * 60 * 60 * 1000)),
-            h = Math.floor(diff / (60 * 60 * 1000)) - (days * 24),
-            m = Math.floor(diff / (60 * 1000)) - (h * 60) - (days * 24 * 60),
-            s = Math.floor(diff / 1000) - (m * 60) - (h * 60 * 60) - (days * 24 * 60 * 60);
+        if(diff <= 0) {
+          typeof callback === 'function' && callback(-1);
+          clearInterval(self.timer)
+        } else {
+          var days = Math.floor(diff / (24 * 60 * 60 * 1000)),
+              h = Math.floor(diff / (60 * 60 * 1000)) - (days * 24),
+              m = Math.floor(diff / (60 * 1000)) - (h * 60) - (days * 24 * 60),
+              s = Math.floor(diff / 1000) - (m * 60) - (h * 60 * 60) - (days * 24 * 60 * 60);
 
-        // 更新时分秒
-        //that.hours.innerHTML = h + days * 24;
-        //that.minutes.innerHTML = m;
-        //that.seconds.innerHTML = s;
-        //console.log(diff);
-        typeof callback === 'function' && callback(days, h, m, s);
+          // 更新时分秒
+          //that.hours.innerHTML = h + days * 24;
+          //that.minutes.innerHTML = m;
+          //that.seconds.innerHTML = s;
+          //console.log(diff);
+          typeof callback === 'function' && callback(days, h, m, s);
+        }
+
+
       }
       this.timer = setInterval(loop, 1000);
     },

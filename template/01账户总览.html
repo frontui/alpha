@@ -15,7 +15,7 @@
     {{ Alert.verify('广东长江服务有限公司',  link='05账户管理企业_企业验证1.html') }}
     {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请正在审核中，请耐心等待。') }}
     {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请不通过，原因：银行对账账户不一致，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证</a>。') }}
-	{{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交了线下申请，请在 <b class="warning-FontColor" id="j-hours">47</b> 小时 <b class="warning-FontColor" id="j-minutes">22</b> 分 <b class="warning-FontColor" id="j-seconds">10</b> 秒完成指定打款 <a href="06公共页面-收银台-收银台验证.html?do=view" class="link-standard pull-right">查看</a>') }}
+	{{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交了线下申请<span id="result-txt">，请在 <b class="warning-FontColor" id="j-hours">47</b> 小时 <b class="warning-FontColor" id="j-minutes">22</b> 分 <b class="warning-FontColor" id="j-seconds">10</b> 秒完成指定打款 <a href="#ebankModal-2" data-toggle="modal" class="link-standard pull-right">查看</a></span>') }}
 
   {# 公告 #}
   {{ Alert.loading(text='<a href="公告内容.html" class="link-standard">关于部分银行停止B2B通道公告</a>') }}
@@ -236,6 +236,91 @@
             </tr>
 		</tbody>
 	</table>
+
+
+<!-- 对公账号 -->
+<div class="modal-background fade display-none" id="ebankModal-2" role="dialog">
+	<div class="modal-layer">
+		<div class="modal-position">
+			<div class="modal-wrap" style="width:750px;">
+				<div class="modal-head">
+					申请提交进度
+					<button class="modal-close" title="关闭">
+						<i></i>
+					</button>
+				</div>
+				<div class="modal-body" style="padding: 25px">
+					<div class="pay-modal">
+						<div class="pay-modal-header">
+							请尽快通过您的对公账户向中金支付有限公司客户备付金账户完成小额打款验证。
+						</div>
+						<ul>
+							<li class="pay-modal-ul-l">
+								<h2>您的对公账户</h2>
+								<div class="pay-modal-box">
+									<dl class="pay-modal-item">
+										<dt>银&emsp;&emsp;行：</dt>
+										<dd>
+											<div class="bank-wrap">
+												<span class="bank-icon icon-cmb" title="招商银行"></span>
+												<span>招商银行</span>
+											</div>
+										</dd>
+										<dt>
+											账户名称：
+										</dt>
+										<dd>加多宝有限责任公司</dd>
+										<dt>
+											对公账户：
+										</dt>
+										<dd>1589 9971 5022 990
+										</dd>
+										<dt>开户省市：</dt>
+										<dd>广东省/广州市</dd>
+										<dt>开户支行：</dt>
+										<dd>广州市白云大道支行</dd>
+									</dl>
+								</div>
+							</li>
+							<li class="pay-modal-ul-arrow">
+								<i class="icon-chevron-thin-right"></i>
+								<i class="icon-chevron-thin-right b"></i>
+							</li>
+							<li class="pay-modal-ul-r">
+								<h2>收款账户</h2>
+								<div class="pay-modal-box">
+									<dl class="pay-modal-item">
+										<dt>银&emsp;&emsp;行：</dt>
+										<dd>
+											<div class="bank-wrap">
+												<span class="bank-icon icon-cmb" title="招商银行"></span>
+												<span>招商银行</span>
+											</div>
+										</dd>
+										<dt>
+											账户名称：
+										</dt>
+										<dd>中金支付有限公司客户备付金</dd>
+										<dt>
+											对公账户：
+										</dt>
+										<dd class="error-FontColor1">1312 4432 3434 559
+										</dd>
+										<dt>开&nbsp;&nbsp;户&nbsp;行：</dt>
+										<dd>北京分行宣武门支行</dd>
+										<dt>打款金额：</dt>
+										<dd><b class="error-FontColor1">0.1</b> 元（只要0.1）</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
 
 {% block jsPage %}
@@ -244,14 +329,19 @@
 		// 倒计时
 		// todo: test
 		// 绑定倒计时
-		var dd = new Date().valueOf() + 24 * 2 * 60 * 60 * 1000;
+		var dd = new Date().valueOf() + 2000;
 		var ck = clockTick(dd, function(d, h, m, s){
-			// 小时
-			$('#j-hours').html(h + d * 24);
-			// 分钟
-			$('#j-minutes').html(m);
-			// 秒钟
-			$('#j-seconds').html(s);
+
+			if(d === -1) {
+				$('#result-txt').html('不通过，原因：处理超时，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证。</a>');
+			} else {
+				// 小时
+				$('#j-hours').html(h + d * 24);
+				// 分钟
+				$('#j-minutes').html(m);
+				// 秒钟
+				$('#j-seconds').html(s);
+			}
 		});
 	})
 </script>
