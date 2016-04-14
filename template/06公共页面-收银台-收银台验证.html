@@ -475,32 +475,6 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                      <!-- todo: v3.4 删除 -->
-                      <!--<p>-->
-                        <!--请登录xx银行企业网银或客服端，通过您的对公账户：<strong>1239 0920 1320 089</strong>-->
-                        <!--<a href="##" class="link-standard fn-pl-10 modal-close" title="关闭">修改</a>-->
-                      <!--</p>-->
-                      <!--<p class="fn-mb-10">向下方账户支付一笔小额金额进行验证：</p>-->
-                      <!--<table class="table inverse fn-mt-10 fn-mb-10">-->
-                        <!--<thead>-->
-                        <!--<tr>-->
-                          <!--<th>银行</th>-->
-                          <!--<th>账户名称</th>-->
-                          <!--<th>对公账户</th>-->
-                          <!--<th>开户行</th>-->
-                          <!--<th>金额（元）</th>-->
-                        <!--</tr>-->
-                        <!--</thead>-->
-                        <!--<tbody>-->
-                        <!--<tr>-->
-                          <!--<td>招商银行</td>-->
-                          <!--<td>中金支付有限公司客服备付金</td>-->
-                          <!--<td>120909301510603</td>-->
-                          <!--<td>北京分行宣武门分行</td>-->
-                          <!--<td>0.10</td>-->
-                        <!--</tr>-->
-                        <!--</tbody>-->
-                      <!--</table>-->
                         <p>
                             请您在新打开的页面上完成支付，操作未完成请不要关闭此页面。
                         </p>
@@ -536,7 +510,7 @@
                     <div class="pay-modal">
                         <div class="pay-modal-header">
                             请登录登录XX银行企业网银或客户端，并通过您的对公账户向下方备付金账户支付一笔小额金额进行验证。
-                            验证完成后我们会退回该笔金额到您的对公账户哦。
+                            验证完成后我们会退回该笔金额到您的对公账户。
                         </div>
                         <ul>
                             <li class="pay-modal-ul-l">
@@ -596,7 +570,7 @@
                                         <dt>开&nbsp;&nbsp;户&nbsp;行：</dt>
                                         <dd>北京分行宣武门支行</dd>
                                         <dt>打款金额：</dt>
-                                        <dd><b class="error-FontColor1">0.1</b> 元（只要0.1）</dd>
+                                        <dd><b class="error-FontColor1">0.1</b> 元</dd>
                                     </dl>
                                     <p class="text-align-right">
                                         &nbsp;
@@ -605,7 +579,6 @@
                             </li>
                         </ul>
                         <div class="display-none" id="j-submit-result">
-                            <p class="text-align-center fn-mt-20">亲爱的用户，请务必在 <b class="warning-FontColor" id="j-hours">48</b> 小时 <b id="j-minutes" class="warning-FontColor">00</b> 分 <b id="j-seconds" class="warning-FontColor">00</b> 秒完成打款。</p>
                             <p class="text-align-center fn-mt-20">
                                 <a href="01账户总览.html" class="btn primary">返回账户总览</a>
                             </p>
@@ -667,7 +640,7 @@
         // 隐藏当前按钮
         $(this).parent().hide();
         // 绑定倒计时，从后台传过来时间戳
-        var dd = new Date().valueOf() + 24 * 2 * 60 * 60 * 1000;
+        /*var dd = new Date().valueOf() + 24 * 2 * 60 * 60 * 1000;
         var ck = clockTick(dd, function(d, h, m, s){
             // 小时
             $('#j-hours').html(h + d * 24);
@@ -675,7 +648,7 @@
             $('#j-minutes').html(m);
             // 秒钟
             $('#j-seconds').html(s);
-        });
+        });*/
     })
 
     // 账户总览点查看跳过来自动弹层
