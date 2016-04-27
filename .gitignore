@@ -26,6 +26,9 @@ _thirdPart
 static/css
 static/css/
 
+css
+css/
+
 *.exe
 #*svn.json
 
