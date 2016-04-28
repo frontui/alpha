@@ -501,6 +501,52 @@ function clockTick(start, callback) {
             !!$prevPanel.length && $prevPanel.hide();
           }
         });
+      },
+      // 格式化银行卡
+      formatCard: function() {
+        /**
+         * 卡号格式化
+         * - 4位数字一个空格
+         * @param str
+           */
+        function convertBankCard(str) {
+          return str.replace(/\d{4}/g, function(match) {
+            return match + '&emsp;';
+          });
+        }
+
+        /**
+         * 格式化动作
+         */
+        var format = function() {
+          var that = $(this), thisVal = $.trim(that.val());
+          var $target = that.next('.format-card');
+          // 清空文本框时
+          if(thisVal === ''){
+            $target.html('').hide();
+            return;
+          }
+          // 新添加元素
+          if(!$target.length){
+            $target = $('<div class="format-card fn-mt-10"></div>');
+            that.after($target);
+          }
+
+          // 显示格式化后的内容
+          $target.show().html('您输入的卡号：<b class="warning-FontColor">'+ convertBankCard(thisVal)+'</b>');
+        };
+
+        // 限制数字
+        var limit = function(e) {
+          if(!(e.which >= 48 && e.which <= 57 || (e.which >= 37 && e.which <= 40) || e.which == 8)) {
+            return false;
+          }
+        };
+
+        // 事件代理
+        $(document).on('keyup.formatCard', '[data-toggle="formatCard"]', format)
+        // 限制输入数字
+        $(document).on('keydown.formatCard', '[data-toggle="formatCard"]', limit)
       }
     };
 
