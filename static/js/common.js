@@ -521,8 +521,10 @@ function clockTick(start, callback) {
         var format = function() {
           var that = $(this), thisVal = $.trim(that.val());
           var $target = that.next('.format-card');
+          that.val(that.val().replace(/[^0-9]/g, ""));
+          var thisVal = $.trim(that.val());
           // 清空文本框时
-          if(thisVal === ''){
+          if(thisVal === '' || thisVal != +thisVal){
             $target.html('').hide();
             return;
           }
@@ -538,7 +540,7 @@ function clockTick(start, callback) {
 
         // 限制数字
         var limit = function(e) {
-          if(!(e.which >= 48 && e.which <= 57 || (e.which >= 37 && e.which <= 40) || e.which == 8)) {
+          if(!((e.which >= 48 && e.which <= 57) || (e.which >= 96 && e.which <= 105) || (e.which >= 37 && e.which <= 40) || e.which == 8)) {
             return false;
           }
         };
