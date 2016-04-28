@@ -530,12 +530,12 @@ function clockTick(start, callback) {
           }
           // 新添加元素
           if(!$target.length){
-            $target = $('<div class="format-card fn-mt-10"></div>');
+            $target = $('<div class="format-card"></div>');
             that.after($target);
           }
 
           // 显示格式化后的内容
-          $target.show().html('您输入的卡号：<b class="warning-FontColor">'+ convertBankCard(thisVal)+'</b>');
+          $target.show().html('<b class="warning-FontColor">'+ convertBankCard(thisVal)+'</b>');
         };
 
         // 限制数字
@@ -545,10 +545,18 @@ function clockTick(start, callback) {
           }
         };
 
+        // 是否显示银行卡提示
+        var show = function(e) {
+          var $target = $(this).next('.format-card');
+          $target.length && $target[e.type === 'focusin' ? 'show' : 'hide']();
+        };
+
         // 事件代理
         $(document).on('keyup.formatCard', '[data-toggle="formatCard"]', format)
         // 限制输入数字
         $(document).on('keydown.formatCard', '[data-toggle="formatCard"]', limit)
+
+        $(document).on('focus.formatCard blur.formatCard','[data-toggle="formatCard"]', show)
       }
     };
 
