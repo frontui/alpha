@@ -226,7 +226,6 @@ a {
   vertical-align: middle;
   border: 2px solid #fff;
   border-radius: 50%;
-  background: url("../images/shadow.png") no-repeat top left;
 }
 .frame-profile-info {
   position: relative;
