@@ -38,7 +38,16 @@
 						</label>
 
 						<div class="form-control-wrap">
-							<div class="form-control-data"><span>XXX有限公司</span></div>
+							<div class="form-control-data">
+								<span id="companyName">XXX(广东)有限公司</span>
+								<!-- <div class="form-control-wrap select-company-name">
+								 	<p>请确认您的账户名称，注意账户名中括号的中英文输入</p> 
+	 							      <div class="form-control-check"> 
+	 							         <label><input type="radio" name="companyName"/>XXX(广东)有限公司</label>
+	 							         <label><input type="radio" name="companyName"/>XXX（广东）有限公司</label> 
+	 							      </div> 
+	 							   </div> --> 
+							</div>
 						</div>
 					</div>
 					{# 账户余额 #}
@@ -378,6 +387,31 @@
 
 		$(document).ready(pageInit)
 	})( jQuery );
+
+	var setCompanyName = function() {
+		var $id =  $("#companyName");
+		var cpN = $id.text();
+		if(cpN.indexOf("(") > 0 || cpN.indexOf("（") > 0) {
+			$id.after('<div class="form-control-wrap select-company-name"><p>请确认您的账户名称，注意账户名中括号的中英文输入</p> <div class="form-control-check"> <label><input type="radio" name="companyName"/><i></i></label><label><input type="radio" name="companyName"/><i></i></label></div></div>')
+			if(cpN.indexOf("(") > 0) {
+				$($id.siblings('.select-company-name').find("label")[0]).find("i").text(cpN);
+				var newcpN= cpN.replace("(", "（").replace(")", "）");
+				$($id.siblings('.select-company-name').find("label")[1]).find("i").text(newcpN);
+			$($id.siblings('.select-company-name').find("label")[0]).find("input").attr("checked",'true');
+			} else {
+				$($id.siblings('.select-company-name').find("label")[1]).find("i").text(cpN);
+				var newcpN= cpN.replace("（", "(").replace("）", ")");
+				$($id.siblings('.select-company-name').find("label")[0]).find("i").text(newcpN);
+			$($id.siblings('.select-company-name').find("label")[1]).find("input").attr("checked",'true');
+			}
+		}
+		$id.siblings('.select-company-name').find("input:radio").on("click",function(){
+			$("#companyName").text($(this).siblings("i").text());
+			$id.siblings('.select-company-name').modal('hide');
+		});
+	};
+	setCompanyName();
+	
 </script>
 {% endblock %}
 
