@@ -1,0 +1,192 @@
+{% extends "_layout/wrapper.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{static}}/js/bootstrap-calendar/css/calendar.min.css">
+{% endblock %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+      <a href="01账户总览_收支明细.html">收支明细 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+    <li>
+      下载账单
+    </li>
+	</ol>
+
+	<div class="tables-title heading-FontColor fn-mb-10">
+		收支明细
+		<div class="table-title-btns">
+			<a href="01账户总览.html">返回 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+
+	<!-- 搜索过滤 -->
+  <form action="##" id="search-form" method="post" class="form-frame form-frame-filter fn-mb-20">
+  <div class="form-layer-gray-box">
+    <div class="form-group">
+      <label class="form-control-label">
+        <span>业务类型</span><em>：</em>
+      </label>
+      <div class="form-control-wrap">
+        <div class="form-control-check">
+          <label><input type="checkbox" name="type" checked />全部</label>
+          <label><input type="checkbox" name="type" />充值</label>
+          <label><input type="checkbox" name="type" />提现</label>
+          <label><input type="checkbox" name="type" />收款</label>
+          <label><input type="checkbox" name="type" />付款</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-control-label">
+        <span>账单格式</span><em>：</em>
+      </label>
+      <div class="form-control-wrap">
+        <div class="form-control-check" data-toggle="switcher" data-keep="true" data-item=".filter-check-item">
+          <label class="filter-check-item active"><input type="radio" name="format" checked /> txt</label>
+          <label class="filter-check-item"><input type="radio" name="format" />Xls</label>
+          <label class="filter-check-item"><input type="radio" name="format" />Cvs</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-control-label">
+        <span>日期类型</span><em>：</em>
+      </label>
+      <div class="form-control-wrap">
+        <div class="form-control-check" data-toggle="switcher" data-keep="true" data-item=".filter-check-item">
+          <label class="filter-check-item active"  data-calendar-view="month"><input type="radio" name="bill_type" checked /> 日账单</label>
+          <label class="filter-check-item" data-calendar-view="year"><input type="radio" name="bill_type" />月账单</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+	{# 下载账单 #}
+  <div class="section-title fn-mb-15 fn-pr-20 text-align-right">
+    <a href="javascript:void(0);" data-calendar-nav="prev" class="btn small-btn default btn-auto"><i class="icon-chevron-thin-left"></i></a>
+    <span class="fn-ml-10 fn-mr-10" id="calendar-title"></span>
+    <a href="javascript:void(0);"  data-calendar-nav="next" class="btn small-btn default btn-auto"><i class="icon-chevron-thin-right"></i></a>
+  </div>
+
+
+  <!-- 日历控件 -->
+  <div id="calendar" class="fn-mb-20"></div>
+  <div class="alert alert-warning alert-files">
+    <i class="icon-browser"></i>
+    <div class="alert-body clearfix">
+      [用户名] 财务明细清单 (201601)
+      <a href="javascript:void(0);" class="btn small-btn primary pull-right btn-auto"><i class="icon-arrow-small-down fs-28"></i> 下载暂存区</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block jsPage %}
+<script src="{{ bower_components }}/underscore/underscore-min.js"></script>
+<script src="{{static}}/js/bootstrap-calendar/js/calendar.js"></script>
+<script src="{{static}}/js/bootstrap-calendar/js/language/zh-CN.js"></script>
+<script>
+  $(function() {
+    // 过滤表单
+    var $searchForm = $('#search-form');
+    // 日历控件
+    var calendar = $("#calendar").calendar(
+      {
+        language: 'zh-CN',
+        view: 'month',
+        // 禁止下拉显示事件
+        unslider: true,
+        // 当前日期
+        // day: '2016-05-31',
+        tmpl_cache: false,
+        // 视图模板
+        tmpl_path: "{{ bower_components }}/bootstrap-calendar/tmpls/",
+        onAfterEventsLoad: function(events) {
+          //console.log(events)
+        },
+        onAfterViewLoad: function() {
+          // 切换时改变时间
+          $('#calendar-title').html(this.getTitle());
+        },
+        // api 接口 => function 或者 url
+        // [
+        //  "success": 1,
+        //  "result": {
+        //      type: 0 - 本日无收支 | 1-账单未生成 | 2 - 下载账单
+        //      start: 开始时间(时间戳)
+        //      end: 结束时间(时间戳)
+        //    }
+        // ]
+        // 内部错误=>{"error": "内部错误"}
+        events_source: '{{ static }}/mock_data/calendar.json',
+        views: {
+          // 禁止每天详细
+          day: {
+            enable: false
+          }
+        }
+      });
+
+      /**
+       *  切换查看条件
+       *  业务类型,账单格式,日期类型
+       */
+    function changeView () {
+        var query_string = $searchForm.serialize();
+        calendar.setOptions({ events_source: '{{ static }}/mock_data/calendar.json?'+ query_string });
+        calendar.view();
+    }
+
+    // 日-月切换
+    $('[data-toggle="switcher"]').on('select.ui.switcher', function(e) {
+      var $target = $(e.relatedTarget),
+          view = $target.data('calendar-view');
+
+      if(view) { // 日月
+        $target && calendar.view(view);
+      } else { // 账单格式
+        changeView();
+      }
+    });
+
+    // 业务类型切换
+    $searchForm.on('click', ':checkbox', changeView);
+
+    // 上下切换
+    $(document).on('click', '[data-calendar-nav]', function() {
+      var $this = $(this);
+      calendar.navigate($this.data('calendar-nav'));
+    });
+
+    // 下载账单
+    $(document).on('click', '.j-download', function(ev) {
+      ev.preventDefault();
+      // 获取当前日期
+      var date = $(this).data('cal-date'),
+          cnDate = date.length > 7 ? date.replace(/(\d{4})-(\d{1,2})-(\d{1,2})/g, '$1年$2月$3日') : date.replace(/(\d{4})-(\d{1,2})/g, '$1年$2月');
+
+      $.confirmModalLayer({
+        title: '您要下载 '+ cnDate + ' 账单吗?请确认操作.',
+        callback: function(){ // 链接直接用link
+          // 下载
+          console.log(date);
+        }
+      });
+
+    });
+  });
+</script>
+{% endblock %}
+
+

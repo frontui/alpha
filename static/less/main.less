@@ -62,6 +62,44 @@
   margin-left: -4px;
 }
 
+.vert-m {
+  vertical-align: middle;
+}
+
+.btn {
+  &-auto {
+    padding: 0 .5em;
+    width: auto;
+  }
+
+  > i {
+    .vert-m;
+  }
+}
+
+.alert {
+  &.alert-files {
+    line-height: 30px;
+
+    > i {
+      top: 18px;
+      &::before {
+        content: '\e607';
+        color: @default-FontColor;
+      }
+    }
+  }
+}
+
+// layout
+.row {
+  .clearfix;
+  width: 100%;
+}
+.col-md-3 {
+  width: 25%;
+}
+
 //
 // --- 账户资料
 //
@@ -487,3 +525,33 @@
     color: @domColor1;
   }
 }
+
+
+// calendar start------
+#calendar {
+  .event {
+    &.link-standard {
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
+      box-shadow: none;
+    }
+  }
+  .has-event {
+    .clearfix;
+    height: 60px;
+    background: #faece1;
+  }
+  .cal-month-day {
+    &.has-event {
+      .has-event;
+      height: 100px;
+    }
+  }
+}
+
+#cal-day-tick {
+  display: ~'none!important';
+}
+// calendar end -----

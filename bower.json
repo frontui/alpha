@@ -1,7 +1,10 @@
 {
   "name": "bms_3v3",
   "version": "3.1.0",
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap-calendar": "^0.2.5",
+    "underscore": "^1.8.3"
+  },
   "devDependencies": {
     "frontui": "~1.1.4",
     "jquery": "^1",
