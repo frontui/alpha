@@ -84,7 +84,7 @@
   <!-- 日历控件 -->
   <div id="calendar" class="fn-mb-20"></div>
   <div class="alert alert-warning alert-files">
-    <i class="icon-browser"></i>
+    <span class="icon-browser"></span>
     <div class="alert-body clearfix">
       [用户名] 财务明细清单 (201601)
       <a href="javascript:void(0);" class="btn small-btn primary pull-right btn-auto"><i class="icon-arrow-small-down fs-28"></i> 下载暂存区</a>
@@ -93,7 +93,7 @@
 {% endblock %}
 
 {% block jsPage %}
-<script src="{{ bower_components }}/underscore/underscore-min.js"></script>
+<script src="{{ bower_components }}/underscore/underscore-min.js?v={{ version }}"></script>
 <script src="{{static}}/js/bootstrap-calendar/js/calendar.js"></script>
 <script src="{{static}}/js/bootstrap-calendar/js/language/zh-CN.js"></script>
 <script>
@@ -111,7 +111,7 @@
         // day: '2016-05-31',
         tmpl_cache: false,
         // 视图模板
-        tmpl_path: "{{ bower_components }}/bootstrap-calendar/tmpls/",
+        tmpl_path: "{{ static }}/js/bootstrap-calendar/tmpls/",
         onAfterEventsLoad: function(events) {
           //console.log(events)
         },

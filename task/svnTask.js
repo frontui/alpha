@@ -24,14 +24,14 @@ module.exports = function svnTask(banner) {
       return gulp.src(['./'+ config.destPath + '/**/**.html'])
               //.pipe($.changed(svn.path))
               .pipe($.replace(/\/static/g, './static'))
-              .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.]+\.js)(.*)"/g, '"'+ config.staticPath +'/js/$3$4"'))
+              .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.-]+\.js)(.*)"/g, '"'+ config.staticPath +'/js/$3$4"'))
               //.pipe(gulp.dest(svn.path))
               .pipe(gulp.dest(tmpPath))
   });
 
   // 拷贝
   gulp.task('svnCopy', function(){
-      return gulp.src([config.staticPath + '/iconfont/**/**', config.staticPath + '/iconfont-ie7/**/**'], {base: 'client'})
+      return gulp.src([config.staticPath + '/iconfont/**/**', config.staticPath + '/iconfont-ie7/**/**', config.staticPath + '/js/bootstrap-calendar/**/**', config.staticPath + '/mock_data/**/**'], {base: 'client'})
           .pipe($.changed(svn.staticPath))
           //.pipe(gulp.dest(svn.staticPath))
           .pipe(gulp.dest(tmpPath + svn.staticPath))
@@ -50,7 +50,7 @@ module.exports = function svnTask(banner) {
 
   // js
   gulp.task('svnJs', function(){
-      return gulp.src([config.staticPath+'/js/**/**.js'], {base: 'client'})
+      return gulp.src([config.staticPath+'/js/**/**.js', '!'+ config.staticPath +'/js/bootstrap-calendar/**/**'], {base: 'client'})
           .pipe($.plumber( { errorHandler: Lib.errHandler } ))
           .pipe($.changed(svn.staticPath))
           //.pipe($.uglify({mangle: false}))

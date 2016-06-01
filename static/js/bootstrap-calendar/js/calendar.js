@@ -4,6 +4,13 @@
  * https://github.com/Serhioromano/bootstrap-calendar
  *
  * User: Sergey Romanov <serg4172@mail.ru>
+ *
+ * modify by tommyshao
+ * 2016-05-31
+ *
+ * 1. 修改模板
+ * 2. 禁止每天明细
+ * 3. 去除tooltips
  */
 "use strict";
 
@@ -1007,7 +1014,8 @@ if(!String.prototype.formatNum) {
 
 		//$('*[data-toggle="tooltip"]').tooltips({container: this.options.tooltip_container});
 
-		$('*[data-cal-date]').click(function() {
+		// 禁止点击切换到下一层
+		/*$('*[data-cal-date]').click(function() {
 			var view = $(this).data('cal-view');
 			self.options.day = $(this).data('cal-date');
 			self.view(view);
@@ -1016,7 +1024,7 @@ if(!String.prototype.formatNum) {
 			var view = $('[data-cal-date]', this).data('cal-view');
 			self.options.day = $('[data-cal-date]', this).data('cal-date');
 			self.view(view);
-		});
+		});*/
 
 		this['_update_' + this.options.view]();
 

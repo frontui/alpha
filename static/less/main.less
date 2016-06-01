@@ -81,12 +81,11 @@
   &.alert-files {
     line-height: 30px;
 
-    > i {
+    > span {
+      position: absolute;
+      left: 15px;
       top: 18px;
-      &::before {
-        content: '\e607';
-        color: @default-FontColor;
-      }
+      font-size: 24px;
     }
   }
 }
@@ -551,7 +550,8 @@
   }
 }
 
-#cal-day-tick {
+#cal-day-tick,
+#cal-week-box {
   display: ~'none!important';
 }
 // calendar end -----
