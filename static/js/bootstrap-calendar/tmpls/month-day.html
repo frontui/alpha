@@ -9,7 +9,7 @@
         <% }else if(event.type === 1){ %>
 				  <a href="javascript:void(0);" class="pull-left event link-standard <%= event['class'] %>">账单未生成</a>
          <% } else if(event.type === 2) {%>
-          <a href="javascript:void(0);" class="pull-left event link-standard <%= event['class'] %> j-download" data-cal-date="<%= data_day %>"><i class="icon-arrow-small-down fs-28 vert-m"></i> 下载账单</a>
+          <a href="#download-file" data-toggle="smooth-scroll" class="pull-left event link-standard <%= event['class'] %> j-download" data-cal-date="<%= data_day %>"><i class="icon-arrow-small-down fs-28 vert-m"></i> 下载账单</a>
          <%}%>
 			<% }); %>
 		</div>
