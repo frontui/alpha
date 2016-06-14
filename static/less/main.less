@@ -558,3 +558,27 @@
   display: ~'none!important';
 }
 // calendar end -----
+
+
+// -----
+// 多平台兼容导航主题
+// -----
+.nav-hover() {
+  background-color: #7b8592;
+  border-bottom-color: darken(#7b8592, 15%);
+}
+.main-nav {
+  > li {
+    &.current {
+      > a {
+        .nav-hover;
+      }
+    }
+
+    > a {
+      &:hover {
+        .nav-hover;
+      }
+    }
+  }
+}
