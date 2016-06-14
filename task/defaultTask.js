@@ -34,10 +34,12 @@ module.exports = function defaultTask(serverRoot) {
   // less
   gulp.task('less', function(){
       return gulp.src([config.staticPath+'/less/**/**.less', '!'+ config.staticPath +'/_**/**', '!'+ config.staticPath + '/**/_*.less'])
-                  .pipe($.plumber( { errorHandler: errHandler } ))
+                  .pipe($.sourcemaps.init())
                   .pipe($.less())
                   .pipe($.autoprefixer())
+                  .pipe($.sourcemaps.write(config.staticPath+'/css'))
                   .pipe(gulp.dest(config.staticPath+'/css'))
+                  .pipe($.plumber( { errorHandler: errHandler } ))
                   .pipe(connect.reload())
   })
 
