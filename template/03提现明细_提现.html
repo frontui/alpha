@@ -385,7 +385,7 @@
 		var $id =  $("#companyName");
 		var cpN = $id.text();
 		if(cpN.indexOf("(") > 0 || cpN.indexOf("（") > 0) {
-			$id.after('<div class="form-control-wrap select-company-name"><p>请确认您的账户名称，注意账户名中括号的中英文输入</p> <div class="form-control-check"> <label><input type="radio" name="companyName"/><i></i></label><label><input type="radio" name="companyName"/><i></i></label></div></div>')
+			$id.after('<div class="form-control-wrap select-company-name"><p>请确认您的账户名称中括号的中英文输入，账户名称确认后不可更改，请谨慎操作！</p> <div class="form-control-check"> <label><input type="radio" name="companyName"/><i></i></label><label><input type="radio" name="companyName"/><i></i></label></div></div>')
 			if(cpN.indexOf("(") > 0) {
 				$($id.siblings('.select-company-name').find("label")[0]).find("i").text(cpN);
 				var newcpN= cpN.replace("(", "（").replace(")", "）");
