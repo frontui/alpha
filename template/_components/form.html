@@ -12,8 +12,8 @@
 {% endmacro %}
 
 {# 卡号输入框 #}
-{% macro bankcard(placeholder='卡号是16-19位数字', tabindex=1) %}
-    <input id="bankcard" placeholder="{{ placeholder }}" tabindex="{{ tabindex }}" type="text" class="form-control"/>
+{% macro bankcard(placeholder='卡号是16-19位数字', tabindex=1, data='') %}
+    <input id="bankcard" type="text" class="form-control" placeholder="{{ placeholder }}" tabindex="{{ tabindex }}" {%if data%}{{data}}{%endif%}/>
 {% endmacro %}
 
 {# 手机号码 #}

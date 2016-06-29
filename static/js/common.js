@@ -307,6 +307,97 @@ function clockTick(start, callback) {
   return Handler.init.apply(Handler, args);
 }
 
+/*
+* 开户行自动辨识
+* @fn autoCompleteBankName
+* @placeholder {string}
+* @return [function]
+* @useage:
+* <input type="text" data-toggle="autoCompleteBankName" data-target="#bankName" />
+* $('[data-toggle="autoCompleteBankName"]').autoCompleteBankName()
+* API:
+* $('[data-toggle="autoCompleteBankName"]').on('hasChanged', function(e, data){ data.value, data.target })
+* 更新视图 $('[data-toggle="autoCompleteBankName"]').trigger('updateView', data)
+*/
+;(function($) {
+  // 扩展银行卡自动完成
+  $.extend($.fn, {
+    autoCompleteBankName: function(placeholder) {
+      var that = $(this),
+          // 更新视图
+          updateView = function(el, data) {
+            // 符合银行信息配置{icon: 'icbc', text: '招商银行'}
+            if(data['icon'] && data['text']) {
+              el.html(
+                '<span class="bank-icon icon-'+ data.icon +'"></span>'
+                +'<span class="form-control-bank-card">'+ data.text +'</span>'
+              )
+            } else {
+              // 占位符
+              el.html(data || placeholder || '请输入银行卡号')
+            }
+          },
+          // 监听数值变化
+          handler = function(event) {
+            var $target = $($(this).attr('data-target')),
+                _Ev = $.Event('hasChanged')
+                value = $.trim($(this).val()).replace(/[^0-9]/g,'');
+            // 开户行不存在
+            if(!$target.length) return;
+            // 非数字
+            if(!onlyNumber(event)) return;
+            // 触发事件
+            $(this).val(value).trigger(_Ev, {value: value, target: $target})
+          },
+          // 更新数据视图
+          update = function(e, data) {
+            var $target = $($(this).attr('data-target'))
+            if(!!$target.length) {
+              updateView($target, data)
+            }
+          },
+          // 只能输入数字
+          onlyNumber = function(e) {
+            var keyCode = e.which;
+            /*if(keyCode == 110 || keyCode == 190) return true;
+            if((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105) || keyCode == 8 || keyCode == 37 || keyCode == 39 || keyCode == 46) {
+              return true;
+            } else {
+              e.preventDefault();
+              return false;
+            }*/
+            //允许按Ctrl, Shift, Tab
+            if (event.ctrlKey || event.shiftKey || keyCode == 9) {
+                return true;
+            }
+
+            if (event.ctrlKey && keyCode == 65) { //Ctrl+A
+                return true;
+            }
+            if(!((e.which >= 48 && e.which <= 57) || (e.which >= 96 && e.which <= 105) || (e.which >= 37 && e.which <= 40) || e.which == 8)) {
+              e.preventDefault();
+              return false;
+            }
+            return true;
+          }
+      // 鼠标键入银行卡
+      that.on('keyup.acb change.acb input.abc', handler)
+      // 限制只能输入[0-9.]
+      that.on('keydown.onlyNumber', onlyNumber)
+      // 更新开户行
+      that.on('updateView', update)
+
+      // 禁止中文输入
+      that.css({'ime-mode':'disabled'})
+    }
+  })
+
+  $(function(){
+    // global plugin initialize
+    $('[data-toggle="autoCompleteBankName"]').autoCompleteBankName();
+  })
+
+})(jQuery);
 
 ~(function(root, $) {
 
