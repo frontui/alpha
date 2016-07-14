@@ -56,7 +56,7 @@
 					</div>
                     <!-- 输入银行卡号后自动根据bin码出现对应开户行信息 -->
 					{# 开户行 #}
-					<div class="form-group" style="*z-index: 2">
+					<div class="form-group display-none" style="*z-index: 2" id="j-bank-wrap">
 						<label class="form-control-label" for="bank">
 							<span>开户行</span>
 							<em>：</em>
@@ -148,14 +148,40 @@
 			{icon: 'tianjinbank', text: '天津银行'},
 		];
 
+
+		// 银行卡号输入框
+		var $bankNo = $('[data-toggle="autoCompleteBankName"]'),
+				$bankWrap = $('#j-bank-wrap');
+		// ---- @todo： demo演示交互代码
+		// 银行卡号输入变化
+		// data{ value, target}
+		//     - value 银行卡号输入的值
+		//     - target 开户行 dom 对象
+		$bankNo.on('hasChanged', function(event, data) {
+			if(data.value.length > 3) {
+				// @todo: 测试，从银行列表中随机获取
+				var n = ~~(Math.random() * bankList.length);
+				var item = bankList[n]
+				$(this).trigger('updateView', item)
+				$bankWrap.show();
+			} else {
+				$bankWrap.hide();
+				//$(this).trigger('updateView', '请输入银行卡号')
+			}
+		})
+		// ---- @todo：开发采取交互方式
 		// 后台异步接口检测
 		var debounce = null;
 		function apiFetch(e, data) {
 			var that = $(this);
 			clearTimeout(debounce);
 			// 卡号小于3位不做变化
-			if(data.value.length < 3) return;
+			if(data.value.length < 3) {
+
+				return;
+			}
 			debounce = setTimeout(function() {
+				$bankWrap.show()
 				// res = {status: 1, data: [], msg: 'success'}
 				// status: 1 - success 0 - fail
 				// data { text: '招行', icon: 'cmb'}
@@ -168,26 +194,6 @@
 				})
 			}, 300)
 		}
-
-
-		// 银行卡号输入框
-		var $bankNo = $('[data-toggle="autoCompleteBankName"]');
-		// ---- @todo： demo演示交互代码
-		// 银行卡号输入变化
-		// data{ value, target}
-		//     - value 银行卡号输入的值
-		//     - target 开户行 dom 对象
-		$bankNo.on('hasChanged', function(event, data) {
-			if(data.value.length > 3) {
-				// @todo: 测试，从银行列表中随机获取
-				var n = ~~(Math.random() * bankList.length);
-				var item = bankList[n]
-				$(this).trigger('updateView', item)
-			} else {
-				$(this).trigger('updateView', '请输入银行卡号')
-			}
-		})
-		// ---- @todo：开发采取交互方式
 		//$bankNo.on('hasChanged', apiFetch); //异步检测方式
 
 	})

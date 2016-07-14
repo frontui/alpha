@@ -345,7 +345,7 @@ function clockTick(start, callback) {
             // 开户行不存在
             if(!$target.length) return;
             // 非数字
-            if(!onlyNumber(event)) return;
+            //if(!onlyNumber(event)) return;
             // 触发事件
             $(this).val(value).trigger(_Ev, {value: value, target: $target})
           },
@@ -381,7 +381,7 @@ function clockTick(start, callback) {
             return true;
           }
       // 鼠标键入银行卡
-      that.on('keyup.acb change.acb input.abc', handler)
+      that.on('keyup.acb change.acb input.acb propertychange.acb', handler)
       // 限制只能输入[0-9.]
       that.on('keydown.onlyNumber', onlyNumber)
       // 更新开户行
