@@ -1,0 +1,259 @@
+{% extends "_layout/casher-frame.html" %}
+
+{# content #}
+{% block content %}
+
+    {# 账单标题区域 #}
+    <div class="casher-bill-topic-wrap casher-bill-topic-wrap-detail">
+        <div class="casher-bill-amount">
+            金额：<span>XX,XXX.XX</span>元
+
+            <div class="casher-bill-dropdown">
+              <a href="javascript:void(0)" class="link-standard" data-toggle="panel" data-target="#detail-order"><span data-text="收起详情">展开详情</span><i class="icon-chevron-thin-down"></i></a>
+            </div>
+        </div>
+        <h4>
+            账户充值：E+账户测试企业名
+        </h4>
+        <h5>
+          请您及时付款，以便订单尽快处理！ 订单号：SHAJ12545788645
+        </h5>
+        <h5>
+            收款方：乐贝婴幼儿产品有限公司
+        </h5>
+    </div>
+    <div id="detail-order" class="casher-bill-order-detail">
+        <p>
+            <span>收货地址：广东广州市番禺区城区市桥街道康乐大街二巷二号</span>
+            <span class="fn-ml-15">收货人：康巧婵 135****5509</span>
+        </p>
+        <p>
+            <span>商品名称：WITHOUT U2016春夏宽松破洞牛仔裤女新款韩版哈伦裤女休闲九分裤</span>
+            <span class="fn-ml-15">浅蓝</span>
+            <span class="fn-ml-15">27</span>
+        </p>
+    </div>
+    <div class="fn-mb-30"></div>
+
+
+    {# tab #}
+    <div class="tabs-wrap type1">
+        <h4 class="tables-title noborder">
+            以下支付方式由钱途互联商务服务有限公司 提供
+        </h4>
+    </div>
+    <div class="tabs-content">
+        <div class="tabs-panel active" id="tc1">
+            <form novalidate>
+            <div class="form-frame" style="border-top: none;">
+                <!-- 账户余额 -->
+                <div class="form-frame-bordered">
+                    <div class="form-layer1">
+                        <div class="form-layer2">
+                            <!-- 账户余额  -->
+                            <div class="form-group" id="panel1">
+                                <label class="form-control-label">
+                                    <!-- @todo:如果余额不足则加上disabled不可用 -->
+                                    <input type="radio" name="pay_type" disabled>
+                                    <span>账户余额
+                                    </span>
+                                    <em>：
+                                    </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-data">
+                                        <strong class="h2 warning-FontColor">14,000.00</strong>&nbsp;元
+                                        &nbsp;&nbsp;
+                                        <!--TODO: 春节期间资金提供暂停 -->
+                                        <!-- if (time > start_time && time < end_time) -->
+                                        <a href="javascript:void(0);" class="link-standard info-FontColor" data-toggle="tooltips" title="系统升级更新暂时无法进行操作，具体见公告信息。">余额不足？立即充值</a>
+                                        <!-- TODO: 正常状态 -->
+                                        <!-- else -->
+                                        <!--<a class="link-standard">余额不足？立即充值</a>-->
+                                        <!-- endif -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快捷支付 -->
+                <div class="form-frame-bordered">
+                    <div class="form-layer1">
+                        <div class="form-layer2">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <!-- @todo:如果余额不足则只能快捷支付,加上checked默认选中 -->
+                                    <input type="radio" nam="pay_type" checked>
+                                    <span>快捷支付</span>
+                                    <em>：</em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-dropdown">
+                                  <span class="form-control-dropdown-btn">
+                                      <i></i>
+                                  </span>
+                                        <div class="form-control-dropdown-value" aria-expanded="false">
+                                            <span class="bank-icon icon-cmb" title="招商银行"></span>
+                                            <span class="form-control-bank-card"> 信用卡&nbsp;&nbsp;1234&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;单笔限额3万</span>
+                                        </div>
+                                        <ul class="form-control-dropdown-menu form-dropdown-menu-bank-gray">
+                                            <li title="">
+                                                <span class="bank-icon icon-icbc" title="工商银行"></span>
+                                                <span class="form-control-bank-card"> 储蓄卡&nbsp;&nbsp;1234&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;单笔限额10万</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="form-control-tools-link" href="06账户管理个人_添加银行卡.html"><b>+</b> 添加银行卡</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-frame-bordered noborder">
+                    <!-- 共用手机验证 -->
+                    <div class="form-layer1">
+                        <div class="form-layer2">
+                            <div class="form-group">
+                                <label class="form-control-label">
+                                    <span>支付手机号码
+                                    </span>
+                                    <em>：
+                                    </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-data">
+                                        135****8886
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="vc">
+                                    <span>验证码 </span>
+                                    <em>： </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <div class="form-control-verify">
+                                        <input type="text" tabindex="1" class="form-control" id="vc" />
+                                        <button class="btn form-control-verify-btn" type="button">
+                                            获取验证码
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="passwordForPay">
+                                    <span>支付密码
+                                    </span>
+                                    <em>：
+                                    </em>
+                                </label>
+                                <div class="form-control-wrap">
+                                    <input type="password" tabindex="1" id="passwordForPay" class="form-control" />
+                                    <a class="form-control-tools-link" tabindex="2">忘记密码</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                                    <button tabindex="1" type="button" class="btn primary"  data-toggle="modal" data-target="#passwordModal ">确认付款</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            </form>
+        </div>
+    </div>
+
+
+<!-- 支付密码错误5次 -->
+<div class="modal-background fade display-none" id="passwordModal" role="dialog">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          提示
+          <button class="modal-close" title="关闭">
+            <i></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="notice-wrap error in-modal">
+            <!-- 连续输入3次提示-->
+            <div class="notice-box">
+              <span class="notice-img"></span>
+              <p class="error-FontColor1 h3 fn-pt-10">
+                <b>您还可输入2次支付密码！</b>
+              </p>
+              <p>如连续错误5次，为保障账户安全会将其锁定。</p>
+            </div>
+            <!-- 连续输入5次提示-->
+            <div class="notice-box" style="display: none">
+              <span class="notice-img"></span>
+              <p class="error-FontColor1 h3">
+                <b>您账户由于支付密码连续错误，已锁定！</b>
+              </p>
+              <p>不可进行提现、交易及安全设置操作，账户将于明日解锁，<br>如有其他疑问，请拨打：<span class="warning-FontColor h3">400-106-6698</span></p>
+            </div>
+          </div>
+          <div class="text-align-center margin-top-40px">
+            <div class="btn-with-viceLink text-align-center plural-btns">
+              <button type="button" class="btn primary" data-dismiss="modal">确认</button>
+              <a href="01账户总览.html" class="btn links">返回账户总览</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 支付确认模态窗 -->
+<div class="modal-background fade display-none" id="ebankModal" role="dialog">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          登录网上银行支付
+          <button class="modal-close" title="关闭">
+            <i></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <p>
+              请您在新打开的页面上完成支付，操作未完成请不要关闭此页面。
+            </p>
+            <ul class="modal-ebank-result-ul unstyled">
+              <li>
+                <i class="icon-check_circle success-FontColor1"></i>
+                支付成功&nbsp;&nbsp;&nbsp;<span class="viceText-FontColor">|</span>&nbsp;&nbsp;&nbsp;您可以：&nbsp;&nbsp;&nbsp;<a href="###" class="btn primary small-btn">查看结果</a>
+              </li>
+              <li>
+                <i class="icon-cancel error-FontColor1"></i>
+                支付失败&nbsp;&nbsp;&nbsp;<span class="viceText-FontColor">|</span>&nbsp;&nbsp;&nbsp;建议您：&nbsp;&nbsp;&nbsp;<a href="###" class="link-standard">其他支付方式</a>&nbsp;&nbsp;&nbsp;<span class="viceText-FontColor">|</span>&nbsp;&nbsp;&nbsp;<a href="###" class="link-standard">查看帮助</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block jsPage %}
+<script>
+
+</script>
+{% endblock %}

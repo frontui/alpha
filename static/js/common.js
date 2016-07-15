@@ -648,6 +648,42 @@ function clockTick(start, callback) {
         $(document).on('keydown.formatCard', '[data-toggle="formatCard"]', limit)
 
         $(document).on('focus.formatCard blur.formatCard','[data-toggle="formatCard"]', show)
+      },
+      panel: function() {
+
+        var toggle = function(e) {
+          var that = $(this),
+              $span = that.find('span'),
+              isOpen = that.data('isOpen'),
+              defaultText = $(this).data('defaultText'),
+              text = $span.text(),
+              $icon = that.find('i'),
+              toggleText = $span.attr('data-text'),
+              $target = $(that.attr('data-target'));
+
+          if(!$target.length) return;
+
+          if(!defaultText) {
+            that.data('defaultText', (defaultText = text));
+          }
+
+          if(isOpen) {
+            $target.slideUp(200);
+            $.support.transition ? that.removeClass('active') : $icon.removeClass('icon-chevron-thin-up');
+            $span.text(defaultText)
+            that.data('isOpen', false)
+          } else {
+            $target.slideDown(400)
+            $.support.transition ? that.addClass('active') : $icon.addClass('icon-chevron-thin-up');
+            $span.text(toggleText)
+            that.data('isOpen', true)
+          }
+
+          e.preventDefault();
+        };
+
+        // 展开更多
+        $(document).on('click.panel', '[data-toggle="panel"]', toggle);
       }
     };
 

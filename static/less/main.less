@@ -582,3 +582,80 @@
     }
   }
 }
+
+// --
+// 收银台增加订单详情
+.casher-bill-topic-wrap{
+  &-detail {
+    margin-bottom: 10px;
+
+    .casher-bill-amount {
+      bottom: auto;
+      top: 15px;
+    }
+
+    .casher-bill-dropdown{
+      text-align: right;
+
+      span {
+        margin-right: 5px;
+      }
+
+      a {
+        display: inline-block;
+        position: relative;
+        padding-right: 16px;
+      }
+      i {
+        position: absolute;
+        top: 3px;
+        right: 0;
+        transition: transform .3s ease-out;
+      }
+
+
+      a.active {
+        i {
+          transform:rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+.casher-bill-order-detail {
+  display: none;
+  padding: 10px 0 20px;
+  border-top: 1px solid @primary-BorderColor;
+  line-height: 1.8;
+}
+
+.noborder{
+  border: ~"none!important";
+}
+
+.form-frame-bordered {
+  margin: 0 50px;
+  border-bottom: 1px solid @primary-BorderColor;
+
+  .form-layer2 {
+    margin-left: -290px;
+  }
+
+  .form-control-label {
+    input[type="radio"] {
+      position: absolute;
+      top: 14px;
+      left: 75px;
+    }
+  }
+}
+
+// 银行列表特殊样式
+// 收银台-付款
+.form-dropdown-menu-bank-gray {
+  .form-control-bank-card{
+    color: @viceText-FontColor;
+    font-size: @smallest-FontSize;
+  }
+}
