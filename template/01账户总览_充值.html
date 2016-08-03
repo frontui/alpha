@@ -57,13 +57,15 @@
 					</div>
 				</div>
             </div>
-			<div class="form-group plain-text">
+			<div class="form-group plain-text display-none" style="padding-bottom:0" id="j-cn-wrap">
 				<label class="form-control-label"><span>金额大写</span><em>：</em></label>
-				<div class="form-control-wrap">
-					<div id="j-cn" class="fn-mb-5">人民币零元整</div>
-					<em class="font-normal viceText-FontColor">注：充值金额不得小于1,000元</em>
+				<div class="form-control-wrap" style="min-height:auto">
+					<div id="j-cn">人民币零元整</div>
 				</div>
 			</div>
+      <div class="form-group plain-text">
+        <em class="font-normal viceText-FontColor">注：充值金额不得小于1,000元</em>
+      </div>
 			<div class="form-btns form-group">
 				<a target="_blank" tabindex="2" href="06公共页面-收银台-收银台（充值）.html" class="btn primary">下一步</a>
 			</div>
@@ -74,5 +76,18 @@
 {% block jsPage %}
 <!-- 金额转繁体大写 -->
 <script src="{{static}}/js/convertTradition.js"></script>
+<script>
+  $(function() {
+    var $cnWrap = $('#j-cn-wrap'),
+        $input = $('[data-toggle="tradition"]'),
+        showText = function() {
+          var isEmpty = $.trim($(this).val()) === '';
+          $cnWrap.toggle(!isEmpty);
+        };
+
+    showText.call($input);
+    $('[data-toggle="tradition"]').on('keyup', showText)
+  })
+</script>
 {% endblock %}
 
