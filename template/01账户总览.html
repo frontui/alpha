@@ -23,8 +23,9 @@
 	<!-- 账户余额 -->
     <div class="data-count-wrap count-wrap-btline data-count-wrap-style1 fn-mb-10">
         <ul class="date-count-ul">
-            <li>
-                <h5>
+            <li style="overflow: inherit;">
+                <h5 style="position: relative;">
+                	<div class="bubble-tip-wrap"><p class="bubble-tip">若您对账户余额有疑问，<br/>请拨打400-106-3398咨询<i></i></p> </div>
 					<span>账户余额：</span>
 					<i class="fs-12 font-normal">上次登录时间：2015.05.25 22:37:34</i>
 				</h5>
@@ -347,6 +348,9 @@
 				$('#j-seconds').html(s);
 			}
 		});
+		$(".bubble-tip-wrap i").on("click",function(){
+			$(".bubble-tip-wrap").remove();
+		})
 	})
 </script>
 {% endblock %}
