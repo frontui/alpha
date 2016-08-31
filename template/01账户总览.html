@@ -331,6 +331,9 @@
 {% block jsPage %}
 <script>
 	$(function() {
+		$(".bubble-tip-wrap i").on("click",function(){
+			$(".bubble-tip-wrap").remove();
+		});
 		// 倒计时
 		// todo: test
 		// 绑定倒计时
@@ -348,9 +351,6 @@
 				$('#j-seconds').html(s);
 			}
 		});
-		$(".bubble-tip-wrap i").on("click",function(){
-			$(".bubble-tip-wrap").remove();
-		})
 	})
 </script>
 {% endblock %}
