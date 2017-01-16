@@ -122,4 +122,5 @@ module.exports = function defaultTask(serverRoot) {
   gulp.task('default', function(){
       gulp.start(['template', 'less', 'server', 'watch'])
   })
+
 }

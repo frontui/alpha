@@ -496,3 +496,12 @@ a {
 .main-frm2 .main-ft-helper {
   margin: 20px 0 0 0;
 }
+.w990 {
+  min-width: 990px;
+}
+.w990 .frame-wrap {
+  width: 990px;
+}
+.w990 .main-ft-inner {
+  width: 990px;
+}

@@ -37,21 +37,21 @@ module.exports = function defaultTask(serverRoot, banner) {
   // 第三方静态文件目录
   var thirdStatic = path.join(serverRoot, 'static', 'thirdPart');
   var thirdSvnPath = svn.path+'/thirdPart';
-  
-  
+
+
   /* 多任务处理函数 */
   var frameworkTask = function(Settings, debug) {
     var tpls = Settings.template;
     //var templates = tpls.join('|').split('|');
     var distPath = path.join(thirdPartDist, Settings.name);
-  
+
     // 要处理的模板，拼接绝对的本地路径
     var templates = [].concat.apply([], tpls);
     //console.log(templates)
     templates = templates.map(function(tpl){
       return config.template + tpl;
     });
-  
+
     // 所有处理模板，使用给第三方框架
     gulp.task('third:updateTemplate', function(next){
       //console.log(templates);
@@ -60,7 +60,7 @@ module.exports = function defaultTask(serverRoot, banner) {
           .pipe($.replace(/casher-frame\.html/g, 'third.html'))
           .pipe(gulp.dest(thirdPart))
     });
-  
+
     // 处理一般页面，有左侧栏
     gulp.task('third:buildTemplate', ['third:updateTemplate'], function(){
       if(tpls[0]){ // 数组第一项
@@ -75,7 +75,7 @@ module.exports = function defaultTask(serverRoot, banner) {
           .pipe(gulp.dest(distPath))
       }
     });
-  
+
     // 处理没有侧边栏页面,比如收银台
     gulp.task('third:buildTemplate-noSide', ['third:buildTemplate'], function(){
       if(tpls[1]){ // 数组第二项
@@ -84,13 +84,13 @@ module.exports = function defaultTask(serverRoot, banner) {
         });
         var data = Settings;
         data.sidebar = false;
-        
+
         return gulp.src(tmpls)
           .pipe(template(data, config))
           .pipe(gulp.dest(distPath))
       }
     });
-  
+
     // 编译第三方框架less
     gulp.task('third:less', function(){
       return gulp.src([thirdStatic+'/less/**/**.less', '!'+ thirdStatic +'/_**/**', '!'+ thirdStatic + '/**/_*.less'])
@@ -99,18 +99,18 @@ module.exports = function defaultTask(serverRoot, banner) {
         .pipe($.autoprefixer())
         .pipe(gulp.dest(thirdStatic+'/css'))
     })
-  
+
     // ------
     // 更新到svn
     gulp.task('third:svnCss', ['third:less'], function(next) {
       //console.log(banner);
-  
+
         return gulp.src(thirdStatic+'/css/**/**.css', {base: 'client'})
                   .pipe($.minifyCss({compatibility: 'ie7'}))
                   .pipe($.header(banner, { pkg: pkg}))
                   .pipe(gulp.dest(thirdSvnPath));
     });
-  
+
     gulp.task('third:svnJs',  function(next) {
       return gulp.src(thirdStatic+'/js/**/**.js', {base: 'client'})
         .pipe($.plumber( { errorHandler: errHandler } ))
@@ -119,14 +119,14 @@ module.exports = function defaultTask(serverRoot, banner) {
         .pipe($.header(banner, { pkg: pkg}))
         .pipe(gulp.dest(thirdSvnPath));
     });
-  
+
     gulp.task('third:svnTemplate', ['third:buildTemplate-noSide'],  function(next) {
       return gulp.src(distPath+'/**/**.html')
         .pipe($.replace(/\/static/g, '../../static'))
         .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.]+\.js)(.*)"/g, '"../../static/js/$3$4"'))
         .pipe(gulp.dest(svn.path + '/thirdPart/' + Settings.name));
     });
-  
+
     gulp.task('third:svnImage', function(next) {
       return gulp.src(thirdStatic+'/images/**/**', {base: 'client'})
         .pipe($.plumber( { errorHandler: errHandler } ))
@@ -139,24 +139,24 @@ module.exports = function defaultTask(serverRoot, banner) {
       )
         .pipe(gulp.dest(thirdSvnPath));
     });
-  
+
     // 启动服务进行调试
     gulp.task('third:server', ['third:svnCss', 'third:buildTemplate-noSide'], function(){
       connect.server({
         root: serverRoot,
         port: Settings.port
       });
-  
+
       console.log('server start at: http://localhost:' + Settings.port + '/_thirdPart/'+ Settings.name)
-  
+
       Lib.openURL('http://localhost:' + Settings.port + '/_thirdPart/'+ Settings.name)
     });
-  
+
     gulp.task('third:watch', function(){
       gulp.watch(config.template + '/**/**.html', ['third:buildTemplate-noSide'])
       gulp.watch(thirdStatic+'/less/**/**.less', ['third:svnCss'])
     })
-  
+
     // 清除第三方临时文件夹
     gulp.task('third:clean', ['third:svnCss', 'third:svnImage', 'third:svnJs', 'third:svnTemplate'], function(next){
       del([thirdPart, thirdPartDist], next);
@@ -164,23 +164,24 @@ module.exports = function defaultTask(serverRoot, banner) {
       //del([thirdPart], next);
       //next();
     });
-  
+
+
     if(debug) {
       gulp.start(['third:server', 'third:watch']);
     } else {
       gulp.start(['third:clean']);
     }
   };
-  
+
   for(var task in config.thirdPart) {
     (function(t){
       gulp.task('third:'+ t, function () {
           frameworkTask(config.thirdPart[t]);
       });
-      
+
       gulp.task('third:'+ t +'-debug', function () {
           frameworkTask(config.thirdPart[t], true);
       });
-    })(task);    
-  }  
+    })(task);
+  }
 }
