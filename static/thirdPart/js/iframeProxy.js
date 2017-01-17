@@ -281,3 +281,30 @@
   root.setIframeHeight = setIframeHeight;
 
 })(window, document);
+
+// 新的 iframe 高度设置方法
+$(function() {
+    var post = function (msg) {
+        parent.postMessage(msg, '*');
+    }
+
+    function getStyle ( elem, attr ) {
+        var style = elem.currentStyle? elem.currentStyle : window.getComputedStyle(elem, null);
+        return style[attr];
+    }
+
+    setInterval(function () {
+        var height = 0;
+        var container = document.body.children[0];
+        var mgTop = 0;
+        var childrens = container.children;
+
+        for(var i = 0; i < childrens.length; i++) {
+            mgTop = parseInt(getStyle(childrens[i], 'marginTop'), 10);
+            height += childrens[i].offsetHeight;
+            height += parseInt(isNaN(mgTop) ? 0 : mgTop);
+        }
+
+        post( 'frontpay.cn;iframeHeight;' + height);
+    }, 1000);
+});
