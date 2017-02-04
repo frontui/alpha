@@ -1,8 +1,8 @@
-# bms_3v3
+# alpha
 
 ## 简介
 
-用户端3.1
+version beta
 
 ## 快速开始
 
