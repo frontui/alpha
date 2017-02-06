@@ -1,0 +1,48 @@
+/*
+// alpha 项目通用布局
+// --------------------------------------------------
+*/
+
+@charset "utf-8";
+
+
+#layout-alpha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: @bgColor-layout-alpha;
+
+    .alpha-main {
+        position: absolute;
+        top: @height-header-alpha;
+        bottom: 0;
+        width: @width-web-alpha;
+        left: 50%;
+        margin-left: -@width-web-alpha/2;
+    }
+
+    .alpha-body {
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        &-nav-wrap {
+            display: table-cell;
+            vertical-align: top;
+            width: @width-nav-alpha;
+            background-color: @bgColor-nav-alpha;
+        }
+
+        &-content-wrap {
+            display: table-cell;
+            vertical-align: top;
+            background-color: lighten( @bgColor-nav-alpha,20% );
+        }
+
+        &-content-box {
+            padding: 0 0 @paddingSize-public-alpha @paddingSize-public-alpha;
+        }
+    }
+}

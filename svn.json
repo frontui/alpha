@@ -1,5 +1,5 @@
 {
 	"port": "8251",
-	"path": "../../tfs_QianTu/EPlus账户理财版/文档/01_需求/静态页面/bms_v3.1",
+	"path": "../../testStaticOutPut",
 	"staticPath": "/static"
 }
