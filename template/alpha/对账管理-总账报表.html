@@ -9,10 +9,10 @@
             list = [
                 {
                     link: 'javascript:void(0);',
-                    text:'清分管理'
+                    text:'对账管理'
                 },
                 {
-                    text: '清分文件'
+                    text: '总账报表'
                 }
             ]
         )
@@ -22,12 +22,17 @@
         pageTabAlpha.default(
             list = [
                 {
-                    text:'清分文件',
-                    isActive: 1
+                    link: '对账管理-总账报表.html',
+                    text:'总账报表',
+                    isActive:1
                 },
                 {
-                	link: '清分管理-机构清分配置.html',
-                    text: '机构清分配置'
+                	link: '对账管理-挂销账管理.html',
+                    text: '挂销账管理'
+                },
+                {
+                	link: '对账管理-对账单.html',
+                    text: '对账单'
                 }
             ]
         )
