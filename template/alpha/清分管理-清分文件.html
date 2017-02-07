@@ -33,4 +33,93 @@
         )
     }}
 
+    <form class="filterBox-Alpha" action="#" method="post">
+    	<div class="fliter-inline-wrap">
+    		<div class="fliter-inline-item">
+    			<label>账单日期：</label>
+    			<div class="fliter-inline-width1">
+	                <div class="form-control-date smallsize">
+	                    <span class="form-control-date-btn">
+	                        <i></i>
+	                    </span>
+	                    <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
+	                </div>
+	            </div>
+    		</div>
+    		<div class="fliter-inline-item">
+    			<label>机构/渠道：</label>
+    			<div class="fliter-inline-width1">
+    				<select>
+						<option value="">全部</option>
+						<option value="0">招行深圳分行</option>
+						<option value="1">招行广州分行</option>
+    				</select>
+    			</div>
+    		</div>
+    		<div class="fliter-inline-item">
+    			<button type="submit" class="btn primary small-btn">搜索</button>
+    		</div>
+    	</div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col style="width: 78px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>账单日期</th>
+                <th>账单名称</th>
+                <th>机构/渠道</th>
+                <th>清分笔数</th>
+                <th>清分金额</th>
+                <th>生成时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2016-12-30</td>
+                <td>
+                    szcmb001_20161230_1_1100.txt
+                </td>
+                <td>
+                    招行深圳分行
+                </td>
+                <td>19827</td>
+                <td>20,154,325,002.00</td>
+                <td>2016-12-31 10:30:01</td>
+                <td>
+                    <a href="javascript:void(0);" class="link-standard">下载文件</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2016-12-30</td>
+                <td>
+                    szcmb001_20161230_1_1100.txt
+                </td>
+                <td>
+                    招行广州分行
+                </td>
+                <td>19827</td>
+                <td>20,154,325,002.00</td>
+                <td>2016-12-31 10:30:01</td>
+                <td>
+                    <a href="javascript:void(0);" class="link-standard">下载文件</a>
+                </td>
+            </tr>
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
 {% endblock %}
