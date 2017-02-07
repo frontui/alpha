@@ -1,7 +1,177 @@
-{% macro default() %}
-    <div id="nav-alpha">
-        <div class="nav-main">
-            nav
-        </div>
+{% macro default( fixedClass='' ) %}
+    <div id="nav-alpha" class="{{ fixedClass }}">
+        <ul class="lv1">
+            <li>
+                <a href="" class="lv1-btn">
+                    首页
+                </a>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    机构管理
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            机构列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            创建子机构
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    通道管理
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            通道列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            创建子通道
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    渠道合同管理
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            合同模板列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            合同列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            创建合同
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    关联渠道管理
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            渠道列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            创建渠道
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    关联终端管理
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            分配终端
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            机器终端列表
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            装机记录
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            激活码管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            二维码收款管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    收单流水查询
+                </a>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    账务报表查询
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2 in-bottom">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            结算账单查询
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            收银交易记录
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            交易数据统计
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            机构分润对账单
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            商户分润对账单
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="###" class="lv1-btn">
+                    系统管理
+                    <i class="icon-chevron-thin-right"></i>
+                </a>
+                <ul class="lv2 in-bottom">
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            账号管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="###" class="lv2-btn">
+                            角色管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 {% endmacro %}
