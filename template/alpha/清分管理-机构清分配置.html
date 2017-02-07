@@ -33,4 +33,60 @@
         )
     }}
 
+    <form class="filterBox-Alpha" action="#" method="post">
+        <div class="fliter-inline-wrap">
+            <div class="fliter-inline-item">
+                <label>机构/渠道：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">招行深圳分行</option>
+                        <option value="1">招行广州分行</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <button type="submit" class="btn primary small-btn">搜索</button>
+                <a href="清分管理-机构清分配置-添加(编辑).html"  class="btn secondary small-btn">添加</a>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+            <col style="width: 78px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>机构/渠道</th>
+                <th>格式要求</th>
+                <th>文件请求</th>
+                <th>字段定义</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    招行深圳分行
+                </td>
+                <td>txt文件</td>
+                <td>sftp上传</td>
+                <td>自定义字段</td>
+                <td>
+                    <a href="javascript:void(0);" class="link-standard">编辑</a>
+                </td>
+            </tr>
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+
 {% endblock %}
