@@ -1,4 +1,4 @@
-{% extends "_layout/base-alpha.html" %}
+{% extends "_layout/alpha/base-alpha.html" %}
 
 {% block globalCss %}
 	<link rel="stylesheet" href="{{ static }}/css/main.css?v={{ version }}">
@@ -7,6 +7,7 @@
 {# 载入组件模板 #}
 {% import "_components/alpha/header-alpha.html" as headerAlpha %}
 {% import "_components/alpha/nav-alpha.html" as navAlpha %}
+{% import "_components/alpha/breadCrumb-alpha.html" as breadCrumbAlpha %}
 
 {# 通用布局 #}
 {% block body %}
@@ -19,16 +20,20 @@
 			<div class="alpha-body">
 				<div class="alpha-body-nav-wrap">
 
-					{# 导航位置 #}
-					{{ navAlpha.default() }}
+					<div>
+						{# 导航位置 #}
+						{{ navAlpha.default() }}
+					</div>
 
 				</div>
 				<div class="alpha-body-content-wrap">
 					<div class="alpha-body-content-box">
 
-						{# 内容位置 #}
-						{% block content %}
-						{% endblock %}
+						<div>
+							{# 内容位置 #}
+							{% block content %}
+							{% endblock %}
+						</div>
 
 					</div>
 				</div>
