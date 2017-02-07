@@ -9,7 +9,7 @@
 
 /* --- style --- */
 .bread-crumb-alpha {
-    .reset-list( left,block,@smallest-FontSize,1.2 );
+    .reset-list( left,block,@smallest-FontSize,@line-height-base );
     .clearfix();
     display: block;
     padding: 8px 0;
@@ -19,7 +19,7 @@
         padding-right: 5px;
 
         > a {
-            .link-custom( @viceText-FontColor,@linkHover-FontColor,none );
+            .link-custom( @link-FontColor,@linkHover-FontColor,none );
             display: block;
 
             /*&:after {
@@ -31,7 +31,7 @@
             > i {
                 margin-left: 5px;
                 color: #ccc;
-                font-size: @smallest-FontSize - 2px;
+                font-size: floor( @smallest-FontSize*0.9 ) ;
             }
         }
     }

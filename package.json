@@ -1,19 +1,19 @@
 {
-  "name": "bms_3v3",
+  "name": "alpha_机构管理后台",
   "author": "frontui",
-  "description": "用户端3.1",
-  "version": "3.1.0",
+  "description": "机构管理后台",
+  "version": "beta",
   "main": "gulpfile.js",
   "scripts": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontui/bms_3v3.git"
+    "url": "git+https://github.com/frontui/alpha.git"
   },
   "bugs": {
-    "url": "https://github.com/frontui/bms_3v3/issues"
+    "url": "https://github.com/frontui/alpha.git/issues"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/frontui/bms_3v3#readme",
+  "homepage": "https://github.com/frontui/alpha.git#readme",
   "dependencies": {
     "del": "^1.2.1",
     "gulp": "^3.9.0",

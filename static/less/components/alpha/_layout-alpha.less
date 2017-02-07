@@ -38,11 +38,12 @@
         &-content-wrap {
             display: table-cell;
             vertical-align: top;
-            background-color: lighten( @bgColor-nav-alpha,20% );
+            //background-color: lighten( @bgColor-nav-alpha,20% );
+            border-right: 1px solid @base-BorderColor;
         }
 
         &-content-box {
-            padding: 0 0 @paddingSize-public-alpha @paddingSize-public-alpha;
+            padding: 0 @paddingSize-public-alpha @paddingSize-public-alpha @paddingSize-public-alpha;
         }
     }
 }
