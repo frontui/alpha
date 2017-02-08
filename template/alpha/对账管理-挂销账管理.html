@@ -12,7 +12,7 @@
                     text:'对账管理'
                 },
                 {
-                    text: '总账报表'
+                    text: '挂销账管理'
                 }
             ]
         )
@@ -23,16 +23,20 @@
             list = [
                 {
                     link: '对账管理-总账报表.html',
-                    text:'总账报表',
-                    isActive:1
+                    text:'总账报表'
                 },
                 {
                 	link: '对账管理-挂销账管理.html',
-                    text: '挂销账管理'
+                    text: '挂销账管理',
+                    isActive:1
                 },
                 {
                 	link: '对账管理-对账单.html',
                     text: '对账单'
+                },
+                {
+                    link: 'xxx',
+                    text: '历史记录'
                 }
             ]
         )
@@ -63,12 +67,12 @@
                 </div>
             </div>
             <div class="fliter-inline-item">
-                <label>机构/渠道：</label>
+                <label>挂载状态：</label>
                 <div class="fliter-inline-width1">
                     <select>
                         <option value="">全部</option>
-                        <option value="0">招行深圳分行</option>
-                        <option value="1">招行广州分行</option>
+                        <option value="0">已挂帐</option>
+                        <option value="1">已消账</option>
                     </select>
                 </div>
             </div>
@@ -83,47 +87,18 @@
                 </div>
             </div>
             <div class="fliter-inline-item">
-                <button type="submit" class="btn primary small-btn">搜索</button>
+                <label>渠道名称：</label>
+                <div class="fliter-inline-width1">
+                    <div class="fliter-inline-width1">
+                        <input type="text" class="form-control smallsize" />
+                    </div>
+                </div>
+            </div>
+            <div class="fliter-inline-item">
+                <button type="submit" class="btn primary small-btn">查询</button>
             </div>
         </div>
     </form>
-
-
-    {{
-        contentBoxAlpha.default(
-            list = [
-                {
-                    title:'差异金额',
-                    content:'1.00'
-                },
-                {
-                    title:'差异笔数',
-                    content:'2'
-                },
-                {
-                    title:'平账金额',
-                    content:'11,999,999,999.00'
-                },
-                {
-                    title:'平账笔数',
-                    content:'2578'
-                },
-                {
-                    title:'总交易金额',
-                    content:'12,000,000,000.00'
-                },
-                {
-                    title:'总实收净额',
-                    content:'11,800,000,000.00'
-                },
-                {
-                    title:'总通道手续费',
-                    content:'200,000,000.00'
-                }
-            ]
-        )
-    }}
-
 
     <table class="table">
         <colgroup>
@@ -143,11 +118,11 @@
                 <th>交易时间</th>
                 <th>商户名称</th>
                 <th>支付通道</th>
-                <th>系统交易金额</th>
-                <th>系统退款金额</th>
-                <th>通道交易金额</th>
-                <th>交易差额</th>
-                <th>退款差额</th>
+                <th>挂账状态</th>
+                <th>挂账时间</th>
+                <th>销账时间</th>
+                <th>挂账/销账金额</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -160,13 +135,15 @@
                     九毛九
                 </td>
                 <td>支付宝</td>
-                <td>357.00</td>
-                <td>0.00</td>
+                <td>已挂账</td>
+                <td>2017-01-22 10:00:00</td>
                 <td>
-                    355.00
+
                 </td>
-                <td>2.00</td>
-                <td>0.00</td>
+                <td>355.00/0.00</td>
+                <td>
+                    <a class="link-standard" tabindex="1" data-toggle="modal" data-target="#cancelAccount" href="###">销账</a>
+                </td>
             </tr>
 
             <tr>
@@ -178,15 +155,17 @@
                     九毛九
                 </td>
                 <td>支付宝</td>
-                <td>357.00</td>
-                <td>0.00</td>
+                <td>已销账</td>
+                <td>2017-01-22 10:00:00</td>
                 <td>
-                    355.00
+                    2017-01-22 10:00:00
                 </td>
-                <td>2.00</td>
-                <td>0.00</td>
+                <td>285.12/285.12</td>
+                <td>
+                    <span class="viceText-FontColor">销账</span>
+                </td>
             </tr>
-         
+
             <!-- 暂无记录 -->
             <!-- <tr>
                 <td colspan="8" class="empty">&nbsp;
@@ -195,4 +174,51 @@
         </tbody>
     </table>
 
+{% endblock %}
+
+{% block modal %}
+{{
+    modalAlpha.normal(
+        'cancelAccount',
+        '销帐操作',
+        '
+            <form action="">
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <span>挂账金额</span>
+                        <em>:</em>
+                    </label>
+
+                    <div class="form-control-wrap">
+                        <div class="form-control-data">
+                            <span id="companyName">355.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span> 销账金额 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" placeholder="***" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span> 销账说明 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <textarea style="width: auto;height: auto;" class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="text-align-center">
+                    <button type="button" class="btn primary">销账</button>
+                </div>
+
+            </form>
+        '
+    )
+}}
 {% endblock %}
