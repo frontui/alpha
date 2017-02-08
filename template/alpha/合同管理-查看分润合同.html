@@ -1,0 +1,103 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'合同管理'
+                },
+                {
+                    text: '查看分润合同'
+                }
+            ]
+        )
+    }}
+
+{# 主体信息渠道分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <div class="form-title">
+        主体信息渠道分润合同主体信息
+    </div>
+
+    <div class="form-layer1">
+        <div class="form-layer2">
+            <form autocomplete="off">
+                {# 子渠道名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <span>子渠道名称</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="" value="" placeholder="新建的子渠道">
+                    </div>
+                </div>
+                {# 身份证号 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="idcard">
+                        <span>身份证号</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="idcard" value="4000*********6656">
+                    </div>
+                </div>
+                {# 银行卡号 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="bankcard">
+                        <span>银行卡号</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input id="bankcard" tabindex="1" placeholder="卡号是16-19位数字" type="text" class="form-control"/>
+                    </div>
+                </div>
+                {# 开户行 #}
+                <div class="form-group" style="*z-index: 2">
+                    <label class="form-control-label" for="bank">
+                        <span>开户行</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        {{ Form.banks2(type=1, tabindex=2) }}
+                    </div>
+                </div>
+                {# 手机号码 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="mobile">
+                        <span>手机号码</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        {{ Form.mobile('此卡在银行预留的手机号码', tabindex=3) }}
+                    </div>
+                </div>
+                {# 验证码 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="form-control-verify1">
+                        <span>验证码</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        {{ Form.verify('form-control-verify1', tabindex=4) }}
+                        <!-- 已发送 -->
+                        {{ Form.verify('form-control-verify1','49秒后再获取', 'disabled', tabindex=4) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-control-wrap text-align-left margin-top-20px">
+                        <a href="偿债方式-个人偿债-验证结果.html" class="btn primary" role="button">下一步</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
