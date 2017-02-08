@@ -3,7 +3,176 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{ breadCrumbAlpha.default() }}
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text:'机构列表'
+},
+{
+text: '收单费率'
+}
+]
+)
+}}
+<div>
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 150px">
+            <col style="width: 120px">
+            <col style="width: 120px">
+            <col style="width: 80px">
+            <col style="width: 80px">
+            <col style="width:100px">
+            <col style="width:100px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>支付通道</th>
+            <th>行业分类</th>
+            <th>渠道签约扣率</th>
+            <th>渠道封顶</th>
+            <th>通道成本</th>
+            <th>总分润</th>
+            <th>本机构分润</th>
+            <th class="th-ctrls">操作</th>
+        </tr>
+        </thead>
+        <tbody>
 
+        <tr>
+            <td>支付宝（成都招行）</td>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="3">支付宝（深圳招行）</td>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="3">微信支付（广州招行）</td>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="3">支付宝（大连工行）</td>
+            <td>线下实体商户</td>
+            <td>0.5%-0.6%</td>
+            <td>100元</td>
+            <td>0.2%</td>
+            <td>0.3%—0.4%</td>
+            <td>0.05%</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="修改费率.html">
+                    修改
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>水电煤缴费</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="设置费率.html">
+                    设置
+                </a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
 {% endblock %}
