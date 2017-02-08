@@ -3,25 +3,28 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{ breadCrumbAlpha.default() }}
-
-<div style="border: 2px solid #e8e8e8;">
+<div style="border: 2px solid #e8e8e8;" class="fn-mt-10">
     <!--层级-->
-    <ol class="breadcrumb fn-ma-5">
-        <li>
-                机构管理
-                <i class="icon-chevron-thin-right"></i>
-        </li>
-        <li>
-                机构列表
-                <i class="icon-chevron-thin-right"></i>
-        </li>
-        <li>
-                查看详情
-            </a>
-        </li>
-    </ol>
+    <div class="fn-ml-10">
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '机构列表'
+        },
+        {
+        text:'查看详情'
+        }
+        ]
+        )
+        }}
+    </div>
 
 <!--基础信息-->
 <div>
