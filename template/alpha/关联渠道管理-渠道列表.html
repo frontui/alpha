@@ -1,0 +1,130 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '关联渠道管理'
+                },
+                {
+                    text: '渠道列表'
+                }
+            ]
+        )
+    }}
+
+    <form class="filterBox-Alpha" action="#" method="post">
+    	<div class="fliter-inline-wrap">
+    		<div class="fliter-inline-item">
+    			<label>渠道名称：</label>
+    			<div class="fliter-inline-width1">
+	                <div class="fliter-inline-width1">
+                        <input type="text" class="form-control smallsize" />
+                    </div>
+	            </div>
+    		</div>
+    		<div class="fliter-inline-item">
+    			<label>所属行业：</label>
+    			<div class="fliter-inline-width1">
+    				<select>
+						<option value="">全部</option>
+						<option value="0">美食</option>
+						<option value="1">购物</option>
+                        <option value="2">景点</option>
+                        <option value="3">休闲娱乐</option>
+    				</select>
+    			</div>
+                <span class="fliter-inline-bar">--</span>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">招行深圳分行</option>
+                        <option value="1">招行广州分行</option>
+                    </select>
+                </div>
+    		</div>
+            <div class="fliter-inline-item">
+                <label>渠道角色：</label>
+                <div class="fliter-inline-width1">
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">商户</option>
+                        <option value="1">门店</option>
+                        <option value="2">渠道商</option>
+                    </select>
+                </div>
+            </div>
+    		<div class="fliter-inline-item">
+    			<button type="submit" class="btn primary small-btn">搜索</button>
+                <button type="button" class="btn secondary small-btn">重置</button>
+    		</div>
+    	</div>
+    </form>
+
+    <table class="table">
+        <colgroup>
+            <col />
+            <col style="width: 120px" />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col />
+            <col style="width: 150px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>渠道编号</th>
+                <th>渠道名称</th>
+                <th>渠道角色</th>
+                <th>所在地</th>
+                <th>所属行业</th>
+                <th>渠道数</th>
+                <th>创建时间</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1086</td>
+                <td>
+                    百事可乐嘉年华有限公司
+                </td>
+                <td>
+                    渠道商
+                </td>
+                <td>山东，济南</td>
+                <td>美食，饮料</td>
+                <td>8</td>
+                <td>2016-10-10  18:00:00</td>
+                <td>启用</td>
+                <td class="text-align-left">
+                    <a href="关联渠道管理-渠道列表-查看详情.html" class="link-standard fn-mr-10">查看</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">编辑</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">层级</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">合同</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">终端</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">管理员</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">禁用</a>
+                    <a href="javascript:void(0);" class="link-standard fn-mr-10">审核</a>
+                </td>
+            </tr>
+            <!-- 暂无记录 -->
+            <!-- <tr>
+                <td colspan="8" class="empty">&nbsp;
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+     {# 分页 #}
+     {% import "_components/pagination.html" as Pager %}
+     {{ Pager.render() }}
+
+{% endblock %}
