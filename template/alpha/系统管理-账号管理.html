@@ -9,7 +9,7 @@
             list=[
                 {
                     link: '系统管理-账号管理.html',
-                    text:'系统管理'
+                    text: '系统管理'
                 },
                 {
                     text: '账号管理'
@@ -17,6 +17,53 @@
             ]
         )
     }}
+
+    {# 数据过滤器 #}
+    <div class="filter-table-wrap fn-mt-20">
+        <table class="filter-table">
+            <colgroup>
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="width: 24%">
+                <col style="width: 28%">
+            </colgroup>
+            <tr>
+                <td>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-control-wrap smallsize">
+                        <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                        <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                            <option value="">
+                                全部账号角色
+                            </option>
+                            <option value="">
+                                角色1
+                            </option>
+                            <option value="">
+                                角色2
+                            </option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn secondary small-btn">搜索</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+                        <button type="button" class="btn primary small-btn">添加账户</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     {# 表格 #}
     {{
