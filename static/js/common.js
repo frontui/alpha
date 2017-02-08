@@ -691,21 +691,4 @@ function clockTick(start, callback) {
 
     root.FrontUI = FrontUI;
 
-    // 静态分页
-    function ajaxData(e, index, instance){
-        index = index || 1;
-        // 自定义总页码模板
-        $('#p1').pagination({
-            currentPage: index,
-            items: 50,
-            itemsOnPage: 1,
-            pageStr: {
-                show: true,
-                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
-            }
-        });
-        $('#p1').on('select.ui.pagination', ajaxData);
-    }
-    ajaxData();
-
 })(window, jQuery);
