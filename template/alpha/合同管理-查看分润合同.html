@@ -20,83 +20,174 @@
 
 {# 主体信息渠道分润合同主体信息 #}
 <div class="form-frame fn-mb-10">
-    <div class="form-title">
-        主体信息渠道分润合同主体信息
-    </div>
-
-    <div class="form-layer1">
-        <div class="form-layer2">
-            <form autocomplete="off">
+    <form autocomplete="off">
+        <div class="form-title">
+            主体信息渠道分润合同主体信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
                 {# 子渠道名称 #}
                 <div class="form-group">
                     <label class="form-control-label" for="***">
-                        <span>子渠道名称</span>
-                        <em>：</em>
+                        <b></b>
+                        <span> 子渠道名称 </span>
+                        <em> : </em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="" value="" placeholder="新建的子渠道">
+                        <input type="***" class="form-control" id="***" placeholder="新建的子渠道" />
+                        <a class="form-control-tools-link">选择子渠道</a>
                     </div>
                 </div>
-                {# 身份证号 #}
+                {# 合同编号 #}
                 <div class="form-group">
-                    <label class="form-control-label" for="idcard">
-                        <span>身份证号</span>
-                        <em>：</em>
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span> 合同编号 </span>
+                        <em> : </em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="text" class="form-control" id="idcard" value="4000*********6656">
+                        <input type="***" class="form-control" id="***" placeholder="" />
+                        <a class="form-control-tools-link">自动生成</a>
                     </div>
                 </div>
-                {# 银行卡号 #}
+
+                {# 合同签署日期 #}
                 <div class="form-group">
-                    <label class="form-control-label" for="bankcard">
-                        <span>银行卡号</span>
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同签署日期</span>
                         <em>：</em>
                     </label>
                     <div class="form-control-wrap">
-                        <input id="bankcard" tabindex="1" placeholder="卡号是16-19位数字" type="text" class="form-control"/>
+                        <input type="text" class="form-control" id="***">
                     </div>
                 </div>
-                {# 开户行 #}
-                <div class="form-group" style="*z-index: 2">
-                    <label class="form-control-label" for="bank">
-                        <span>开户行</span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-wrap">
-                        {{ Form.banks2(type=1, tabindex=2) }}
-                    </div>
-                </div>
-                {# 手机号码 #}
+
+                {# 合同名称 #}
                 <div class="form-group">
-                    <label class="form-control-label" for="mobile">
-                        <span>手机号码</span>
+                    <label class="form-control-label" for="***">
+                        <span>合同名称</span>
                         <em>：</em>
                     </label>
                     <div class="form-control-wrap">
-                        {{ Form.mobile('此卡在银行预留的手机号码', tabindex=3) }}
+                        <input type="text" class="form-control" id="***">
                     </div>
                 </div>
-                {# 验证码 #}
+
+                {# 合同生效日期 #}
                 <div class="form-group">
-                    <label class="form-control-label" for="form-control-verify1">
-                        <span>验证码</span>
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同生效日期</span>
                         <em>：</em>
                     </label>
                     <div class="form-control-wrap">
-                        {{ Form.verify('form-control-verify1', tabindex=4) }}
-                        <!-- 已发送 -->
-                        {{ Form.verify('form-control-verify1','49秒后再获取', 'disabled', tabindex=4) }}
+                        <input type="text" class="form-control" id="***">
                     </div>
                 </div>
+
+                {# 合同到期日期 #}
                 <div class="form-group">
-                    <div class="form-control-wrap text-align-left margin-top-20px">
-                        <a href="偿债方式-个人偿债-验证结果.html" class="btn primary" role="button">下一步</a>
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同到期日期</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***">
                     </div>
                 </div>
-            </form>
+
+                {# 渠道联系人 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>合同名称</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" value="王二小">
+                    </div>
+                </div>
+
+                {# 渠道联系人手机 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>渠道联系人手机</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" value="13800138000">
+                    </div>
+                </div>
+
+                {# 签购单位名称 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span>签购单位名称</span>
+                        <em>：</em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="text" class="form-control" id="***" value="子渠道公司">
+                    </div>
+                </div>
+
+                {# 是否自动续签 #}
+                <div class="form-group">
+                    <label class="form-control-label">
+                        <b> * </b>
+                        <span> 是否自动续签 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <div class="form-control-check">
+                            <label>
+                                是
+                                <input type="radio" name=""/>
+                            </label>
+                            <label>
+                                否
+                                <input type="radio" name=""/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
         </div>
-    </div>
+        <div class="form-title">
+            渠道分润结算账户信息
+        </div>
+        <div class="form-layer1">
+            <div class="form-layer2">
+                {# 签约分润比例 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b> * </b>
+                        <span> 签约分润比例 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder="" value="2:1" />
+                        <span class="form-control-tools-link">≈本渠道分润比率：<span>0.1%</span>；子渠道分润比率：<span>0.05%</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-control-wrap text-align-left margin-top-20px">
+                <a href="偿债方式-个人偿债-验证结果.html" class="btn primary" role="button">下一步</a>
+            </div>
+        </div>
+
+    </form>
+
+
+
 </div>
 
 {% endblock %}
