@@ -3,13 +3,6 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{ breadCrumbAlpha.default() }}
-
-<div>
-
-    <!--层级-->
-    <div class="fn-ml-10">
         {# 路径导航 #}
         {{
         breadCrumbAlpha.default(
@@ -24,8 +17,7 @@
         ]
         )
         }}
-    </div>
-
+<div>
   <!--筛选-->
     <div>
       <form action="##" method="post" class="form-frame form-frame-filter fn-mb-10">

@@ -140,67 +140,67 @@
 {% block jsPage %}
 <script>
 
-    $(function(){
-        /**
-         * 统一显示验证错误信息
-         */
-        var $form = $('#form').validation({
-            // 验证项
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 16,
-                    //ajax 验证
-                    remote: {
-                        url: "/api?do=validate&filed=name",
-                        type: "post",
-                        data: {
-                            username: function() {
-                                return $('#Text2').val();
-                            }
-                        }
-                    }
-                },
-                password: "required",
-                repassword: {
-                    required: true,
-                    equalTo: '#Password1'
-                },
-                telphone: {
-                    required: true,
-                    telphone: true
-                }
-            },
-            // 错误提示
-            messages: {
-                name: {
-                    required: "请输入名称",
-                    minlength: jQuery.validator.format("名称长度不能少于{0}个字"),
-                    remote: '用户名已存在'
-                },
-                password: {
-                    required: "请输入"
-                },
-                repassword: {
-                    required: "请输入确认密码",
-                    equalTo: "两次密码不一致"
-                },
-                time: {
-                    required: "请输入时间",
-                    date: "时间格式有误"
-                },
-                telphone: {
-                    required: "请输入手机号码",
-                    telphone: "手机号码格式有误"
-                }
-            },
-            // 提交
-            submitHandler: function(form) {
-                // 直接提交
-                // form.submit();
-            }
-        });
-    })
+//    $(function(){
+//        /**
+//         * 统一显示验证错误信息
+//         */
+//        var $form = $('#form').validation({
+//            // 验证项
+//            rules: {
+//                name: {
+//                    required: true,
+//                    minlength: 16,
+//                    //ajax 验证
+//                    remote: {
+//                        url: "/api?do=validate&filed=name",
+//                        type: "post",
+//                        data: {
+//                            username: function() {
+//                                return $('#Text2').val();
+//                            }
+//                        }
+//                    }
+//                },
+//                password: "required",
+//                repassword: {
+//                    required: true,
+//                    equalTo: '#Password1'
+//                },
+//                telphone: {
+//                    required: true,
+//                    telphone: true
+//                }
+//            },
+//            // 错误提示
+//            messages: {
+//                name: {
+//                    required: "请输入名称",
+//                    minlength: jQuery.validator.format("名称长度不能少于{0}个字"),
+//                    remote: '用户名已存在'
+//                },
+//                password: {
+//                    required: "请输入"
+//                },
+//                repassword: {
+//                    required: "请输入确认密码",
+//                    equalTo: "两次密码不一致"
+//                },
+//                time: {
+//                    required: "请输入时间",
+//                    date: "时间格式有误"
+//                },
+//                telphone: {
+//                    required: "请输入手机号码",
+//                    telphone: "手机号码格式有误"
+//                }
+//            },
+//            // 提交
+//            submitHandler: function(form) {
+//                // 直接提交
+//                // form.submit();
+//            }
+//        });
+//    })
 
 </script>
 {% endblock %}

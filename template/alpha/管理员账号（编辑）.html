@@ -141,51 +141,51 @@
 
 {% block jsPage %}
 <script>
-    $(function(){
-        /**
-         * 统一显示验证错误信息
-         */
-        var $form = $('#form').validation({
-            // 验证项
-            rules: {
-                password: "required",
-                telphone: {
-                    required: true,
-                    telphone: true
-                },
-                name: {
-                    required: true,
-                    name: true
-                },
-                mail: {
-                    required: true,
-                    mail: true
-                }
-            },
-            // 错误提示
-            messages: {
-                name: {
-                    required: "请输入名称",
-                    name: "此为必填项"
-                },
-                password: {
-                    required: "请输入登录密码"
-                },
-                mail: {
-                    required: "请输入邮箱号码"
-                },
-                telphone: {
-                    required: "请输入手机号码",
-                    telphone: "手机号码格式有误"
-                }
-            },
-            // 提交
-            submitHandler: function(form) {
-                // 直接提交
-                // form.submit();
-            }
-        });
-    })
+//    $(function(){
+//        /**
+//         * 统一显示验证错误信息
+//         */
+//        var $form = $('#form').validation({
+//            // 验证项
+//            rules: {
+//                password: "required",
+//                telphone: {
+//                    required: true,
+//                    telphone: true
+//                },
+//                name: {
+//                    required: true,
+//                    name: true
+//                },
+//                mail: {
+//                    required: true,
+//                    mail: true
+//                }
+//            },
+//            // 错误提示
+//            messages: {
+//                name: {
+//                    required: "请输入名称",
+//                    name: "此为必填项"
+//                },
+//                password: {
+//                    required: "请输入登录密码"
+//                },
+//                mail: {
+//                    required: "请输入邮箱号码"
+//                },
+//                telphone: {
+//                    required: "请输入手机号码",
+//                    telphone: "手机号码格式有误"
+//                }
+//            },
+//            // 提交
+//            submitHandler: function(form) {
+//                // 直接提交
+//                // form.submit();
+//            }
+//        });
+//    })
 
 </script>
 {% endblock %}
