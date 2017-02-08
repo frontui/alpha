@@ -3,7 +3,69 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{ breadCrumbAlpha.default() }}
+<div class="fn-mt-10">
+
+    <!--层级-->
+    <div class="fn-ml-10">
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'机构管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '机构列表'
+        },
+        {
+        text:'管理员账号'
+        }
+        ]
+        )
+        }}
+    </div>
+
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 80px">
+            <col style="width: 80px">
+            <col style="width: 80px">
+            <col style="width: 150px">
+            <col style="width: 50px">
+            <col style="width:200px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>账号名称</th>
+            <th>姓名</th>
+            <th>账号角色</th>
+            <th>创建时间</th>
+            <th>状 态</th>
+            <th class="th-ctrls">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>yoiuug</td>
+            <td>张三</td>
+            <td>超级管理员</td>
+            <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap">18:00:00</span></td>
+            <td>启用</td>
+            <td class="text-align-center">
+                <a class="link-standard" href="管理员账号（查看）.html">
+                    查看
+                </a> &nbsp;&nbsp;
+                <a class="link-standard" href="管理员账号（编辑）.html">
+                    编辑
+                </a>&nbsp;&nbsp;
+                <a class="link-standard" href="#">禁用</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}

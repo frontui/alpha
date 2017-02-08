@@ -76,7 +76,7 @@
             <col />
             <col />
             <col />
-            <col style="width: 150px" />
+            <col style="width: 78px" />
         </colgroup>
         <thead>
             <tr>
@@ -105,15 +105,19 @@
                 <td>8</td>
                 <td>2016-10-10  18:00:00</td>
                 <td>启用</td>
-                <td class="text-align-left">
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">查看</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">编辑</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">层级</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">合同</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">终端</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">管理员</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">禁用</a>
-                    <a href="javascript:void(0);" class="link-standard fn-mr-10">审核</a>
+                <td>
+                    <div class="table-ctrls">
+                        查看<span class="caret-down"></span>
+                        <div class="ctrls">
+                            <a href="关联渠道管理-渠道列表-查看详情.html">查看</a>
+                            <a href="关联渠道管理-渠道列表-编辑渠道.html">编辑</a>
+                            <a href="javascript:void(0);">合同</a>
+                            <a href="javascript:void(0);">终端</a>
+                            <a href="javascript:void(0);">管理员</a>
+                            <a href="javascript:void(0);">禁用</a>
+                            <a href="javascript:void(0);">审核</a>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <!-- 暂无记录 -->
@@ -123,5 +127,8 @@
             </tr> -->
         </tbody>
     </table>
+     {# 分页 #}
+     {% import "_components/pagination.html" as Pager %}
+     {{ Pager.render() }}
 
 {% endblock %}
