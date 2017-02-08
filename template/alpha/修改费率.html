@@ -3,27 +3,124 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{
-        breadCrumbAlpha.default(
-            list = [
-                {
-                    link: 'javascript:void(0);',
-                    text:'一级导航'
-                },
-                {
-                    link: 'javascript:void(0);',
-                    text:'二级导航'
-                },
-                {
-                    link: 'javascript:void(0);',
-                    text:'三级导航'
-                },
-                {
-                    text: '当前位置'
-                }
-            ]
-        )
-    }}
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text:'机构列表'
+},
+{
+link: 'javascript:void(0);',
+text:'收单费率'
+},
+{
+text: '修改费率'
+}
+]
+)
+}}
+<div>
+    <!--表格-->
+    <table class="table inverse table-border ">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>支付通道</th>
+            <th>行业分类</th>
+            <th colspan="4">渠道签约扣率</th>
+            <th>渠道封顶</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>支付宝（成都招行）</td>
+            <td>线下实体商户</td>
+            <td colspan="4">0.5%-0.6%</td>
+            <td>100元</td>
+        </tr>
+        </tbody>
+    </table>
 
+
+    <table class="table inverse table-border">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>通道成本</th>
+            <th colspan="3">总分润</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>0.2%</td>
+            <td colspan="3">0.5%-0.6%</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table inverse table-border">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>机构总分润</th>
+            <th>系统总分润</th>
+            <th>渠道总分润</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>0.1%</td>
+            <td>0.1%</td>
+            <td>0.5%-0.6%</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    
+</div>
 {% endblock %}
+
