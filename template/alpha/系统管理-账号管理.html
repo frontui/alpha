@@ -1,0 +1,95 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    link: 'javascript:void(0);',
+                    text:'系统管理'
+                },
+                {
+                    text: '账号管理'
+                }
+            ]
+        )
+    }}
+
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            data={
+                theadList: [
+                    {
+                        inner: '账号名称'
+                    },
+                    {
+                        inner: '姓名'
+                    },
+                    {
+                        inner: '账号角色'
+                    },
+                    {
+                        inner: '创建时间'
+                    },
+                    {
+                        inner: '状态'
+                    },
+                    {
+                        inner: '操作'
+                    }
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: 'yoiuug'
+                        },
+                        {
+                            inner: '张三'
+                        },
+                        {
+                            inner: '客服'
+                        },
+                        {
+                            inner: '
+                                <span class="text-nowrap">
+                                    2015-05-25
+                                </span>
+                                <span class="text-nowrap viceText-FontColor">
+                                    10:25:36
+                                </span>
+                            '
+                        },
+                        {
+                            inner: '
+                                <span class="success-FontColor2">
+                                    启用
+                                </span>
+                            '
+                        },
+                        {
+                            inner: '
+                                <a href="###" class="link-standard">
+                                    查看
+                                </a>
+                                &nbsp;
+                                <a href="###" class="link-standard">
+                                    编辑
+                                </a>
+                                &nbsp;
+                                <a href="###" class="link-standard">
+                                    禁用
+                                </a>
+                            '
+                        }
+                    ]
+                ]
+            },
+            fixedClass='fn-pt-20'
+        )
+    }}
+
+{% endblock %}

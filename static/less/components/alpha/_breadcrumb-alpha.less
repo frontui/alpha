@@ -10,7 +10,9 @@
     .reset-list( left,block,@smallest-FontSize,@line-height-base );
     .clearfix();
     display: block;
-    padding: 8px 0;
+    padding: 8px;
+    border: 1px solid @base-BorderColor;
+    .rounded( @borderRadius-public-alpha );
 
     > li {
         color: @viceText-FontColor;
