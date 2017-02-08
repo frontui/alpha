@@ -123,5 +123,8 @@
             </tr> -->
         </tbody>
     </table>
+     {# 分页 #}
+     {% import "_components/pagination.html" as Pager %}
+     {{ Pager.render() }}
 
 {% endblock %}
