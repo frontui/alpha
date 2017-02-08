@@ -690,4 +690,5 @@ function clockTick(start, callback) {
     $(document).ready(App.initPage);
 
     root.FrontUI = FrontUI;
+
 })(window, jQuery);
