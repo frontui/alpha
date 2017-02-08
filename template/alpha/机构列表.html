@@ -3,13 +3,6 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{ breadCrumbAlpha.default() }}
-
-<div>
-
-    <!--层级-->
-    <div class="fn-ml-10">
         {# 路径导航 #}
         {{
         breadCrumbAlpha.default(
@@ -24,8 +17,7 @@
         ]
         )
         }}
-    </div>
-
+<div>
   <!--筛选-->
     <div>
       <form action="##" method="post" class="form-frame form-frame-filter fn-mb-10">
@@ -110,7 +102,7 @@
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>  &nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（禁用）.html">禁用</a>
+        <a href="#myModal" class="link-standard" data-toggle="modal" href="机构列表（禁用）.html">禁用</a>
       </td>
     </tr>
 
@@ -194,5 +186,22 @@
 
     </tbody>
   </table>
+
+
+    <!--禁用弹层-->
+    <div class="modal-background fade display-none in" id="myModal" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body">
+                        <div>
+                            <button>确定</button>
+                            <button>确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -52,6 +52,484 @@
                           <input type="text" class="form-control" />
                        </div>
                     </div>
+                    {# 所在省份 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 所在省份 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">广东</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 所在城市 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 所在城市 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">中山</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 所在区县 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 所在区县 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">0区</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 详细地址 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 详细地址 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 联系电话 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 联系电话 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 营业时间 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 营业时间 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <!--  只选时间不选日期的控件，留空 -->
+                       </div>
+                    </div>
+                    {# 渠道负责人 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 渠道负责人 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 渠道负责人手机号 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 渠道负责人手机号 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 渠道简介 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 渠道简介 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 证件类型 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 证件类型 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    普通营业执照
+                                    <input type="radio" name="certificates" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    社会信用证
+                                    <input type="radio" name="certificates" value="1">
+                                </label>
+                            </div>
+                       </div>
+                    </div>
+                    {# 营业执照注册号 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 营业执照注册号 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 营业执照有效期 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 营业执照有效期 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <div class="form-control-date float-left">
+                            <span class="form-control-date-btn">
+                                <i></i>
+                            </span>
+                            <input class="form-control" value="" type="text" data-toggle="datetimepicker" readonly="readonly">
+                          </div>
+                          <span class="float-left fn-pt-10 fn-pl-15">--</span>
+                          <div class="form-control-date float-right">
+                            <span class="form-control-date-btn">
+                                <i></i>
+                            </span>
+                            <input class="form-control" value="" type="text" data-toggle="datetimepicker" readonly="readonly">
+                          </div>
+                       </div>
+                    </div>
+                    {# 组织机构代码 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 组织机构代码 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 税务登记证编号 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 税务登记证编号 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 百度坐标 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 百度坐标 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control coordinate" />
+                          <input type="text" class="form-control coordinate" />
+                          <button type="button" class="btn default small-btn">获取坐标</button>
+                       </div>
+                    </div>
+                    {# 高德坐标 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 高德坐标 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control coordinate" />
+                          <input type="text" class="form-control coordinate" />
+                          <button type="button" class="btn default small-btn">获取坐标</button>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 法人信息-->
+            <div class="form-title">
+              法人信息
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    {# 法人姓名 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 法人姓名 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 法人性别 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 法人性别 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <div class="form-control-check">
+                                <label>
+                                    男
+                                    <input type="radio" name="sex" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    女
+                                    <input type="radio" name="sex" value="1">
+                                </label>
+                            </div>
+                       </div>
+                    </div>
+                    {# 证件国别/地区 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 证件国别/地区 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">中华人民共和国</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 证件类型 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 证件类型 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">居民身份证</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 证件号码 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 证件号码 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 证件有效期 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 证件有效期 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <div class="form-control-date float-left">
+                            <span class="form-control-date-btn">
+                                <i></i>
+                            </span>
+                            <input class="form-control" value="" type="text" data-toggle="datetimepicker" readonly="readonly">
+                          </div>
+                          <span class="float-left fn-pt-10 fn-pl-15">--</span>
+                          <div class="form-control-date float-right">
+                            <span class="form-control-date-btn">
+                                <i></i>
+                            </span>
+                            <input class="form-control" value="" type="text" data-toggle="datetimepicker" readonly="readonly">
+                          </div>
+                       </div>
+                    </div>
+                    {# 法人联系电话 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 法人联系电话 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 法人联系邮箱 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 法人联系邮箱 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结算账户-->
+            <div class="form-title">
+              结算账户
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    {# 结算账户类型 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 结算账户类型 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <div class="form-control-check">
+                                <label>
+                                    对公
+                                    <input type="radio" class="j-type" name="type" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    对私
+                                    <input type="radio" class="j-type" id="private" name="type" value="1">
+                                </label>
+                            </div>
+                       </div>
+                    </div>
+                    {# 结算账户人身份 #}
+                    <div id="identity" class="form-group display-none">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 结算账户人身份 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label>
+                                    法人
+                                    <input type="radio" name="identity" value="0" checked="checked">
+                                </label>
+                                <label>
+                                    法人亲属
+                                    <input type="radio" name="identity" value="1">
+                                </label>
+                            </div>
+                       </div>
+                    </div>
+                    {# 开户行 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 开户行 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">招商银行</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 开户名 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 开户名 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 开户行所在省份 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 开户行所在省份 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">广东</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 开户行所在城市 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 开户行所在城市 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">广州</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 分支行 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 分支行 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <select class="form-control">
+                              <option value="0">招商银行深圳分行</option>
+                          </select>
+                       </div>
+                    </div>
+                    {# 账户号 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <b> * </b>
+                          <span> 账户号 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 财务联系人 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 财务联系人 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                    {# 财务联系电话 #}
+                    <div class="form-group">
+                       <label class="form-control-label">
+                          <span> 财务联系电话 </span>
+                          <em> : </em>
+                       </label>
+                       <div class="form-control-wrap">
+                          <input type="text" class="form-control" />
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图片资料-->
+            <div class="form-title">
+              图片资料
+            </div>
+            <div class="form-layer1">
+                <div class="form-layer2">
+
                 </div>
             </div>
 
@@ -62,4 +540,19 @@
             </div>
         </form>
     </div>
+{% endblock %}
+
+{% block jsPage %}
+    <script type="text/javascript">
+        $(function(){
+            $(".j-type").on("change",function(){
+                var isPrivateChecked = $("#private").prop("checked");
+                if(isPrivateChecked){
+                    $("#identity").removeClass("display-none");
+                }else{
+                    $("#identity").addClass("display-none");
+                }
+            });
+        });
+    </script>
 {% endblock %}
