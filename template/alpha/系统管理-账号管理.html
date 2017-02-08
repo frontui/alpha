@@ -33,10 +33,12 @@
                         inner: '账号角色'
                     },
                     {
-                        inner: '创建时间'
+                        inner: '创建时间',
+                        thWidth: '180px'
                     },
                     {
-                        inner: '状态'
+                        inner: '状态',
+                        thWidth: '60px'
                     },
                     {
                         inner: '操作'
@@ -91,5 +93,8 @@
             fixedClass='fn-pt-20'
         )
     }}
+
+    {# 分页 #}
+    {{ paginationAlpha.default() }}
 
 {% endblock %}
