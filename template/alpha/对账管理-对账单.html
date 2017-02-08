@@ -12,7 +12,7 @@
                     text:'对账管理'
                 },
                 {
-                    text: '挂销账管理'
+                    text: '对账单'
                 }
             ]
         )
@@ -33,10 +33,6 @@
                 {
                 	link: '对账管理-对账单.html',
                     text: '对账单'
-                },
-                {
-                    link: 'xxx',
-                    text: '历史记录'
                 }
             ]
         )
@@ -45,7 +41,7 @@
     <form class="filterBox-Alpha" action="#" method="post">
         <div class="fliter-inline-wrap">
             <div class="fliter-inline-item">
-                <label>起始日期：</label>
+                <label>账单日期：</label>
                 <div class="fliter-inline-width1">
                     <div class="form-control-date smallsize">
                         <span class="form-control-date-btn">
@@ -53,27 +49,6 @@
                         </span>
                         <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
                     </div>
-                </div>
-            </div>
-            <div class="fliter-inline-item">
-                <label>终止日期：</label>
-                <div class="fliter-inline-width1">
-                    <div class="form-control-date smallsize">
-                        <span class="form-control-date-btn">
-                            <i></i>
-                        </span>
-                        <input class="form-control" type="text" value="" data-toggle="datetimepicker" readonly="readonly" />
-                    </div>
-                </div>
-            </div>
-            <div class="fliter-inline-item">
-                <label>挂载状态：</label>
-                <div class="fliter-inline-width1">
-                    <select>
-                        <option value="">全部</option>
-                        <option value="0">已挂帐</option>
-                        <option value="1">已消账</option>
-                    </select>
                 </div>
             </div>
             <div class="fliter-inline-item">
@@ -87,11 +62,13 @@
                 </div>
             </div>
             <div class="fliter-inline-item">
-                <label>渠道名称：</label>
+                <label>机构/渠道：</label>
                 <div class="fliter-inline-width1">
-                    <div class="fliter-inline-width1">
-                        <input type="text" class="form-control smallsize" />
-                    </div>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="0">招行深圳分行</option>
+                        <option value="1">招行广州分行</option>
+                    </select>
                 </div>
             </div>
             <div class="fliter-inline-item">
@@ -108,61 +85,46 @@
             <col />
             <col />
             <col />
-            <col />
-            <col />
-            <col />
         </colgroup>
         <thead>
             <tr>
-                <th>订单号</th>
-                <th>交易时间</th>
-                <th>商户名称</th>
-                <th>支付通道</th>
-                <th>挂账状态</th>
-                <th>挂账时间</th>
-                <th>销账时间</th>
-                <th>挂账/销账金额</th>
-                <th>操作</th>
+                <th>账单日期</th>
+                <th>账单名称</th>
+                <th>通道</th>
+                <th>机构/渠道</th>
+                <th>下载时间</th>
+                <th>入库时间</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>2FP2017012154512365</td>
+                <td>2017-01-12</td>
                 <td>
-                    2017-01-21 15:45:54
+                    0170112112121-21221.csv
                 </td>
                 <td>
-                    九毛九
+                    支付宝
                 </td>
-                <td>支付宝</td>
-                <td>已挂账</td>
-                <td>2017-01-22 10:00:00</td>
+                <td>招行深圳分行</td>
+                <td>2017-01-13 09:00:00</td>
                 <td>
-
-                </td>
-                <td>355.00/0.00</td>
-                <td>
-                    <a class="link-standard" tabindex="1" data-toggle="modal" data-target="#cancelAccount" href="###">销账</a>
+                    等待入库，
+                    <a class="link-standard" href="###">立即入库</a>
                 </td>
             </tr>
 
             <tr>
-                <td>2FP2017012154512365</td>
+                <td>2017-01-12</td>
                 <td>
-                    2017-01-21 15:45:54
+                    0170112112121-21221.csv
                 </td>
                 <td>
-                    九毛九
+                    支付宝
                 </td>
-                <td>支付宝</td>
-                <td>已销账</td>
-                <td>2017-01-22 10:00:00</td>
+                <td>招行深圳分行</td>
+                <td>2017-01-13 09:00:00</td>
                 <td>
-                    2017-01-22 10:00:00
-                </td>
-                <td>285.12/285.12</td>
-                <td>
-                    <span class="viceText-FontColor">销账</span>
+                    2017-01-13 09:30:00
                 </td>
             </tr>
 
