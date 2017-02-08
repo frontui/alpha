@@ -1,5 +1,5 @@
 {
 	"port": "8251",
-	"path": "../../testStaticOutPut",
+	"path": "../../alpha项目-机构管理后台",
 	"staticPath": "/static"
 }
