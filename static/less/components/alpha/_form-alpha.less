@@ -9,5 +9,34 @@
 				width: 134px;
 			}
 		}
+        .form-control-wrap-date{
+            .form-control-date{
+                width:100%;
+            }
+            .coordinate{
+                display: inline-block;
+                width: 134px;
+            }
+        }
 	}
+}
+
+.form-control-label-alpha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: @form-control-label-width;
+    height: @form-control-height;
+    text-align: right;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    .clearfix();
+
+    > span {
+        .inline-block();
+        line-height: @line-height-base;
+        vertical-align: middle;
+        max-width: 85%;
+    }
 }
