@@ -3,6 +3,7 @@
 {# 加载页面专有样式表 #}
 {% block css %}
     <link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+    <link rel="stylesheet" href="{{ static }}/js/clockpicker/jquery-clockpicker.min.css">
 {% endblock %}
 
 {# 内容 #}
@@ -126,18 +127,18 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                            <div class="form-control-date float-left">
-                                <span class="form-control-date-btn">
-                                    <i></i>
-                                </span>
-                                <input class="form-control" value="" type="text" data-toggle="datetimepicker" data-istime="true" data-format="MM-DD hh:mm" readonly="readonly">
+                            <div class="form-control-date float-left clockpicker">
+                              <span class="form-control-date-btn input-group-addon">
+                                  <i></i>
+                              </span>
+                              <input type="text" class="form-control" value="" readonly="readonly">
                             </div>
                             <span class="float-left fn-pt-10 fn-pl-15">--</span>
-                            <div class="form-control-date float-right">
-                                <span class="form-control-date-btn">
-                                    <i></i>
-                                </span>
-                                <input class="form-control" value="" type="text" data-toggle="datetimepicker" data-istime="true" data-format="MM-DD hh:mm" readonly="readonly">
+                            <div class="form-control-date float-right clockpicker">
+                              <span class="form-control-date-btn input-group-addon">
+                                  <i></i>
+                              </span>
+                              <input type="text" class="form-control" value="" readonly="readonly">
                             </div>
                        </div>
                     </div>
@@ -1159,7 +1160,7 @@
 
             <!-- 按钮 -->
             <div class="text-align-center fn-mt-20">
-                <button type="submit" class="btn primary">提交</button>
+                <button id="submit" type="button" class="btn primary">提交</button>
                 <a href="关联渠道管理-渠道列表.html" class="btn default">取消</a>
             </div>
         </form>
@@ -1169,9 +1170,18 @@
 {% block js %}
     <script src="{{ static }}/js/webuploader/webuploader.js"></script>
     <script src="{{ static }}/js/webuploader/uploader.js"></script>
+    <script src="{{ static }}/js/clockpicker/jquery-clockpicker.min.js"></script>
 {% endblock %}
 
 {% block jsPage %}
+    <script id="modalTmpl" type="text/template">
+      <!-- 提示弹窗 -->
+      {{  tipsModalAlpha.default(
+            tipsTitle='<span>提示</span>',
+            tipsContent='<span class="success-FontColor2">渠道编辑成功</span>'
+          )
+      }}
+    </script>
     <script type="text/javascript">
         /**
          * uploadSuccess 上传成功后回调
@@ -1207,6 +1217,13 @@
             });*/
             //初始化上传控件
             $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+            var modalContent = $("#modalTmpl").html();
+            $('#submit').on('click', function(){
+                $('#testModal').modal({ title: '提示', content: modalContent});
+            });
+
+            $('.clockpicker').clockpicker();
 
         });
     </script>

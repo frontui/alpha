@@ -24,7 +24,7 @@ module.exports = function svnTask(banner) {
       return gulp.src(['./'+ config.destPath + '/**/**.html'])
               //.pipe($.changed(svn.path))
               .pipe($.replace(/\/static/g, './static'))
-              .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.-]+\.js)(.*)"/g, '"'+ config.staticPath +'/js/$3$4"'))
+              .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.-]+\.js)(.*)"/g, '"./static/js/$3$4"'))
               //.pipe(gulp.dest(svn.path))
               .pipe(gulp.dest(tmpPath))
   });
@@ -60,6 +60,17 @@ module.exports = function svnTask(banner) {
           .pipe(gulp.dest(tmpPath + svn.staticPath))
   })
 
+  // js里面的css
+  gulp.task('svnJsCss', function(){
+      return gulp.src([config.staticPath+'/js/**/**.css', '!'+ config.staticPath +'/js/bootstrap-calendar/**/**'], {base: 'client'})
+          .pipe($.plumber( { errorHandler: Lib.errHandler } ))
+          .pipe($.changed(svn.staticPath))
+          //.pipe($.uglify({mangle: false}))
+          .pipe($.header(banner, { pkg: pkg}))
+          //.pipe(gulp.dest(svn.staticPath))
+          .pipe(gulp.dest(tmpPath + svn.staticPath))
+  })
+
   gulp.task('svnBowerJs', function(){
       return gulp.src(config.jsPath)
               .pipe($.changed(svn.staticPath))
@@ -83,13 +94,13 @@ module.exports = function svnTask(banner) {
           .pipe(gulp.dest(tmpPath + svn.staticPath+'/images'))
   })
 
-  gulp.task('zip', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnImage', 'svnBowerJs'],function() {
+  gulp.task('zip', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnJsCss', 'svnImage', 'svnBowerJs'],function() {
     return gulp.src(tmpPath+'/**/**')
             .pipe($.zip(pkg.name+'.zip'))
             .pipe(gulp.dest(tmpPath))
   });
 
-  gulp.task('build', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnImage', 'svnBowerJs'], function() {
+  gulp.task('build', ['svnTemplate', 'svnCopy', 'svnCss', 'svnJs', 'svnJsCss', 'svnImage', 'svnBowerJs'], function() {
     return gulp.src(tmpPath+'/**/**')
               .pipe(gulp.dest(svn.path))
   })
