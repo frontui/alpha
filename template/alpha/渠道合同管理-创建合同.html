@@ -1,0 +1,68 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: '渠道合同管理-合同列表.html',
+text:'渠道合同管理'
+},
+{
+text:'创建合同'
+}
+]
+)
+}}
+
+{# 主体信息渠道分润合同主体信息 #}
+<div class="form-frame fn-mb-10">
+    <div class="createContract clearfix">
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/alipay.jpg"></img>
+                <h6>支付宝(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/weChat.jpg"></img>
+                <h6>微信支付(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/quickPass.jpg"></img>
+                <h6>银联闪付(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+        <div class="box float-left">
+            <div>
+                <img class="logoImg" src="{{ static }}/images/baiduWallet.jpg"></img>
+                <h6>百度钱包(招商银行总行)</h6>
+            </div>
+            <div>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
