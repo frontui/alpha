@@ -259,8 +259,10 @@ text: '创建通道'
 {% block jsPage %}
 
 <script id="modalTmpl" type="text/template">
-    <!-- 提示弹窗 -->
-    {{ tipsModalAlpha.default(tipsContent="通道创建成功") }}
+    <!--提示弹窗-->
+    {{  tipsModalAlpha.default(
+    tipsTitle='<span class="success-FontColor2">通道创建成功</span>')}}
+
 </script>
 
 <script type="text/javascript">
