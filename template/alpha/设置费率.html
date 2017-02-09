@@ -3,27 +3,184 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{
-        breadCrumbAlpha.default(
-            list = [
-                {
-                    link: 'javascript:void(0);',
-                    text:'一级导航'
-                },
-                {
-                    link: 'javascript:void(0);',
-                    text:'二级导航'
-                },
-                {
-                    link: 'javascript:void(0);',
-                    text:'三级导航'
-                },
-                {
-                    text: '当前位置'
-                }
-            ]
-        )
-    }}
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'机构管理'
+},
+{
+link: 'javascript:void(0);',
+text:'机构列表'
+},
+{
+link: 'javascript:void(0);',
+text:'收单费率'
+},
+{
+text: '设置费率'
+}
+]
+)
+}}
+<div>
+    <!--表格-->
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th>支付通道</th>
+            <th>行业分类</th>
+            <th colspan="7">渠道签约扣率</th>
+            <th>渠道封顶</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>支付宝（成都招行）</td>
+            <td>线下实体商户</td>
+            <td colspan="7"> <input type="text" style="width:50px; height: 25px;" value="0.5">
+                %-
+                <input type="text" style="width:50px; height: 25px;" value="0.6">%</td>
+            <td>
+                <input type="text" style="width:50px; height: 25px;" value="100">
+                元
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>通道成本</th>
+            <th colspan="6">总分润</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>0.2%</td>
+            <td colspan="6">0.5%-0.6%</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table inverse">
+        <colgroup>
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col style="width:12%">
+        </colgroup>
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th colspan="2">机构总分润</th>
+            <th colspan="2">系统总分润</th>
+            <th colspan="2">渠道总分润</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2">0.1%</td>
+            <td colspan="2">0.1%</td>
+            <td colspan="2">0.5%-0.6%</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>机构001-3</th>
+            <td>0.03%</td>
+            <th>钱途</th>
+            <td>0.02%</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>机构001-3-1</th>
+            <td>0.03%</td>
+            <th>淘淘谷</th>
+            <td>0.02%</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--提示-->
+    <div class="fn-ma-30">
+        商户签约扣率=通道成本+机构总分润+系统总分润+渠道总分润
+    </div>
+
+    <!--提交 取消-->
+    <div class="text-align-center plural-btns fn-ma-20">
+        <button type="button" class="btn primary">提交</button>
+        <a href="机构列表（收单费率）.html">
+            <button type="button" class="btn default">取消</button>
+        </a>
+    </div>
+
+</div>
 {% endblock %}
+
