@@ -3,6 +3,7 @@
 {# 加载页面专有样式表 #}
 {% block css %}
     <link rel="stylesheet" href="{{ static }}/js/webuploader/style.css">
+    <link rel="stylesheet" href="{{ static }}/js/clockpicker/jquery-clockpicker.min.css">
 {% endblock %}
 
 {# 内容 #}
@@ -126,19 +127,19 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                            <div class="form-control-date float-left">
-                                <span class="form-control-date-btn">
-                                    <i></i>
-                                </span>
-                                <input class="form-control" value="" type="text" data-toggle="datetimepicker" data-istime="true" data-format="MM-DD hh:mm" readonly="readonly">
-                            </div>
-                            <span class="float-left fn-pt-10 fn-pl-15">--</span>
-                            <div class="form-control-date float-right">
-                                <span class="form-control-date-btn">
-                                    <i></i>
-                                </span>
-                                <input class="form-control" value="" type="text" data-toggle="datetimepicker" data-istime="true" data-format="MM-DD hh:mm" readonly="readonly">
-                            </div>
+                          <div class="form-control-date float-left clockpicker">
+                            <span class="form-control-date-btn input-group-addon">
+                                <i></i>
+                            </span>
+                            <input type="text" class="form-control" value="" readonly="readonly">
+                          </div>
+                          <span class="float-left fn-pt-10 fn-pl-15">--</span>
+                          <div class="form-control-date float-right clockpicker">
+                            <span class="form-control-date-btn input-group-addon">
+                                <i></i>
+                            </span>
+                            <input type="text" class="form-control" value="" readonly="readonly">
+                          </div>
                        </div>
                     </div>
                     {# 渠道负责人 #}
@@ -1171,6 +1172,7 @@
 {% block js %}
     <script src="{{ static }}/js/webuploader/webuploader.js"></script>
     <script src="{{ static }}/js/webuploader/uploader.js"></script>
+    <script src="{{ static }}/js/clockpicker/jquery-clockpicker.min.js"></script>
 {% endblock %}
 
 {% block jsPage %}
@@ -1209,6 +1211,8 @@
             });*/
             //初始化上传控件
             $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+            $('.clockpicker').clockpicker();
 
         });
     </script>
