@@ -1159,7 +1159,7 @@
 
             <!-- 按钮 -->
             <div class="text-align-center fn-mt-20">
-                <button type="submit" class="btn primary">提交</button>
+                <button id="submit" type="button" class="btn primary">提交</button>
                 <a href="关联渠道管理-渠道列表.html" class="btn default">取消</a>
             </div>
         </form>
@@ -1172,6 +1172,10 @@
 {% endblock %}
 
 {% block jsPage %}
+    <script id="modalTmpl" type="text/template">
+      <!-- 提示弹窗 -->
+      {{ tipsModalAlpha.default(tipsContent="渠道编辑成功") }}
+    </script>
     <script type="text/javascript">
         /**
          * uploadSuccess 上传成功后回调
@@ -1207,6 +1211,11 @@
             });*/
             //初始化上传控件
             $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
+
+            var modalContent = $("#modalTmpl").html();
+            $('#submit').on('click', function(){
+                $('#testModal').modal({ title: '提示', content: modalContent});
+            })
 
         });
     </script>
