@@ -3,20 +3,20 @@
 {# 内容 #}
 {% block content %}
 
-    {# 路径导航 #}
-    {{
-        breadCrumbAlpha.default(
-            list = [
-                {
-                    link: 'javascript:void(0);',
-                    text:'通道管理'
-                },
-                {
-                    text: '创建通道'
-                }
-            ]
-        )
-    }}
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: '渠道合同管理-合同列表.html',
+text:'渠道合同管理'
+},
+{
+text:'创建合同'
+}
+]
+)
+}}
 
 {# 主体信息渠道分润合同主体信息 #}
 <div class="form-frame fn-mb-10">
@@ -25,43 +25,44 @@
         <div class="box float-left">
             <div>
                 <img class="logoImg" src="{{ static }}/images/alipay.jpg"></img>
-                <h6>支付宝</h6>
+                <h6>支付宝(招商银行总行)</h6>
             </div>
             <div>
-                <a href="##" type="button" class="btn default small-btn">已开通</a>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
             </div>
         </div>
 
         <div class="box float-left">
             <div>
                 <img class="logoImg" src="{{ static }}/images/weChat.jpg"></img>
-                <h6>微信支付</h6>
+                <h6>微信支付(招商银行总行)</h6>
             </div>
             <div>
-                <a href="##" type="button" class="btn default small-btn">已开通</a>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
             </div>
         </div>
 
         <div class="box float-left">
             <div>
                 <img class="logoImg" src="{{ static }}/images/quickPass.jpg"></img>
-                <h6>银联闪付</h6>
+                <h6>银联闪付(招商银行总行)</h6>
             </div>
             <div>
-                <a href="创建通道（步骤2）.html" type="button" class="btn secondary small-btn">开通</a>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
             </div>
         </div>
 
         <div class="box float-left">
             <div>
                 <img class="logoImg" src="{{ static }}/images/baiduWallet.jpg"></img>
-                <h6>百度钱包</h6>
+                <h6>百度钱包(招商银行总行)</h6>
             </div>
             <div>
-                <a href="创建通道（步骤2）.html" type="button" class="btn secondary small-btn">开通</a>
+                <a href="##" type="button" class="btn secondary small-btn">创建</a>
             </div>
         </div>
 
     </div>
 </div>
+
 {% endblock %}
