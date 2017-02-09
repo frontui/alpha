@@ -20,55 +20,51 @@
 <div>
   <!--筛选-->
     <div>
-      <form action="##" method="post" class="form-frame form-frame-filter fn-mb-10">
-        <div class="form-layer-gray-box">
-          <div class="form-group inline-block">
-            <label class="form-control-label">
-              <span>机构名称</span>
-              <em>：</em>
-            </label>
-            <div class="form-control-wrap form-control-helper">
-              <input type="text" class="form-control" placeholder="输入机构名称" data-toggle="searchInput">
+        <form class="filterBox-Alpha" action="#" method="post">
+            <div class="fliter-inline-wrap">
+                <div class="fliter-inline-item">
+                    <label>机构名称：</label>
+                    <div class="fliter-inline-width1">
+                        <div class="form-control-date smallsize">
+                            <input type="text" class="form-control" placeholder="输入机构名称" data-toggle="searchInput">
+                        </div>
+                    </div>
+                </div>
+                <div class="fliter-inline-item">
+                    <label>所在地：</label>
+                    <div class="fliter-inline-width1">
+                        <select>
+                            <option value="">省份</option>
+                            <option value="1">北京</option>
+                            <option value="2">上海</option>
+                            <option value="3">广西</option>
+                            <option value="3">广广的发的发生大发西</option>
+                        </select>
+                        <select>
+                            <option value="">城市</option>
+                            <option value="1">北东方大厦发顺丰的京</option>
+                            <option value="2">上海</option>
+                            <option value="3">广西</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="fliter-inline-item">
+                    <button type="submit" class="btn secondary small-btn">搜索</button>
+                    <button type="submit" class="btn secondary small-btn">重置</button>
+                </div>
             </div>
-          </div>
-
-          <div class="form-group inline-block">
-            <label class="form-control-label">
-              <span>所在地</span>
-              <em>：</em>
-            </label>
-            <div class="form-control-wrap inline-block">
-              <select class="form-control">
-                <option value="省份">省份</option>
-                <option value="1">北京</option>
-                <option value="2">上海</option>
-                <option value="3">广西</option>
-              </select>
-              <select class="form-control inline-block">
-                <option value="省份">省份2</option>
-                <option value="1">北京</option>
-                <option value="2">上海</option>
-                <option value="3">广西</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="button" class="btn small-btn default">搜索</button>
-          <button type="button" class="btn small-btn default">重置</button>
-
-        </div>
-      </form>
+        </form>
     </div>
 
   <!--表格-->
   <table class="table inverse">
     <colgroup>
-      <col style="width: 80px">
-      <col style="width: 150px">
-      <col style="width: 50px">
-      <col style="width: 100px">
-      <col style="width: 150px">
-      <col style="width:50px">
+      <col style="width: 10%">
+      <col style="width: 15%">
+      <col style="width:  8%">
+      <col style="width: 15%">
+      <col style="width: 20%">
+      <col style="width: 10%">
     </colgroup>
     <thead>
     <tr>
@@ -93,12 +89,6 @@
         <a class="link-standard" href="机构列表（查看）.html">
           查看
         </a> &nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（编辑）.html">
-          编辑
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（设置应用）.html">
-          设置应用
-        </a> &nbsp;&nbsp;
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>  &nbsp;&nbsp;
@@ -116,15 +106,6 @@
       <td class="text-align-left">
         <a class="link-standard" href="机构列表（查看）.html">
           查看
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（编辑）.html">
-          编辑
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（收单费率）.html">
-          收单费率
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（设置应用）.html">
-          设置应用
         </a>&nbsp;&nbsp;
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
@@ -146,15 +127,6 @@
         <a class="link-standard" href="机构列表（查看）.html">
           查看
         </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（编辑）.html">
-          编辑
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（收单费率）.html">
-          收单费率
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（设置应用）.html">
-          设置应用
-        </a>&nbsp;&nbsp;
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>
@@ -174,9 +146,6 @@
         </a>&nbsp;&nbsp;
         <a class="link-standard" href="机构列表（收单费率）.html">
           收单费率
-        </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（设置应用）.html">
-          设置应用
         </a>&nbsp;&nbsp;
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
