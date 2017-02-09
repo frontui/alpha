@@ -4,7 +4,7 @@
     tbodyID='',
     tbodyClass='',
     fixedClass='',
-    cols
+    cols=''
 ) %}
 <div class="table-wrap {{ fixedClass }}">
     <table class="table">
@@ -30,5 +30,26 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
+{% endmacro %}
+
+{% macro tableHeaderDefault(
+    title='',
+    fixedClass='',
+    tableTitleBtns='',
+    btns=[]
+) %}
+<div class="tables-title {{ fixedClass }}">
+   {{ title }}
+   {% if haveBtns %}
+   <div class="{{ tableTitleBtns }}">
+      {% for btn in btns %}
+      <a href="{{ btn.link }}" onclick="{{ btn.onclick }}">
+          {{ btn.inner }}
+      </a>
+      {% endfor %}
+   </div>
+   {% else %}
+   {% endif %}
 </div>
 {% endmacro %}
