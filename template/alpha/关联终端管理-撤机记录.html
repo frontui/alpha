@@ -1,0 +1,21 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'关联终端管理'
+},
+{
+text: '撤机记录'
+}
+]
+)
+}}
+
+{% endblock %}

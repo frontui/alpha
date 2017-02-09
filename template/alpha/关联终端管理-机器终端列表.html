@@ -1,0 +1,24 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text:'关联终端管理'
+                },
+                {
+                    text: '机器终端列表'
+                }
+            ]
+        )
+    }}
+<div class="text-align-center autoTips">
+    正在为你跳转，请耐心等待.....
+</div>
+
+{% endblock %}
