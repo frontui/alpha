@@ -1176,7 +1176,11 @@
 {% block jsPage %}
     <script id="modalTmpl" type="text/template">
       <!-- 提示弹窗 -->
-      {{ tipsModalAlpha.default(tipsContent="渠道编辑成功") }}
+      {{  tipsModalAlpha.default(
+            tipsTitle='<span>提示</span>',
+            tipsContent='<span class="success-FontColor2">渠道编辑成功</span>'
+          )
+      }}
     </script>
     <script type="text/javascript">
         /**
