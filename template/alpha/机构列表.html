@@ -102,7 +102,7 @@
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>  &nbsp;&nbsp;
-        <a href="#myModal" class="link-standard" data-toggle="modal" href="机构列表（禁用）.html">禁用</a>
+        <a href="#myModal" class="link-standard" data-toggle="modal">禁用</a>
       </td>
     </tr>
 
@@ -112,7 +112,7 @@
       <td>3</td>
       <td>山东，济南</td>
       <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap">18:00:00</span></td>
-      <td>启用</td>
+      <td>禁用</td>
       <td class="text-align-left">
         <a class="link-standard" href="机构列表（查看）.html">
           查看
@@ -129,7 +129,7 @@
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（禁用）.html">
+          <a href="#myModal" class="link-standard" data-toggle="modal">
           启用
         </a>
       </td>
@@ -141,7 +141,7 @@
       <td>3</td>
       <td>山东，济南</td>
       <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap">18:00:00</span></td>
-      <td>启用</td>
+      <td>待启用</td>
       <td class="text-align-left">
         <a class="link-standard" href="机构列表（查看）.html">
           查看
@@ -193,11 +193,43 @@
         <div class="modal-layer">
             <div class="modal-position">
                 <div class="modal-wrap">
-                    <div class="modal-body">
+                    <div class="modal-body text-align-center">
                         <div>
-                            <button>确定</button>
-                            <button>确定</button>
+                            禁用后，该机构及关联的渠道将不可用。确定禁用？
                         </div>
+                        <div>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn small-btn  default">确认</button>
+                            </a>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn  small-btn default">取消</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--启用弹层-->
+    <div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body text-align-center">
+                        <div>
+                            启用后，该机构及关联的渠道将正常可用。确定启用？
+                        </div>
+                        <div>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn small-btn  default">确认</button>
+                            </a>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn  small-btn default">取消</button>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
