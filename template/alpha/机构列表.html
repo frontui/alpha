@@ -102,7 +102,7 @@
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>  &nbsp;&nbsp;
-        <a href="#myModal" class="link-standard" data-toggle="modal" href="机构列表（禁用）.html">禁用</a>
+        <a href="#myModal" class="link-standard" data-toggle="modal">禁用</a>
       </td>
     </tr>
 
@@ -112,7 +112,7 @@
       <td>3</td>
       <td>山东，济南</td>
       <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap">18:00:00</span></td>
-      <td>启用</td>
+      <td>禁用</td>
       <td class="text-align-left">
         <a class="link-standard" href="机构列表（查看）.html">
           查看
@@ -129,7 +129,7 @@
         <a class="link-standard" href="机构列表（管理员）.html">
           管理员
         </a>&nbsp;&nbsp;
-        <a class="link-standard" href="机构列表（禁用）.html">
+          <a href="#myModal" class="link-standard" data-toggle="modal">
           启用
         </a>
       </td>
@@ -141,7 +141,7 @@
       <td>3</td>
       <td>山东，济南</td>
       <td><span class="text-nowrap">2016-10-10</span>  <span class="text-nowrap">18:00:00</span></td>
-      <td>启用</td>
+      <td>待启用</td>
       <td class="text-align-left">
         <a class="link-standard" href="机构列表（查看）.html">
           查看
@@ -193,15 +193,73 @@
         <div class="modal-layer">
             <div class="modal-position">
                 <div class="modal-wrap">
-                    <div class="modal-body">
+                    <div class="modal-body text-align-center">
                         <div>
-                            <button>确定</button>
-                            <button>确定</button>
+                            禁用后，该机构及关联的渠道将不可用。确定禁用？
                         </div>
+                        <div>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn small-btn  default">确认</button>
+                            </a>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn  small-btn default">取消</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--启用弹层-->
+    <div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body text-align-center">
+                        <div>
+                            启用后，该机构及关联的渠道将正常可用。确定启用？
+                        </div>
+                        <div>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn small-btn  default">确认</button>
+                            </a>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn  small-btn default">取消</button>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+{# 分页 #}
+{{ paginationAlpha.default( id='p1' ) }}
+
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
 {% endblock %}
