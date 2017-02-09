@@ -16,105 +16,136 @@
                     text: '账号管理'
                 },
                 {
-                    text: '查看账号'
+                    text: '编辑账号'
                 }
             ]
         )
     }}
 
+    {# 表单 #}
+    <form action="" autocomplete="off">
+        <div class="form-frame fn-mt-20">
+            <div class="form-layer1">
+                <div class="form-layer2">
+                    <form autocomplete="off">
 
-    {# 表格标题 #}
-    <h5 class="fn-mt-20 fn-mb-10">账号信息</h5>
-    {# 表格 #}
-    {{
-        tableAlpha.default(
-            cols='
-                <colgroup>
-                    <col style="width: 20%">
-                    <col style="width: 30%">
-                    <col style="width: 20%">
-                    <col style="width: 30%">
-                </colgroup>
-            ',
-            data={
-                tbodyList: [
-                    [
-                        {
-                            inner: '<b>账号名称</b>'
-                        },
-                        {
-                            inner: 'Graxii'
-                        },
-                        {
-                            inner: '<b>姓名</b>'
-                        },
-                        {
-                            inner: '张丹丹'
-                        }
-                    ],
-                    [
-                        {
-                            inner: '<b>手机号码</b>'
-                        },
-                        {
-                            inner: '138 0000 0000'
-                        },
-                        {
-                            inner: '<b>邮箱</b>'
-                        },
-                        {
-                            inner: 'dandan.zhang@gmail.com'
-                        }
-                    ],
-                    [
-                        {
-                            inner: '<b>账号角色</b>'
-                        },
-                        {
-                            inner: '财务'
-                        },
-                        {
-                            inner: '<b>备注</b>'
-                        },
-                        {
-                            inner: '新员工'
-                        }
-                    ],
-                    [
-                        {
-                            inner: '<b>创建时间</b>'
-                        },
-                        {
-                            inner: '
-                                <span class="text-nowrap">
-                                    2015-05-25
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>账号名称
                                 </span>
-                                <span class="text-nowrap viceText-FontColor">
-                                    10:25:36
-                                </span>
-                            '
-                        },
-                        {
-                            inner: '<b>状态</b>'
-                        },
-                        {
-                            inner: '
-                                <span class="success-FontColor2">
-                                    启用
-                                </span>
-                            '
-                        }
-                    ]
-                ]
-            },
-            fixedClass='table-border'
-        )
-    }}
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
 
-    <div class="text-align-center fn-pt-20">
-        <button class="btn secondary" onclick="window.location.href='系统管理-账号管理.html'">
-            返回
-        </button>
-    </div>
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>姓名
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>手机号码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>邮箱
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <b>*
+                                </b>
+                                <span>账号角色
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <select class="form-control" style="padding-top: 8px;">
+                                    <option value="">角色1</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">
+                                <span>备注
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <textarea class="form-control" rows="5" style="max-width: 100%; width: 100%; height: auto"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="form-layer-gray-box">
+                <div class="form-layer1">
+                    <div class="form-layer2">
+
+                        <div class="form-group">
+                            <label class="form-control-label" for="form-control-example2">
+                                <b>*
+                                </b>
+                                <span>请输入密码
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap">
+                                <input type="password" class="form-control" placeholder="请输入登录密码">
+                                <a class="form-control-tools-link" href="###">忘记密码</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                                <button type="button" class="btn primary">提交</button>
+                                <a href="系统管理-账号管理.html" class="btn links">取消</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 {% endblock %}
