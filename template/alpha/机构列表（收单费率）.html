@@ -25,13 +25,13 @@ text: '收单费率'
     <!--表格-->
     <table class="table inverse">
         <colgroup>
-            <col style="width: 150px">
-            <col style="width: 120px">
-            <col style="width: 120px">
-            <col style="width: 80px">
-            <col style="width: 80px">
-            <col style="width:100px">
-            <col style="width:100px">
+            <col style="width: 15%">
+            <col style="width: 15%">
+            <col style="width: 12%">
+            <col style="width: 12%">
+            <col style="width: 12%">
+            <col style="width:12%">
+            <col style="width:12%">
         </colgroup>
         <thead>
         <tr>
@@ -56,8 +56,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -71,8 +71,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -84,8 +84,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -97,8 +97,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -112,8 +112,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -125,8 +125,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -138,8 +138,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -153,8 +153,8 @@ text: '收单费率'
             <td>0.3%—0.4%</td>
             <td>0.05%</td>
             <td class="text-align-center">
-                <a class="link-standard" href="修改费率.html">
-                    修改
+                <a class="link-standard" href="查看费率.html">
+                    查看
                 </a>
             </td>
         </tr>
@@ -175,5 +175,30 @@ text: '收单费率'
         </tbody>
     </table>
 
+    {# 分页 #}
+    {{ paginationAlpha.default( id='p1' ) }}
+
 </div>
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+</script>
 {% endblock %}

@@ -126,7 +126,19 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <!--  只选时间不选日期的控件，留空 -->
+                            <div class="form-control-date float-left">
+                                <span class="form-control-date-btn">
+                                    <i></i>
+                                </span>
+                                <input class="form-control" value="" type="text" data-toggle="datetimepicker" data-istime="true" data-format="MM-DD hh:mm" readonly="readonly">
+                            </div>
+                            <span class="float-left fn-pt-10 fn-pl-15">--</span>
+                            <div class="form-control-date float-right">
+                                <span class="form-control-date-btn">
+                                    <i></i>
+                                </span>
+                                <input class="form-control" value="" type="text" data-toggle="datetimepicker" data-istime="true" data-format="MM-DD hh:mm" readonly="readonly">
+                            </div>
                        </div>
                     </div>
                     {# 渠道负责人 #}

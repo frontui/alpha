@@ -20,17 +20,20 @@ link: 'javascript:void(0);',
 text:'收单费率'
 },
 {
-text: '修改费率'
+text: '查看费率'
 }
 ]
 )
 }}
 <div>
     <!--表格-->
-    <table class="table inverse table-border ">
+    <table class="table inverse">
         <colgroup>
             <col style="width: 15%">
             <col style="width: 15%">
+            <col>
+            <col>
+            <col>
             <col>
             <col>
             <col>
@@ -41,7 +44,7 @@ text: '修改费率'
         <tr>
             <th>支付通道</th>
             <th>行业分类</th>
-            <th colspan="4">渠道签约扣率</th>
+            <th colspan="7">渠道签约扣率</th>
             <th>渠道封顶</th>
         </tr>
         </thead>
@@ -49,17 +52,18 @@ text: '修改费率'
         <tr>
             <td>支付宝（成都招行）</td>
             <td>线下实体商户</td>
-            <td colspan="4">0.5%-0.6%</td>
+            <td colspan="7">0.5%-0.6%</td>
             <td>100元</td>
         </tr>
         </tbody>
     </table>
 
-
-    <table class="table inverse table-border">
+    <table class="table inverse">
         <colgroup>
             <col style="width: 15%">
             <col style="width: 15%">
+            <col>
+            <col>
             <col>
             <col>
             <col>
@@ -71,7 +75,7 @@ text: '修改费率'
             <th></th>
             <th></th>
             <th>通道成本</th>
-            <th colspan="3">总分润</th>
+            <th colspan="6">总分润</th>
             <th></th>
         </tr>
         </thead>
@@ -80,16 +84,19 @@ text: '修改费率'
             <td></td>
             <td></td>
             <td>0.2%</td>
-            <td colspan="3">0.5%-0.6%</td>
+            <td colspan="6">0.5%-0.6%</td>
             <td></td>
         </tr>
         </tbody>
     </table>
 
-    <table class="table inverse table-border">
+    <table class="table inverse">
         <colgroup>
             <col style="width: 15%">
             <col style="width: 15%">
+            <col>
+            <col>
+            <col>
             <col>
             <col>
             <col>
@@ -101,9 +108,9 @@ text: '修改费率'
             <th></th>
             <th></th>
             <th></th>
-            <th>机构总分润</th>
-            <th>系统总分润</th>
-            <th>渠道总分润</th>
+            <th colspan="2">机构总分润</th>
+            <th colspan="2">系统总分润</th>
+            <th colspan="2">渠道总分润</th>
             <th></th>
         </tr>
         </thead>
@@ -112,15 +119,64 @@ text: '修改费率'
             <td></td>
             <td></td>
             <td></td>
-            <td>0.1%</td>
-            <td>0.1%</td>
-            <td>0.5%-0.6%</td>
+            <td colspan="2">0.1%</td>
+            <td colspan="2">0.1%</td>
+            <td colspan="2">0.5%-0.6%</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>机构001</th>
+            <td>0.03%</td>
+            <th>网金</th>
+            <td>0.02%</td>
+            <td></td>
+            <td></td>
             <td></td>
         </tr>
         </tbody>
     </table>
 
-    
+
+
+
+    <!--提示-->
+    <div class="fn-ma-30">
+        商户签约扣率=通道成本+机构总分润+系统总分润+渠道总分润
+    </div>
+
+    <!--返回-->
+        <div class="text-align-center fn-mb-20">
+            <a href="机构列表（收单费率）.html">
+                <button type="button" class="btn default">取消</button>
+            </a>
+        </div>
 </div>
 {% endblock %}
 
