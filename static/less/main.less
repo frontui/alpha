@@ -710,3 +710,89 @@
     }
   }
 }
+
+ // alpha 项目报错页面布局
+ .note-alpha {
+     display: table;
+     height: 100%;
+     width: 100%;
+
+     > div {
+         display: table-cell;
+         vertical-align: middle;
+
+         > .errorpage-box {
+             margin: 0 auto;
+         }
+     }
+
+    //  > div {
+    //      margin-top: -25%;
+    //  }
+ }
+
+// alpha 项目首页
+@index-panel-alpha-color1: #4492d4;
+@index-panel-alpha-color2: #5dd396;
+@index-panel-alpha-color3: #f17c6b;
+@index-panel-alpha-color4: #fb6a01;
+
+.ipab-custom( @color ) {
+    > h5 {
+        background-color: @color;
+    }
+
+    > h3 {
+        border-color: @color;
+    }
+}
+
+.index-panel-alpha {
+    .clearfix();
+    text-align: center;
+    font-size: 0;
+    line-height: 0;
+    padding: @paddingSize-public-alpha 0;
+    border: 1px solid @primary-BorderColor;
+
+    > div {
+        .inline-block();
+        width: 20%;
+        border: 1px solid transparent;
+        margin: 0 2%;
+
+        > h5 {
+            font-size: @small-FontSize;
+            height: 54px;
+            line-height: 54px;
+            color: #fff;
+            .border-radius( @borderRadius-public-alpha,@borderRadius-public-alpha,0,0 );
+        }
+
+        > h3 {
+            font-size: @large-FontSize;
+            height: 42px;
+            line-height: 42px;
+            color: @default-FontColor;
+            border: 1px solid @primary-BorderColor;
+            border-top: none;
+            .border-radius( 0,0,@borderRadius-public-alpha,@borderRadius-public-alpha );
+        }
+
+        &.one {
+            .ipab-custom( @index-panel-alpha-color1 );
+        }
+
+        &.two {
+            .ipab-custom( @index-panel-alpha-color2 );
+        }
+
+        &.three {
+            .ipab-custom( @index-panel-alpha-color3 );
+        }
+
+        &.four {
+            .ipab-custom( @index-panel-alpha-color4 );
+        }
+    }
+}
