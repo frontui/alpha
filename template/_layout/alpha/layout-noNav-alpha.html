@@ -18,34 +18,11 @@
 
 {# 通用布局 #}
 {% block body %}
-    <div id="layoutAlpha">
+    <div id="layoutNoNavAlpha">
 
-		{# 菜单导航 #}
-		{{ headerAlpha.default() }}
-
-		<div class="alpha-main">
-			<div class="alpha-body">
-				<div class="alpha-body-nav-wrap">
-
-					<div>
-						{# 导航位置 #}
-						{{ navAlpha.default() }}
-					</div>
-
-				</div>
-				<div class="alpha-body-content-wrap">
-					<div class="alpha-body-content-box">
-
-						<div>
-							{# 内容位置 #}
-							{% block content %}
-							{% endblock %}
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
+		{# 内容位置 #}
+		{% block content %}
+		{% endblock %}
 
     </div>
 {% endblock %}
