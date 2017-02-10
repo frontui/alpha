@@ -1174,14 +1174,6 @@
 {% endblock %}
 
 {% block jsPage %}
-    <script id="modalTmpl" type="text/template">
-      <!-- 提示弹窗 -->
-      {{  tipsModalAlpha.default(
-            tipsTitle='<span>提示</span>',
-            tipsContent='<span class="success-FontColor2">渠道编辑成功</span>'
-          )
-      }}
-    </script>
     <script type="text/javascript">
         /**
          * uploadSuccess 上传成功后回调
@@ -1218,12 +1210,29 @@
             //初始化上传控件
             $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
 
-            var modalContent = $("#modalTmpl").html();
-            $('#submit').on('click', function(){
-                $('#testModal').modal({ title: '提示', content: modalContent});
-            });
-
             $('.clockpicker').clockpicker();
+
+            $("#submit").on("click",function(){
+              $.tipsModal({
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">成功</span>',
+                content : '编辑创建成功',
+                // buttons : {  //  按钮可以只传ok或cancel
+                //   ok : {
+                //     text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                // }
+              });
+            });
 
         });
     </script>
