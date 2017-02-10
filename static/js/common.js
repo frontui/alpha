@@ -706,13 +706,13 @@ function clockTick(start, callback) {
         ok : {
           text : '确定',
           callback : function () {
-            me.destroy();
+            
           }
         },
         cancel : {
           text : '取消',
           callback : function () {
-            me.destroy();
+            
           }
         }
       }
