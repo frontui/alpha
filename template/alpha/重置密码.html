@@ -42,7 +42,7 @@
                 <p class="fn-pt-10 fn-pb-10 viceText-FontColor">短信将发送至尾号为6740的手机号</p>
 
                 <div class="lo-form-item button">
-                    <button type="button" class="btn primary" style="width: 100%; display: block;" id="formConfirm">提交</button>
+                    <button type="button" class="btn primary" style="width: 100%; display: block;" id="submit">提交</button>
                     <a href="登录.html" class="link-standard text-align-center fn-pt-10" style="display: block;">返回登录界面</a>
                 </div>
             </form>
@@ -53,15 +53,21 @@
 
 {% block jsPage %}
 <script>
-$(function(){
-    $('#formConfirm').on('click', function(){
-        $('#j-modal-6').modalLayer({
-            title: '提交成功',
-            content: '点击确定回到登录页面',
-            icon: 'success',
-            close: false
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">提交成功！</span>',
+                content : '即将跳转到系统登录页面',
+                // buttons : {  //按钮可以只传ok或cancel
+                //     ok : {
+                //     text : '确定', callback : function () {
+                //             console.log('确定');
+                //         }
+                //     }
+                // }
+            });
         });
     });
-})
 </script>
 {% endblock %}
