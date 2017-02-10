@@ -785,12 +785,6 @@ text: '编辑子机构'
 
 {% block jsPage %}
 
-<script id="modalTmpl" type="text/template">
-    <!-- 提示弹窗 -->
-    {{  tipsModalAlpha.default(
-    tipsTitle='<span class="success-FontColor2">子机构编辑成功</span>')}}
-</script>
-
 <script type="text/javascript">
     /**
      * uploadSuccess 上传成功后回调
@@ -827,10 +821,27 @@ text: '编辑子机构'
         //初始化上传控件
         $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
 
-        var modalContent = $("#modalTmpl").html();
-        $('#submit').on('click', function(){
-            $('#testModal').modal({ title: '提示', content: modalContent});
-        })
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">子机构编辑成功 ！</span>',
+                content : ''
+                // buttons : {  //  按钮可以只传ok或cancel
+                //   ok : {
+                //     text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                // }
+            });
+        });
 
     });
 </script>
