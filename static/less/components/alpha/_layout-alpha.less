@@ -44,7 +44,14 @@
         }
 
         &-content-box {
+            position: relative;
+            height: 100%;
             padding: @paddingSize-public-alpha;
+
+            > div {
+                position: relative;
+                height: 100%;
+            }
         }
     }
 }
@@ -75,7 +82,7 @@
             margin: 0 auto;
             padding: @paddingSize-public-alpha*2;
             background-color: #fff;
-            background: url('@{images-url}white70.png');
+            background: url( '@{images-url}white70.png' );
             //border: 1px solid @base-BorderColor;
             box-shadow: 0 0 10px 0 rgba( 0,0,0,0.15 );
             .rounded( @borderRadius-public-alpha );

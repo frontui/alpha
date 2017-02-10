@@ -692,3 +692,160 @@ function clockTick(start, callback) {
     root.FrontUI = FrontUI;
 
 })(window, jQuery);
+
+
+//  简单封装一套弹窗，用于Alpha项目奇异的交互,by limit
+;(function($) {
+  function modal(){
+    var me = this;
+    me.data = {
+      title : '提示',   //  默认标题
+      close : false,    //  默认没有header的关闭按钮
+      content : '',     //  默认内容为空
+      buttons : {       //  默认按钮
+        ok : {
+          text : '确定',
+          callback : function () {
+            
+          }
+        },
+        cancel : {
+          text : '取消',
+          callback : function () {
+            
+          }
+        }
+      }
+    };
+
+    //  事件绑定
+    $("body").on("click","#modal-dialog .modal-close",function(){
+      me.destroy();
+    }).on("click","#modal-dialog .modal-ok",function(){
+      if(me.data.buttons.ok && me.data.buttons.ok.callback){
+        me.data.buttons.ok.callback();
+      }
+      me.destroy();
+    }).on("click","#modal-dialog .modal-cancel",function(){
+      if(me.data.buttons.cancel && me.data.buttons.cancel.callback){
+        me.data.buttons.cancel.callback();
+      }
+      me.destroy();
+    });
+
+    //  方法
+    me.display = function(data){
+      me.dataSetting(data).renderRoot().render();
+    }
+
+    me.dataSetting = function(data){
+      if(!data){ return me; }
+      me.data = $.extend({},me.data,data);
+      return me;
+    }
+
+    me.renderRoot = function(){
+      var data = me.data;
+
+      var header = me._renderHeader();
+      var content = data.content;
+      var buttons = me._renderButtons();
+
+      me.root = '<div class="modal-background" data-keyboard="false" id="modal-dialog" role="dialog">\
+                    <div class="modal-layer">\
+                        <div class="modal-position">\
+                            <div class="modal-wrap">\
+                                ' + header + '\
+                                <div class="modal-body">\
+                                    ' + content + '\
+                                    ' + buttons + '\
+                                </div>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>';
+
+      me.$root = $(me.root);
+
+      return me;
+    }
+
+    me._renderHeader = function(){
+      var data = me.data;
+      var title = data.title;
+      var close = data.close;
+      if(!title && !close){
+        return "";
+      }
+
+      title = !!title ? title : "";
+
+      var closeBtn = close ? '<button class="modal-close" title="关闭"><i></i></button>' : '';
+
+      var header = '<div class="modal-head">\
+                        '+ title + closeBtn +'\
+                    </div>';
+
+      return header;
+    }
+
+    me._renderButtons = function(){
+      var data = me.data;
+      var buttons = data.buttons;
+
+      if(!buttons || (!buttons.ok && !buttons.cancel) ){
+        return "";
+      }
+
+      var okBtn = buttons.ok ? '<button type="button" class="btn primary modal-ok">' + buttons.ok.text + '</button>' : '';
+      var cancelBtn = buttons.cancel ? '<button type="button" class="btn secondary modal-cancel">' + buttons.cancel.text + '</button>' : '';
+
+      var buttons = '<div class="text-align-center margin-top-40px">\
+                        <div class="btn-with-viceLink text-align-center plural-btns">\
+                            ' + okBtn + cancelBtn +'\
+                        </div>\
+                    </div>';
+
+      return buttons;
+
+    }
+
+    me.render = function(){
+      $("body").append(me.$root);
+      return me;
+    }
+
+    me.destroy = function(){
+      me.$root.remove();
+      return me;
+    }             
+  }
+
+  var Modal = new modal();
+
+  $.extend({
+    modal : function(data){
+      Modal.display(data);
+    },
+    tipsModal : function(extendData){
+      var type = extendData && extendData.type || 'success';
+      var title = extendData && extendData.title || "";
+      var modalContent = extendData && extendData.content || "";
+      var content = '<div class="notice-wrap ' + type + ' in-modal">\
+                       <div class="notice-box">\
+                          <span class="notice-img"></span>\
+                          <h3>' + title + '</h3>\
+                          <p>' + modalContent + '</p>\
+                       </div>\
+                    </div>';
+      var data = {
+        title : false,
+        content : content,
+        buttons : extendData && extendData.buttons || false
+      }
+
+      Modal.display(data);
+    }
+  });
+
+})(jQuery);
