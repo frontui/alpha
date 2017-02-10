@@ -18,52 +18,97 @@
         )
     }}
 
-    <form class="filterBox-Alpha" action="#" method="post">
-    	<div class="fliter-inline-wrap">
-    		<div class="fliter-inline-item">
-    			<label>渠道名称：</label>
-    			<div class="fliter-inline-width1">
-	                <div class="fliter-inline-width1">
-                        <input type="text" class="form-control smallsize" />
-                    </div>
-	            </div>
-    		</div>
-    		<div class="fliter-inline-item">
-    			<label>所属行业：</label>
-    			<div class="fliter-inline-width1">
-    				<select>
-						<option value="">全部</option>
-						<option value="0">美食</option>
-						<option value="1">购物</option>
-                        <option value="2">景点</option>
-                        <option value="3">休闲娱乐</option>
-    				</select>
-    			</div>
-                <span class="fliter-inline-bar">--</span>
-                <div class="fliter-inline-width1">
-                    <select>
-                        <option value="">全部</option>
-                        <option value="0">招行深圳分行</option>
-                        <option value="1">招行广州分行</option>
-                    </select>
-                </div>
-    		</div>
-            <div class="fliter-inline-item">
-                <label>渠道角色：</label>
-                <div class="fliter-inline-width1">
-                    <select>
-                        <option value="">全部</option>
-                        <option value="0">商户</option>
-                        <option value="1">门店</option>
-                        <option value="2">渠道商</option>
-                    </select>
-                </div>
-            </div>
-    		<div class="fliter-inline-item">
-    			<button type="submit" class="btn primary small-btn">搜索</button>
-                <button type="button" class="btn secondary small-btn">重置</button>
-    		</div>
-    	</div>
+    {# 数据过滤器 #}
+    <form>
+        <div class="filter-table-wrap fn-mt-20">
+            <table class="filter-table">
+                <colgroup>
+                    <col style="width: 25%">
+                    <col style="width: 25%">
+                    <col style="width: 25%">
+                    <col style="width: 25%">
+                </colgroup>
+                <tr>
+                    <td>
+                        <div class="form-control-wrap smallsize">
+                            <div class="form-control-date smallsize">
+                                <div class="form-control-wrap smallsize">
+                                    <input type="text" class="form-control smallsize" placeholder="渠道名称搜索">
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    所属行业主分类(全部)
+                                </option>
+                                <option value="">
+                                    美食
+                                </option>
+                                <option value="">
+                                    购物
+                                </option>
+                                <option value="">
+                                    景点
+                                </option>
+                                <option value="">
+                                    休闲娱乐
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    所属行业二级分类(全部)
+                                </option>
+                                <option value="">
+                                    二级分类一
+                                </option>
+                                <option value="">
+                                    二级分类二
+                                </option>
+                                <option value="">
+                                    二级分类三
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部渠道角色
+                                </option>
+                                <option value="">
+                                    商户
+                                </option>
+                                <option value="">
+                                    门店
+                                </option>
+                                <option value="">
+                                    渠道商
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="plural-btns" style="padding-bottom: 10px;">
+                            <button type="button" class="btn primary small-btn">搜索</button>
+                            <button type="button" class="btn secondary small-btn">重置</button>
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </form>
 
     <table class="table">

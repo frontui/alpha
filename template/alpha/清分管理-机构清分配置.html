@@ -33,22 +33,39 @@
         )
     }}
 
-    <form class="filterBox-Alpha" action="#" method="post">
-        <div class="fliter-inline-wrap">
-            <div class="fliter-inline-item">
-                <label>机构/渠道：</label>
-                <div class="fliter-inline-width1">
-                    <select>
-                        <option value="">全部</option>
-                        <option value="0">招行深圳分行</option>
-                        <option value="1">招行广州分行</option>
-                    </select>
-                </div>
-            </div>
-            <div class="fliter-inline-item">
-                <button type="submit" class="btn primary small-btn">搜索</button>
-                <a href="清分管理-机构清分配置-添加(编辑).html"  class="btn secondary small-btn">添加</a>
-            </div>
+    {# 数据过滤器 #}
+    <form>
+        <div class="filter-table-wrap fn-mt-20">
+            <table class="filter-table">
+                <colgroup>
+                    <col style="width: 24%">
+                    <col style="width: 76%">
+                </colgroup>
+                <tr>
+                    <td>
+                        <div class="form-control-wrap smallsize">
+                            <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部机构/渠道
+                                </option>
+                                <option value="">
+                                    招行深圳分行
+                                </option>
+                                <option value="">
+                                    招行广州分行
+                                </option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="text-align-right plural-btns">
+                            <button type="button" class="btn secondary small-btn">搜索</button>
+                            <a href="清分管理-机构清分配置-添加(编辑).html" class="btn primary small-btn">添加</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 
