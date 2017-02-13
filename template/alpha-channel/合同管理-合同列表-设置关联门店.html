@@ -157,16 +157,17 @@ text: '设置关联门店'
 
         $("#submit").on("click",function(){
             $.tipsModal({
-                type : 'success',   //  success info error
-                title : '<span class="success-FontColor2">成功</span>',
-                content : '关联渠道设置成功',
-                buttons : {  //  按钮可以只传ok或cancel
-                    ok : {
-                        text : '确定',
-                        callback : function () {
-                            console.log('确定');
-                        }
-                    }
+                type : 'error',   //  success info error
+                close:true,
+                title : '<span class="success-FontColor2">失败</span>',
+                content : '关联失败,通道冲突',//关联渠道设置成功
+//                buttons : {  //  按钮可以只传ok或cancel
+//                    ok : {
+//                        text : '确定',
+//                        callback : function () {
+//                            console.log('确定');
+//                        }
+//                    }
 //                 ,
 //               cancel : {
 //                 text : '取消',
@@ -174,7 +175,7 @@ text: '设置关联门店'
 //                   console.log('取消');
 //                 }
 //               }
-                }
+//                }
             });
         });
 
