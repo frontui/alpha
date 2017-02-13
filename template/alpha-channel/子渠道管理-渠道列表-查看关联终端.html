@@ -1,0 +1,28 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '关联渠道管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '渠道列表'
+                },
+                {
+                    text: '查看关联终端'
+                }
+            ]
+        )
+    }}
+
+    {# frame loading样式 #}
+    {{ frameLoadingAlpha.default() }}
+
+{% endblock %}
