@@ -736,6 +736,7 @@
 @index-panel-alpha-color2: #5dd396;
 @index-panel-alpha-color3: #f17c6b;
 @index-panel-alpha-color4: #fb6a01;
+@index-panel-alpha-color5: #262f3b;
 
 .ipab-custom( @color ) {
     > h5 {
@@ -793,6 +794,19 @@
 
         &.four {
             .ipab-custom( @index-panel-alpha-color4 );
+        }
+    }
+
+    &.in-channel {
+        padding: @paddingSize-public-alpha/2 0;
+
+        > div {
+            width: 18%;
+            margin: 0 1%;
+
+            &.five {
+                .ipab-custom( @index-panel-alpha-color5 );
+            }
         }
     }
 }
