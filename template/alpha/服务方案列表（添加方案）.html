@@ -23,30 +23,28 @@ text:'添加服务方案'
 }}
 
 <div>
-
     <!--方案信息-->
-        <div>
-            <form class="filterBox-Alpha" action="#" method="post">
-                <div class="fliter-inline-wrap">
-                    <div class="fliter-inline-item">
-                        <label>方案名称：</label>
-                        <div class="fliter-inline-width1">
-                            <div class="form-control-date smallsize">
-                                <input type="text" class="form-control" placeholder="" data-toggle="searchInput">
-                            </div>
+    <div class="tables-title">
+        方案信息
+    </div>
+    <form class="filterBox-Alpha" action="#" method="post">
+            <div class="fliter-inline-wrap">
+                <div class="fliter-inline-item">
+                    <label>方案名称：</label>
+                    <div class="fliter-inline-width1">
+                        <div class="form-control-date smallsize">
+                            <input type="text" class="form-control" placeholder="" data-toggle="searchInput">
                         </div>
                     </div>
-
-                    <div class="fliter-inline-item">
-                        <a href="#myOrganization" data-toggle="modal" class="btn secondary small-btn">选择机构 </a>
-                        <a href="#myFacilitator" data-toggle="modal" class="btn secondary small-btn">选择服务商 </a>
-                    </div>
                 </div>
-            </form>
-        </div>
 
-
-        <table class="table inverse bordered table-view fn-mb-20">
+                <div class="fliter-inline-item">
+                    <a href="#myOrganization" data-toggle="modal" class="btn secondary small-btn">选择机构 </a>
+                    <a href="#myFacilitator" data-toggle="modal" class="btn secondary small-btn">选择服务商 </a>
+                </div>
+            </div>
+        </form>
+    <table class="table inverse bordered table-view fn-mb-20">
             <tbody>
             <tr>
                 <th>分润方</th>
@@ -63,10 +61,8 @@ text:'添加服务方案'
             </tr>
             </tbody>
         </table>
-
     </div>
-
-    <!--返回-->
+    <!--按钮-->
     <div>
         <div class="text-align-center fn-mb-20">
             <button id="submit" type="button" class="btn default">提交</button>
