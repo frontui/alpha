@@ -9,7 +9,7 @@
             list = [
                 {
                     link: 'javascript:void(0);',
-                    text:'收单对账管理'
+                    text:'对账管理'
                 },
                 {
                     text: '挂销账管理'
@@ -17,7 +17,30 @@
             ]
         )
     }}
-
+    {# 页面跳转按钮 #}
+    {{
+        pageTabAlpha.default(
+            list = [
+                {
+                    link: '对账管理-总账报表.html',
+                    text:'总账报表'
+                },
+                {
+                	link: '对账管理-挂销账管理.html',
+                    text: '挂销账管理',
+                    isActive:1
+                },
+                {
+                	link: '对账管理-对账单.html',
+                    text: '对账单'
+                },
+                {
+                    link: 'xxx',
+                    text: '历史记录'
+                }
+            ]
+        )
+    }}
 
     <form class="filterBox-Alpha" action="#" method="post">
         <div class="fliter-inline-wrap">
@@ -64,7 +87,7 @@
                 </div>
             </div>
             <div class="fliter-inline-item">
-                <label>订单号：</label>
+                <label>渠道名称：</label>
                 <div class="fliter-inline-width1">
                     <div class="fliter-inline-width1">
                         <input type="text" class="form-control smallsize" />
@@ -72,8 +95,7 @@
                 </div>
             </div>
             <div class="fliter-inline-item">
-                <button type="button" class="btn secondary small-btn">搜索</button>
-                <button type="button" class="btn secondary small-btn">重置</button>
+                <button type="submit" class="btn primary small-btn">查询</button>
             </div>
         </div>
     </form>
