@@ -61,7 +61,6 @@ text:'添加服务方案'
             </tr>
             </tbody>
         </table>
-    </div>
     <!--按钮-->
     <div>
         <div class="text-align-center fn-mb-20">
@@ -71,8 +70,7 @@ text:'添加服务方案'
             </a>
         </div>
     </div>
-
-
+</div>
 <!--选择机构弹层-->
 <div class="modal-background fade display-none in" id="myOrganization" role="dialog" tabindex="-1" aria-hidden="false" >
     <div class="modal-layer">
@@ -146,8 +144,10 @@ text:'添加服务方案'
                             </tr>
                             </tbody>
                         </table>
-                        {# 分页 #}
-                        {{ paginationAlpha.default( id='p1' ) }}
+                        <div style="padding-left:20px; padding-top: 0px;">
+                            {# 分页 #}
+                            {{ paginationAlpha.default( id='p1' ) }}
+                        </div>
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@ text:'添加服务方案'
                             </div>
                         </div>
                     </form>
-                    <!--机构列表-->
+                    <!--服务商列表-->
                     <table class="table inverse">
                         <colgroup>
                             <col style="width: 40%">
@@ -212,8 +212,10 @@ text:'添加服务方案'
                         </tr>
                         </tbody>
                     </table>
+                    <div style="padding-left:20px; padding-top: 0px;">
                         {# 分页 #}
-                        {{paginationAlpha.default( id='p1' ) }}
+                        {{ paginationAlpha.default( id='p2' ) }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -223,10 +225,28 @@ text:'添加服务方案'
 </div>
 {% endblock %}
 
-
+{# 页面脚本 #}
 {% block jsPage %}
-
 <script type="text/javascript">
+
+    // 静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1, #p2').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1, #p2').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
+
+
     /**
      * uploadSuccess 上传成功后回调
      * @return {[type]} [description]
