@@ -66,12 +66,44 @@
         </table>
     </div>
 
-    <!--提交 取消-->
+    <!--提交 取消  机构费率设置成功-->
         <div class="text-align-center plural-btns fn-ma-50">
-            <button type="button" class="btn default">提交</button>
+            <button id="submit" type="button" class="btn default">提交</button>
             <a href="机构列表.html">
                 <button type="button" class="btn default">取消</button>
             </a>
         </div>
 </div>
 {% endblock %}
+
+{% block jsPage %}
+<script type="text/javascript">
+
+    $(function(){
+
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                type : 'success',   //  success info error
+                title : '<span class="success-FontColor2">机构费率设置成功！</span>',
+                content : ''
+                // buttons : {  //  按钮可以只传ok或cancel
+                //   ok : {
+                //     text : '确定',
+                //     callback : function () {
+                //       console.log('确定');
+                //     }
+                //   },
+                //   cancel : {
+                //     text : '取消',
+                //     callback : function () {
+                //       console.log('取消');
+                //     }
+                //   }
+                // }
+            });
+        });
+
+    });
+</script>
+{% endblock %}
+

@@ -85,7 +85,7 @@
 
                         <div class="form-group">
                             <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
-                                <button type="button" class="btn primary">提交</button>
+                                <button type="button" class="btn primary" id="submit">提交</button>
                                 <a href="系统管理-账号管理-编辑账号.html" class="btn links">取消</a>
                             </div>
                         </div>
@@ -94,4 +94,25 @@
         </div>
     </form>
 
+{% endblock %}
+
+{% block jsPage %}
+<script>
+    $(function(){
+        $("#submit").on("click",function(){
+            $.tipsModal({
+                type : 'success',   //success info error
+                title : '<span class="success-FontColor2">提交成功！</span>',
+                content : '即将返回账号编辑页面',
+                // buttons : {  //按钮可以只传ok或cancel
+                //     ok : {
+                //     text : '确定', callback : function () {
+                //             console.log('确定');
+                //         }
+                //     }
+                // }
+            });
+        });
+    });
+</script>
 {% endblock %}

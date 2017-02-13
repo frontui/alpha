@@ -159,7 +159,7 @@
                             <a href="关联渠道管理-渠道列表-查看合同.html">合同</a>
                             <a href="关联渠道管理-渠道列表-查看关联终端.html">终端</a>
                             <a href="关联渠道管理-渠道列表-管理员账号.html">管理员</a>
-                            <a href="javascript:void(0);">禁用</a>
+                            <a href="javascript:void(0);" class="opt-disable">禁用</a>
                             <a href="javascript:void(0);">审核</a>
                         </div>
                     </div>
@@ -196,5 +196,27 @@
         $('#p1').on('select.ui.pagination', ajaxData);
     }
     ajaxData();
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="success-FontColor2">禁用</span>',
+            content : '禁用后，该渠道及关联的渠道将不可用。确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+              ok : {
+                text : '确定',
+                callback : function () {
+                  alert('确定');
+                }
+              },
+              cancel : {
+                text : '取消',
+                callback : function () {
+                  alert('取消');
+                }
+              }
+            }
+        });
+    });
 </script>
 {% endblock %}
