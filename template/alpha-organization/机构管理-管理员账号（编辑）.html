@@ -4,6 +4,7 @@
 {% block content %}
 
 <div>
+    <!--层级-->
         {# 路径导航 #}
         {{
         breadCrumbAlpha.default(
@@ -21,7 +22,7 @@
         text:'管理员账号'
         },
         {
-        text:'设置'
+        text:'编辑'
         }
         ]
         )
@@ -46,7 +47,9 @@
                             </em>
                         </label>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control" placeholder="">
+                            <div class="form-control-data">
+                                yondfsaa
+                            </div>
                         </div>
                     </div>
 
@@ -64,7 +67,6 @@
                             <input type="password" class="form-control" placeholder="">
                         </div>
                     </div>
-
 
                     <!--账号角色-->
                     <div class="form-group">
@@ -102,7 +104,7 @@
                             <em> ： </em>
                         </label>
                         <div class="form-control-wrap">
-                            <input type="***" class="form-control" placeholder="" />
+                            <input type="***" class="form-control" placeholder="15918728968" />
                         </div>
                     </div>
 
@@ -115,16 +117,14 @@
                             <em>：</em>
                         </label>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control" placeholder="">
+                            <input type="text" class="form-control" placeholder="zhangsan@hotmailcom">
                         </div>
                     </div>
 
                     <!--提交 取消-->
-                    <div class="text-align-center plural-btns fn-ma-20">
-                        <button type="button" class="btn primary">提交</button>
-                        <a href="机构列表（管理员）.html">
-                            <button type="button" class="btn default">取消</button>
-                        </a>
+                    <div class="text-align-center  fn-ma-20">
+                        <button id="submit" type="button" class="btn primary">提交</button>
+                        <a href="机构管理-机构列表（管理员）.html" class="btn default" role="button">取消</a>
                     </div>
                 </form>
             </div>
@@ -137,8 +137,58 @@
 
 
 {% block jsPage %}
-<script>
 
+<script id="modalTmpl" type="text/template">
+    <!-- 提示弹窗 -->
+    {{  tipsModalAlpha.default(
+    tipsTitle='<span class="success-FontColor2">子机构管理员编辑成功</span>')}}
+</script>
+
+<script type="text/javascript">
+    /**
+     * uploadSuccess 上传成功后回调
+     * @return {[type]} [description]
+     */
+    function uploadSuccess(el, file, data) {
+        /*var names = data.name.split('.');
+         var name = names[0].length > 13 ? names[0].substring(0, 13) + "..." : names[0];
+         $(el).siblings(".uploadName").val(data.name);
+         $(el).siblings(".upload-name").text(name + "." + names[1]);
+         $(el).siblings(".upload-path").val(data.path);
+         $(el).siblings(".upload-size").val(data.size);*/
+        // todo: test
+        $(el).siblings(".upload-name").html(file.name);
+
+    }
+    $(function(){
+
+        $(".j-type").on("change",function(){
+            var isPrivateChecked = $("#private").prop("checked");
+            if(isPrivateChecked){
+                $("#identity").removeClass("display-none");
+            }else{
+                $("#identity").addClass("display-none");
+            }
+        });
+
+        /*$('.j-upload-btn').fileUpload({
+         swf: './static/js/webuploader/Uploader.swf',
+         sendurl: 'http://localhost/fileupload.php',
+         //fileVal: 'FileData',
+         success: uploadSuccess
+         });*/
+
+
+        var modalContent = $("#modalTmpl").html();
+        $('#submit').on('click', function(){
+            $('#testModal').modal({ title: '提示', content: modalContent});
+        })
+
+    });
+</script>
+
+
+<script>
 //    $(function(){
 //        /**
 //         * 统一显示验证错误信息
@@ -146,47 +196,31 @@
 //        var $form = $('#form').validation({
 //            // 验证项
 //            rules: {
-//                name: {
-//                    required: true,
-//                    minlength: 16,
-//                    //ajax 验证
-//                    remote: {
-//                        url: "/api?do=validate&filed=name",
-//                        type: "post",
-//                        data: {
-//                            username: function() {
-//                                return $('#Text2').val();
-//                            }
-//                        }
-//                    }
-//                },
 //                password: "required",
-//                repassword: {
-//                    required: true,
-//                    equalTo: '#Password1'
-//                },
 //                telphone: {
 //                    required: true,
 //                    telphone: true
+//                },
+//                name: {
+//                    required: true,
+//                    name: true
+//                },
+//                mail: {
+//                    required: true,
+//                    mail: true
 //                }
 //            },
 //            // 错误提示
 //            messages: {
 //                name: {
 //                    required: "请输入名称",
-//                    minlength: jQuery.validator.format("名称长度不能少于{0}个字"),
-//                    remote: '用户名已存在'
+//                    name: "此为必填项"
 //                },
 //                password: {
-//                    required: "请输入"
+//                    required: "请输入登录密码"
 //                },
-//                repassword: {
-//                    required: "请输入确认密码",
-//                    equalTo: "两次密码不一致"
-//                },
-//                time: {
-//                    required: "请输入时间",
-//                    date: "时间格式有误"
+//                mail: {
+//                    required: "请输入邮箱号码"
 //                },
 //                telphone: {
 //                    required: "请输入手机号码",
@@ -200,7 +234,6 @@
 //            }
 //        });
 //    })
-
 </script>
 {% endblock %}
 
