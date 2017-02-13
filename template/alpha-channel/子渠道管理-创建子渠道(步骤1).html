@@ -1,0 +1,98 @@
+{% extends "_layout/alpha/layout-alpha-channel.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list = [
+                {
+                    link: 'javascript:void(0);',
+                    text: '子渠道管理'
+                },
+                {
+                    link: 'javascript:void(0);',
+                    text: '渠道列表'
+                },
+                {
+                    text: '创建渠道'
+                }
+            ]
+        )
+    }}
+
+    <div class="form-frame">
+        <form autocomplete="off">
+          <!-- 属性配置-->
+          <div class="form-title">
+               属性配置
+          </div>
+          <div class="form-layer1">
+              <div class="form-layer2">
+                {# 渠道角色 #}
+                <div class="form-group">
+                   <label class="form-control-label">
+                      <b> * </b>
+                      <span> 渠道角色 </span>
+                      <em> : </em>
+                   </label>
+                   <div class="form-control-wrap">
+                      <select class="form-control">
+                        <option value="">请选择</option>
+                        <option value="0">商户</option>
+                        <option value="1">门店</option>
+                        <option value="2">渠道商</option>
+                      </select>
+                   </div>
+                </div>
+                {# 渠道类型 #}
+                <div class="form-group">
+                   <label class="form-control-label">
+                      <b> * </b>
+                      <span> 渠道类型 </span>
+                      <em> : </em>
+                   </label>
+                   <div class="form-control-wrap">
+                      <select class="form-control">
+                        <option value="0">企业</option>
+                        <option value="1">个人</option>
+                      </select>
+                   </div>
+                </div>
+                {# 所属行业 #}
+                <div class="form-group">
+                   <label class="form-control-label">
+                      <b> * </b>
+                      <span> 所属行业 </span>
+                      <em> : </em>
+                   </label>
+                   <div class="form-control-wrap">
+                      <div class="form-control-cascade">
+                        <select class="form-control">
+                          <option value="">请选择</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                        </select>
+                      </div>
+                      <div class="form-control-cascade">
+                        <select class="form-control">
+                          <option value="">请选择</option>
+                          <option value="1">1.1</option>
+                          <option value="1">1.2</option>
+                        </select>
+                      </div>
+                   </div>
+                </div>
+              </div>
+          </div>
+
+          <!-- 按钮 -->
+          <div class="text-align-center fn-mt-20">
+              <button type="submit" class="btn primary">下一步</button>
+              <a href="首页.html" class="btn default">取消</a>
+          </div>
+        </form>
+    </div>
+
+{% endblock %}

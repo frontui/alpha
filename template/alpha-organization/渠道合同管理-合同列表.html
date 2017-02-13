@@ -24,10 +24,10 @@
         <div class="fliter-inline-wrap">
 
         <div class="fliter-inline-item">
-            <label>渠道名称：</label>
+            <label>商户名称：</label>
             <div class="fliter-inline-width1">
                 <div class="fliter-inline-width1">
-                    <input type="text" class="form-control smallsize" placeholder="请输入渠道名称" />
+                    <input type="text" class="form-control smallsize" placeholder="请输入商户名称" />
                 </div>
             </div>
         </div>
@@ -42,20 +42,19 @@
         </div>
 
         <div class="fliter-inline-item">
-            <label>合同模板：</label>
+            <label>新增商户：</label>
             <div class="fliter-inline-width1">
                 <select>
                     <option value="">全部</option>
-                    <option value="0">支付宝(招商银行总行)</option>
-                    <option value="1">微信支付(招商银行总行)</option>
+                    <option value="0">新增商户</option>
                 </select>
             </div>
         </div>
 
 
         <div class="fliter-inline-item">
-            <button type="submit" class="btn primary small-btn">搜索</button>
-            <button type="submit" class="btn primary small-btn">重置</button>
+            <button type="button" class="btn secondary small-btn">搜索</button>
+            <button type="button" class="btn secondary small-btn">重置</button>
         </div>
     </div>
     </form>
@@ -66,16 +65,16 @@
             data={
                 theadList: [
                     {
+                        inner: '编码'
+                    },
+                    {
                         inner: '合同编号'
                     },
                     {
-                        inner: '渠道名称'
+                        inner: '商户名称'
                     },
                     {
                         inner: '通道名称'
-                    },
-                    {
-                        inner: '关联渠道'
                     },
                     {
                         inner: '通道机构名称'
@@ -92,16 +91,16 @@
                 tbodyList: [
                     [
                         {
-                            inner: '365443'
+                            inner: '123456'
+                        },
+                        {
+                            inner : '365443'
                         },
                         {
                             inner: '阿迪达斯成都分公司'
                         },
                         {
                             inner: '支付宝（招商银行总行）'
-                        },
-                        {
-                            inner: '3'
                         },
                         {
                             inner: '招商银行总行'
@@ -118,17 +117,15 @@
                         },
                         {
                             inner: '
-                                <a href="渠道合同管理-合同列表-查看合同.html" class="link-standard">
-                                    查看
-                                </a>
-                                &nbsp;
-                                <a href="渠道合同管理-合同列表-修改合同.html" class="link-standard">
-                                    修改
-                                </a>
-                                &nbsp;
-                                <a href="渠道合同管理-合同列表-设置关联门店.html" class="link-standard">
-                                    关联渠道
-                                </a>
+                                <div class="table-ctrls">
+                                    查看<span class="caret-down"></span>
+                                    <div class="ctrls">
+                                        <a href="渠道合同管理-合同列表-查看合同.html">查看</a>
+                                        <a href="渠道合同管理-合同列表-修改合同.html">修改</a>
+                                        <a href="渠道合同管理-合同列表-查看关联门店.html">关联门店</a>
+                                        <a href="渠道合同管理-合同列表-设置关联服务方案.html">关联服务商</a>
+                                    </div>
+                                </div>
                             '
                         }
                     ]
