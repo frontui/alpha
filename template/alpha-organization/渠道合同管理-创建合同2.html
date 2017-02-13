@@ -46,7 +46,7 @@
                     </label>
                     <div class="form-control-wrap">
                         <input type="***" class="form-control" id="***" placeholder="" value="123-456"/>
-                        <a class="form-control-tools-link">选择子渠道</a>
+                        <a href="#selectChildChannel" data-toggle="modal" class="form-control-tools-link">选择子渠道</a>
                     </div>
                 </div>
 
@@ -367,8 +367,94 @@
 
     </form>
 
+</div>
 
+<!--选择子渠道弹层-->
+<div class="modal-background fade display-none in" id="selectChildChannel" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>选择子渠道</span>
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>商户名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn secondary small-btn">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <table class="table inverse">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>商户号</th>
+                            <th>商户名称</th>
+                            <th>所在地</th>
+                            <th>详细地址</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>108623</td>
+                            <td>百事可乐公司</td>
+                            <td>北京/广州</td>
+                            <td>广州市天河区高盛大厦</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        <tr>
+                            <td>108623</td>
+                            <td>百事可乐公司</td>
+                            <td>北京/广州</td>
+                            <td>广州市天河区高盛大厦</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        <tr>
+                            <td>108623</td>
+                            <td>百事可乐公司</td>
+                            <td>北京/广州</td>
+                            <td>广州市天河区高盛大厦</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
+                        <tr>
+                            <td>108623</td>
+                            <td>百事可乐公司</td>
+                            <td>北京/广州</td>
+                            <td>广州市天河区高盛大厦</td>
+                            <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                        </tr>
 
+                        </tbody>
+                    </table>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
@@ -440,6 +526,23 @@
              }
         });
     });
+
+    // 弹窗-静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
 
 </script>
 {% endblock %}

@@ -17,7 +17,7 @@
     {# 表格标题 #}
     {{
         tableAlpha.tableHeaderDefault(
-            title='开通数量总览',
+            title='商户信息管理',
             fixedClass='fn-mt-20'
         )
     }}
@@ -28,24 +28,22 @@
             data={
                 theadList: [
                     {
-                        inner: '机构数量',
-                        thWidth: '25%'
+                        inner: '商户待审核'
                     },
                     {
-                        inner: '渠道数量',
-                        thWidth: '25%'
+                        inner: '门店待审核'
                     },
                     {
-                        inner: '通道数量',
-                        thWidth: '25%'
+                        inner: '收单合同待审核'
                     },
                     {
-                        inner: '合同数量',
-                        thWidth: '25%'
+                        inner: '机器待装机'
                     },
                     {
-                        inner: '终端数量',
-                        thWidth: '25%'
+                        inner: '已通过商户'
+                    },
+                    {
+                        inner: '已通过门店'
                     }
                 ],
                 tbodyList: [
@@ -80,7 +78,55 @@
                         },
                         {
                             inner: '
+                                <h3 class="success-FontColor2">
+                                    1000
+                                </h3>
+                            '
+                        },
+                        {
+                            inner: '
+                                <h3 class="success-FontColor2">
+                                    1000
+                                </h3>
+                            '
+                        }
+                    ]
+                ]
+            }
+        )
+    }}
+
+    {# 表格标题 #}
+    {{
+        tableAlpha.tableHeaderDefault(
+            title='应用管理',
+            fixedClass='fn-mt-20'
+        )
+    }}
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            data={
+                theadList: [
+                    {
+                        inner: '未添加应用'
+                    },
+                    {
+                        inner: '已添加应用'
+                    }
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: '
                                 <h3 class="warning-FontColor">
+                                    1000
+                                </h3>
+                            '
+                        },
+                        {
+                            inner: '
+                                <h3 class="success-FontColor2">
                                     1000
                                 </h3>
                             '
@@ -108,10 +154,10 @@
         </div>
     </form>
 
-    <div class="index-panel-alpha">
+    <div class="index-panel-alpha in-channel">
         <div class="one">
             <h5>
-                收单总金额
+                实际交易金额
             </h5>
             <h3>
                 100.00
@@ -119,7 +165,7 @@
         </div>
         <div class="two">
             <h5>
-                实际到账收单额
+                交易笔数
             </h5>
             <h3>
                 100.00
@@ -127,7 +173,7 @@
         </div>
         <div class="three">
             <h5>
-                实际获得分润
+                优惠金额
             </h5>
             <h3>
                 100.00
@@ -135,7 +181,15 @@
         </div>
         <div class="four">
             <h5>
-                剩余应付款项
+                退款金额
+            </h5>
+            <h3>
+                100.00
+            </h3>
+        </div>
+        <div class="five">
+            <h5>
+                退款笔数
             </h5>
             <h3>
                 100.00

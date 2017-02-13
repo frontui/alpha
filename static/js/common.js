@@ -706,13 +706,13 @@ function clockTick(start, callback) {
         ok : {
           text : '确定',
           callback : function () {
-            
+
           }
         },
         cancel : {
           text : '取消',
           callback : function () {
-            
+
           }
         }
       }
@@ -818,7 +818,7 @@ function clockTick(start, callback) {
     me.destroy = function(){
       me.$root.remove();
       return me;
-    }             
+    }
   }
 
   var Modal = new modal();
@@ -828,6 +828,7 @@ function clockTick(start, callback) {
       Modal.display(data);
     },
     tipsModal : function(extendData){
+      var closeBtn=extendData && extendData.close || false;
       var type = extendData && extendData.type || 'success';
       var title = extendData && extendData.title || "";
       var modalContent = extendData && extendData.content || "";
@@ -840,6 +841,7 @@ function clockTick(start, callback) {
                     </div>';
       var data = {
         title : false,
+        close:  closeBtn,
         content : content,
         buttons : extendData && extendData.buttons || false
       }
