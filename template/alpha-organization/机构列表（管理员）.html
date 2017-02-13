@@ -57,11 +57,62 @@
                 <a class="link-standard" href="管理员账号（编辑）.html">
                     编辑
                 </a>&nbsp;&nbsp;
-                <a class="link-standard" href="#">禁用</a>
+                <a href="#myModal1" class="link-standard" data-toggle="modal">禁用</a>
+                <!--<a href="#myModal1" class="link-standard" data-toggle="modal">启用</a>-->
             </td>
         </tr>
         </tbody>
     </table>
+
+    <!--禁用弹层-->
+    <div class="modal-background fade display-none in" id="myModal1" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body text-align-center">
+                        <div>
+                            禁用后，该机构及关联的渠道将不可用。确定禁用？
+                        </div>
+                        <div>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn small-btn  default">确认</button>
+                            </a>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn  small-btn default">取消</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--启用弹层-->
+    <div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >
+        <div class="modal-layer">
+            <div class="modal-position">
+                <div class="modal-wrap">
+                    <div class="modal-body text-align-center">
+                        <div>
+                            启用后，该机构及关联的渠道将正常可用。确定启用？
+                        </div>
+                        <div>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn small-btn  default">确认</button>
+                            </a>
+                            <a href="#" class="btn links modal-close">
+                                <button type="button" class=" btn  small-btn default">取消</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 {% endblock %}
