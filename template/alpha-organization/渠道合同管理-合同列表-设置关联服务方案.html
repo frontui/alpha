@@ -78,7 +78,7 @@ text: '设置关联服务方案'
                 <tr>
                     <td>2334544</td>
                     <td>阿迪达斯成都好运店</td>
-                    <td><a class="link-standard" href="javascrit:void(0)">重选方案</a></td>
+                    <td><a href="#reSelectProject" data-toggle="modal" class="link-standard">重选方案</a></td>
                 </tr>
             </table>
         </div>
@@ -124,6 +124,81 @@ text: '设置关联服务方案'
     </form>
 
 
+</div>
+
+<!--重选方案弹层-->
+<div class="modal-background fade display-none in" id="reSelectProject" role="dialog" tabindex="-1" aria-hidden="false" >
+    <div class="modal-layer">
+        <div class="modal-position">
+            <div class="modal-wrap">
+                <div class="modal-head">
+                    <span>选择方案</span>
+                    <button class="modal-close" title="关闭">
+                        <i></i>
+                    </button>
+                </div>
+                <div class="modal-body-alpha text-align-center fn-pb-10">
+                    <form class="filterBox-Alpha" action="#" method="post">
+                        <div class="fliter-inline-wrap">
+                            <div class="fliter-inline-item">
+                                <label>方案名称：</label>
+                                <div class="fliter-inline-width1">
+                                    <div class="form-control-date smallsize">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--搜索按钮-->
+                            <div class="fliter-inline-item">
+                                <button type="button" class="btn secondary small-btn">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--机构列表-->
+                    <table class="table inverse">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>方案名称</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>带TTG玩</td>
+                                <td>2016-01-01 10:00:00</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>带TTG玩</td>
+                                <td>2016-01-01 10:00:00</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>带TTG玩</td>
+                                <td>2016-01-01 10:00:00</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>带TTG玩</td>
+                                <td>2016-01-01 10:00:00</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="padding-left:20px; padding-top: 0px;">
+                        {# 分页 #}
+                        {{ paginationAlpha.default( id='p1' ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
@@ -198,5 +273,22 @@ text: '设置关联服务方案'
         });
 
     });
+
+    // 弹窗-静态分页
+    function ajaxData(e, index, instance){
+        index = index || 1;
+        // 自定义总页码模板
+        $('#p1').pagination({
+            currentPage: index,
+            items: 100,
+            itemsOnPage: 10,
+            pageStr: {
+                show: true,
+                template: '<p class="pull-left fs-12 viceText-FontColor lh-26">当前是第&nbsp;{$current}&nbsp;页，共&nbsp;{$pages}&nbsp;页，{$items}&nbsp;条记录，每页显示&nbsp;{$itemsOnPage}&nbsp;条。</p>'
+            }
+        });
+        $('#p1').on('select.ui.pagination', ajaxData);
+    }
+    ajaxData();
 </script>
 {% endblock %}
