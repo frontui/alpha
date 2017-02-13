@@ -452,8 +452,20 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
-                              <option value="0">招商银行</option>
+                          <select id="BankCode" class="form-control">
+                              <option value="">请选择</option>
+                              <option value="102">中国工商银行</option>
+                              <option value="103">中国农业银行</option>
+                              <option value="104">中国银行</option>
+                              <option value="105">中国建设银行</option>
+                              <option value="301">交通银行</option>
+                              <option value="303">光大银行</option>
+                              <option value="305">中国民生银行</option>
+                              <option value="307">平安银行</option>
+                              <option value="308">招商银行</option>
+                              <option value="310">浦发银行</option>
+                              <option value="302">中信银行</option>
+                              <option value="700">测试银行</option>
                           </select>
                        </div>
                     </div>
@@ -476,8 +488,42 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
-                              <option value="0">广东</option>
+                          <select id="ProvinceCode" class="form-control">
+                              <option value="">请选择</option>
+                              <option value="11">北京市</option>
+                              <option value="12">天津市</option>
+                              <option value="50">重庆市</option>
+                              <option value="13">河北省</option>
+                              <option value="14">山西省</option>
+                              <option value="15">内蒙古自治区</option>
+                              <option value="21">辽宁省</option>
+                              <option value="22">吉林省</option>
+                              <option value="23">黑龙江省</option>
+                              <option value="31">上海市</option>
+                              <option value="32">江苏省</option>
+                              <option value="33">浙江省</option>
+                              <option value="34">安徽省</option>
+                              <option value="35">福建省</option>
+                              <option value="36">江西省</option>
+                              <option value="37">山东省</option>
+                              <option value="41">河南省</option>
+                              <option value="42">湖北省</option>
+                              <option value="43">湖南省</option>
+                              <option value="44">广东省</option>
+                              <option value="45">广西壮族自治区</option>
+                              <option value="46">海南省</option>
+                              <option value="51">四川省</option>
+                              <option value="52">贵州省</option>
+                              <option value="53">云南省</option>
+                              <option value="54">西藏自治区</option>
+                              <option value="61">陕西省</option>
+                              <option value="62">甘肃省</option>
+                              <option value="63">青海省</option>
+                              <option value="64">宁夏回族自治区</option>
+                              <option value="65">新疆维吾尔自治区</option>
+                              <option value="71">台湾省</option>
+                              <option value="81">香港特别行政区</option>
+                              <option value="82">澳门特别行政区</option>
                           </select>
                        </div>
                     </div>
@@ -489,8 +535,8 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
-                              <option value="0">广州</option>
+                          <select id="CityCode" class="form-control">
+                              <option value="">请选择</option>
                           </select>
                        </div>
                     </div>
@@ -502,8 +548,8 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
-                              <option value="0">招商银行深圳分行</option>
+                          <select id="BranchBankCode" class="form-control">
+                              <option value="">请选择</option>
                           </select>
                        </div>
                     </div>
@@ -1233,6 +1279,109 @@
                 // }
               });
             });
+
+            //  结算账户联动交互
+
+            //省份改变
+            $("#ProvinceCode").change(function () {
+                //清空城市和开户支行
+                $("#BranchBankCode").html("<option value="">请选择</option>");
+                $("#CityCode").html("<option value="">请选择</option>");
+
+                var code = $("#ProvinceCode").val();
+                if (code != "") {
+                    $.ajax({
+                        //  通过省份id获取城市列表的接口
+                        url: "/EAccountUser/GetCityList", 
+                        data: "provinceID=" + code,
+                        method: "post",
+                        success: function (result) {
+                            var cities = result.Data;
+                            var cityHtml = '';
+                            cityHtml += '<option value="">请选择</option>';
+                            for (var i = 0; i < cities.length; i++) {
+                                cityHtml += '\r\n<option value="' + cities[i].CityID + '">' + cities[i].CityName + '</option>';
+                            }
+                            $("#CityCode").html(cityHtml);
+                        },
+                        error: function (msg) {
+
+                        }
+                    });
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: 4766,
+            //             CityID: "1000",
+            //             CityName: "北京市",
+            //             ProvinceID: "11",
+            //             Accseq: 10
+            //         }
+            //     ]
+            // }
+
+            //开户行改变，更新开户支行选择
+            $("#BankCode").change(function () {
+                //  清空开户支行
+                $("#BranchBankCode").html("<option value="">请选择</option>");
+
+                var bankCode = $("#BankCode").val();
+                var bankName = $("#BankCode").find("option:selected").text();
+                var provincecode = $("#ProvinceCode").val();
+                var cityCode = $("#CityCode").val();
+                if (bankCode != "" && provincecode != "" && cityCode != "") {
+                    $.ajax({
+                        //  通过城市和银行获取分支行列表的接口
+                        url: "/EAccountUser/GetBranchBankList", 
+                        data: "cityCode=" + cityCode + "&bankName=" + bankName,
+                        method: "post",
+                        success: function (result) {
+                            var items = result.Data;
+                            var html = '';
+
+                            html += '<option value="">请选择</option>';
+                            for (var i = 0; i < items.length; i++) {
+                                html += '<option value="' + items[i].BankCode + '">' + items[i].Lname + '</option>';
+                            }
+                            $("#BranchBankCode").html(html);
+                        },
+                        error: function (msg) {
+
+                        }
+                    });
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: "A1747755-CD35-4255-A9A9-66DD691A2CB5",
+            //             BankCode: "102100000474",
+            //             Status: "2",
+            //             ClsCode: "102",
+            //             DrecCode: "102100009980",
+            //             NodeCode: "1000",
+            //             CityCode: "1000",
+            //             Lname: "中国工商银行北京丰益桥支行",
+            //             Address: "北京市丰台区丰管路16号",
+            //             PostCode: "100031",
+            //             Tel: "010-83833155"
+            //         }
+            //     ]
+            // }
 
         });
     </script>
