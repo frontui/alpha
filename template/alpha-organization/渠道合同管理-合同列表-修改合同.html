@@ -17,12 +17,13 @@
                     text:'渠道合同管理'
                 },
                 {
-                    link: '渠道合同管理-合同列表.html',
+                    link:'渠道合同管理-合同列表.html',
                     text:'合同列表'
                 },
                 {
-                    text: '修改合同'
+                    text:'修改合同'
                 }
+
             ]
         )
     }}
@@ -31,30 +32,21 @@
 <div class="form-frame fn-mb-10">
     <form autocomplete="off">
         <div class="form-title">
-            支付宝（招商银行总行）合同主体信息
+            支付宝(招商银行总行)合同主体信息
         </div>
 
         <div class="form-layer1">
             <div class="form-layer2">
-
-                {# 商户名称 #}
+                {# 子渠道名称 #}
                 <div class="form-group">
                     <label class="form-control-label" for="***">
-                        <span>商户名称</span>
-                        <em>：</em>
+                        <b>*</b>
+                        <span> 子渠道名称 </span>
+                        <em> : </em>
                     </label>
                     <div class="form-control-wrap">
-                        <span>红旗连锁有限公司</span>
-                    </div>
-                </div>
-                {# 招牌名 #}
-                <div class="form-group">
-                    <label class="form-control-label" for="***">
-                        <span>招牌名</span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <span>红旗连锁</span>
+                        <input type="***" class="form-control" id="***" placeholder="" value="123-456"/>
+                        <a class="form-control-tools-link">选择子渠道</a>
                     </div>
                 </div>
 
@@ -67,19 +59,6 @@
                     </label>
                     <div class="form-control-wrap">
                         <input type="***" class="form-control" id="***" placeholder="" value="123-456"/>
-                        <a class="form-control-tools-link">自动生成</a>
-                    </div>
-                </div>
-
-                {# 网购单名称 #}
-                <div class="form-group">
-                    <label class="form-control-label" for="***">
-                        <b>*</b>
-                        <span> 网购单名称 </span>
-                        <em> : </em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="红旗连锁" />
                     </div>
                 </div>
 
@@ -100,17 +79,17 @@
                     </div>
                 </div>
 
-                {# 客户经理 #}
+                {# 合同名称 #}
                 <div class="form-group">
                     <label class="form-control-label" for="***">
-                        <b>*</b>
-                        <span> 客户经理 </span>
+                        <span> 合同名称 </span>
                         <em> : </em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="招商银行" />
+                        <input type="***" class="form-control" id="***" placeholder=""  value="" />
                     </div>
                 </div>
+
                 {# 合同生效日期 #}
                 <div class="form-group">
                     <label class="form-control-label">
@@ -145,11 +124,11 @@
                     </div>
                 </div>
 
-                {# 商户联系人 #}
+                {# 渠道联系人 #}
                 <div class="form-group">
                     <label class="form-control-label" for="***">
                         <b>*</b>
-                        <span> 商户联系人 </span>
+                        <span> 渠道联系人 </span>
                         <em> : </em>
                     </label>
                     <div class="form-control-wrap">
@@ -157,11 +136,11 @@
                     </div>
                 </div>
 
-                {# 商户联系人手机 #}
+                {# 渠道联系人手机 #}
                 <div class="form-group">
                     <label class="form-control-label" for="***">
                         <b>*</b>
-                        <span> 商户联系人手机 </span>
+                        <span> 渠道联系人手机 </span>
                         <em> : </em>
                     </label>
                     <div class="form-control-wrap">
@@ -188,17 +167,6 @@
                         </div>
                     </div>
                 </div>
-                {# 合同名称 #}
-                <div class="form-group">
-                    <label class="form-control-label" for="***">
-                        <span> 合同名称 </span>
-                        <em> : </em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="" />
-                    </div>
-                </div>
-
 
             </div>
         </div>
@@ -209,22 +177,48 @@
 
         <div class="form-layer1">
             <div class="form-layer2">
-                {# 子商户号 #}
+
+                {# PID #}
                 <div class="form-group">
                     <label class="form-control-label" for="***">
                         <b>*</b>
-                        <span> 子商户号 </span>
+                        <span> PID </span>
                         <em> : </em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="2324232334" />
+                        <span class="form-control-data">xxx</span>
                     </div>
                 </div>
-                {# 商户分类 #}
+                {# AppID #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> AppID </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <span class="form-control-data">xxx</span>
+                    </div>
+                </div>
+
+                {# 渠道封顶 #}
+                <div class="form-group">
+                    <label class="form-control-label" for="***">
+                        <b>*</b>
+                        <span> 渠道封顶 </span>
+                        <em> : </em>
+                    </label>
+                    <div class="form-control-wrap">
+                        <input type="***" class="form-control" id="***" placeholder=""  value="100" />
+                        <span class="form-control-tools-link" style="cursor: default;">元</span>
+                    </div>
+                </div>
+
+                {# 行业分类 #}
                 <div class="form-group">
                     <label class="form-control-label">
                         <b> * </b>
-                        <span> 商户分类 </span>
+                        <span> 行业分类 </span>
                         <em> : </em>
                     </label>
                     <div class="form-control-wrap">
@@ -242,57 +236,7 @@
                     </label>
                     <div class="form-control-wrap">
                         <input type="***" class="form-control" id="***" placeholder=""  value="0.6" />
-                        <span class="form-control-tools-link" style="cursor: default;">%</span>
-                    </div>
-                </div>
-                {# 签约分润 #}
-                <div class="form-group">
-                    <label class="form-control-label" for="***">
-                        <b>*</b>
-                        <span> 签约分润 </span>
-                        <em> : </em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="0.15" />
-                        <span class="form-control-tools-link" style="cursor: default;">%</span>
-                    </div>
-                </div>
-                {# PID #}
-                <div class="form-group">
-                    <label class="form-control-label" for="***">
-                        <b>*</b>
-                        <span> PID </span>
-                        <em> : </em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="" />
-                        <div class="tooltips-icon">
-                            i
-                            <div class="tooltips">
-                                机构与支付通道线下签约时获取
-                                <span class="tips-arrow-border"></span>
-                                <span class="tips-arrow"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {# AppID #}
-                <div class="form-group">
-                    <label class="form-control-label" for="***">
-                        <b>*</b>
-                        <span> AppID </span>
-                        <em> : </em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <input type="***" class="form-control" id="***" placeholder=""  value="" />
-                        <div class="tooltips-icon">
-                            i
-                            <div class="tooltips">
-                                机构与支付通道线下签约时获取
-                                <span class="tips-arrow-border"></span>
-                                <span class="tips-arrow"></span>
-                            </div>
-                        </div>
+                        <span class="form-control-tools-link" style="cursor: default;">% <span class="fn-pl-10 info-FontColor">范围:0.6%-0.6%</span></span>
                     </div>
                 </div>
 
@@ -472,18 +416,20 @@
         //初始化上传控件
         $(".upload-img").InitUploader({ sendurl: "http://192.168.7.129/fileupload.php", swf: "./static/js/webuploader/uploader.swf" });
 
-        $("#submit").on("click",function(){
-            $.tipsModal({
-                type : 'success',   //  success info error
-                title : '<span class="success-FontColor2">成功</span>',
-                content : '合同修改成功',
-                buttons : {  //  按钮可以只传ok或cancel
-                    ok : {
-                        text : '确定',
-                        callback : function () {
-                            console.log('确定');
-                        }
-                    }
+    });
+
+    $("#submit").on("click",function(){
+        $.tipsModal({
+            type : 'success',   //  success info error
+            title : '<span class="success-FontColor2">成功</span>',
+            content : '合同创建成功',
+             buttons : {  //  按钮可以只传ok或cancel
+               ok : {
+                 text : '确定',
+                 callback : function () {
+                   console.log('确定');
+                 }
+               }
 //                 ,
 //               cancel : {
 //                 text : '取消',
@@ -491,9 +437,9 @@
 //                   console.log('取消');
 //                 }
 //               }
-                }
-            });
+             }
         });
     });
+
 </script>
 {% endblock %}
