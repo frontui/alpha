@@ -144,7 +144,7 @@ text: '设置关联服务方案'
                                 <label>方案名称：</label>
                                 <div class="fliter-inline-width1">
                                     <div class="form-control-date smallsize">
-                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
                                     </div>
                                 </div>
                             </div>
@@ -155,20 +155,21 @@ text: '设置关联服务方案'
                         </div>
                     </form>
                     <!--机构列表-->
-                    <table class="table inverse">
-                        <colgroup>
-                            <col>
-                            <col>
-                            <col>
-                        </colgroup>
-                        <thead>
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
                             <tr>
                                 <th>方案名称</th>
                                 <th>创建时间</th>
                                 <th>操作</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             <tr>
                                 <td>带TTG玩</td>
                                 <td>2016-01-01 10:00:00</td>
@@ -189,8 +190,9 @@ text: '设置关联服务方案'
                                 <td>2016-01-01 10:00:00</td>
                                 <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                     <div style="padding-left:20px; padding-top: 0px;">
                         {# 分页 #}
                         {{ paginationAlpha.default( id='p1' ) }}
