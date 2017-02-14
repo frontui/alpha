@@ -291,16 +291,8 @@
 
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label">
-                        <span>上传文件要求</span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-data fn-pb-20" style="height:auto;">
-                        <ul class="with-lt">
-                            <li>
-                                支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
-                            </li>
-                        </ul>
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
                     </div>
                 </div>
                 <!-- 补充资料 -->
@@ -345,16 +337,8 @@
 
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label">
-                        <span>上传文件要求</span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-data fn-pb-20" style="height:auto;">
-                        <ul class="with-lt">
-                            <li>
-                                支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
-                            </li>
-                        </ul>
+                    <div class="form-control-data  picture-detail">
+                        支持jpg、jpeg、png、bmp、gif格式的图片，大小不超过2M
                     </div>
                 </div>
             </div>
@@ -389,7 +373,7 @@
                                 <label>商户名称：</label>
                                 <div class="fliter-inline-width1">
                                     <div class="form-control-date smallsize">
-                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput">
+                                        <input type="text" class="form-control" placeholder="关键字" data-toggle="searchInput" style="padding-right: 8px;">
                                     </div>
                                 </div>
                             </div>
@@ -400,24 +384,74 @@
                         </div>
                     </form>
                     <!--机构列表-->
-                    <table class="table inverse">
-                        <colgroup>
-                            <col>
-                            <col>
-                            <col>
-                            <col>
-                            <col>
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th>商户号</th>
-                            <th>商户名称</th>
-                            <th>所在地</th>
-                            <th>详细地址</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div style="max-height: 450px;overflow-y: scroll;">
+                        <table class="table inverse">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th>商户号</th>
+                                <th>商户名称</th>
+                                <th>所在地</th>
+                                <th>详细地址</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
+                            <tr>
+                                <td>108623</td>
+                                <td>百事可乐公司</td>
+                                <td>北京/广州</td>
+                                <td>广州市天河区高盛大厦</td>
+                                <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
+                            </tr>
                             <tr>
                                 <td>108623</td>
                                 <td>百事可乐公司</td>
@@ -447,8 +481,9 @@
                                 <td><a href="javascript:void(0)" class="btn primary small-btn">选择</a></td>
                             </tr>
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                     <div style="padding-left:20px; padding-top: 0px;">
                         {# 分页 #}
                         {{ paginationAlpha.default( id='p1' ) }}

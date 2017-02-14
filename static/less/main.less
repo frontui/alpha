@@ -810,3 +810,32 @@
         }
     }
 }
+
+// 补丁3.0弹窗按钮结构样式
+#j-modal-4 {
+    .in-modal-btns.text-align-center {
+        .btn {
+            margin: 0 5px;
+        }
+    }
+}
+
+// 补丁3.0表单小尺寸样式（连label）
+@width-label-inline-filter: 75px;
+
+.form-group {
+
+    &.inline-filter {
+        padding-left: @width-label-inline-filter;
+        padding-bottom: 0;
+
+        .form-control-label {
+            width: @width-label-inline-filter;
+            height: 30px;
+
+            > em {
+                line-height: 30px;
+            }
+        }
+    }
+}

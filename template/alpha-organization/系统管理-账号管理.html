@@ -25,22 +25,76 @@
                 <col style="width: 24%">
                 <col style="width: 24%">
                 <col style="width: 24%">
-                <col style="width: 28%">
+                <col style="">
             </colgroup>
             <tr>
                 <td>
-                    <div class="form-control-wrap smallsize">
+                    <!-- <div class="form-control-wrap smallsize">
                         <input type="text" class="form-control smallsize" placeholder="账号名称搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>账号名称
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="输入账号名称">
+                        </div>
                     </div>
                 </td>
                 <td>
-                    <div class="form-control-wrap smallsize">
+                    <!-- <div class="form-control-wrap smallsize">
                         <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>姓名
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <input type="text" class="form-control smallsize" placeholder="输入姓名">
+                        </div>
                     </div>
                 </td>
                 <td>
+                    <!-- <div class="form-control-wrap smallsize">
+                        <input type="text" class="form-control smallsize" placeholder="姓名搜索">
+                    </div> -->
+                    <div class="form-group inline-filter">
+                        <label class="form-control-label">
+                            <span>账号角色
+                            </span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap smallsize">
+                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                <option value="">
+                                    全部
+                                </option>
+                                <option value="">
+                                    角色1
+                                </option>
+                                <option value="">
+                                    角色2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="text-align-right plural-btns">
+                        <button type="button" class="btn secondary small-btn">搜索</button>
+                        <button type="button" class="btn secondary small-btn">重置</button>
+                        <button type="button" class="btn primary small-btn" onclick="window.location.href='系统管理-账号管理-添加账号.html'">添加账户</button>
+                    </div>
+                </td>
+                <!-- <td>
                     <div class="form-control-wrap smallsize">
-                        <!-- <input type="text" class="form-control smallsize" placeholder="账号角色"> -->
                         <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
                             <option value="">
                                 全部账号角色
@@ -53,14 +107,7 @@
                             </option>
                         </select>
                     </div>
-                </td>
-                <td>
-                    <div class="text-align-right plural-btns">
-                        <button type="button" class="btn secondary small-btn">搜索</button>
-                        <button type="button" class="btn secondary small-btn">重置</button>
-                        <button type="button" class="btn primary small-btn" onclick="window.location.href='系统管理-账号管理-添加账号.html'">添加账户</button>
-                    </div>
-                </td>
+                </td> -->
             </tr>
         </table>
     </div>
@@ -129,8 +176,51 @@
                                     编辑
                                 </a>
                                 &nbsp;
-                                <a href="javascript:void(0);" class="link-standard">
+                                <a href="javascript:void(0);" class="link-standard turnOff">
                                     禁用
+                                </a>
+                            '
+                        }
+                    ],
+                    [
+                        {
+                            inner: 'yoiuug'
+                        },
+                        {
+                            inner: '张三'
+                        },
+                        {
+                            inner: '客服'
+                        },
+                        {
+                            inner: '
+                                <span class="text-nowrap">
+                                    2015-05-25
+                                </span>
+                                <span class="text-nowrap viceText-FontColor">
+                                    10:25:36
+                                </span>
+                            '
+                        },
+                        {
+                            inner: '
+                                <span class="error-FontColor2">
+                                    禁用
+                                </span>
+                            '
+                        },
+                        {
+                            inner: '
+                                <a href="系统管理-账号管理-查看账号.html" class="link-standard">
+                                    查看
+                                </a>
+                                &nbsp;
+                                <a href="系统管理-账号管理-编辑账号.html" class="link-standard">
+                                    编辑
+                                </a>
+                                &nbsp;
+                                <a href="javascript:void(0);" class="link-standard turnOn">
+                                    启用
                                 </a>
                             '
                         }
@@ -165,5 +255,68 @@
         $('#p1').on('select.ui.pagination', ajaxData);
     }
     ajaxData();
+
+    // $('#case').modalLayer({
+    //     title: '自定义title',
+    //     icon: 'error',
+    //     content: '我是副标题可以是html代码',
+    //     buttons: [
+    //                 {
+    //                     text: '确定',
+    //                     ok: function(){
+    //                         alert('我是个2b');
+    //                         // 使用return false，则点击按钮不关闭层
+    //                         //return false;
+    //                     }
+    //                 },
+    //                 {
+    //                     text: '返回修改',
+    //                     href: 'pagination.html',
+    //                     style: 'btn links'
+    //                 }
+    //             ]
+    //  });
+
+    // 启用item
+    $('.turnOn').on('click', function(){
+         $('#j-modal-4').modalLayer({
+             title: '确定启用？',
+             content: '启用后，该账号可正常登录运营管理后台操作',
+             icon: 'info',
+             buttons: [
+                 {
+                     text: '确定',
+                     ok: function(){
+                         alert('触发事件');
+                     }
+                 },
+                 {
+                     text: '取消',
+                     style: 'btn secondary'
+                 }
+             ]
+         });
+     });
+
+    // 禁用item
+     $('.turnOff').on('click', function(){
+         $('#j-modal-4').modalLayer({
+             title: '确定禁用？',
+             content: '禁用后，该账号将不可登录运营管理后台',
+             icon: 'info',
+             buttons: [
+                 {
+                     text: '确定',
+                     ok: function(){
+                         alert('触发事件');
+                     }
+                 },
+                 {
+                     text: '取消',
+                     style: 'btn secondary'
+                 }
+             ]
+         });
+    });
 </script>
 {% endblock %}
