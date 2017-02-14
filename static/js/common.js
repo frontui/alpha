@@ -828,10 +828,12 @@ function clockTick(start, callback) {
       Modal.display(data);
     },
     tipsModal : function(extendData){
-      var closeBtn=extendData && extendData.close || false;
-      var type = extendData && extendData.type || 'success';
-      var title = extendData && extendData.title || "";
-      var modalContent = extendData && extendData.content || "";
+      var close = extendData && extendData.close || false;      //  关闭按钮
+      var type = extendData && extendData.type || 'success';    //  类型，有success info fail，默认为success
+      var title = extendData && extendData.title || "";         //  内容title
+      var modalTitle = extendData && extendData.modalTitle || false;  //  弹窗title
+      var modalContent = extendData && extendData.content || "";      //  弹窗内容
+
       var content = '<div class="notice-wrap ' + type + ' in-modal">\
                        <div class="notice-box">\
                           <span class="notice-img"></span>\
@@ -840,8 +842,8 @@ function clockTick(start, callback) {
                        </div>\
                     </div>';
       var data = {
-        title : false,
-        close:  closeBtn,
+        title : modalTitle,
+        close:  close ,
         content : content,
         buttons : extendData && extendData.buttons || false
       }
