@@ -57,53 +57,61 @@
                 <a class="link-standard" href="机构管理-管理员账号（编辑）.html">
                     编辑
                 </a>&nbsp;&nbsp;
-                <a href="#myModal1" class="link-standard" data-toggle="modal">禁用</a>
-                <!--<a href="#myModal1" class="link-standard" data-toggle="modal">启用</a>-->
+                <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>
+                <!--<a href="javascript:void(0);" class="link-standard opt-active">启用</a>-->
             </td>
         </tr>
         </tbody>
     </table>
-
-    <!--禁用弹层-->
-    <div class="modal-background fade display-none in" id="myModal1" role="dialog" tabindex="-1" aria-hidden="false" >
-        <div class="modal-layer">
-            <div class="modal-position">
-                <div class="modal-wrap">
-                    <div class="modal-body text-align-center">
-                        <div>
-                            禁用后，该机构及关联的渠道将不可用。确定禁用？
-                        </div>
-                        <div class="fn-mt-30">
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--启用弹层-->
-    <div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >
-        <div class="modal-layer">
-            <div class="modal-position">
-                <div class="modal-wrap">
-                    <div class="modal-body text-align-center">
-                        <div>
-                            启用后，该机构及关联的渠道将正常可用。确定启用？
-                        </div>
-                        <div class="fn-mt-30">
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
+{% endblock %}
+
+{# 页面脚本 #}
+{% block jsPage %}
+<script>
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该机构及关联的渠道将不可用。确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该机构及关联的渠道将正常可用。确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+</script>
 {% endblock %}
