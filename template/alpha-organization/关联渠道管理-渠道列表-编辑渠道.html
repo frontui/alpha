@@ -66,7 +66,7 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
+                          <select id="a-province" class="form-control">
                               <option value="0">广东</option>
                           </select>
                        </div>
@@ -79,7 +79,7 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
+                          <select id="a-city" class="form-control">
                               <option value="0">中山</option>
                           </select>
                        </div>
@@ -92,7 +92,7 @@
                           <em> : </em>
                        </label>
                        <div class="form-control-wrap">
-                          <select class="form-control">
+                          <select id="a-area" class="form-control">
                               <option value="0">0区</option>
                           </select>
                        </div>
@@ -1280,13 +1280,108 @@
               });
             });
 
+            var initSelectContent = "<option value=''>请选择</option>";
+            //  省市区（县），三级联动
+
+            //  省市联动
+            $("#a-province").on("change",function(){
+                //  清空城市和区县下拉选择
+                $("#a-city").html(initSelectContent);
+                $("#a-area").html(initSelectContent);
+
+                var provinceCode = $("#a-province").val();
+
+                if(provinceCode != ""){
+                   $.ajax({
+                        //  通过省份id获取城市列表的接口
+                        url: "/EAccountUser/GetCityList", 
+                        data: "provinceID=" + provinceCode,
+                        method: "post",
+                        success: function (result) {
+                            var cities = result.Data;
+                            var cityHtml = initSelectContent;
+                            for (var i = 0; i < cities.length; i++) {
+                                cityHtml += '\r\n<option value="' + cities[i].CityID + '">' + cities[i].CityName + '</option>';
+                            }
+                            $("#a-city").html(cityHtml);
+                        },
+                        error: function (msg) {
+
+                        }
+                    }); 
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: 4766,
+            //             CityID: "1000",
+            //             CityName: "北京市",
+            //             ProvinceID: "11",
+            //             Accseq: 10
+            //         }
+            //     ]
+            // }
+
+            //  市区（县）联动
+            $("#a-city").on("change",function(){
+                //  清空区县下拉选择
+                $("#a-area").html(initSelectContent);
+
+                var cityCode = $("#a-province").val();
+
+                if(cityCode != ""){
+                   $.ajax({
+                        //  通过城市id获取区县列表的接口
+                        url: "/EAccountUser/GetAreaList", 
+                        data: "cityID=" + cityCode,
+                        method: "post",
+                        success: function (result) {
+                            var areas = result.Data;
+                            var areaHtml = initSelectContent;
+                            for (var i = 0; i < cities.length; i++) {
+                                areaHtml += '\r\n<option value="' + areas[i].AreaID + '">' + areas[i].AreaName + '</option>';
+                            }
+                            $("#a-area").html(cityHtml);
+                        },
+                        error: function (msg) {
+
+                        }
+                    }); 
+                }
+            });
+
+            // 接口返回数据格式
+            // {
+            //     Code: "100",
+            //     Success: true,
+            //     Total: 0,
+            //     Message: "操作成功！",
+            //     Data: [
+            //         {
+            //             ID: 4766,
+            //             AreaID: "1000",
+            //             AreaName: "北京市",
+            //             CityID: "11",
+            //             Accseq: 10
+            //         }
+            //     ]
+            // }
+
+
             //  结算账户联动交互
 
             //省份改变
             $("#ProvinceCode").change(function () {
                 //清空城市和开户支行
-                $("#BranchBankCode").html("<option value="">请选择</option>");
-                $("#CityCode").html("<option value="">请选择</option>");
+                $("#BranchBankCode").html(initSelectContent);
+                $("#CityCode").html(initSelectContent);
 
                 var code = $("#ProvinceCode").val();
                 if (code != "") {
@@ -1297,8 +1392,7 @@
                         method: "post",
                         success: function (result) {
                             var cities = result.Data;
-                            var cityHtml = '';
-                            cityHtml += '<option value="">请选择</option>';
+                            var cityHtml = initSelectContent;
                             for (var i = 0; i < cities.length; i++) {
                                 cityHtml += '\r\n<option value="' + cities[i].CityID + '">' + cities[i].CityName + '</option>';
                             }
@@ -1331,7 +1425,7 @@
             //开户行改变，更新开户支行选择
             $("#BankCode").change(function () {
                 //  清空开户支行
-                $("#BranchBankCode").html("<option value="">请选择</option>");
+                $("#BranchBankCode").html(initSelectContent);
 
                 var bankCode = $("#BankCode").val();
                 var bankName = $("#BankCode").find("option:selected").text();
@@ -1345,9 +1439,7 @@
                         method: "post",
                         success: function (result) {
                             var items = result.Data;
-                            var html = '';
-
-                            html += '<option value="">请选择</option>';
+                            var html = initSelectContent;
                             for (var i = 0; i < items.length; i++) {
                                 html += '<option value="' + items[i].BankCode + '">' + items[i].Lname + '</option>';
                             }
