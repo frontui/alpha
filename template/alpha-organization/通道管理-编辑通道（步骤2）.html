@@ -23,51 +23,57 @@ text: '编辑通道'
 )
 }}
 
-<div class="form-frame">
+{# 表格标题 #}
+<h5 class="fn-mt-20 fn-mb-10">基础信息</h5>
+{# 表格 #}
+{{
+    tableAlpha.default(
+        cols='
+            <colgroup>
+                <col style="width: 20%">
+                <col style="width: 30%">
+                <col style="width: 20%">
+                <col style="width: 30%">
+            </colgroup>
+        ',
+        data={
+            tbodyList: [
+                [
+                    {
+                        inner: '<b>通道编号</b>'
+                    },
+                    {
+                        inner: '768423'
+                    },
+                    {
+                        inner: '<b>通道名称</b>'
+                    },
+                    {
+                        inner: '支付宝（招商银行总行）'
+                    }
+                ],
+                [
+                    {
+                        inner: '<b>支付平台</b>'
+                    },
+                    {
+                        inner: '支付宝'
+                    },
+                    {
+                        inner: '<b>机构名称</b>'
+                    },
+                    {
+                        inner: '招商银行总行'
+                    }
+                ]
+            ]
+        },
+        fixedClass='table-border'
+    )
+}}
+
+<div class="form-frame fn-mt-20">
     <form autocomplete="off">
-        <!-- 基础信息-->
-        <div class="form-title">
-            基础信息
-        </div>
-        <div class="form-layer1">
-            <div class="form-layer2">
-                {# 通道名称 #}
-                <div class="form-group">
-                    <label class="form-control-label">
-                        <b> * </b>
-                        <span> 通道名称 </span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <input type="text" class="form-control" />
-                    </div>
-                </div>
-                {# 支付平台 #}
-                <div class="form-group">
-                    <label class="form-control-label" for="form-control-5">
-                        <span>支付平台</span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <div class="form-control-data">
-                            支付宝
-                        </div>
-                    </div>
-                </div>
-                {# 机构名称 #}
-                <div class="form-group">
-                    <label class="form-control-label" for="form-control-5">
-                        <span>机构名称</span>
-                        <em>：</em>
-                    </label>
-                    <div class="form-control-wrap">
-                        <div class="form-control-data">
-                            招商银行总行
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- 参数配置-->
         <div class="form-title">
@@ -97,7 +103,9 @@ text: '编辑通道'
                         <em>：</em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="password" class="form-control"  placeholder="">
+                        <input type="password" class="form-control" style="width: 42%; display: inline-block; float: left;">
+                        <span style="width: 14%; display: inline-block; text-align: center; margin-left: 5px; height: 40px; line-height: 40px;">至</span>
+                        <input type="password" class="form-control" style="width: 42%; display: inline-block; float: right;">
                         <span class="form-control-tools-alpha">%</span>
                     </div>
                 </div>
@@ -124,7 +132,9 @@ text: '编辑通道'
                         <em>：</em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="password" class="form-control"  placeholder="">
+                        <input type="password" class="form-control" style="width: 42%; display: inline-block; float: left;">
+                        <span style="width: 14%; display: inline-block; text-align: center; margin-left: 5px; height: 40px; line-height: 40px;">至</span>
+                        <input type="password" class="form-control" style="width: 42%; display: inline-block; float: right;">
                         <span class="form-control-tools-alpha">%</span>
                     </div>
                 </div>
@@ -150,7 +160,9 @@ text: '编辑通道'
                         <em>：</em>
                     </label>
                     <div class="form-control-wrap">
-                        <input type="password" class="form-control"  placeholder="">
+                        <input type="password" class="form-control" style="width: 42%; display: inline-block; float: left;">
+                        <span style="width: 14%; display: inline-block; text-align: center; margin-left: 5px; height: 40px; line-height: 40px;">至</span>
+                        <input type="password" class="form-control" style="width: 42%; display: inline-block; float: right;">
                         <span class="form-control-tools-alpha">%</span>
                     </div>
                 </div>
@@ -184,12 +196,11 @@ text: '编辑通道'
         </div>
 
         <!-- 合约附件-->
-        <div class="form-title">
+        {# <div class="form-title">
             合约附件
         </div>
         <div class="form-layer1">
             <div class="form-layer2">
-                <!-- 合约照片或扫描件 -->
                 <div class="form-group">
                     <label class="form-control-label form-control-label-alpha">
                         <b>*</b>
@@ -199,9 +210,7 @@ text: '编辑通道'
                     <div class="form-control-wrap">
                         <div class="form-control-data form-control-check">
                             <span class="upload-name"></span>
-                            <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">
-                            <!-- <button type="button" class="btn small-btn secondary j-upload-btn" id="btnUploader">点击上传</button> -->
-                            <div class="upload-box upload-img">
+                            <input type="hidden" name="GetUrl2" value="" id="GetUrl2" class="from-control upload-path">                            <div class="upload-box upload-img">
                             </div>
                             <input type="hidden" name="FileName2" value="">
                             <input type="hidden" name="Key2" value="">
@@ -235,7 +244,7 @@ text: '编辑通道'
                     </div>
                 </div>
             </div>
-        </div>
+        </div> #}
 
         <!-- 按钮 -->
         <div class="text-align-center fn-mt-20">
