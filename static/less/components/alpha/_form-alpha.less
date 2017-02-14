@@ -4,7 +4,7 @@
 			.form-control-date{
 				width:150px;
 				.form-control-date-btn{
-					
+
 				}
 			}
 			.coordinate{
@@ -51,4 +51,14 @@
         vertical-align: middle;
         max-width: 85%;
     }
+}
+.form-control-tools-alpha {
+    position: absolute;
+    top: 0;
+    right: -( @form-control-label-width + 15px );
+    width: @form-control-label-width;
+    padding: ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 0 ( @form-control-height - ( @forms-FontSize + 4px ) ) / 2 0;
+    text-align: left;
+    line-height:  @forms-FontSize + 4px;
+    font-size: @smaller-FontSize;
 }
