@@ -3,6 +3,17 @@
 {# 内容 #}
 {% block content %}
 
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+text:'收单流水查询'
+}
+]
+)
+}}
+
 {# 页面跳转 #}
 {{ frameLoadingAlpha.default()}}
 
