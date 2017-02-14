@@ -25,16 +25,53 @@
                 <colgroup>
                     <col style="width: 25%">
                     <col style="width: 25%">
-                    <col style="width: 25%">
-                    <col style="width: 25%">
+                    <col style="width: 20%">
+                    <col style="width: 30%">
                 </colgroup>
                 <tr>
                     <td>
-                        <div class="form-control-wrap smallsize">
-                            <div class="form-control-date smallsize">
-                                <div class="form-control-wrap smallsize">
-                                    <input type="text" class="form-control smallsize" placeholder="渠道名称搜索">
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span>渠道名称
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <div class="form-control-date smallsize">
+                                    <div class="form-control-wrap smallsize">
+                                        <input type="text" class="form-control smallsize">
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span>所属行业
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        主分类(全部)
+                                    </option>
+                                    <option value="">
+                                        美食
+                                    </option>
+                                    <option value="">
+                                        购物
+                                    </option>
+                                    <option value="">
+                                        景点
+                                    </option>
+                                    <option value="">
+                                        休闲娱乐
+                                    </option>
+                                </select>
                             </div>
                         </div>
                     </td>
@@ -42,28 +79,7 @@
                         <div class="form-control-wrap smallsize">
                             <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
                                 <option value="">
-                                    所属行业主分类(全部)
-                                </option>
-                                <option value="">
-                                    美食
-                                </option>
-                                <option value="">
-                                    购物
-                                </option>
-                                <option value="">
-                                    景点
-                                </option>
-                                <option value="">
-                                    休闲娱乐
-                                </option>
-                            </select>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-control-wrap smallsize">
-                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
-                                <option value="">
-                                    所属行业二级分类(全部)
+                                    二级分类(全部)
                                 </option>
                                 <option value="">
                                     二级分类一
@@ -78,21 +94,29 @@
                         </div>
                     </td>
                     <td>
-                        <div class="form-control-wrap smallsize">
-                            <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
-                                <option value="">
-                                    全部渠道角色
-                                </option>
-                                <option value="">
-                                    商户
-                                </option>
-                                <option value="">
-                                    门店
-                                </option>
-                                <option value="">
-                                    渠道商
-                                </option>
-                            </select>
+                        <div class="form-group inline-filter">
+                            <label class="form-control-label">
+                                <span>渠道角色
+                                </span>
+                                <em>：
+                                </em>
+                            </label>
+                            <div class="form-control-wrap smallsize">
+                                <select name="" id="" class="form-control smallsize" style="padding-top: 3px;">
+                                    <option value="">
+                                        全部
+                                    </option>
+                                    <option value="">
+                                        商户
+                                    </option>
+                                    <option value="">
+                                        门店
+                                    </option>
+                                    <option value="">
+                                        渠道商
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -149,7 +173,11 @@
                 <td>美食，饮料</td>
                 <td>8</td>
                 <td>2016-10-10  18:00:00</td>
-                <td>启用</td>
+                <td>
+                    <span class="success-FontColor2">
+                        启用
+                    </span>
+                </td>
                 <td>
                     <div class="table-ctrls">
                         查看<span class="caret-down"></span>
@@ -160,6 +188,37 @@
                             <a href="关联渠道管理-渠道列表-查看关联终端.html">终端</a>
                             <a href="关联渠道管理-渠道列表-管理员账号.html">管理员</a>
                             <a href="javascript:void(0);" class="opt-disable">禁用</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>1086</td>
+                <td>
+                    百事可乐嘉年华有限公司
+                </td>
+                <td>
+                    渠道商
+                </td>
+                <td>山东，济南</td>
+                <td>美食，饮料</td>
+                <td>8</td>
+                <td>2016-10-10  18:00:00</td>
+                <td>
+                    <span class="error-FontColor2">
+                        禁用
+                    </span>
+                </td>
+                <td>
+                    <div class="table-ctrls">
+                        查看<span class="caret-down"></span>
+                        <div class="ctrls">
+                            <a href="关联渠道管理-渠道列表-查看详情.html">查看</a>
+                            <a href="关联渠道管理-渠道列表-编辑渠道.html">编辑</a>
+                            <a href="关联渠道管理-渠道列表-查看合同.html">合同</a>
+                            <a href="关联渠道管理-渠道列表-查看关联终端.html">终端</a>
+                            <a href="关联渠道管理-渠道列表-管理员账号.html">管理员</a>
+                            <a href="javascript:void(0);" class="opt-active">启用</a>
                         </div>
                     </div>
                 </td>
@@ -199,8 +258,30 @@
     $('.table').on('click','.opt-disable',function(){
         $.tipsModal({
             type : 'info',   //  success info error
-            title : '<span class="success-FontColor2">禁用</span>',
-            content : '禁用后，该渠道及关联的渠道将不可用。确定禁用？',
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该渠道及关联的渠道将不可用，确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+              ok : {
+                text : '确定',
+                callback : function () {
+                  alert('确定');
+                }
+              },
+              cancel : {
+                text : '取消',
+                callback : function () {
+                  alert('取消');
+                }
+              }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该渠道及关联的渠道将激活，确定启用？',
             buttons : {  //  按钮可以只传ok或cancel
               ok : {
                 text : '确定',
