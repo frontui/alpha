@@ -60,9 +60,7 @@
                             <div class="form-control-wrap">
                                 <div class="form-control-verify">
                                     <input type="text" class="form-control">
-                                    <button class="btn form-control-verify-btn">
-                                        获取验证码
-                                    </button>
+                                    <input value="获取验证码" type="button" class="btn form-control-verify-btn" id="getCode" onclick="settime(this)"/>
                                     <!-- 按钮点击后的文字提示和 disabled 样式 -->
                                     <!-- <button class="btn form-control-verify-btn disabled" disabled>
                                         59秒后再次获取
@@ -102,5 +100,25 @@
             });
         });
     });
+
+    // 验证码倒计时
+    var countdown=60;
+    function settime(obj) {
+        if (countdown == 0) {
+            obj.removeAttribute("disabled");
+            obj.className = ('btn form-control-verify-btn');
+            obj.value="获取验证码";
+            countdown = 60;
+            return;
+        } else {
+            obj.setAttribute("disabled", true);
+            obj.className = ('btn form-control-verify-btn disabled');
+            obj.value= countdown + "秒后重新发送";
+            countdown--;
+        }
+        setTimeout(function() {
+            settime(obj) }
+        ,1000)
+    }
 </script>
 {% endblock %}
