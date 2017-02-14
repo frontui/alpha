@@ -74,7 +74,7 @@
                                         <a href="关联渠道管理-渠道列表-管理员账号-编辑.html" class="link-standard">
                                             编辑
                                         </a>
-                                        <a href="javaScript:void(0);" class="link-standard">
+                                        <a href="javaScript:void(0);" class="link-standard admin-disabled">
                                             禁用
                                         </a>
                                     </div>
@@ -88,4 +88,32 @@
         )
     }}
 
+{% endblock %}
+
+{% block jsPage %}
+    <script>
+        $(function(){
+            $(".admin-disabled").on("click",function(){
+                $.tipsModal({
+                    type : 'info',   //  success info error
+                    title : '<span class="warning-FontColor">禁用</span>',
+                    content : '禁用后，该账号将不可登陆机构管理后台，确定禁用？',
+                    buttons : {  //  按钮可以只传ok或cancel
+                      ok : {
+                        text : '确定',
+                        callback : function () {
+                          alert('确定');
+                        }
+                      },
+                      cancel : {
+                        text : '取消',
+                        callback : function () {
+                          alert('取消');
+                        }
+                      }
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}
