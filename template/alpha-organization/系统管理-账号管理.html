@@ -279,43 +279,43 @@
 
     // 启用item
     $('.turnOn').on('click', function(){
-         $('#j-modal-4').modalLayer({
-             title: '确定启用？',
+         $.tipsModal({
+             title: '<span class="warning-FontColor">确定启用？</span>',
              content: '启用后，该账号可正常登录运营管理后台操作',
-             icon: 'info',
-             buttons: [
-                 {
-                     text: '确定',
-                     ok: function(){
-                         alert('触发事件');
+             type: 'info',
+             buttons : {
+                 ok : {
+                     text : '确定',
+                     callback : function () {
+                         console.log('触发事件');
                      }
                  },
-                 {
-                     text: '取消',
+                 cancel : {
+                     text : '取消',
                      style: 'btn secondary'
                  }
-             ]
+             }
          });
      });
 
     // 禁用item
      $('.turnOff').on('click', function(){
-         $('#j-modal-4').modalLayer({
-             title: '确定禁用？',
+         $.tipsModal({
+             title: '<span class="warning-FontColor">确定禁用？</span>',
              content: '禁用后，该账号将不可登录运营管理后台',
-             icon: 'info',
-             buttons: [
-                 {
-                     text: '确定',
-                     ok: function(){
-                         alert('触发事件');
+             type: 'info',
+             buttons : {
+                 ok : {
+                     text : '确定',
+                     callback : function () {
+                         console.log('触发事件');
                      }
                  },
-                 {
-                     text: '取消',
+                 cancel : {
+                     text : '取消',
                      style: 'btn secondary'
                  }
-             ]
+             }
          });
     });
 </script>
