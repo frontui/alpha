@@ -173,7 +173,7 @@
         <a class="link-standard" href="机构管理-机构列表（管理员）.html">
           管理员
         </a>  &nbsp;&nbsp;
-        <a href="#myModal1" class="link-standard" data-toggle="modal">禁用</a>
+        <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>
       </td>
     </tr>
 
@@ -191,9 +191,7 @@
         <a class="link-standard" href="机构管理-机构列表（管理员）.html">
           管理员
         </a>&nbsp;&nbsp;
-          <a href="#myModal2" class="link-standard" data-toggle="modal">
-          启用
-        </a>
+          <a href="javascript:void(0);" class="link-standard opt-active">启用</a>
       </td>
     </tr>
 
@@ -238,45 +236,48 @@
   </table>
 
 
-    <!--禁用弹层-->
-    <div class="modal-background fade display-none in" id="myModal1" role="dialog" tabindex="-1" aria-hidden="false" >
-        <div class="modal-layer">
-            <div class="modal-position">
-                <div class="modal-wrap">
-                    <div class="modal-body text-align-center">
-                        <div>
-                            禁用后，该机构及关联的渠道将不可用。确定禁用？
-                        </div>
-                        <div class="fn-ma-30">
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>
-                        </div>
+    <!--<div class="display-none">-->
+        <!--&lt;!&ndash;禁用弹层&ndash;&gt;-->
+        <!--<div class="modal-background fade display-none in" id="myModal1" role="dialog" tabindex="-1" aria-hidden="false" >-->
+            <!--<div class="modal-layer">-->
+                <!--<div class="modal-position">-->
+                    <!--<div class="modal-wrap">-->
+                        <!--<div class="modal-body text-align-center">-->
+                            <!--<div>-->
+                                <!--禁用后，该机构及关联的渠道将不可用。确定禁用？-->
+                            <!--</div>-->
+                            <!--<div class="fn-ma-30">-->
+                                <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>-->
+                                <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>-->
+                            <!--</div>-->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-    <!--启用弹层-->
-    <div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >
-        <div class="modal-layer">
-            <div class="modal-position">
-                <div class="modal-wrap">
-                    <div class="modal-body text-align-center">
-                        <div>
-                            启用后，该机构及关联的渠道将正常可用。确定启用？
-                        </div>
-                        <div class="fn-ma-30">
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>
-                            <a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>
-                        </div>
+        <!--&lt;!&ndash;启用弹层&ndash;&gt;-->
+        <!--<div class="modal-background fade display-none in" id="myModal2" role="dialog" tabindex="-1" aria-hidden="false" >-->
+            <!--<div class="modal-layer">-->
+                <!--<div class="modal-position">-->
+                    <!--<div class="modal-wrap">-->
+                        <!--<div class="modal-body text-align-center">-->
+                            <!--<div>-->
+                                <!--启用后，该机构及关联的渠道将正常可用。确定启用？-->
+                            <!--</div>-->
+                            <!--<div class="fn-ma-30">-->
+                                <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">确认</a>-->
+                                <!--<a href="javascript:void(0);" class="btn modal-close small-btn default" role="button">取消</a>-->
+                            <!--</div>-->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
 </div>
 
 {# 分页 #}
@@ -303,5 +304,52 @@
         $('#p1').on('select.ui.pagination', ajaxData);
     }
     ajaxData();
+
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该机构及关联的渠道将不可用。确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该机构及关联的渠道将正常可用。确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+
 </script>
 {% endblock %}

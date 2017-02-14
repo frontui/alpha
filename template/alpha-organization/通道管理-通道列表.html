@@ -54,7 +54,7 @@
           <a class="link-standard" href="通道管理-编辑通道（步骤1）.html">
               编辑
           </a> &nbsp;&nbsp;
-        <a href="#myModal1" class="link-standard" data-toggle="modal">禁用</a>
+          <a href="javascript:void(0);" class="link-standard opt-disable">禁用</a>
       </td>
     </tr>
 
@@ -72,7 +72,7 @@
             <a class="link-standard" href="通道管理-编辑通道（步骤1）.html">
                 编辑
             </a> &nbsp;&nbsp;
-            <a href="#myModal2" class="link-standard" data-toggle="modal">启用</a>
+            <a href="javascript:void(0);" class="link-standard opt-active">启用</a>
         </td>
     </tr>
 
@@ -147,5 +147,50 @@
         $('#p1').on('select.ui.pagination', ajaxData);
     }
     ajaxData();
+
+
+    $('.table').on('click','.opt-disable',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">禁用</span>',
+            content : '禁用后，该渠道及关联的渠道将不可用，确定禁用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
+
+    $('.table').on('click','.opt-active',function(){
+        $.tipsModal({
+            type : 'info',   //  success info error
+            title : '<span class="warning-FontColor">启用</span>',
+            content : '启用后，该渠道及关联的渠道将激活，确定启用？',
+            buttons : {  //  按钮可以只传ok或cancel
+                ok : {
+                    text : '确定',
+                    callback : function () {
+                        alert('确定');
+                    }
+                },
+                cancel : {
+                    text : '取消',
+                    callback : function () {
+                        alert('取消');
+                    }
+                }
+            }
+        });
+    });
 </script>
 {% endblock %}
