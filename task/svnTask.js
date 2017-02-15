@@ -23,8 +23,8 @@ module.exports = function svnTask(banner) {
   gulp.task('svnTemplate', function(){
       return gulp.src(['./'+ config.destPath + '/**/**.html'])
               //.pipe($.changed(svn.path))
-              .pipe($.replace(/\/static/g, './static'))
-              .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.-]+\.js)(.*)"/g, '"./static/js/$3$4"'))
+              .pipe($.replace(/\/static/g, '../static'))
+              .pipe($.replace(/"(\/)bower_components\/(.*)\/([a-zA-Z0-9.-]+\.js)(.*)"/g, '"../static/js/$3$4"'))
               //.pipe(gulp.dest(svn.path))
               .pipe(gulp.dest(tmpPath))
   });
