@@ -1,0 +1,39 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+
+
+    {# 填写信息 #}
+	<div class="form-frame fn-mb-10">
+    <div class="login-wrap">
+      <h3 class="text-align-center h3-title default-FontColor">请选择您的贷款偿还方式</h3>
+      <div class="repay-method clearfix">
+        <a href="#" class="company">   <!-- 如果选中状态，添加样式名active-->
+          <i></i>企业偿还
+        </a>
+        <a href="#" class="personal">
+          <i></i>个人偿还
+        </a>
+      </div>
+      <div class="form-control-check repay-agreement">
+        <label class="agreement-check">
+          我已阅读并同意 <a target="_blank" href="#" class="link-standard">《企业服务协议》</a>
+          <input type="checkbox" name="" tabindex="1">
+        </label>
+      </div>
+      <div class="text-align-center repay-btn">
+        <button type="button" class="btn primary">进入验证</button>
+      </div>
+    </div>
+	</div>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+  $(".repay-method a").click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+  })
+</script>
+{% endblock %}

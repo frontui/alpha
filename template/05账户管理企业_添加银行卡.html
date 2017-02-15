@@ -1,0 +1,94 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="05账户管理企业.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			添加银行账户
+		</li>
+	</ol>
+
+	{# 添加银行卡 #}
+	<div class="form-frame">
+		<div class="form-title">
+			添加银行账户
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="06公共页面-收银台-收银台验证.html" autocomplete="off">
+					{# 企业账户 #}
+					<div class="form-group">
+						<label class="form-control-label" for="username">
+							<span>企业账户</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" value="xxx有限公司" readonly class="form-control" id="username" >
+						</div>
+					</div>
+					{# 手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>支付手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="139****5623" readonly>
+						</div>
+					</div>
+					{# 短信验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-verify1">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('form-control-verify1') }}
+							<!-- 已发送 -->
+							{{ Form.verify('form-control-verify1','49秒后再获取', 'disabled') }}
+						</div>
+					</div>
+					{# 支付密码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="password">
+							<span>支付密码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" id="password" class="form-control" value="">
+						</div>
+					</div>
+					{# 充值 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>小额验证金</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data">
+								<b class="warning-FontColor">0.10</b>元
+							</div>
+							<input type="hidden" class="form-control" value="0.1">
+						</div>
+					</div>
+					{# 协议 #}
+					<div class="form-group">
+						{{ Form.agreement() }}
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn('下一步') }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

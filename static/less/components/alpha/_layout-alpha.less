@@ -1,0 +1,139 @@
+/*
+// alpha 项目通用布局
+// --------------------------------------------------
+*/
+
+@charset "utf-8";
+
+
+#layoutAlpha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: @bgColor-layout-alpha;
+
+    .alpha-main {
+        position: absolute;
+        top: @height-header-alpha;
+        bottom: 0;
+        width: @width-web-alpha;
+        left: 50%;
+        margin-left: -@width-web-alpha/2;
+    }
+
+    .alpha-body {
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        &-nav-wrap {
+            display: table-cell;
+            vertical-align: top;
+            width: @width-nav-alpha;
+            background-color: @bgColor-nav-alpha;
+            border-left: 1px solid @base-BorderColor;
+        }
+
+        &-content-wrap {
+            display: table-cell;
+            vertical-align: top;
+            border-right: 1px solid @base-BorderColor;
+            border-left: 1px solid @base-BorderColor;
+        }
+
+        &-content-box {
+            position: relative;
+            height: 100%;
+            padding: @paddingSize-public-alpha;
+
+            > div {
+                position: relative;
+                height: 100%;
+            }
+        }
+    }
+}
+
+#layoutNoNavAlpha {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    background: url('https://www.qianduan.com/Content/images/index/tu3.jpg') #fff center center no-repeat;
+    background-size: cover;
+
+    .lo {
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        &-panel {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        &-box {
+            width: 400px;
+            min-width: 400px;
+            margin: 0 auto;
+            padding: @paddingSize-public-alpha*2;
+            background-color: #fff;
+            background: url( '@{images-url}white70.png' );
+            //border: 1px solid @base-BorderColor;
+            box-shadow: 0 0 10px 0 rgba( 0,0,0,0.15 );
+            .rounded( @borderRadius-public-alpha );
+        }
+
+        &-logo {
+            text-align: center;
+            font-size: 0;
+            padding-bottom: @paddingSize-public-alpha;
+
+            > img {
+                .inline-block();
+                max-width: 100%;
+            }
+        }
+
+        &-form-item {
+
+            &.username,
+            &.lock {
+                .border-radius( @borderRadius-public-alpha,0,0,@borderRadius-public-alpha );
+                background-repeat: no-repeat;
+                padding-left: @form-control-height;
+                background-color: @bgColor-type3;
+            }
+
+            &.username {
+                background-image: url("@{images-url}svg/user-999.svg");
+                background-size: auto 60%;
+                background-position: 9px center;
+            }
+
+            &.lock {
+                background-image: url("@{images-url}svg/lock-999.svg");
+                background-size: auto 80%;
+                background-position: 5px center;
+            }
+
+            &.button {
+                background-color: transparent;
+                padding-left: 0;
+            }
+
+            &.text {
+                background-color: transparent;
+                padding-left: 0;
+            }
+
+            & + .lo-form-item {
+                margin-top: @paddingSize-public-alpha/2;
+            }
+        }
+    }
+}

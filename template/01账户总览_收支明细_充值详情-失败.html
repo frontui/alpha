@@ -1,0 +1,102 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+{# 菜单导航 #}
+{{ navigator.current('nav1') }}
+
+<ol class="breadcrumb fn-mb-10">
+	<li>
+		<a href="01账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+	</li>
+	<li>
+		<a href="01账户总览_收支明细.html">收支明细 <i class="icon-chevron-thin-right"></i></a>
+	</li>
+	<li>
+		充值详情
+	</li>
+</ol>
+
+<div class="tables-title heading-FontColor fn-mb-20">
+	充值详情
+	<div class="table-title-btns">
+		<a href="javascript:history.go(-1)">返回</a>
+	</div>
+</div>
+
+<!-- 状态提示 -->
+<!--{{ Alert.success('提现成功', '提现凭证.html') }}-->
+<!--{{ Alert.danger('提现失败', '提现金额已返回您的账户余额。') }}-->
+<!--{{ Alert.loading('提现处理中') }}-->
+
+
+<!--<div class="section fn-pt-10 fn-mb-20 heading-FontColor">-->
+	<!--<span>提现账户：</span> <em class="font-normal">海王星辰大药房</em>，招商银行  |  尾号1234-->
+<!--</div>-->
+
+<div>
+  <div class="box-hd">
+    <h2><span>充值账户：</span> <em class="font-normal warning-FontColor">海王星辰大药房</em></h2>
+  </div>
+	<div class="box-bd">
+		<ul class="process">
+			<li class="process-bg-wrap">
+				<div class="process-bg"></div>
+			</li>
+			<li class="left has-correct">
+				<div class="process-item">
+					<div class="process-dot apply-circle-success"><i class="apply-icon-edit"></i></div>
+					<p>2016-03-22 12:22:22</p>
+					<h3>充值申请已提交</h3>
+				</div>
+			</li>
+			<li class="center has-correct">
+				<div class="process-item">
+					<div class="process-dot apply-circle-success"><i class="apply-icon-process"></i></div>
+					<p>2016-03-22 12:22:22</p>
+					<h3>银行处理中</h3>
+				</div>
+			</li>
+			<li class="apply-error"></li>
+			<li class="right has-error">
+				<div class="process-item">
+					<div class="process-dot apply-circle-error"><i class="apply-icon-money"></i></div>
+					<p>2016-03-22 12:22:22</p>
+					<h3>充值失败</h3>
+					<p class="error-FontColor1">网络异常</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<table class="table table-border inverse fn-mb-20">
+  <colgroup>
+    <col/>
+    <col style="width: 200px"/>
+    <col/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>业务类型</th>
+    <th>流水号</th>
+    <th>金额（元）</th>
+    <th>资金来源</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>充值</td>
+    <td>
+      <p class="text-nowrap" title="TJZT20150520000001">TJZT20150520000001</p>
+    </td>
+    <td>1,500.00</td>
+    <td>网银支付</td>
+  </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,162 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav3') }}
+
+
+	<!-- 数据统计 -->
+	<div class="data-count-wrap data-count-wrap-style4 clearfix">
+		<div class="data-num float-left" style="border-right: none;">
+
+			<span class="h4 heading-FontColor fn-mr-5">账户余额</span>
+			<strong class="h2 font-normal warning-FontColor">10,000,000.00</strong> 元
+
+		</div>
+    <!--<div class="today-num float-right ">
+      <span class="h4 heading-FontColor fn-mr-5">今日可提余额</span>
+      <strong class="h2 font-normal warning-FontColor fn-pl-40">7,000,000.00</strong> 元
+      <a href="03提现明细_提现.html" class="btn primary small-btn fn-ml-30">提现</a>
+    </div>-->
+	</div>
+	<div class="ar-wrapper">
+		<div class="ar-top">
+			<div class="amountbox left">
+				<h3 style="position: relative">
+					今日免手续费可提金额
+					<div class="bubble-tip-wrap" style="left:200px;"><p class="bubble-tip">可提金额不对？请拨打<br/>400-106-3398咨询<i>X</i></p> </div>
+                                            <span>
+                                                单位：元
+                                            </span>
+				</h3>
+				<h2>
+					7,000,000,00
+          <!--TODO: 春节期间资金提供暂停 -->
+          <!-- if (time > start_time && time < end_time) -->
+          <a href="javascript:void(0);" class="btn disabled small-btn" style="margin-left: 10px;" data-toggle="tooltips" title="系统升级更新暂时无法进行操作，具体见公告信息。">提现</a>
+          <!-- TODO: 正常状态 -->
+          <!-- else -->
+          <!--<a href="###" class="btn primary small-btn" style="margin-left: 10px;">提现</a>-->
+          <!-- endif -->
+				</h2>
+			</div>
+			<div class="amountbox">
+				<h3>
+					账期内可提金额
+                                            <span>
+                                                单位：元
+                                            </span>
+				</h3>
+				<h2>
+					3,000,000,00
+				</h2>
+			</div>
+		</div>
+	</div>
+	{{ Amount.render('fn-mb-40') }}
+
+	<div class="tables-title heading-FontColor">
+		已提现记录
+	</div>
+	<div id="j-home-switcher" data-toggle="switcher" data-item=".filter-check-item" data-keep="true" class="form-frame-filter fn-mt-15 fn-mb-20 fn-pl-10">
+		<span class="heading-FontColor fs-12">时间：</span>
+		<a href="#3m" class="filter-check-item active">最近三个月</a>
+		<a href="#b3m" class="filter-check-item">三个月前</a>
+	</div>
+	<table class="table inverse">
+		<colgroup>
+			<col/>
+			<col style="width: 200px"/>
+			<col/>
+			<col/>
+			<col/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>创建时间</th>
+				<th>流水号</th>
+				<th>金额（元）</th>
+				<th>银行账户</th>
+				<th>状态</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000002">TJZT20150520000002</p>
+				</td>
+				<td>650.00</td>
+				<td>招商银行|尾号1234</td>
+				<td>处理中</td>
+
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT20150520000003</p>
+				</td>
+				<td>150.00</td>
+				<td>招商银行|尾号1234</td>
+				<td>成功</td>
+
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT20150520000003</p>
+				</td>
+				<td>150.00</td>
+				<td>招商银行|尾号1234</td>
+				<td>成功</td>
+
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT20150520000003</p>
+				</td>
+				<td>150.00</td>
+				<td>招商银行|尾号1234</td>
+				<td>成功</td>
+
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT20150520000003</p>
+				</td>
+				<td>150.00</td>
+				<td>招商银行|尾号1234</td>
+				<td>成功</td>
+
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT20150520000003</p>
+				</td>
+				<td>150.00</td>
+				<td>招商银行|尾号1234</td>
+				<td>失败</td>
+
+			</tr>
+		</tbody>
+	</table>
+	{# 分页 #}
+	{{ Pager.render() }}
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	$(function() {
+		$(".bubble-tip-wrap i").on("click",function(){
+			$(".bubble-tip-wrap").remove();
+		})
+	})
+</script>
+{% endblock %}
+

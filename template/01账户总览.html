@@ -1,0 +1,354 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav1') }}
+
+	<!-- 验证提醒 -->
+    <div class="alert alert-warning fn-mb-10 ">
+      <i></i>
+      <em></em>
+      <strong class="warning-FontColor">liliang126</strong>，您尚未进行账户验证，<a href="06账户管理个人_个人验证1.html" class="link-standard">请先验证</a>（注：如已完成付款，请耐性等待）
+    </div>
+    {{ Alert.render(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请通过审核，可以使用平台提供的所有功能。', mb='fn-mb-10') }}
+    {{ Alert.verify('广东长江服务有限公司',  link='05账户管理企业_企业验证1.html') }}
+    {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请正在审核中，请耐心等待。') }}
+    {{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交的验证申请不通过，原因：银行对账账户不一致，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证</a>。') }}
+	{{ Alert.loading(text='<strong class="warning-FontColor">广东长江服务有限公司</strong>，您于2015年6月16日提交了线下申请<span id="result-txt">，请在 <b class="warning-FontColor" id="j-hours">47</b> 小时 <b class="warning-FontColor" id="j-minutes">22</b> 分 <b class="warning-FontColor" id="j-seconds">10</b> 秒完成指定打款 <a href="#ebankModal-2" data-toggle="modal" class="link-standard pull-right">查看</a></span>') }}
+
+  {# 公告 #}
+  {{ Alert.loading(text='<a href="公告内容.html" class="link-standard">关于部分银行停止B2B通道公告</a>') }}
+
+	<!-- 账户余额 -->
+    <div class="data-count-wrap count-wrap-btline data-count-wrap-style1 fn-mb-10">
+        <ul class="date-count-ul">
+            <li>
+                <h5>
+					<span>账户余额：</span>
+					<i class="fs-12 font-normal">上次登录时间：2015.05.25 22:37:34</i>
+				</h5>
+                <h2><strong class="fs-32">3,568,172,203.78</strong>元</h2>
+                <span class="pull-left">
+                    <!--TODO: 春节期间资金提供暂停 -->
+                    <!-- if (time > start_time && time < end_time) -->
+                    <a href="javascript:void(0);" data-toggle="tooltips" title="系统升级更新暂时无法进行操作，具体见公告信息。" class="btn small-btn disabled">充值</a>
+                    <a href="javascript:void(0);" data-toggle="tooltips" title="系统升级更新暂时无法进行操作，具体见公告信息。" class="btn links info-FontColor">提现</a>
+                    <!-- TODO: 正常状态 -->
+                    <!-- else -->
+                    <!--<a href="01账户总览_充值.html" class="btn primary small-btn">充值</a>
+                    <a href="03提现明细_提现.html" class="btn links">提现</a>-->
+                    <!-- endif -->
+                </span>
+            </li>
+            <li>
+                <h5><span>可提现收益：</span><a href="04收益管理.html" class="link-standard">收益记录</a></h5>
+                <h2>44,423,572,203.78</h2>
+
+                <!--TODO: 春节期间资金提供暂停 -->
+                <!-- if (time > start_time && time < end_time) -->
+                <a href="javascript:void(0);" data-toggle="tooltips" title="系统升级更新暂时无法进行操作，具体见公告信息。" class="pull-left btn disabled small-btn fn-mt-5">收益提现</a>
+                <!-- TODO: 正常状态 -->
+                <!-- else -->
+                <!--<a href="04收益管理_收益提现_收益提现1.html" class="pull-left btn primary small-btn fn-mt-5">收益提现</a>-->
+                <!-- endif -->
+            </li>
+        </ul>
+    </div>
+
+	<!-- 收支明细 -->
+	<div class="tables-title heading-FontColor">
+		最近收支明细
+		<div class="table-title-btns">
+			<a href="01账户总览_收支明细.html">查看所有记录 <i class="icon-chevron-thin-right"></i></a>
+		</div>
+	</div>
+	<table class="table">
+		<colgroup>
+			<col/>
+			<col style="width: 200px" />
+			<col/>
+			<col/>
+			<col/>
+			<col style="width:78px"/>
+		</colgroup>
+		<thead>
+			<tr>
+				<th>创建时间</th>
+				<th>流水号</th>
+				<th>业务类型</th>
+				<th>状态</th>
+				<th>金额（元）</th>
+				<th class="text-align-left th-ctrls">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000001">aaaa201505200000010000010</p>
+				</td>
+				<td>充值</td>
+				<td>成功</td>
+				<td class="success-FontColor2">+1,000.00</td>
+				<td class="text-align-left">
+					<div class="table-ctrls">
+						详情
+						<span class="caret-down"></span>
+						<div class="ctrls">
+							<a href="01账户总览_收支明细_充值详情.html">详情</a>
+							<a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000002">TJZT201505200000010000010</p>
+				</td>
+				<td>提现</td>
+				<td>成功</td>
+				<td class="warning-FontColor">-1,000.00</td>
+				<td class="text-align-left">
+					<div class="table-ctrls">
+						详情
+						<span class="caret-down"></span>
+						<div class="ctrls">
+							<a href="01账户总览_收支明细_提现详情.html">详情</a>
+							<a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000003">TJZT201505200000010000010</p>
+				</td>
+				<td>收款</td>
+				<td>成功</td>
+				<td class="success-FontColor2">+1,000.00</td>
+				<td class="text-align-left">
+					<div class="table-ctrls">
+						详情
+						<span class="caret-down"></span>
+						<div class="ctrls">
+							<a href="01账户总览_收支明细_收款详情（直付）.html">详情</a>
+							<a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+				<td>
+					<p class="text-nowrap" title="TJZT20150520000004">TJZT201505200000010000010</p>
+				</td>
+				<td>收款</td>
+				<td>成功</td>
+				<td class="success-FontColor2">+2,000.00</td>
+				<td class="text-align-left">
+					<div class="table-ctrls">
+						详情
+						<span class="caret-down"></span>
+						<div class="ctrls">
+							<a href="01账户总览_收支明细_收款详情（担保）.html">详情</a>
+							<a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+                <td>
+                    <p class="text-nowrap" title="TJZT20150520000005">TJZT201505200000010000010</p>
+                </td>
+                <td>付款</td>
+                <td>成功</td>
+                <td class="warning-FontColor">-2,000.00</td>
+                <td class="text-align-left">
+                    <div class="table-ctrls">
+                        详情
+                        <span class="caret-down"></span>
+                        <div class="ctrls">
+                            <a href="01账户总览_收支明细_付款详情（直付）.html">详情</a>
+                            <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+                <td>
+                    <p class="text-nowrap" title="TJZT20150520000005">TJZT201505200000010000010</p>
+                </td>
+                <td>付款</td>
+                <td>成功</td>
+                <td class="warning-FontColor">-2,000.00</td>
+                <td class="text-align-left">
+                    <div class="table-ctrls">
+                        详情
+                        <span class="caret-down"></span>
+                        <div class="ctrls">
+                            <a href="01账户总览_收支明细_付款详情（担保-含清算）.html">详情</a>
+                            <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+                <td>
+                    <p class="text-nowrap" title="TJZT20150520000005">TJZT201505200000010000010</p>
+                </td>
+                <td>付款</td>
+                <td>成功</td>
+                <td class="warning-FontColor">-2,000.00</td>
+                <td class="text-align-left">
+                    <div class="table-ctrls">
+                        详情
+                        <span class="caret-down"></span>
+                        <div class="ctrls">
+                            <a href="01账户总览_收支明细_付款详情（担保-不含清算）.html">详情</a>
+                            <a target="_blank" href="06公共页面-电子凭证.html">打印</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="text-nowrap">2015.05.20</span>  <span class="text-nowrap">16:56:00</span></td>
+                <td>
+                    <p class="text-nowrap" title="TJZT20150520000006">TJZT201505200000010000010</p>
+                </td>
+                <td>充值</td>
+                <td>失败</td>
+                <td class="success-FontColor2">+400.00</td>
+                <td class="text-align-left">
+                    <a href="01账户总览_收支明细_充值详情.html" class="link-standard">详情</a>
+                </td>
+            </tr>
+            <!-- 暂无记录 -->
+            <tr>
+                <td colspan="6" class="empty">
+                    &nbsp;
+                </td>
+            </tr>
+		</tbody>
+	</table>
+
+
+<!-- 对公账号 -->
+<div class="modal-background fade display-none" id="ebankModal-2" role="dialog">
+	<div class="modal-layer">
+		<div class="modal-position">
+			<div class="modal-wrap" style="width:750px;">
+				<div class="modal-head">
+					申请提交进度
+					<button class="modal-close" title="关闭">
+						<i></i>
+					</button>
+				</div>
+				<div class="modal-body" style="padding: 25px">
+					<div class="pay-modal">
+						<div class="pay-modal-header">
+              请登录登录XX银行企业网银或客户端，并通过您的对公账户向下方备付金账户转账汇款一笔小额金额进行验证。
+              我们会在验证成功后的T+1日退回该笔金额到您的对公账户。
+						</div>
+						<ul>
+							<li class="pay-modal-ul-l">
+								<h2>您的对公账户</h2>
+								<div class="pay-modal-box">
+									<dl class="pay-modal-item">
+										<dt>银&emsp;&emsp;行：</dt>
+										<dd>
+											<div class="bank-wrap">
+												<span class="bank-icon icon-cmb" title="招商银行"></span>
+												<span>招商银行</span>
+											</div>
+										</dd>
+										<dt>
+											账户名称：
+										</dt>
+										<dd>加多宝有限责任公司</dd>
+										<dt>
+											对公账户：
+										</dt>
+										<dd>1589 9971 5022 990
+										</dd>
+										<dt>开户省市：</dt>
+										<dd>广东省/广州市</dd>
+										<dt>开户支行：</dt>
+										<dd>广州市白云大道支行</dd>
+									</dl>
+                  <p class="text-align-right">
+                    <a href="javascript:void(0)" id="j-modify-account" class="link-standard">修改</a>
+                  </p>
+								</div>
+							</li>
+              <li class="pay-modal-ul-arrow" style="font-size: 12px; color: #999; margin-left: -35px; text-align: center;">
+                转账汇款金额<br>
+                <b class="error-FontColor1">0.1元</b>
+              </li>
+							<li class="pay-modal-ul-r">
+								<h2>收款账户</h2>
+								<div class="pay-modal-box">
+									<dl class="pay-modal-item">
+										<dt>银&emsp;&emsp;行：</dt>
+										<dd>
+											<div class="bank-wrap">
+												<span class="bank-icon icon-cmb" title="招商银行"></span>
+												<span>招商银行</span>
+											</div>
+										</dd>
+										<dt>
+											账户名称：
+										</dt>
+										<dd>中金支付有限公司客户备付金</dd>
+										<dt>
+											对公账户：
+										</dt>
+										<dd class="error-FontColor1">1312 4432 3434 559
+										</dd>
+                    <dt>开户省市</dt>
+                    <dd>北京北京</dd>
+                    <dt>开&nbsp;&nbsp;户&nbsp;行：</dt>
+                    <dd>北京分行宣武门支行</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	$(function() {
+		// 倒计时
+		// todo: test
+		// 绑定倒计时
+		var dd = new Date().valueOf() + 24 * 60 * 60 * 1000;
+		var ck = clockTick(dd, function(d, h, m, s){
+
+			if(d === -1) {
+				$('#result-txt').html('不通过，原因：处理超时，请<a href="05账户管理企业_企业验证1.html" class="link-standard">重新验证。</a>');
+			} else {
+				// 小时
+				$('#j-hours').html(h + d * 24);
+				// 分钟
+				$('#j-minutes').html(m);
+				// 秒钟
+				$('#j-seconds').html(s);
+			}
+		});
+	})
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,201 @@
+{% extends "_layout/wrapper.html" %}
+
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 面包屑导航 #}
+	<ol class="breadcrumb fn-mb-10">
+		<li>
+			<a href="06账户管理个人.html">账户管理 <i class="icon-chevron-thin-right"></i></a>
+		</li>
+		<li>
+			添加银行卡
+		</li>
+	</ol>
+
+	{# 添加银行卡 #}
+	<div class="form-frame">
+		<div class="form-title">
+			添加银行卡
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form action="06账户管理个人_添加银行卡2.html" autocomplete="off">
+					{# 姓名 #}
+					<div class="form-group">
+						<label class="form-control-label" for="username">
+							<span>姓名</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" value="陈少峰" readonly class="form-control" id="username" >
+						</div>
+					</div>
+					{# 身份证号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>身份证号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" name="idcard" value="4000*********6656" readonly class="form-control"/>
+						</div>
+					</div>
+                    {# 银行卡号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="bankcard">
+							<span>银行卡号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.bankcard(data='data-toggle="autoCompleteBankName" data-target="#j-bankName"') }}
+						</div>
+					</div>
+                    <!-- 输入银行卡号后自动根据bin码出现对应开户行信息 -->
+					{# 开户行 #}
+					<div class="form-group display-none" style="*z-index: 2" id="j-bank-wrap">
+						<label class="form-control-label" for="bank">
+							<span>开户行</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<div class="form-control-data" id="j-bankName">
+								请输入银行卡号
+							</div>
+						</div>
+					</div>
+					{# 手机号码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="mobile">
+							<span>手机号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.mobile('此卡在银行预留的手机号码') }}
+						</div>
+					</div>
+					{# 短信验证码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="form-control-verify1">
+							<span>验证码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							{{ Form.verify('form-control-verify1') }}
+							<!-- 已发送 -->
+							{{ Form.verify('form-control-verify1','49秒后再获取', 'disabled') }}
+						</div>
+					</div>
+					{# 协议 #}
+					<div class="form-group">
+						{{ Form.agreement() }}
+					</div>
+					{# 按钮 #}
+					<div class="form-group">
+						{{ Form.defaultBtn('下一步') }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block jsPage %}
+<script>
+	$(function() {
+		// 银行列表及对应样式 icon
+		var bankList = [
+			{icon: 'cmb', text: '招商银行'},
+			{icon: 'icbc', text: '工商银行'},
+			{icon: 'ccb', text: '建设银行'},
+			{icon: 'abc', text: '农业银行'},
+			{icon: 'boc', text: '中国银行'},
+			{icon: 'bcm', text: '交通银行'},
+			{icon: 'pingan', text: '平安银行'},
+			{icon: 'psbc', text: '邮政银行'},
+			{icon: 'shbc', text: '上海银行'},
+			{icon: 'wzbc', text: '温州银行'},
+			{icon: 'spdb', text: '浦发银行'},
+			{icon: 'ecitic', text: '中信银行'},
+			{icon: 'cgbchina', text: '广发银行'},
+			{icon: 'cmbc', text: '民生银行'},
+			{icon: 'cib', text: '兴业银行'},
+			{icon: 'cebbank', text: '光大银行'},
+			{icon: 'srcb', text: '上海农商银行'},
+			{icon: 'bankofbeijing', text: '北京银行'},
+			{icon: 'bjrcb', text: '北京农商银行'},
+			{icon: 'szfz', text: '深圳发展银行'},
+			{icon: 'nbcb', text: '宁波银行'},
+			{icon: 'hzbank', text: '杭州银行'},
+			{icon: 'dongguanbank', text: '东莞银行'},
+			{icon: 'hsbc', text: '汇丰银行'},
+			{icon: 'hkbea', text: '东亚银行'},
+			{icon: '961111', text: '广州农商银行'},
+			{icon: 'hxb', text: '华夏银行'},
+			{icon: 'crbank', text: '华润银行'},
+			{icon: 'lanzhou', text: '兰州银行'},
+			{icon: 'hebbank', text: '河北银行'},
+			{icon: 'hsbank', text: '微商银行'},
+			{icon: 'qdccb', text: '青岛银行'},
+			{icon: 'ydnsh', text: '尧都农商'},
+			{icon: 'zheshang', text: '浙商银行'},
+			{icon: 'nccbank', text: '南昌银行'},
+			{icon: 'cbhb', text: '渤海银行'},
+			{icon: 'egbank', text: '恒丰银行'},
+			{icon: 'tianjinbank', text: '天津银行'},
+		];
+
+
+		// 银行卡号输入框
+		var $bankNo = $('[data-toggle="autoCompleteBankName"]'),
+				$bankWrap = $('#j-bank-wrap');
+		// ---- @todo： demo演示交互代码
+		// 银行卡号输入变化
+		// data{ value, target}
+		//     - value 银行卡号输入的值
+		//     - target 开户行 dom 对象
+		$bankNo.on('hasChanged', function(event, data) {
+			if(data.value.length > 3) {
+				// @todo: 测试，从银行列表中随机获取
+				var n = ~~(Math.random() * bankList.length);
+				var item = bankList[n]
+				$(this).trigger('updateView', item)
+				$bankWrap.show();
+			} else {
+				$bankWrap.hide();
+				//$(this).trigger('updateView', '请输入银行卡号')
+			}
+		})
+		// ---- @todo：开发采取交互方式
+		// 后台异步接口检测
+		var debounce = null;
+		function apiFetch(e, data) {
+			var that = $(this);
+			clearTimeout(debounce);
+			// 卡号小于3位不做变化
+			if(data.value.length < 3) {
+
+				return;
+			}
+			debounce = setTimeout(function() {
+				$bankWrap.show()
+				// res = {status: 1, data: [], msg: 'success'}
+				// status: 1 - success 0 - fail
+				// data { text: '招行', icon: 'cmb'}
+				// msg 状态描述
+				$.getJSON('/api/getBankName', {cardNo: data.value}, function(res) {
+					if(res.status == 1) { // 查询成功
+						// 更新开户行 html 内容
+						that.trigger('updateView', res.data)
+					}
+				})
+			}, 300)
+		}
+		//$bankNo.on('hasChanged', apiFetch); //异步检测方式
+
+	})
+</script>
+{% endblock %}

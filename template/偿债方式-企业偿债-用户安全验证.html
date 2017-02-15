@@ -1,0 +1,80 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 步骤 #}
+	{{ Step.foursteps('pass1', '企业用户安全验证', '设置支付密码', '法人验证', '验证结果') }}
+
+    {# 账户信息 #}
+	<div class="form-frame fn-mb-10">
+		<div class="form-title">
+			账户信息
+		</div>
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form autocomplete="off">
+					{# 企业账户 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>企业账户</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="XXX有限公司" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>企业营业执照号码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="25522523852025520" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>企业营业执照有效期</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="2010-01-01至2020-12-31" readonly="readonly">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>组织机构代码证</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="52588525-1" readonly="readonly">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    
+    {# 企业用户安全验证 #}
+	<div class="form-frame">
+		<div class="form-title">
+			企业用户安全验证
+		</div>
+		{# Alert 提示 #}
+        {{ Alert.loading('为加强企业用户安全性，需向您的账户充值小额验证金，审核通过后该笔资金可用于还款。<span class="warning-FontColor">本次操作需企业对公账户已开通B2B支付业务。</span>') }}
+
+		<h3 class="text-align-center fn-pa-40">
+            验证金额：<span class="warning-FontColor">0.10</span>&nbsp;元
+		</h3>
+
+        <div class="text-align-center">
+            <a href="偿债方式-企业偿债-用户安全验证-收银台.html" class="btn primary">
+                支付验证
+            </a>
+        </div>
+
+	</div>
+
+{% endblock %}
+
+

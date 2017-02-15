@@ -1,0 +1,166 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 步骤 #}
+	{{ Step.foursteps2('pass1') }}
+
+    {# 填写信息 #}
+	<div class="form-frame fn-mb-10">
+		<div class="form-title">
+			账户信息
+		</div>
+
+        {# Alert 提示 #}
+        {{ Alert.loading('请完成以下资料填写，以便为您开通信用账户') }}
+
+		<div class="form-layer1">
+			<div class="form-layer2">
+				<form autocomplete="off">
+                    {# 企业名称 #}
+					<div class="form-group">
+						<label class="form-control-label" for="username">
+							<span>企业名称</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" id="username" value="xxx有限公司">
+						</div>
+					</div>
+					{# 营业执照注册号 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>营业执照注册号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" id="idcard" value="">
+						</div>
+					</div>
+					{# 营业执照有效期 #}
+					<div class="form-group">
+						<label class="form-control-label" for="bankcard">
+							<span>营业执照有效期</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+                            <input id="bankcard" tabindex="1" type="text" class="form-control"/>
+                            <div class="form-control-tools-link form-control-check" style="padding: 0;">
+                                <label>
+                                    长期
+                                    <input type="checkbox" name="">
+                                </label>
+                            </div>
+						</div>
+					</div>
+                    {# 组织结构代码 #}
+					<div class="form-group">
+						<label class="form-control-label" for="idcard">
+							<span>组织结构代码</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="">
+						</div>
+					</div>
+                    {# 税务登记证号 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>税务登记证号</span>
+							<em>：</em>
+						</label>
+						<div class="form-control-wrap">
+							<input type="text" class="form-control" value="">
+						</div>
+					</div>
+                    {# 营业执照副本扫描件 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>营业执照副本扫描件</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data">
+                            营业执照.jpg<a href="##" class="link-standard fn-pl-10">更换图片</a>
+                        </div>
+					</div>
+                    {# 营业执照副本扫描件 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>营业执照副本扫描件</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data form-control-check">
+                            <button class="btn small-btn secondary">点击上传</button>
+                            <label style="display: inline-block; float: none; margin-left: 10px;">
+                                五证合一
+                                <input type="checkbox" name="">
+                            </label>
+                        </div>
+					</div>
+                    {# 组织机构代码证副本扫描件 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>组织机构代码证副本扫描件</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data form-control-check">
+                            <button class="btn small-btn secondary">点击上传</button>
+                        </div>
+					</div>
+                    {# 税务登记证副本扫描件 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>税务登记证副本扫描件</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data form-control-check">
+                            <button class="btn small-btn secondary">点击上传</button>
+                        </div>
+					</div>
+                    {# 银行开户许可证副本扫描件 #}
+					<div class="form-group">
+						<label class="form-control-label">
+							<span>银行开户许可证副本扫描件</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data form-control-check">
+                            <button class="btn small-btn secondary">点击上传</button>
+                        </div>
+					</div>
+
+                    <div class="form-group">
+						<label class="form-control-label">
+							<span>证件要求</span>
+							<em>：</em>
+						</label>
+                        <div class="form-control-data">
+                            • 必须为清晰彩色原件扫描件或数码照，图片大小不超过2M，仅支持jpg,jpeg,bmp的图片格式。<br />
+                            • 必须在有效期内且年检章齐全（当年成立的公司可无年检章）<br />
+                            • 如果提交的证件错误，您的申请将不通过。
+                        </div>
+					</div>
+
+                    <div class="form-group" style="margin-top: 80px;">
+                        <div class="form-control-wrap">
+                            <div class="form-control-check">
+                                <label class="agreement-check">
+                                    我已阅读并同意《<a href="###" class="link-standard">融资服务协议</a>》
+                                    <input type="checkbox" name="">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left">
+                            <a href="注册开通-开通流程-完善法人信息.html" class="btn primary" role="button">确认无误，下一步</a>
+                        </div>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+

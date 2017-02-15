@@ -1,0 +1,305 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+    <ol class="breadcrumb fn-mb-10">
+        <li>
+            <a href="偿债方式-账户总览.html">账户总览 <i class="icon-chevron-thin-right"></i></a>
+        </li>
+        <li>
+            贷款明细
+        </li>
+    </ol>
+    
+
+	<!-- 账户余额 -->
+    <div class="data-count-wrap count-wrap-btline data-count-wrap-style1 fn-mb-10">
+        <ul class="date-count-ul">
+            <li style="width: 100%; border: none;">
+                <h5>
+					<span>贷款总额：<span class="viceText-FontColor">（请在到期还款日前还款，以免产生逾期手续费）</span></span>
+				</h5>
+                <h2><strong class="fs-32">3,568,172,203.78</strong>元</h2>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- 搜索过滤 -->
+	{{ Filter.render2('','起息日', 1) }}
+    
+    <!-- tab -->
+    <div class="tabs-wrap type1">
+        <ul class="tabs">
+            <li class="active">
+                <a href="#tp1" class="tabs-btn">全部
+                </a>
+            </li>
+            <li>
+                <a href="#tp2" class="tabs-btn">未还款
+                </a>
+            </li>
+            <li>
+                <a href="#tp3" class="tabs-btn">已还款
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="tabs-content">
+        <div class="tabs-panel active" id="tp1">
+            <table class="table">
+                <colgroup>
+                    <col style="width: 78px"/>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col style="width: 78px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" data-toggle="checkAll" data-target="#table-checkall :checkbox">
+                        </th>
+                        <th>起息日</th>
+                        <th>贷款金额（元）<i class="icon-info h3" data-toggle="tooltips" title="含山东高速收取的透资手续费" style="vertical-align: middle;"></i></th>
+                        <th>贷款利息（元）<i class="icon-info h3" data-toggle="tooltips" title="按贷款金额的年化利率18%收取" style="vertical-align: middle;"></i></th>
+                        <th>应还金额（元）</th>
+                        <th>到期还款日</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="table-checkall">
+                    <tr>
+                        <td>
+                            <input type="checkbox"/>
+                        </td>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td class="warning-FontColor">未还款</td>
+                        <td>
+                            <a href="###" class="link-standard">还款</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td>已还款</td>
+                        <td>
+                            <a href="###" class="link-standard">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox"/>
+                        </td>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td class="warning-FontColor">未还款</td>
+                        <td>
+                            <a href="###" class="link-standard">还款</a>
+                        </td>
+                    </tr>
+                    <!-- 暂无记录 -->
+                    <tr>
+                        <td colspan="8" class="empty">&nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {# 分页 #}
+	        {% import "_components/pagination.html" as Pager %}
+	        {{ Pager.render() }}
+            <div class="text-align-right fn-pt-20">
+                <h2 class="btn links warning-FontColor fn-mr-20" style="cursor: default;">已选还款额：0.00</h2>
+                <a href="偿债方式-贷款明细-收银台-还款.html" class="btn primary">还款</a>
+            </div>
+        </div>
+        <div class="tabs-panel" id="tp2">
+            <table class="table">
+                <colgroup>
+                    <col style="width: 78px"/>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col style="width: 78px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" data-toggle="checkAll" data-target="#table-checkall2 :checkbox">
+                        </th>
+                        <th>起息日</th>
+                        <th>贷款金额（元）<i class="icon-info h3" data-toggle="tooltips" title="含山东高速收取的透资手续费" style="vertical-align: middle;"></i></th>
+                        <th>贷款利息（元）<i class="icon-info h3" data-toggle="tooltips" title="按贷款金额的年化利率18%收取" style="vertical-align: middle;"></i></th>
+                        <th>应还金额（元）</th>
+                        <th>到期还款日</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="table-checkall2">
+                    <tr>
+                        <td>
+                            <input type="checkbox"/>
+                        </td>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td class="warning-FontColor">未还款</td>
+                        <td>
+                            <a href="###" class="link-standard">还款</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox"/>
+                        </td>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td class="warning-FontColor">未还款</td>
+                        <td>
+                            <a href="###" class="link-standard">还款</a>
+                        </td>
+                    </tr>
+                    <!-- 暂无记录 -->
+                    <tr>
+                        <td colspan="8" class="empty">&nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {# 分页 #}
+	        {% import "_components/pagination.html" as Pager %}
+	        {{ Pager.render() }}
+            <div class="text-align-right fn-pt-20">
+                <h2 class="btn links warning-FontColor fn-mr-20" style="cursor: default;">已选还款额：0.00</h2>
+                <a href="偿债方式-贷款明细-收银台-还款.html" class="btn primary">还款</a>
+            </div>
+        </div>
+        <div class="tabs-panel" id="tp3">
+            <table class="table">
+                <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col style="width: 78px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>起息日</th>
+                        <th>贷款金额（元）<i class="icon-info h3" data-toggle="tooltips" title="含山东高速收取的透资手续费" style="vertical-align: middle;"></i></th>
+                        <th>贷款利息（元）<i class="icon-info h3" data-toggle="tooltips" title="按贷款金额的年化利率18%收取" style="vertical-align: middle;"></i></th>
+                        <th>应还金额（元）</th>
+                        <th>到期还款日</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td>已还款</td>
+                        <td>
+                            <a href="###" class="link-standard">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td>已还款</td>
+                        <td>
+                            <a href="###" class="link-standard">详情</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2015-10-02</td>
+                        <td>
+                            1,0000.00
+                        </td>
+                        <td>
+                            180.00
+                        </td>
+                        <td>1,000.00</td>
+                        <td>2015-10-02</td>
+                        <td>已还款</td>
+                        <td>
+                            <a href="###" class="link-standard">详情</a>
+                        </td>
+                    </tr>
+                    <!-- 暂无记录 -->
+                    <tr>
+                        <td colspan="7" class="empty">&nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {# 分页 #}
+	        {% import "_components/pagination.html" as Pager %}
+	        {{ Pager.render() }}
+        </div>
+    </div>
+
+{% endblock %}
+
+

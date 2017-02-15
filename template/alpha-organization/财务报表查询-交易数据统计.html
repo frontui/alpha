@@ -1,0 +1,21 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+{# 路径导航 #}
+{{
+breadCrumbAlpha.default(
+list = [
+{
+link: 'javascript:void(0);',
+text:'财务报表查询'
+},
+{
+text: '交易数据统计'
+}
+]
+)
+}}
+
+{% endblock %}

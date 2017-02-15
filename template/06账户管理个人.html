@@ -1,0 +1,588 @@
+{% extends "_layout/wrapper.html" %}
+{# content内容 #}
+{% block content %}
+
+	{# 菜单导航 #}
+	{{ navigator.current('nav5') }}
+
+	{# 账户资料 #}
+	<div class="tables-title heading-FontColor title-border">
+		账户资料
+
+		<!--<div class="table-title-btns">
+			<a href="账户升级.html">升级为企业用户</a>
+		</div>-->
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		<ul class="info-list">
+			<li>
+				<dl>
+					<dt>网站ID：</dt>
+					<dd>liang1126</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>手机号：</dt>
+					<dd>135****9625</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>姓名：</dt>
+					<dd>陈少峰</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>身份证：</dt>
+					<dd>4366*********8250</dd>
+				</dl>
+			</li>
+		</ul>
+	</div>
+
+	{# 银行卡管理 #}
+	<div class="tables-title heading-FontColor title-border">
+		银行卡管理
+	</div>
+	<div class="data-count-wrap fn-mb-10">
+		{{ MyBanks.render(1) }}
+	</div>
+
+	{# 安全管理 #}
+	<div class="tables-title heading-FontColor title-border">
+		安全管理
+	</div>
+	<div class="data-count-wrap">
+		<div class="password-status-wrap fn-pl-10 fn-pr-10">
+            <table class="password-status-table">
+                <colgroup>
+                    <col style="width: 78px;">
+                    <col style="width: 92px;">
+                    <col>
+                    <col style="width: 80px;">
+                </colgroup>
+                <tbody>
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<strong>登录密码</strong>-->
+                <!--</td>-->
+                <!--<td>-->
+                <!--<span class="password-status-label done">-->
+                <!--<b></b>-->
+                <!--已设置-->
+                <!--</span>-->
+                <!--</td>-->
+                <!--<td class="viceText-FontColor">-->
+                <!--上次登录时间：2015年05月21日 17：08：30-->
+                <!--</td>-->
+                <!--<td class="text-align-right">-->
+                <!--<a href="###" class="link-standard">修改</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td>
+                        <strong>支付密码</strong>
+                    </td>
+                    <td>
+							<span class="password-status-label done">
+								<b></b>
+								已设置
+							</span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        用于付款或修改账户信息时，保护账户资金安全
+                    </td>
+                    <td class="text-align-right">
+                        <a href="06账户管理个人_重置支付密码1.html" class="link-standard">重置</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>支付密码</strong>
+                    </td>
+                    <td>
+							<span class="password-status-label notdone">
+								<b></b>
+								未设置
+							</span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        用于付款或修改账户信息时，保护账户资金安全
+                    </td>
+                    <td class="text-align-right">
+                        <a href="06账户管理个人_重置支付密码1.html" class="link-standard">设置</a>
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<strong>支付手机号码</strong>-->
+                <!--</td>-->
+                <!--<td>-->
+                <!--<span class="password-status-label notdone">-->
+                <!--<b></b>-->
+                <!--未设置-->
+                <!--</span>-->
+                <!--</td>-->
+                <!--<td class="viceText-FontColor">-->
+                <!--您未绑定手机-->
+                <!--</td>-->
+                <!--<td class="text-align-right">-->
+                <!--<a href="###" class="link-standard">设置</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td>
+                        <strong>绑定手机</strong>
+                    </td>
+                    <td>
+							<span class="password-status-label done">
+								<b></b>
+								已设置
+							</span>
+                    </td>
+                    <td class="viceText-FontColor">
+                        您绑定的手机：133****1234
+                    </td>
+                    <td class="text-align-right">
+                        &nbsp;
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+		</div>
+	</div>
+
+<!-- 解除绑定 -->
+<!--<div class="modal-background fade display-none" id="removeLock" role="dialog">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          <!--提示-\->
+          <button class="modal-close" title="关闭">
+            <i></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="bankcard-layer">
+            <ul class="bankcard-list">
+              <li class="work">
+                <div class="bank-box">
+                  <div class="bank-icon icon-icbc"></div>
+                  工商银行
+                </div>
+                <h3>
+                  **********6877
+                </h3>
+                            <span class="work-tag">
+                                已绑定
+                            </span>
+              </li>
+            </ul>
+            <h2>解除绑定该银行卡</h2>
+          </div>
+          <div class="form-frame border-none" id="formFrame1">
+            <div class="form-layer1">
+              <div class="form-layer2">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>解绑原因</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <div class="form-control-check form-control-float">
+                        <label>
+                          担心资金安全
+                          <input type="radio" name="style" class="j-type" data-target="#style1" checked="checked">
+                        </label>
+                        <label>
+                          不明白什么是快捷支付
+                          <input type="radio" class="j-type" data-target="#style1" name="style">
+                        </label>
+                        <label>
+                          我不再使用该卡
+                          <input type="radio" class="j-type" data-target="#style1" name="style">
+                        </label>
+                        <label>
+                          其他
+                          <input type="radio" class="j-type" data-target="#style2" name="style">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                      <button type="button" class="btn primary" id="nextBtn">下一步</button>
+                      <a href="###" class="btn links" data-dismiss="modal">取消</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- 下一步-\->
+          <div class="form-frame border-none" id="formFrame2" style="display: none;">
+            <div class="form-layer1">
+              <div class="form-layer2">
+                <form autocomplete="off">
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>支付手机号码</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <div class="form-control-data">13800138000</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>验证码</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <div class="form-control-verify">
+                        <input type="text" class="form-control" id="">
+                        <button class="btn form-control-verify-btn">
+                          获取验证码
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label" for="form-control-example1">
+                      <span>设置支付密码</span>
+                      <em>：
+                      </em>
+                    </label>
+                    <div class="form-control-wrap">
+                      <input type="password" class="form-control" id="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                      <button type="button" class="btn primary" data-dismiss="modal">确认解除</button>
+                      <a href="###" class="btn links" data-dismiss="modal">取消</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- 设为默认 -->
+<!--<div class="modal-background fade in" id="setBtn" role="dialog">
+  <div class="modal-layer">
+    <div class="modal-position">
+      <div class="modal-wrap">
+        <div class="modal-head">
+          <button class="modal-close" title="关闭">
+            <i></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="bankcard-layer border-none">
+            <ul class="bankcard-list">
+              <li class="work">
+                <div class="bank-box">
+                  <div class="bank-icon icon-icbc"></div>
+                  工商银行
+                </div>
+                <h3>
+                  **********6877
+                </h3>
+                <span class="work-tag">
+                    已绑定
+                </span>
+              </li>
+            </ul>
+            <div class="h2-other">
+              <h2>是否将该卡设为默认银行卡</h2>
+              <p class="viceText-FontColor">支付手机号码改为该卡手机：135××××3456</p>
+            </div>
+          </div>
+          <div class="text-align-center fn-mt-30">
+            <button type="button" class="btn primary" data-dismiss="modal">确认</button>
+            <a href="###" class="btn links" data-dismiss="modal">取消</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+{% raw %}
+<script type="text/html" id="j-tmpl-default">
+    <!-- TODO: action为提交地址 -->
+    <form action="" id="j-submit-default">
+    <div class="bankcard-layer border-none">
+        <ul class="bankcard-list">
+            <li class="work">
+                <div class="bank-box">
+                    <div class="bank-icon {{icon}}"></div>
+                    {{ title }}
+                </div>
+                <h3>
+                    {{ card }}
+                </h3>
+                {{ if isBind == 1 }}
+                <span class="work-tag">
+                    已绑定
+                </span>
+                {{ /if }}
+            </li>
+        </ul>
+        <div class="h2-other">
+            <h2>是否将该卡设为默认银行卡</h2>
+            <p class="viceText-FontColor">支付手机号码改为该卡手机：{{ mobile }}</p>
+        </div>
+    </div>
+    <div class="text-align-center fn-mt-30">
+        <!-- TODO: submit直接提交表单 -->
+        <input type="hidden" name="id" value="{{ mid }}" />
+        <button type="submit" class="btn primary">确认</button>
+        <a href="javascript:void(0);" class="btn links" data-dismiss="modal">取消</a>
+    </div>
+    </form>
+</script>
+
+<script type="text/html" id="j-tmpl-unlock">
+    <div class="bankcard-layer">
+        <ul class="bankcard-list">
+            <li class="work">
+                <div class="bank-box">
+                    <div class="bank-icon icon-icbc"></div>
+                    工商银行
+                </div>
+                <h3>
+                    {{ card }}
+                </h3>
+
+                {{ if isBind == 1 }}
+                    <span class="work-tag">
+                        已绑定
+                    </span>
+                {{ /if }}
+            </li>
+        </ul>
+        <h2>解除绑定该银行卡</h2>
+    </div>
+    <!-- TODO: action为提交地址 -->
+    <form action="" autocomplete="off" id="j-submit-unlock">
+    <div class="form-frame border-none" id="formFrame1">
+        <div class="form-layer1">
+            <div class="form-layer2">
+
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>解绑原因</span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-check form-control-float">
+                                <label>
+                                    担心资金安全
+                                    <input type="radio" name="style" checked="checked">
+                                </label>
+                                <label>
+                                    不明白什么是快捷支付
+                                    <input type="radio" name="style">
+                                </label>
+                                <label>
+                                    我不再使用该卡
+                                    <input type="radio" name="style">
+                                </label>
+                                <label>
+                                    其他
+                                    <input type="radio" name="style">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                            <button type="button" class="btn primary" id="nextBtn">下一步</button>
+                            <a href="###" class="btn links" data-dismiss="modal">取消</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- 下一步-->
+    <div class="form-frame border-none" id="formFrame2" style="display: none;">
+        <div class="form-layer1">
+            <div class="form-layer2">
+                    <div class="form-group">
+                        <label class="form-control-label">
+                            <span>支付手机号码</span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-data">{{ mobile }}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="code">
+                            <span>验证码</span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <div class="form-control-verify">
+                                <input type="text" class="form-control" id="code">
+                                <button class="btn form-control-verify-btn">
+                                    获取验证码
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="password">
+                            <span>支付密码</span>
+                            <em>：
+                            </em>
+                        </label>
+                        <div class="form-control-wrap">
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control-wrap text-align-left plural-btns margin-top-20px">
+                            <button type="submit" class="btn primary">确认解除</button>
+                            <a href="###" class="btn links" data-dismiss="modal">取消</a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    </form>
+</script>
+{% endraw %}
+
+{% endblock %}
+
+{% block jsPage %}
+<script src="{{static}}/js/template.js"></script>
+<script type="text/javascript">
+  // 弹层管理
+  var handlerDialog = {
+      // 隐藏弹层
+      // id 弹层id
+      hide: function(id) {
+          if($(id).length > 0) $(id).modal('hide')
+      },
+      // 设置默认卡
+      // data `json` 渲染到模板数据
+      showDefaultDialog: function(data) {
+          var content = template('j-tmpl-default', data);
+          $('#j-defaultDialog-bankcard').modal({
+              title: ' ',
+              content: content
+          })
+      },
+      // 隐藏默认卡
+      hideDefaultDialog: function() {
+          handlerDialog.hide('#j-defaultDialog-bankcard')
+      },
+      // 解除绑定弹层
+      showUnLockDialog: function(data) {
+          var content = template('j-tmpl-unlock', data);
+          $('#j-unLockDialog-bankcard').modal({
+              title: ' ',
+              content: content
+          })
+      },
+      // 隐藏解除绑定弹层
+      hideUnLockDialog: function() {
+          handlerDialog.hide('#j-unLockDialog-bankcard')
+      },
+      run: function(el, method) {
+          var mid = $(el).attr('data-mid');
+          // TODO: 异步获取该卡信息
+          // $.getJSON(url, {id: mid} , function(data) {
+              var data = {
+                  id: mid, // 当前id
+                  mobile: '135××××3456', // 绑定手机号码
+                  title: '工商银行',      // 卡名称
+                  icon: 'icon-icbc',    // 卡图标
+                  card: '**********6877',  // 卡号
+                  isBind: 1                // 是否绑定
+              }
+              // 调用对应方法
+              handlerDialog[method] && handlerDialog[method](data);
+          //});
+      },
+      // 事件委托
+      init: function() {
+          // 下一步
+          $(document).on('click', '#nextBtn',function(){
+              $("#formFrame1").hide();
+              $("#formFrame2").show();
+          });
+
+          $(document).on('submit', '#j-submit-unlock', function(e) {
+              e.preventDefault();
+
+              var code = $.trim($('#code').val());
+              var password = $.trim($('#password').val());
+              var data = $(this).serialize();
+              var url = $(this).attr('action');
+
+              // 验证必填
+              if(code == '') {
+                  $('#j-notice').modalLayer({ icon: 'info', title: '验证码不能为空！'});
+                  return;
+              }
+              if(password == '') {
+                  $('#j-notice').modalLayer({ icon: 'info', title: '密码不能为空！'});
+                  return;
+              }
+
+              // TODO: 异步提交表单
+              /*$.post(url, data, function(res) {
+                 if(res.status == 1) {
+                     // 刷新页面
+                     location.reload();
+                 } else {
+                      $('#j-notice').modalLayer({ icon: 'info', title: res.msg });
+                 }
+              });*/
+
+
+              return false;
+          });
+      }
+  };
+
+  $(function(){
+      // 初始化全局事件
+      handlerDialog.init();
+      // 银行卡绑定，设置为默认
+      $('.j-default-bankcard').on('click', function(e){
+          // 设置为默认银行卡
+          handlerDialog.run(e.target, 'showDefaultDialog');
+      });
+
+      // 解除绑定
+      $('.j-unlock-bankcard').on('click', function(e) {
+          // 解除绑定
+          handlerDialog.run(e.target, 'showUnLockDialog');
+      })
+  });
+
+
+</script>
+
+{% endblock %}

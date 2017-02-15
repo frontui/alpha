@@ -1,0 +1,132 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+        {# 路径导航 #}
+        {{
+        breadCrumbAlpha.default(
+        list = [
+        {
+        link: 'javascript:void(0);',
+        text:'通道管理'
+        },
+        {
+        link: 'javascript:void(0);',
+        text: '通道列表'
+        },
+        {
+        text:'查看通道详情'
+        }
+        ]
+        )
+        }}
+
+<div>
+<!--基础信息-->
+<div>
+    <div class="tables-title">
+        基础信息
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <th>通道编号</th>
+            <td>768423</td>
+            <th>通道名称</th>
+            <td>支付宝（招商银行总行）</td>
+        </tr>
+        <tr>
+            <th>支付平台</th>
+            <td>支付宝</td>
+            <th>机构名称</th>
+            <td>招商银行总行</td>
+        </tr>
+        <tr>
+            <th>创建时间</th>
+            <td>
+                <span>2016-10-10</span>
+                <span>18:00:00</span>
+            </td>
+            <th>状 态</th>
+            <td>启用</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--参数配置-->
+<div>
+        <div class="tables-title">
+            参数配置
+        </div>
+        <table class="table inverse bordered table-view fn-mb-20">
+            <tbody>
+            <tr>
+                <th>通道成本</th>
+                <td>0.2%—0.4%</td>
+                <th>支付平台结算账户户名</th>
+                <td>支付宝（中国）网络技术有限公司</td>
+            </tr>
+            <tr>
+                <th>支付平台结算账户开户行</th>
+                <td>招商银行</td>
+                <th>支付平台结算账户分支行</th>
+                <td>招商银行深圳分行</td>
+            </tr>
+            <tr>
+                <th>支付平台结算账户号</th>
+                <td>6225 8888 8888 8888</td>
+                <th>机构结算账户户名</th>
+                <td>招商银行股份有限公司</td>
+            </tr>
+            <tr>
+                <th>机构结算账户开户行</th>
+                <td>招商银行</td>
+                <th>机构结算账户分支行</th>
+                <td>招商银行广州分行</td>
+            </tr>
+            <tr>
+                <th>机构结算账户号</th>
+                <td>6225 8888 8888 6666</td>
+                <th>日清时间</th>
+                <td>15:00:00</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+<!--合约附件-->
+<div>
+    <div class="tables-title">
+        合约附件
+    </div>
+    <table class="table inverse bordered table-view fn-mb-20">
+        <tbody>
+        <tr>
+            <td>
+                <div class="table-img-container text-align-left ">
+                    <a href="https://www.baidu.com/img/bd_logo1.png">
+                        <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                    </a>
+                    <a href="https://www.baidu.com/img/bd_logo1.png">
+                        <img src="https://www.baidu.com/img/bd_logo1.png"/>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--返回-->
+<div>
+    <div class="text-align-center fn-mb-20">
+        <a href="通道管理-通道列表.html">
+            <button type="button" class="btn default">返回</button>
+        </a>
+    </div>
+</div>
+
+</div>
+{% endblock %}

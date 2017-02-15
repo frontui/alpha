@@ -1,0 +1,146 @@
+{% extends "_layout/alpha/layout-alpha.html" %}
+
+{# 内容 #}
+{% block content %}
+
+    {# 路径导航 #}
+    {{
+        breadCrumbAlpha.default(
+            list=[
+                {
+                    text: '首页'
+                }
+            ]
+        )
+    }}
+
+    {# 表格标题 #}
+    {{
+        tableAlpha.tableHeaderDefault(
+            title='开通数量总览',
+            fixedClass='fn-mt-20'
+        )
+    }}
+
+    {# 表格 #}
+    {{
+        tableAlpha.default(
+            data={
+                theadList: [
+                    {
+                        inner: '机构数量',
+                        thWidth: '25%'
+                    },
+                    {
+                        inner: '渠道数量',
+                        thWidth: '25%'
+                    },
+                    {
+                        inner: '通道数量',
+                        thWidth: '25%'
+                    },
+                    {
+                        inner: '合同数量',
+                        thWidth: '25%'
+                    },
+                    {
+                        inner: '终端数量',
+                        thWidth: '25%'
+                    }
+                ],
+                tbodyList: [
+                    [
+                        {
+                            inner: '
+                                <h3 class="warning-FontColor">
+                                    1000
+                                </h3>
+                            '
+                        },
+                        {
+                            inner: '
+                                <h3 class="warning-FontColor">
+                                    1000
+                                </h3>
+                            '
+                        },
+                        {
+                            inner: '
+                                <h3 class="warning-FontColor">
+                                    1000
+                                </h3>
+                            '
+                        },
+                        {
+                            inner: '
+                                <h3 class="warning-FontColor">
+                                    1000
+                                </h3>
+                            '
+                        },
+                        {
+                            inner: '
+                                <h3 class="warning-FontColor">
+                                    1000
+                                </h3>
+                            '
+                        }
+                    ]
+                ]
+            }
+        )
+    }}
+
+    <form action="###" method="post" class="form-frame form-frame-filter fn-mt-20">
+        <div class="form-layer-gray-box" style="padding: 0;">
+            <div class="form-group" style="padding-left: 100px;">
+                <label class="form-control-label text-align-left" style="width: 100px;">
+                    <span><h4 class="fn-pl-10">交易数据</h4></span><em></em>
+                </label>
+                <div class="form-control-wrap">
+                    <div class="form-control-check" data-toggle="switcher" data-keep="true" data-item=".filter-check-item">
+                        <label class="filter-check-item active"><input type="radio" name="type" checked="">今天</label>
+                        <label class="filter-check-item"><input type="radio" name="type">最近7天</label>
+                        <label class="filter-check-item"><input type="radio" name="type">最近30天</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="index-panel-alpha">
+        <div class="one">
+            <h5>
+                收单总金额
+            </h5>
+            <h3>
+                100.00
+            </h3>
+        </div>
+        <div class="two">
+            <h5>
+                实际到账收单额
+            </h5>
+            <h3>
+                100.00
+            </h3>
+        </div>
+        <div class="three">
+            <h5>
+                实际获得分润
+            </h5>
+            <h3>
+                100.00
+            </h3>
+        </div>
+        <div class="four">
+            <h5>
+                剩余应付款项
+            </h5>
+            <h3>
+                100.00
+            </h3>
+        </div>
+    </div>
+
+{% endblock %}

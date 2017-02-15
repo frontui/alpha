@@ -1,0 +1,82 @@
+.tables-title {
+	.table-title-tag{
+		position: absolute;
+		margin-top:9px;
+		right:10px;
+		display: inline-block;
+		color:#fff;
+		border-radius: 6px;
+		height: 28px;
+	    line-height: 28px;
+	    font-size: 12px;
+	    padding: 0 10px;
+	    &.success{
+	    	background-color: #05ae59;
+	    }
+	    &.fail{
+	    	background-color: #e92222;
+	    }
+	}
+}
+
+.table{
+	.table-ctrls{
+		> .ctrls {
+			z-index:100;
+			left:0px;
+		}
+	}
+	.table-img-container{
+		a{
+			display: inline-block;
+			width:64px;
+			height:53px;
+			img{
+				width:100%;
+				height:100%;
+			}
+		}
+	}
+}
+
+.table-wrap.fixed {
+    .table {
+
+    }
+}
+
+//	全checkBox选择的表格
+.table.table-checkBox{
+	tbody{
+		tr{
+			td{
+				.text-align-left();
+				input[type="checkBox"]{
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+// 系统管理-角色管理-角色权限的table
+.permission-table-wrap {
+	width: 100%;
+	display: table;
+	background-color: @primary-BorderColor;
+	padding: @paddingSize-public-alpha/2;
+
+	> .ptb,
+	> .ptName {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	> .ptName {
+		text-align: center;
+	}
+
+	> .ptb {
+		width: 80%;
+	}
+}
